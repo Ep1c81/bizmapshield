@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BizMapShield | Protege tu reputación en Google</title>
+<meta name="description" content="Ayudamos a negocios en Costa Rica a conseguir más reseñas de 5 estrellas en Google con BizMapShield. Más visibilidad, más reputación, más clientes." />
+
+<!-- Open Graph (for WhatsApp/Facebook preview) -->
+<meta property="og:title" content="BizMapShield" />
+<meta property="og:description" content="Más visibilidad. Más reputación. Más clientes." />
+<meta property="og:type" content="website" />
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --red: #d81f26;
+    --red-dark: #a5171c;
+    --navy: #0d1b2a;
+    --navy-light: #1b2a3d;
+    --cream: #f7f5f0;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --green: #16a34a;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(160deg, #0d1b2a 0%, #1b2a3d 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--navy);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    animation: fadeUp 0.6s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* --- Header / Logo --- */
+  .header {
+    background: var(--white);
+    padding: 28px 24px 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .logo-shield {
+    width: 40px;
+    height: 46px;
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    border-radius: 8px 8px 50% 50% / 8px 8px 60% 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(216,31,38,0.4);
+    position: relative;
+  }
+
+  .logo-shield::after {
+    content: "📍";
+    font-size: 18px;
+    filter: brightness(0) invert(1);
+  }
+
+  .logo-text .biz { color: var(--red); }
+  .logo-text .map { color: var(--navy); }
+  .logo-text .shield { color: var(--red); }
+
+  .tagline {
+    margin-top: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+
+  .tagline .red { color: var(--red); }
+
+  /* --- Hero / Before-After visual --- */
+  .hero {
+    background: linear-gradient(180deg, #f0f4f8 0%, #e2e8f0 100%);
+    padding: 28px 20px 24px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .hero h1 .red {
+    color: var(--red);
+    display: block;
+    font-size: 30px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.5;
+    margin-top: 10px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* --- Before / After split --- */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .split-box {
+    border-radius: 16px;
+    padding: 18px 10px;
+    text-align: center;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .split-box.before {
+    background: #e5e7eb;
+    color: #6b7280;
+  }
+
+  .split-box.after {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    color: white;
+    box-shadow: 0 8px 20px rgba(13,27,42,0.3);
+  }
+
+  .split-box .icon {
+    font-size: 32px;
+  }
+
+  .split-box .label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .split-box.after .stars {
+    color: #fbbf24;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  /* --- Benefits list --- */
+  .benefits {
+    padding: 24px;
+    background: white;
+  }
+
+  .benefit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .benefit:last-child { border-bottom: none; }
+
+  .benefit .check {
+    width: 26px;
+    height: 26px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .benefit .text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  /* --- CTA --- */
+  .cta-wrap {
+    padding: 0 24px 28px;
+    background: white;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 8px 20px rgba(37,211,102,0.4);
+  }
+
+  .btn-call {
+    background: var(--navy);
+    color: white;
+    box-shadow: 0 8px 20px rgba(13,27,42,0.3);
+  }
+
+  .btn-save {
+    background: white;
+    color: var(--navy);
+    border: 2px solid var(--navy);
+    box-shadow: none;
+  }
+
+  /* --- Footer --- */
+  .footer {
+    background: var(--navy);
+    color: white;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .footer .role {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  .footer .location {
+    color: #64748b;
+    font-size: 11px;
+  }
+
+  .footer .powered {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: #64748b;
+    font-size: 10px;
+    letter-spacing: 0.3px;
+    line-height: 1.6;
+  }
+
+  .footer .powered a {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .footer .powered a:hover,
+  .footer .powered a:active {
+    color: var(--red);
+    border-bottom-color: var(--red);
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">
+      <div class="logo-shield"></div>
+      <div class="logo-text">
+        <span class="biz">Biz</span><span class="map">Map</span><span class="shield">Shield</span>
+      </div>
+    </div>
+    <div class="tagline">Protege tu reputación. <span class="red">Multiplica tus clientes.</span></div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>
+      ¿Y si tus clientes
+      <span class="red">NO TE VEN</span>
+      en el mapa?
+    </h1>
+    <p>Cada día que tu negocio no aparece bien posicionado, tus competidores se llevan a tus clientes.</p>
+
+    <div class="split">
+      <div class="split-box before">
+        <div class="icon">📍</div>
+        <div class="label">Sin visibilidad</div>
+        <div class="label" style="font-weight:600; font-size:10px; color:#9ca3af;">No hay clientes</div>
+      </div>
+      <div class="split-box after">
+        <div class="stars">★★★★★</div>
+        <div class="label">Con BizMapShield</div>
+        <div class="label" style="font-weight:600; font-size:10px; color:#cbd5e1;">Aparece y vende más</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="benefits">
+    <div class="benefit">
+      <div class="check">✓</div>
+      <div class="text">Más visibilidad en Google Maps</div>
+    </div>
+    <div class="benefit">
+      <div class="check">✓</div>
+      <div class="text">Más reseñas de 5 estrellas, en automático</div>
+    </div>
+    <div class="benefit">
+      <div class="check">✓</div>
+      <div class="text">Más confianza = más clientes que compran</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <a class="btn btn-whatsapp" href="https://wa.me/50600000000?text=Hola%2C%20vi%20la%20tarjeta%20de%20BizMapShield%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">
+      💬 Escríbeme por WhatsApp
+    </a>
+    <a class="btn btn-call" href="tel:+50600000000">
+      📞 Llamar ahora
+    </a>
+    <button class="btn btn-save" onclick="saveContact()">
+      ⬇️ Guardar contacto
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="role">BizMapShield</div>
+    <div class="location">🇨🇷 Costa Rica · Gran Área Metropolitana</div>
+    <div class="powered">
+      Powered, created &amp; sponsored by
+      <a href="https://auralinkdigital.com" target="_blank" rel="noopener">AuralinkDigital.com</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Generate a vCard for "Save Contact"
+  function saveContact() {
+    const vcard = `BEGIN:VCARD
+VERSION:3.0
+N:;BizMapShield;;;
+FN:BizMapShield
+ORG:BizMapShield
+TITLE:Soporte
+TEL;TYPE=CELL:+50600000000
+EMAIL:alex@bizmapshield.com
+URL:https://auralinkdigital.com
+NOTE:Protege tu reputación. Multiplica tus clientes. | Powered by AuralinkDigital.com
+END:VCARD`;
+
+    const blob = new Blob([vcard], { type: 'text/vcard' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'BizMapShield.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>
