@@ -11,6 +11,16 @@
 <meta property="og:description" content="Más visibilidad. Más reputación. Más clientes." />
 <meta property="og:type" content="website" />
 
+<!-- ============ GOOGLE ANALYTICS (GA4) ============ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YN5NMNMPLW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YN5NMNMPLW');
+</script>
+<!-- ============ END GOOGLE ANALYTICS ============ -->
+
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -369,13 +379,19 @@
 
   <!-- CTA -->
   <div class="cta-wrap">
-    <a class="btn btn-whatsapp" href="https://wa.me/50600000000?text=Hola%2C%20vi%20la%20tarjeta%20de%20BizMapShield%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">
+    <a class="btn btn-whatsapp"
+       href="https://wa.me/50663889598?text=Hola%2C%20vi%20la%20tarjeta%20de%20BizMapShield%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n."
+       target="_blank" rel="noopener"
+       onclick="gtag('event', 'click_whatsapp', { event_category: 'CTA', event_label: 'WhatsApp Button' });">
       💬 Escríbeme por WhatsApp
     </a>
-    <a class="btn btn-call" href="tel:+50600000000">
+    <a class="btn btn-call"
+       href="tel:+50663889598"
+       onclick="gtag('event', 'click_call', { event_category: 'CTA', event_label: 'Call Button' });">
       📞 Llamar ahora
     </a>
-    <button class="btn btn-save" onclick="saveContact()">
+    <button class="btn btn-save"
+            onclick="saveContact(); gtag('event', 'click_save_contact', { event_category: 'CTA', event_label: 'Save Contact Button' });">
       ⬇️ Guardar contacto
     </button>
   </div>
@@ -401,8 +417,8 @@ N:;BizMapShield;;;
 FN:BizMapShield
 ORG:BizMapShield
 TITLE:Soporte
-TEL;TYPE=CELL:+50600000000
-EMAIL:alex@bizmapshield.com
+TEL;TYPE=CELL:+50663889598
+EMAIL:aruhlown81@gmail.com
 URL:https://auralinkdigital.com
 NOTE:Protege tu reputación. Multiplica tus clientes. | Powered by AuralinkDigital.com
 END:VCARD`;
