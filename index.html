@@ -167,6 +167,49 @@
   .proof-num { font-size: 34px; font-weight: 900; color: var(--gold); line-height: 1; letter-spacing: -1px; margin-bottom: 6px; }
   .proof-label { font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
 
+  /* ========== PRICING STYLES ========== */
+  .pricing { background: #f8fafc; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; align-items: stretch; }
+  .price-card { background: var(--white); border: 1px solid #e2e8f0; border-radius: 24px; padding: 40px 32px; display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: transform 0.3s, box-shadow 0.3s; }
+  .price-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(13,27,42,0.08); }
+  .price-card.featured { background: linear-gradient(160deg, var(--navy), var(--navy-light)); color: var(--white); border: 2px solid var(--red); transform: scale(1.03); z-index: 2; }
+  .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--red); color: white; font-size: 11px; font-weight: 900; letter-spacing: 1px; padding: 6px 16px; border-radius: 50px; text-transform: uppercase; }
+  .price-tier { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+  .featured .price-tier { color: var(--gold); }
+  .price-name { font-size: 20px; font-weight: 900; margin-bottom: 16px; }
+  .price-amount { font-size: 42px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; margin-bottom: 6px; }
+  .price-amount .currency { font-size: 24px; vertical-align: top; }
+  .price-sub { font-size: 13px; color: var(--gray); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #e2e8f0; }
+  .featured .price-sub { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.1); }
+  .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; flex-grow: 1; }
+  .price-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
+  .price-features li .check { color: var(--green); font-weight: 800; flex-shrink: 0; }
+  .price-cta { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px 20px; border-radius: 12px; font-size: 15px; font-weight: 800; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+  .price-cta:hover { transform: translateY(-2px); }
+  .price-cta.primary { background: var(--green); color: var(--white); box-shadow: 0 8px 25px rgba(37,211,102,0.3); }
+  .price-cta.secondary { background: #f1f5f9; color: var(--navy); border: 1px solid #cbd5e1; }
+  .price-cta.secondary:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+  /* ========== GUARANTEE & FOOTER ========== */
+  .guarantee { background: var(--white); padding: 60px 0; }
+  .guarantee-box { max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, rgba(216,31,38,0.04), rgba(13,27,42,0.03)); border: 2px dashed rgba(216,31,38,0.3); border-radius: 24px; padding: 40px; text-align: center; }
+  .guarantee-icon { font-size: 48px; margin-bottom: 16px; display: block; }
+  .guarantee-box h3 { font-size: 24px; font-weight: 900; color: var(--navy); margin-bottom: 12px; }
+  .guarantee-box p { font-size: 16px; color: var(--gray); max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+  .final-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); padding: 100px 0; text-align: center; }
+  .final-cta h2 { font-size: 42px; font-weight: 900; letter-spacing: -1.5px; margin-bottom: 16px; }
+  .final-cta p { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 36px; line-height: 1.6; }
+  .final-ctas { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+  .footer { background: #070e17; color: rgba(255,255,255,0.6); padding: 50px 0 30px; text-align: center; font-size: 13px; }
+  .footer .role { margin-bottom: 8px; }
+  .footer .powered a { color: var(--gold); text-decoration: none; font-weight: 700; }
+  .footer .powered a:hover { text-decoration: underline; }
+
+  .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; background: var(--green); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 25px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.3s; }
+  .wa-float:hover { transform: scale(1.1); }
+
   @media (max-width: 900px) {
     .hero { padding: 32px 0 40px; }
     .hero-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -224,18 +267,6 @@
     .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
     .proof-stats { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
     .proof-num { font-size: 28px; }
-
-    .stage-label { font-size: 11px; gap: 10px; }
-    .stage-num { width: 28px; height: 28px; font-size: 12px; }
-
-    .product-card { padding: 32px 22px; }
-    .product-grid { grid-template-columns: 1fr; gap: 24px; }
-    .product-name { font-size: 18px; }
-    .product-badge { left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 10px; }
-    .product-cta { width: 100%; min-width: 0; }
-
-    .stage-divider { margin: 40px auto; gap: 12px; }
-    .stage-divider-text { font-size: 10px; letter-spacing: 1px; }
 
     .pricing-grid { grid-template-columns: 1fr; gap: 20px; }
     .price-card { padding: 28px 22px; }
@@ -480,34 +511,6 @@
     </div>
   </div>
 </section>
-<!-- ============ STATS ============ -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-head reveal">
-      <h2>Lo que <span class="gold">significan las reseñas</span> para tu negocio</h2>
-      <p>Los números no mienten. Las reseñas de Google son la moneda más valiosa de tu negocio.</p>
-    </div>
-
-    <div class="stats-grid">
-      <div class="stat reveal">
-        <div class="stat-num">90<span class="suffix">%</span></div>
-        <div class="stat-label">Elige el de más estrellas</div>
-      </div>
-      <div class="stat reveal">
-        <div class="stat-num">270<span class="suffix">%</span></div>
-        <div class="stat-label">Más conversión con 5★</div>
-      </div>
-      <div class="stat reveal">
-        <div class="stat-num">3<span class="suffix">x</span></div>
-        <div class="stat-label">Más clics en Google</div>
-      </div>
-      <div class="stat reveal">
-        <div class="stat-num">30<span class="suffix">d</span></div>
-        <div class="stat-label">Para ver resultados</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ SOCIAL PROOF ============ -->
 <section class="social-proof">
@@ -591,13 +594,13 @@
         <div class="price-tier">Básico</div>
         <div class="price-name">Empieza a dominar</div>
         <div class="price-amount"><span class="currency">₡</span>19,900</div>
-        <div class="price-sub">Pago único · Instalación incluida</div>
+        <div class="price-sub">Pago único · Instalación incluida[cite: 1]</div>
         <ul class="price-features">
-          <li><span class="check">✓</span> 1 Stand NFC BizMapShield</li>
-          <li><span class="check">✓</span> Código QR de respaldo</li>
-          <li><span class="check">✓</span> Configuración completa</li>
-          <li><span class="check">✓</span> Optimización de tu Google Business</li>
-          <li><span class="check">✓</span> Plantillas de WhatsApp para pedir reseñas</li>
+          <li><span class="check">✓</span> 1 Stand NFC BizMapShield[cite: 1]</li>
+          <li><span class="check">✓</span> Código QR de respaldo[cite: 1]</li>
+          <li><span class="check">✓</span> Configuración completa[cite: 1]</li>
+          <li><span class="check">✓</span> Optimización de tu Google Business[cite: 1]</li>
+          <li><span class="check">✓</span> Plantillas de WhatsApp para pedir reseñas[cite: 1]</li>
         </ul>
         <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20B%C3%A1sico%20de%20BizMapShield%20(1%20Stand%20-%20%E2%82%A119%2C900)"
            target="_blank" rel="noopener" class="price-cta secondary"
@@ -606,20 +609,20 @@
         </a>
       </div>
 
-      <!-- PRO (FEATURED) -->
+      <!-- PRO (FEATURED - FIXED) -->
       <div class="price-card featured reveal">
         <div class="featured-badge">⭐ MÁS POPULAR</div>
         <div class="price-tier">Pro</div>
         <div class="price-name">Domina y mantén</div>
-        <div class="price-amount"><span class="currency">₡</span>19,900</div>
-        <div class="price-sub">Pago único + ₡9,900/mes mantenimiento</div>
+        <div class="price-amount" style="font-size: 32px;"><span class="currency">₡</span>19,900 <span style="font-size: 16px; font-weight: 700; color: var(--gold);">+ ₡9,900/mes</span></div>
+        <div class="price-sub">Stand inicial + Mantenimiento continuo</div>
         <ul class="price-features">
-          <li><span class="check">✓</span> Todo lo del plan Básico</li>
-          <li><span class="check">✓</span> Monitoreo de reseñas en tiempo real</li>
-          <li><span class="check">✓</span> Reporte mensual en PDF</li>
-          <li><span class="check">✓</span> Alertas por reseñas negativas</li>
-          <li><span class="check">✓</span> Score de reputación actualizado</li>
-          <li><span class="check">✓</span> Soporte prioritario por WhatsApp</li>
+          <li><span class="check">✓</span> Todo lo del plan Básico[cite: 1]</li>
+          <li><span class="check">✓</span> Monitoreo de reseñas en tiempo real[cite: 1]</li>
+          <li><span class="check">✓</span> Reporte mensual en PDF[cite: 1]</li>
+          <li><span class="check">✓</span> Alertas por reseñas negativas[cite: 1]</li>
+          <li><span class="check">✓</span> Score de reputación actualizado[cite: 1]</li>
+          <li><span class="check">✓</span> Soporte prioritario por WhatsApp[cite: 1]</li>
         </ul>
         <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20Pro%20de%20BizMapShield%20(Stand%20%2B%20Mantenimiento%20%E2%82%A19%2C900%2Fmes)"
            target="_blank" rel="noopener" class="price-cta primary"
@@ -633,14 +636,14 @@
         <div class="price-tier">Premium</div>
         <div class="price-name">Delegación total</div>
         <div class="price-amount"><span class="currency">₡</span>39,900</div>
-        <div class="price-sub">Pago único + ₡39,900/mes gestión total</div>
+        <div class="price-sub">Pago único + ₡39,900/mes gestión total[cite: 1]</div>
         <ul class="price-features">
-          <li><span class="check">✓</span> Todo lo del plan Pro</li>
-          <li><span class="check">✓</span> Respuesta activa a todas las reseñas</li>
-          <li><span class="check">✓</span> Gestión completa de tu reputación</li>
-          <li><span class="check">✓</span> Revisión trimestral con estrategia</li>
-          <li><span class="check">✓</span> Reportes ejecutivos personalizados</li>
-          <li><span class="check">✓</span> Múltiples sucursales (hasta 4)</li>
+          <li><span class="check">✓</span> Todo lo del plan Pro[cite: 1]</li>
+          <li><span class="check">✓</span> Respuesta activa a todas las reseñas[cite: 1]</li>
+          <li><span class="check">✓</span> Gestión completa de tu reputación[cite: 1]</li>
+          <li><span class="check">✓</span> Revisión trimestral con estrategia[cite: 1]</li>
+          <li><span class="check">✓</span> Reportes ejecutivos personalizados[cite: 1]</li>
+          <li><span class="check">✓</span> Múltiples sucursales (hasta 4)[cite: 1]</li>
         </ul>
         <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20Premium%20de%20BizMapShield%20(Gesti%C3%B3n%20Total)"
            target="_blank" rel="noopener" class="price-cta secondary"
