@@ -258,7 +258,7 @@
 
   .btn-whatsapp {
     background: #25D366;
-    color: white;
+    color: var(--navy);
     box-shadow: 0 8px 20px rgba(37,211,102,0.4);
   }
 
@@ -320,6 +320,22 @@
   .footer .powered a:active {
     color: var(--red);
     border-bottom-color: var(--red);
+  }
+
+  /* Keyboard focus ring (WCAG 2.4.7): navy on the white card, gold in the navy footer */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--navy);
+    outline-offset: 3px;
+  }
+
+  .footer a:focus-visible {
+    outline-color: #fbbf24;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card { animation: none; }
+    .btn, .footer .powered a { transition: none; }
   }
 </style>
 </head>

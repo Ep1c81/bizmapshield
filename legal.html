@@ -73,7 +73,7 @@
   .brand .map { color: var(--navy); }
   .brand .shield { color: var(--red); }
   .back { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 55%), var(--navy); color: var(--white); padding: 10px 18px; border-radius: 50px; font-size: 13px; font-weight: 700; text-decoration: none; box-shadow: 0 6px 18px rgba(13,27,42,0.25), inset 0 1px 0 rgba(255,255,255,0.15); transition: transform 0.5s var(--ease-spring), box-shadow 0.4s var(--ease-out); }
-  .back:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(13,27,42,0.3), inset 0 1px 0 rgba(255,255,255,0.2); }
+  .back:hover, .back:focus-visible { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(13,27,42,0.3), inset 0 1px 0 rgba(255,255,255,0.2); }
 
   .page-head { text-align: center; padding: 64px 0 36px; }
   .eyebrow { display: inline-block; color: var(--red); font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; padding: 6px 14px; border-radius: 50px; background: rgba(216,31,38,0.08); border: 1px solid rgba(216,31,38,0.15); box-shadow: inset 0 1px 0 rgba(255,255,255,0.6); }
@@ -84,7 +84,7 @@
 
   .toc { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 0 auto 48px; }
   .toc a { display: inline-flex; align-items: center; padding: 12px 20px; border-radius: 14px; font-size: 14px; font-weight: 800; color: var(--navy); text-decoration: none; background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.8); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); box-shadow: 0 10px 30px rgba(13,27,42,0.08), 0 0 0 1px rgba(13,27,42,0.04), inset 0 1px 0 rgba(255,255,255,0.9); transition: transform 0.5s var(--ease-spring), box-shadow 0.4s var(--ease-out), color 0.3s ease; }
-  .toc a:hover { transform: translateY(-3px); color: var(--red); box-shadow: 0 18px 40px rgba(216,31,38,0.15), 0 0 0 1px rgba(216,31,38,0.12), inset 0 1px 0 rgba(255,255,255,0.9); }
+  .toc a:hover, .toc a:focus-visible { transform: translateY(-3px); color: var(--red); box-shadow: 0 18px 40px rgba(216,31,38,0.15), 0 0 0 1px rgba(216,31,38,0.12), inset 0 1px 0 rgba(255,255,255,0.9); }
 
   .doc { position: relative; background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.8); border-radius: 24px; padding: 44px 40px; margin-bottom: 28px; scroll-margin-top: 96px; -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); box-shadow: 0 20px 60px rgba(13,27,42,0.08), 0 8px 20px rgba(13,27,42,0.06), 0 0 0 1px rgba(13,27,42,0.04), inset 0 1px 0 rgba(255,255,255,0.9); }
   .doc::before { content: ""; position: absolute; top: 0; left: 12%; right: 12%; height: 1px; background: linear-gradient(90deg, transparent, rgba(216,31,38,0.5), transparent); }
@@ -113,8 +113,12 @@
   .footer .brand .map { color: #ffffff; }
   .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; margin-bottom: 18px; }
   .footer-links a { font-size: 13px; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease; }
-  .footer-links a:hover { color: var(--gold); }
+  .footer-links a:hover, .footer-links a:focus-visible { color: var(--gold); }
   .footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  /* Keyboard focus ring (WCAG 2.4.7): navy on light surfaces, gold on dark ones */
+  a:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+  .contact-box a:focus-visible, .footer a:focus-visible { outline-color: var(--gold); }
 
   @media (max-width: 900px) {
     .container { padding: 0 16px; }
