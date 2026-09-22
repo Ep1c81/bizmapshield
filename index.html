@@ -54,10 +54,14 @@
     --green: #25D366;
     --gold: #fbbf24;
 
+    /* Fluid heading scale (replaces per-breakpoint font sizes) */
+    --fs-display: clamp(28px, 5vw + 12px, 54px);
+    --fs-h2: clamp(24px, 4vw + 12px, 42px);
+
     /* Glass / depth system (decorative only) */
-    --glass-bg: rgba(255,255,255,0.7);
-    --glass-bg-hover: rgba(255,255,255,0.86);
-    --glass-border: rgba(255,255,255,0.8);
+    --glass-bg: rgba(255,255,255,0.88);
+    --glass-bg-hover: rgba(255,255,255,0.96);
+    --glass-border: rgba(13,27,42,0.08);
     --glass-dark-bg: rgba(13,27,42,0.85);
     --glass-dark-border: rgba(216,31,38,0.4);
     --glass-blur: 20px;
@@ -85,11 +89,8 @@
   @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
   @keyframes star-pop { 0% { transform: scale(0) rotate(-45deg); opacity: 0; } 60% { transform: scale(1.2); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
   @keyframes mesh-drift { from { transform: translate3d(-3%, -2%, 0) scale(1); } to { transform: translate3d(3%, 2%, 0) scale(1.1); } }
-  @keyframes ring-sweep { from { background-position: 0% 0; } to { background-position: 100% 0; } }
-  @keyframes glow-breathe {
-    0%,100% { box-shadow: 0 30px 80px rgba(13,27,42,0.32), 0 12px 30px rgba(13,27,42,0.2), 0 0 40px rgba(216,31,38,0.18), inset 0 1px 0 rgba(255,255,255,0.1); }
-    50%     { box-shadow: 0 30px 80px rgba(13,27,42,0.32), 0 12px 30px rgba(13,27,42,0.2), 0 0 70px rgba(216,31,38,0.34), inset 0 1px 0 rgba(255,255,255,0.1); }
-  }
+  /* Opacity-only so the featured glow runs on the compositor instead of repainting every frame */
+  @keyframes glow-breathe { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
   @keyframes badge-shine { 0%,55% { transform: translateX(-160%) skewX(-20deg); } 100% { transform: translateX(420%) skewX(-20deg); } }
 
   /* Content is only hidden-until-revealed when JS is running (html.js is set in <head>) */
@@ -125,9 +126,9 @@
   .hero::before { content: ""; position: absolute; inset: -15%; z-index: -1; pointer-events: none; background: radial-gradient(38% 42% at 25% 30%, rgba(216,31,38,0.09), transparent 70%), radial-gradient(34% 38% at 78% 65%, rgba(251,191,36,0.1), transparent 70%), radial-gradient(30% 34% at 60% 15%, rgba(13,27,42,0.07), transparent 70%); animation: mesh-drift 22s var(--ease-soft) infinite alternate; }
   .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: var(--noise); background-size: 180px 180px; opacity: 0.035; }
   .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(216,31,38,0.08); color: var(--red); padding: 8px 16px; border-radius: 50px; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: inset 0 0 0 1px rgba(216,31,38,0.15), inset 0 1px 0 rgba(255,255,255,0.6); }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(216,31,38,0.08); color: var(--red-dark); padding: 8px 16px; border-radius: 50px; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: inset 0 0 0 1px rgba(216,31,38,0.15), inset 0 1px 0 rgba(255,255,255,0.6); }
   .hero-badge .dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; animation: pulse 2s var(--ease-soft) infinite; }
-  .hero h1 { font-size: 54px; font-weight: 900; line-height: 1.05; letter-spacing: -2px; color: var(--navy); margin-bottom: 24px; }
+  .hero h1 { font-size: var(--fs-display); font-weight: 900; line-height: 1.05; letter-spacing: -2px; color: var(--navy); margin-bottom: 24px; }
   .hero h1 .red { color: var(--red); }
   .hero p.lead { font-size: 19px; color: var(--gray); line-height: 1.7; margin-bottom: 32px; max-width: 540px; }
   .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -178,8 +179,8 @@
 
   section { padding: 100px 0; }
   .section-head { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-  .section-label { display: inline-block; color: var(--red); font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; padding: 6px 14px; border-radius: 50px; background: rgba(216,31,38,0.08); border: 1px solid rgba(216,31,38,0.15); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.6); }
-  .section-head h2 { font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -1.5px; color: var(--navy); margin-bottom: 20px; }
+  .section-label { display: inline-block; color: var(--red-dark); font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; padding: 6px 14px; border-radius: 50px; background: rgba(216,31,38,0.08); border: 1px solid rgba(216,31,38,0.15); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.6); }
+  .section-head h2 { font-size: var(--fs-h2); font-weight: 900; line-height: 1.1; letter-spacing: -1.5px; color: var(--navy); margin-bottom: 20px; }
   .section-head h2 .red { color: var(--red); }
   .section-head p { font-size: 18px; color: var(--gray); line-height: 1.7; }
 
@@ -193,7 +194,8 @@
   .pricing::before { background: radial-gradient(640px 520px at 50% 40%, rgba(216,31,38,0.08), transparent 70%), radial-gradient(520px 420px at 6% 82%, rgba(251,191,36,0.09), transparent 70%), radial-gradient(520px 420px at 96% 8%, rgba(13,27,42,0.05), transparent 70%); }
 
   /* Shared glass card surface */
-  .ba-card, .step, .benefit-card, .testimonial, .price-card { isolation: isolate; -webkit-backdrop-filter: blur(var(--glass-blur)); backdrop-filter: blur(var(--glass-blur)); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out), box-shadow 0.5s var(--ease-out), border-color 0.4s ease, background-color 0.4s ease; }
+  /* Light cards sit on near-flat backgrounds, so they skip backdrop-filter (blur is kept where there is something to blur: navbar, dark cards, stats) */
+  .ba-card, .step, .benefit-card, .testimonial, .price-card { isolation: isolate; transition: opacity 1s var(--ease-out), transform 1s var(--ease-out), box-shadow 0.5s var(--ease-out), border-color 0.4s ease, background-color 0.4s ease; }
   /* Corner glow + top accent line (pseudo-elements, sit under card content) */
   .step::after, .benefit-card::after, .testimonial::after, .ba-card::after, .price-card:not(.featured)::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; background: radial-gradient(90% 70% at 0% 0%, rgba(216,31,38,0.06), transparent 60%), radial-gradient(70% 60% at 100% 100%, rgba(251,191,36,0.07), transparent 60%); }
   .step::before, .benefit-card::before, .ba-card::before, .price-card:not(.featured)::before { content: ""; position: absolute; top: 0; left: 12%; right: 12%; height: 1px; z-index: -1; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(216,31,38,0.5), transparent); opacity: 0.6; transition: opacity 0.4s ease; }
@@ -201,11 +203,11 @@
   .problem { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
   .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1000px; margin: 0 auto; }
   .ba-card { border-radius: 24px; padding: 40px 32px; position: relative; }
-  .ba-card.before { background: linear-gradient(160deg, rgba(241,245,249,0.8), rgba(226,232,240,0.65)); border: 2px solid rgba(255,255,255,0.75); box-shadow: var(--glass-shadow), inset 0 0 0 1px rgba(148,163,184,0.3), var(--glass-highlight); }
+  .ba-card.before { background: linear-gradient(160deg, rgba(241,245,249,0.8), rgba(226,232,240,0.65)); border: 2px solid var(--glass-border); box-shadow: var(--glass-shadow), inset 0 0 0 1px rgba(148,163,184,0.3), var(--glass-highlight); }
   .ba-card.after { background: linear-gradient(160deg, rgba(13,27,42,0.95), rgba(27,42,61,0.92)); color: var(--white); border: 2px solid var(--glass-dark-border); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); box-shadow: 0 24px 60px rgba(13,27,42,0.22), 0 8px 20px rgba(13,27,42,0.14), 0 0 40px rgba(216,31,38,0.12), inset 0 1px 0 rgba(255,255,255,0.1); }
   .ba-card.after::after { background: radial-gradient(90% 70% at 0% 0%, rgba(216,31,38,0.16), transparent 60%), radial-gradient(70% 60% at 100% 100%, rgba(251,191,36,0.08), transparent 60%); }
-  .ba-tag { position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; }
-  .before .ba-tag { background: rgba(220,38,38,0.1); color: #dc2626; }
+  .ba-tag { position: absolute; top: 20px; right: 20px; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; }
+  .before .ba-tag { background: rgba(220,38,38,0.1); color: var(--red-dark); }
   .after .ba-tag { background: var(--gold); color: var(--navy); box-shadow: 0 6px 16px rgba(251,191,36,0.35), inset 0 1px 0 rgba(255,255,255,0.4); }
   .ba-icon { font-size: 44px; margin-bottom: 20px; display: block; }
   .ba-card h3 { font-size: 24px; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
@@ -221,27 +223,26 @@
   .step { text-align: center; padding: 40px 24px; border-radius: 20px; background-color: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow), 0 0 0 1px rgba(13,27,42,0.04), var(--glass-highlight); position: relative; }
   .step-num { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: linear-gradient(135deg, var(--red), var(--red-dark)); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; box-shadow: 0 8px 20px rgba(216,31,38,0.35), 0 0 0 4px rgba(255,255,255,0.7), inset 0 1px 0 rgba(255,255,255,0.3); }
   .step-icon { font-size: 48px; margin: 12px 0 20px; display: block; }
-  .step h4 { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
-  .step p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+  .step h3 { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+  .step p { font-size: 15px; color: var(--gray); line-height: 1.7; }
 
   .benefits { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
   .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
   .benefit-card { position: relative; background-color: var(--glass-bg); border-radius: 20px; padding: 32px 28px; border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow), 0 0 0 1px rgba(13,27,42,0.04), var(--glass-highlight); }
   .benefit-icon { width: 56px; height: 56px; background: linear-gradient(135deg, rgba(216,31,38,0.1), rgba(216,31,38,0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 20px; border: 1px solid rgba(216,31,38,0.1); box-shadow: 0 6px 16px rgba(216,31,38,0.08), inset 0 1px 0 rgba(255,255,255,0.8); }
-  .benefit-card h4 { font-size: 19px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
-  .benefit-card p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+  .benefit-card h3 { font-size: 19px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+  .benefit-card p { font-size: 15px; color: var(--gray); line-height: 1.7; }
 
   /* ========== STATS (base styles; mobile overrides live in the media queries) ========== */
   .stats { position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(60% 80% at 0% 0%, rgba(216,31,38,0.2), transparent 60%), radial-gradient(50% 70% at 100% 100%, rgba(251,191,36,0.1), transparent 60%), linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); }
   .stats::before { content: ""; position: absolute; inset: -20%; z-index: -1; pointer-events: none; background: radial-gradient(30% 40% at 25% 35%, rgba(216,31,38,0.14), transparent 70%), radial-gradient(26% 36% at 75% 65%, rgba(251,191,36,0.1), transparent 70%); animation: mesh-drift 18s var(--ease-soft) infinite alternate; }
   .stats::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: var(--noise); background-size: 180px 180px; opacity: 0.05; }
   .stats-head { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-  .stats-head h2 { font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
+  .stats-head h2 { font-size: var(--fs-h2); font-weight: 900; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
   .stats-head h2 .gold { color: var(--gold); }
   .stats-head p { font-size: 18px; color: rgba(255,255,255,0.75); line-height: 1.7; }
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
   .stat { text-align: center; padding: 36px 20px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); -webkit-backdrop-filter: blur(var(--glass-blur)); backdrop-filter: blur(var(--glass-blur)); box-shadow: 0 20px 50px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out), box-shadow 0.5s var(--ease-out), border-color 0.4s ease, background-color 0.4s ease; }
-  .stat:hover { transform: translateY(-6px); border-color: rgba(251,191,36,0.35); background-color: rgba(255,255,255,0.08); box-shadow: 0 30px 70px rgba(216,31,38,0.2), inset 0 1px 0 rgba(255,255,255,0.14); transition: opacity 1s var(--ease-out), transform 0.6s var(--ease-spring), box-shadow 0.5s var(--ease-out), border-color 0.4s ease, background-color 0.4s ease; }
   .stat-num { font-size: 52px; font-weight: 900; color: var(--gold); line-height: 1; letter-spacing: -1px; margin-bottom: 10px; text-shadow: 0 0 30px rgba(251,191,36,0.4); }
   .stat-num .suffix { font-size: 0.6em; }
   .stat-label { font-size: 13px; font-weight: 700; letter-spacing: 0.5px; color: rgba(255,255,255,0.75); }
@@ -262,7 +263,7 @@
   .proof-stats::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: var(--noise); background-size: 180px 180px; opacity: 0.05; }
   .proof-stat { text-align: center; }
   .proof-num { font-size: 34px; font-weight: 900; color: var(--gold); line-height: 1; letter-spacing: -1px; margin-bottom: 6px; text-shadow: 0 0 30px rgba(251,191,36,0.4); }
-  .proof-label { font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .proof-label { font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
 
   /* ========== PRICING STYLES ========== */
   .pricing { background: #f8fafc; padding: 100px 0; }
@@ -270,18 +271,24 @@
   .price-card { background-color: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; padding: 40px 32px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: var(--glass-shadow), 0 0 0 1px rgba(13,27,42,0.04), var(--glass-highlight); }
 
   /* Card hover: springy lift + red-tinted glow */
-  .ba-card:hover, .step:hover, .benefit-card:hover, .testimonial:hover, .price-card:hover { transform: translateY(-6px); border-color: rgba(216,31,38,0.3); background-color: var(--glass-bg-hover); box-shadow: var(--glass-shadow-lift), 0 0 0 1px rgba(216,31,38,0.1), var(--glass-highlight); transition: opacity 1s var(--ease-out), transform 0.6s var(--ease-spring), box-shadow 0.5s var(--ease-out), border-color 0.4s ease, background-color 0.4s ease; }
-  .step:hover::before, .benefit-card:hover::before, .ba-card:hover::before, .price-card:not(.featured):hover::before { opacity: 1; }
-  .ba-card.after:hover { background-color: transparent; border-color: rgba(216,31,38,0.7); box-shadow: 0 30px 70px rgba(216,31,38,0.22), 0 12px 28px rgba(13,27,42,0.2), inset 0 1px 0 rgba(255,255,255,0.12); }
 
-  .price-card.featured { background: linear-gradient(160deg, rgba(13,27,42,0.95), rgba(27,42,61,0.92)); color: var(--white); border: 2px solid var(--glass-dark-border); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); transform: scale(1.03); z-index: 2; animation: glow-breathe 5s var(--ease-soft) infinite; }
+  .price-card.featured { background: radial-gradient(80% 50% at 50% 0%, rgba(216,31,38,0.2), transparent 70%), radial-gradient(60% 50% at 100% 100%, rgba(251,191,36,0.08), transparent 70%), linear-gradient(160deg, rgba(13,27,42,0.95), rgba(27,42,61,0.92)); color: var(--white); border: 2px solid var(--glass-dark-border); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); transform: scale(1.03); z-index: 2; box-shadow: 0 30px 80px rgba(13,27,42,0.32), 0 12px 30px rgba(13,27,42,0.2), inset 0 1px 0 rgba(255,255,255,0.1); }
   .js .price-card.featured.reveal:not(.visible) { transform: scale(1.03) translateY(30px); }
-  .price-card.featured:hover { background-color: transparent; transform: scale(1.03) translateY(-6px); border-color: rgba(216,31,38,0.7); }
-  /* Animated gradient ring on the featured card */
-  .price-card.featured::before { content: ""; position: absolute; inset: -2px; padding: 2px; border-radius: inherit; z-index: 1; pointer-events: none; background: linear-gradient(120deg, rgba(216,31,38,0.95), rgba(251,191,36,0.9), rgba(216,31,38,0.95)); background-size: 200% 100%; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; animation: ring-sweep 6s var(--ease-soft) infinite alternate; }
-  .price-card.featured::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; background: radial-gradient(80% 50% at 50% 0%, rgba(216,31,38,0.2), transparent 70%), radial-gradient(60% 50% at 100% 100%, rgba(251,191,36,0.08), transparent 70%); }
+  /* Gradient ring on the featured card */
+  .price-card.featured::before { content: ""; position: absolute; inset: -2px; padding: 2px; border-radius: inherit; z-index: 1; pointer-events: none; background: linear-gradient(120deg, rgba(216,31,38,0.95), rgba(251,191,36,0.9), rgba(216,31,38,0.95)); background-size: 200% 100%; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
+  .price-card.featured::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; box-shadow: 0 0 70px rgba(216,31,38,0.34); animation: glow-breathe 5s var(--ease-soft) infinite; }
   .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); z-index: 3; overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%), var(--red); color: white; font-size: 11px; font-weight: 900; letter-spacing: 1px; padding: 6px 16px; border-radius: 50px; text-transform: uppercase; box-shadow: 0 6px 18px rgba(216,31,38,0.4), inset 0 1px 0 rgba(255,255,255,0.3); }
   .featured-badge::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 35%; background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent); animation: badge-shine 5s var(--ease-soft) infinite; pointer-events: none; }
+  /* Hover feedback only where a real pointer hovers (no sticky hover after a tap).
+     Informational cards get a border tint; only price cards, which hold the CTAs, lift. */
+  @media (hover: hover) and (pointer: fine) {
+    .ba-card:hover, .step:hover, .benefit-card:hover, .testimonial:hover { border-color: rgba(216,31,38,0.3); background-color: var(--glass-bg-hover); }
+    .step:hover::before, .benefit-card:hover::before, .ba-card:hover::before, .price-card:not(.featured):hover::before { opacity: 1; }
+    .ba-card.after:hover { background-color: transparent; border-color: rgba(216,31,38,0.7); }
+    .stat:hover { border-color: rgba(251,191,36,0.35); background-color: rgba(255,255,255,0.08); }
+    .price-card:hover { transform: translateY(-6px); border-color: rgba(216,31,38,0.3); background-color: var(--glass-bg-hover); box-shadow: var(--glass-shadow-lift), 0 0 0 1px rgba(216,31,38,0.1), var(--glass-highlight); transition: opacity 1s var(--ease-out), transform 0.6s var(--ease-spring), box-shadow 0.5s var(--ease-out), border-color 0.4s ease, background-color 0.4s ease; }
+    .price-card.featured:hover { background-color: transparent; transform: scale(1.03) translateY(-6px); border-color: rgba(216,31,38,0.7); box-shadow: 0 30px 80px rgba(13,27,42,0.32), 0 12px 30px rgba(13,27,42,0.2), inset 0 1px 0 rgba(255,255,255,0.1); }
+  }
   .price-tier { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
   .featured .price-tier { color: var(--gold); }
   .price-name { font-size: 20px; font-weight: 900; margin-bottom: 16px; }
@@ -309,7 +316,7 @@
   .final-cta { position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(ellipse 60% 70% at 50% 45%, rgba(216,31,38,0.28), transparent 70%), linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); padding: 100px 0; text-align: center; }
   .final-cta::before { content: ""; position: absolute; inset: -30%; z-index: -1; pointer-events: none; background: linear-gradient(115deg, transparent 20%, rgba(216,31,38,0.16) 40%, rgba(251,191,36,0.08) 55%, transparent 75%); animation: mesh-drift 14s var(--ease-soft) infinite alternate; }
   .final-cta::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: var(--noise); background-size: 180px 180px; opacity: 0.05; }
-  .final-cta h2 { font-size: 42px; font-weight: 900; letter-spacing: -1.5px; margin-bottom: 20px; }
+  .final-cta h2 { font-size: var(--fs-h2); font-weight: 900; letter-spacing: -1.5px; margin-bottom: 20px; }
   .final-cta p { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 36px; line-height: 1.7; }
   .final-ctas { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
   .final-cta .btn-secondary { background-color: rgba(255,255,255,0.97); }
@@ -323,7 +330,7 @@
   .payment-item { background: var(--white); padding: 20px 16px; border-radius: 14px; display: flex; align-items: center; gap: 12px; text-align: left; box-shadow: 0 4px 12px rgba(22,163,74,0.1); }
   .payment-icon { font-size: 28px; flex-shrink: 0; }
   .payment-name { font-size: 13px; font-weight: 800; color: #14532d; margin-bottom: 2px; }
-  .payment-detail { font-size: 11px; color: #166534; font-weight: 600; }
+  .payment-detail { font-size: 12px; color: #166534; font-weight: 600; }
   .payment-note { font-size: 12px; color: #166534; font-style: italic; margin: 0; }
 
   /* ========== FOOTER ========== */
@@ -342,19 +349,18 @@
   .footer-col a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
   .footer-col a:hover, .footer-col a:focus-visible { color: var(--gold); }
   .footer-disclaimer { max-width: 900px; margin: 0 auto 30px; padding: 24px; background: rgba(255,255,255,0.04); border-radius: 12px; border-left: 3px solid var(--red); }
-  .footer-disclaimer p { font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 10px; }
+  .footer-disclaimer p { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 10px; }
   .footer-disclaimer p:last-child { margin-bottom: 0; }
   .footer-disclaimer strong { color: rgba(255,255,255,0.85); }
   .footer-copy { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
   .footer-copy p { font-size: 12px; color: rgba(255,255,255,0.5); }
-  .footer-powered { margin-top: 8px; font-size: 11px !important; }
+  .footer-powered { margin-top: 8px; font-size: 12px !important; }
   .footer-powered a { color: rgba(255,255,255,0.75); text-decoration: none; font-weight: 700; }
   .footer-powered a:hover, .footer-powered a:focus-visible { color: var(--red); }
 
   /* --- glass layer: payment methods --- */
   .payment-methods { position: relative; isolation: isolate; box-shadow: 0 24px 60px rgba(22,163,74,0.12), 0 8px 20px rgba(13,27,42,0.05), inset 0 1px 0 rgba(255,255,255,0.7); }
-  .payment-item { background: rgba(255,255,255,0.78); border: 1px solid rgba(255,255,255,0.85); -webkit-backdrop-filter: blur(var(--glass-blur)); backdrop-filter: blur(var(--glass-blur)); box-shadow: 0 10px 28px rgba(22,163,74,0.1), inset 0 1px 0 rgba(255,255,255,0.9); transition: transform 0.6s var(--ease-spring), box-shadow 0.5s var(--ease-out); }
-  .payment-item:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(22,163,74,0.18), inset 0 1px 0 rgba(255,255,255,0.9); }
+  .payment-item { background: rgba(255,255,255,0.88); border: 1px solid rgba(22,163,74,0.15); box-shadow: 0 10px 28px rgba(22,163,74,0.1), inset 0 1px 0 rgba(255,255,255,0.9); }
 
   /* --- glass layer: footer --- */
   .footer { position: relative; isolation: isolate; }
@@ -376,8 +382,8 @@
   @media (max-width: 900px) {
     .hero { padding: 32px 0 40px; }
     .hero-grid { grid-template-columns: 1fr; gap: 24px; }
-    .hero-badge { font-size: 10px; padding: 6px 12px; margin-bottom: 16px; }
-    .hero h1 { font-size: 32px; letter-spacing: -1px; margin-bottom: 14px; }
+    .hero-badge { font-size: 12px; padding: 6px 12px; margin-bottom: 16px; }
+    .hero h1 { letter-spacing: -1px; margin-bottom: 14px; }
     .hero p.lead { font-size: 15px; margin-bottom: 22px; }
     .hero-ctas { gap: 10px; flex-direction: column; }
     .hero-ctas .btn { width: 100%; padding: 14px 20px; font-size: 15px; }
@@ -399,26 +405,25 @@
     .nfc-stand::after { font-size: 11px; top: 8px; right: 8px; }
     .trustbar { padding: 14px 0; }
     .trustbar-inner { gap: 20px; }
-    .trustbar-item { font-size: 11px; }
+    .trustbar-item { font-size: 12px; }
     .ba-grid { grid-template-columns: 1fr; gap: 16px; }
     .ba-card { padding: 28px 22px; }
     .ba-card h3 { font-size: 20px; }
-    .ba-card p { font-size: 14px; }
-    .ba-list li { font-size: 13px; }
+    .ba-card p { font-size: 15px; }
+    .ba-list li { font-size: 14px; }
     .steps { grid-template-columns: 1fr; gap: 40px; }
     .step { padding: 32px 20px; }
     .step-icon { font-size: 38px; margin: 8px 0 16px; }
-    .step h4 { font-size: 17px; }
+    .step h3 { font-size: 17px; }
     .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
     .benefit-card { padding: 24px 22px; }
     .section-head { margin-bottom: 40px; }
-    .section-head h2 { font-size: 28px; letter-spacing: -1px; }
+    .section-head h2 { letter-spacing: -1px; }
     .section-head p { font-size: 15px; }
     section { padding: 60px 0; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .stat-num { font-size: 36px; }
-    .stat-label { font-size: 11px; }
-    .stats-head h2 { font-size: 26px; }
+    .stat-label { font-size: 12px; }
     .stats-head p { font-size: 14px; }
     .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
     .proof-stats { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
@@ -438,7 +443,7 @@
     .price-card.featured:hover { transform: translateY(-8px); }
     .price-amount { font-size: 34px; }
     .price-name { font-size: 18px; }
-    .featured-badge { font-size: 10px; padding: 5px 12px; }
+    .featured-badge { font-size: 12px; padding: 5px 12px; }
     .payment-methods { padding: 24px 18px; margin-top: 40px; }
     .payment-grid { grid-template-columns: 1fr; gap: 12px; }
     .guarantee-box { padding: 32px 22px; border-radius: 20px; }
@@ -446,14 +451,15 @@
     .guarantee-box h3 { font-size: 22px; }
     .guarantee-box p { font-size: 14px; }
     .final-cta { padding: 60px 0; }
-    .final-cta h2 { font-size: 28px; letter-spacing: -1px; }
+    .final-cta h2 { letter-spacing: -1px; }
     .final-cta p { font-size: 15px; margin-bottom: 28px; }
     .final-ctas { flex-direction: column; }
     .final-ctas .btn { width: 100%; }
     .footer { padding: 40px 0 24px; }
     .footer-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
     .footer-disclaimer { padding: 18px; }
-    .nav-cta { font-size: 11px; padding: 8px 12px; }
+    .nav-cta { font-size: 12px; padding: 8px 14px; min-height: 44px; }
+    .footer-col a, .footer-powered a { display: inline-block; padding: 11px 4px; }
     .brand { font-size: 17px; }
     .brand-shield { width: 26px; height: 30px; }
     .nav-inner { padding: 0 16px; }
@@ -462,11 +468,9 @@
   }
 
   @media (max-width: 380px) {
-    .hero h1 { font-size: 28px; }
     .phone-mock { width: 130px; height: 260px; }
     .nfc-stand { width: 120px; height: 60px; }
     .hero-visual { height: 300px; }
-    .section-head h2 { font-size: 24px; }
     .price-amount { font-size: 30px; }
   }
 
@@ -494,13 +498,12 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .hero::before, .stats::before, .proof-stats::before, .final-cta::before, .visual-glow,
-    .price-card.featured, .price-card.featured::before, .featured-badge::after,
+    .price-card.featured::after, .featured-badge::after,
     .phone-mock, .hero-badge .dot, .nfc-stand::after, .stars-big span, .hero .reveal { animation: none; }
     .reveal { transition: opacity 0.3s ease; }
     .js .reveal:not(.visible), .js .price-card.featured.reveal:not(.visible) { transform: none; }
     .reveal.visible:nth-child(n) { transition-delay: 0s; }
-    .ba-card:hover, .step:hover, .benefit-card:hover, .testimonial:hover, .price-card:hover,
-    .stat:hover, .payment-item:hover { transform: none; }
+    .price-card:hover { transform: none; }
     .price-card.featured:hover { transform: scale(1.03); }
   }
   @media (prefers-reduced-motion: reduce) and (max-width: 900px) {
@@ -650,19 +653,19 @@
       <div class="step reveal">
         <div class="step-num">1</div>
         <span class="step-icon" aria-hidden="true">📱</span>
-        <h4>El cliente toca</h4>
+        <h3>El cliente toca</h3>
         <p>El cliente acerca su celular al stand BizMapShield. Sin escanear nada, sin abrir apps. Solo un toque.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">2</div>
         <span class="step-icon" aria-hidden="true">⭐</span>
-        <h4>Google se abre solo</h4>
+        <h3>Google se abre solo</h3>
         <p>Automáticamente se abre la página de reseñas de tu negocio en Google. Lista para que el cliente deje su opinión.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">3</div>
         <span class="step-icon" aria-hidden="true">🚀</span>
-        <h4>Subes en el mapa</h4>
+        <h3>Subes en el mapa</h3>
         <p>Cada reseña te acerca al top. En 30 días tienes más estrellas que tu competencia. En 90 días, dominas tu zona.</p>
       </div>
     </div>
@@ -681,32 +684,32 @@
     <div class="benefits-grid">
       <div class="benefit-card reveal">
         <div class="benefit-icon" aria-hidden="true">⭐</div>
-        <h4>Reseñas en automático</h4>
+        <h3>Reseñas en automático</h3>
         <p>Tus clientes dejan 5 estrellas sin que se lo pidas. Se convierte en parte natural de la experiencia — como pagar.</p>
       </div>
       <div class="benefit-card reveal">
         <div class="benefit-icon" aria-hidden="true">🗺️</div>
-        <h4>Domina tu zona</h4>
+        <h3>Domina tu zona</h3>
         <p>Más reseñas = mejor ranking. Apareces primero cuando alguien busca tu servicio cerca de ti. Antes que tu competencia.</p>
       </div>
       <div class="benefit-card reveal">
         <div class="benefit-icon" aria-hidden="true">💰</div>
-        <h4>Más clientes, más ventas</h4>
+        <h3>Más clientes, más ventas</h3>
         <p>El 90% de la gente elige el negocio con más estrellas. Cada reseña nueva se traduce en dólares en tu caja.</p>
       </div>
       <div class="benefit-card reveal">
         <div class="benefit-icon" aria-hidden="true">🛡️</div>
-        <h4>Proteges tu reputación</h4>
+        <h3>Proteges tu reputación</h3>
         <p>Más reseñas positivas diluyen cualquier comentario negativo. Tu marca queda blindada.</p>
       </div>
       <div class="benefit-card reveal">
         <div class="benefit-icon" aria-hidden="true">⚡</div>
-        <h4>Sin trabajo extra</h4>
+        <h3>Sin trabajo extra</h3>
         <p>No tienes que pedir nada. No tienes que recordar nada. El sistema trabaja por ti 24/7 — incluso cuando duermes.</p>
       </div>
       <div class="benefit-card reveal">
         <div class="benefit-icon" aria-hidden="true">📊</div>
-        <h4>Datos en tiempo real</h4>
+        <h3>Datos en tiempo real</h3>
         <p>Sabes cuántas reseñas nuevas entraron, cuántos clientes tocaron el stand, y cómo va tu reputación vs. la competencia.</p>
       </div>
     </div>

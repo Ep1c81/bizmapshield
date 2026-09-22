@@ -333,9 +333,52 @@
     outline-color: #fbbf24;
   }
 
+  /* --- "Guardar contacto" confirmation --- */
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translate(-50%, 16px);
+    width: calc(100% - 40px);
+    max-width: 380px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: var(--navy);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.12);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .toast a {
+    color: #fbbf24;
+    font-weight: 800;
+    display: inline-block;
+    padding: 6px 2px;
+  }
+
+  .toast a:focus-visible {
+    outline-color: #fbbf24;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .card { animation: none; }
     .btn, .footer .powered a { transition: none; }
+    .toast { transition: opacity 0.2s ease, visibility 0.2s; transform: translate(-50%, 0); }
   }
 </style>
 </head>
@@ -425,29 +468,35 @@
 </div>
 
 <script>
-  // Generate a vCard for "Save Contact"
-  function saveContact() {
-    const vcard = `BEGIN:VCARD
-VERSION:3.0
-N:;BizMapShield;;;
-FN:BizMapShield
-ORG:BizMapShield
-TITLE:Soporte
-TEL;TYPE=CELL:+50663889598
-EMAIL:premium@auralinkdigital.com
-URL:https://auralinkdigital.com
-NOTE:Protege tu reputación. Multiplica tus clientes. | Powered by AuralinkDigital.com
-END:VCARD`;
+  // "Save Contact": download the static vCard. A real file URL (not a blob) also works in
+  // in-app browsers (WhatsApp, Instagram, Facebook), where it opens the "add contact" sheet.
+  const VCARD_URL = 'bizmapshield.vcf';
+  let toastTimer;
 
-    const blob = new Blob([vcard], { type: 'text/vcard' });
-    const url = URL.createObjectURL(blob);
+  function saveContact() {
     const a = document.createElement('a');
-    a.href = url;
+    a.href = VCARD_URL;
     a.download = 'BizMapShield.vcf';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    showToast();
+  }
+
+  // Confirmation with a manual fallback in case the download was blocked
+  function showToast() {
+    let toast = document.getElementById('contact-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'contact-toast';
+      toast.className = 'toast';
+      toast.setAttribute('role', 'status');
+      toast.innerHTML = '✓ Contacto descargado. ¿No se abrió? <a href="' + VCARD_URL + '">Ábrelo aquí</a>';
+      document.body.appendChild(toast);
+    }
+    requestAnimationFrame(() => toast.classList.add('show'));
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 7000);
   }
 </script>
 
