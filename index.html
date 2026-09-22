@@ -277,7 +277,7 @@
   /* Gradient ring on the featured card */
   .price-card.featured::before { content: ""; position: absolute; inset: -2px; padding: 2px; border-radius: inherit; z-index: 1; pointer-events: none; background: linear-gradient(120deg, rgba(216,31,38,0.95), rgba(251,191,36,0.9), rgba(216,31,38,0.95)); background-size: 200% 100%; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
   .price-card.featured::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; box-shadow: 0 0 70px rgba(216,31,38,0.34); animation: glow-breathe 5s var(--ease-soft) infinite; }
-  .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); z-index: 3; overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%), var(--red); color: white; font-size: 11px; font-weight: 900; letter-spacing: 1px; padding: 6px 16px; border-radius: 50px; text-transform: uppercase; box-shadow: 0 6px 18px rgba(216,31,38,0.4), inset 0 1px 0 rgba(255,255,255,0.3); }
+  .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); z-index: 3; overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%), var(--red); color: white; font-size: 11px; font-weight: 900; letter-spacing: 1px; padding: 6px 16px; border-radius: 50px; text-transform: uppercase; white-space: nowrap; box-shadow: 0 6px 18px rgba(216,31,38,0.4), inset 0 1px 0 rgba(255,255,255,0.3); }
   .featured-badge::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 35%; background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent); animation: badge-shine 5s var(--ease-soft) infinite; pointer-events: none; }
   /* Hover feedback only where a real pointer hovers (no sticky hover after a tap).
      Informational cards get a border tint; only price cards, which hold the CTAs, lift. */
@@ -294,6 +294,9 @@
   .price-name { font-size: 20px; font-weight: 900; margin-bottom: 16px; }
   .price-amount { font-size: 42px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; margin-bottom: 6px; }
   .price-amount .currency { font-size: 24px; vertical-align: top; }
+  /* One-time + monthly price (Pro): smaller so both parts fit on one line */
+  .price-amount.price-amount--split { font-size: 32px; }
+  .price-monthly { font-size: 16px; font-weight: 700; letter-spacing: 0; color: var(--gold); }
   .price-sub { font-size: 13px; color: var(--gray); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid rgba(13,27,42,0.08); }
   .featured .price-sub { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.1); }
   .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; flex-grow: 1; }
@@ -324,7 +327,7 @@
 
   .iva-note { text-align: center; margin-top: 32px; font-size: 13px; font-weight: 700; color: var(--gray); letter-spacing: 0.3px; }
   /* ========== PAYMENT METHODS ========== */
-  .payment-methods { max-width: 900px; margin: 60px auto 0; padding: 32px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2px solid #16a34a; border-radius: 20px; text-align: center; }
+  .payment-methods { max-width: 900px; margin: 60px auto 0; padding: 32px; background-color: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; text-align: center; }
   .payment-title { font-size: 18px; font-weight: 900; color: #14532d; margin-bottom: 24px; letter-spacing: -0.3px; }
   .payment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px; }
   .payment-item { background: var(--white); padding: 20px 16px; border-radius: 14px; display: flex; align-items: center; gap: 12px; text-align: left; box-shadow: 0 4px 12px rgba(22,163,74,0.1); }
@@ -359,8 +362,11 @@
   .footer-powered a:hover, .footer-powered a:focus-visible { color: var(--red); }
 
   /* --- glass layer: payment methods --- */
-  .payment-methods { position: relative; isolation: isolate; box-shadow: 0 24px 60px rgba(22,163,74,0.12), 0 8px 20px rgba(13,27,42,0.05), inset 0 1px 0 rgba(255,255,255,0.7); }
-  .payment-item { background: rgba(255,255,255,0.88); border: 1px solid rgba(22,163,74,0.15); box-shadow: 0 10px 28px rgba(22,163,74,0.1), inset 0 1px 0 rgba(255,255,255,0.9); }
+  .payment-methods { position: relative; isolation: isolate; box-shadow: var(--glass-shadow), 0 0 0 1px rgba(13,27,42,0.04), var(--glass-highlight); }
+  /* Green top accent line + corner glow, same pattern as the other glass cards */
+  .payment-methods::before { content: ""; position: absolute; top: 0; left: 12%; right: 12%; height: 2px; z-index: -1; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(22,163,74,0.7), transparent); }
+  .payment-methods::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; background: radial-gradient(90% 70% at 0% 0%, rgba(22,163,74,0.07), transparent 60%), radial-gradient(70% 60% at 100% 100%, rgba(251,191,36,0.06), transparent 60%); }
+  .payment-item { background: rgba(240,253,244,0.9); border: 1px solid rgba(22,163,74,0.15); box-shadow: 0 10px 28px rgba(22,163,74,0.1), inset 0 1px 0 rgba(255,255,255,0.9); }
 
   /* --- glass layer: footer --- */
   .footer { position: relative; isolation: isolate; }
@@ -472,6 +478,13 @@
     .nfc-stand { width: 120px; height: 60px; }
     .hero-visual { height: 300px; }
     .price-amount { font-size: 30px; }
+    .price-amount.price-amount--split { font-size: 28px; }
+    .nav-inner { gap: 8px; }
+    .brand { font-size: 16px; gap: 8px; }
+    .brand-shield { width: 24px; height: 28px; }
+    .nav-cta { font-size: 11px; padding: 8px 12px; white-space: nowrap; }
+    .nav-cta [aria-hidden="true"] { display: none; }
+    .price-monthly { font-size: 14px; }
   }
 
   /* ========== PREMIUM POLISH: mobile-only tuning (glass + shadows, no layout changes) ========== */
@@ -846,7 +859,7 @@
         <div class="featured-badge"><span aria-hidden="true">⭐</span> MÁS POPULAR</div>
         <div class="price-tier">Pro</div>
         <div class="price-name">Domina y mantén</div>
-        <div class="price-amount" style="font-size: 32px;"><span class="currency">₡</span>19,900 <span style="font-size: 16px; font-weight: 700; color: var(--gold);">+ ₡9,900/mes</span></div>
+        <div class="price-amount price-amount--split"><span class="currency">₡</span>19,900 <span class="price-monthly">+ ₡9,900/mes</span></div>
         <div class="price-sub">Stand inicial + Mantenimiento continuo</div>
         <ul class="price-features">
           <li><span class="check" aria-hidden="true">✓</span> Todo lo del plan Básico</li>
