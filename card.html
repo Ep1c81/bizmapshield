@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BizMapShield | Protege tu reputación en Google</title>
+<meta name="description" content="Ayudamos a negocios en Costa Rica a conseguir más reseñas de 5 estrellas en Google con BizMapShield. Más visibilidad, más reputación, más clientes." />
+
+<!-- Open Graph (for WhatsApp/Facebook preview) -->
+<meta property="og:title" content="BizMapShield" />
+<meta property="og:description" content="Más visibilidad. Más reputación. Más clientes." />
+<meta property="og:type" content="website" />
+
+<!-- ============ GOOGLE ANALYTICS (GA4) — BizMapShield ============ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H999LY10ZN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H999LY10ZN');
+</script>
+<!-- ============ END GOOGLE ANALYTICS ============ -->
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --red: #d81f26;
+    --red-dark: #a5171c;
+    --navy: #0d1b2a;
+    --navy-light: #1b2a3d;
+    --cream: #f7f5f0;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --green: #16a34a;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(160deg, #0d1b2a 0%, #1b2a3d 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--navy);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    animation: fadeUp 0.6s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* --- Header / Logo --- */
+  .header {
+    background: var(--white);
+    padding: 28px 24px 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .logo-shield {
+    width: 40px;
+    height: 46px;
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    border-radius: 8px 8px 50% 50% / 8px 8px 60% 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(216,31,38,0.4);
+    position: relative;
+  }
+
+  .logo-shield::after {
+    content: "📍";
+    font-size: 18px;
+    filter: brightness(0) invert(1);
+  }
+
+  .logo-text .biz { color: var(--red); }
+  .logo-text .map { color: var(--navy); }
+  .logo-text .shield { color: var(--red); }
+
+  .tagline {
+    margin-top: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+
+  .tagline .red { color: var(--red); }
+
+  /* --- Hero / Before-After visual --- */
+  .hero {
+    background: linear-gradient(180deg, #f0f4f8 0%, #e2e8f0 100%);
+    padding: 28px 20px 24px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .hero h1 .red {
+    color: var(--red);
+    display: block;
+    font-size: 30px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.5;
+    margin-top: 10px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* --- Before / After split --- */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .split-box {
+    border-radius: 16px;
+    padding: 18px 10px;
+    text-align: center;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .split-box.before {
+    background: #e5e7eb;
+    color: #6b7280;
+  }
+
+  .split-box.after {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    color: white;
+    box-shadow: 0 8px 20px rgba(13,27,42,0.3);
+  }
+
+  .split-box .icon {
+    font-size: 32px;
+  }
+
+  .split-box .label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .split-box.after .stars {
+    color: #fbbf24;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  /* --- Benefits list --- */
+  .benefits {
+    padding: 24px;
+    background: white;
+  }
+
+  .benefit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .benefit:last-child { border-bottom: none; }
+
+  .benefit .check {
+    width: 26px;
+    height: 26px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .benefit .text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  /* --- CTA --- */
+  .cta-wrap {
+    padding: 0 24px 28px;
+    background: white;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  .btn-whatsapp {
+    background: #25D366;
+    color: var(--navy);
+    box-shadow: 0 8px 20px rgba(37,211,102,0.4);
+  }
+
+  .btn-call {
+    background: var(--navy);
+    color: white;
+    box-shadow: 0 8px 20px rgba(13,27,42,0.3);
+  }
+
+  .btn-save {
+    background: white;
+    color: var(--navy);
+    border: 2px solid var(--navy);
+    box-shadow: none;
+  }
+
+  /* --- Footer --- */
+  .footer {
+    background: var(--navy);
+    color: white;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .footer .role {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  .footer .location {
+    color: #64748b;
+    font-size: 11px;
+  }
+
+  .footer .powered {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: #64748b;
+    font-size: 10px;
+    letter-spacing: 0.3px;
+    line-height: 1.6;
+  }
+
+  .footer .powered a {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .footer .powered a:hover,
+  .footer .powered a:active {
+    color: var(--red);
+    border-bottom-color: var(--red);
+  }
+
+  /* Keyboard focus ring (WCAG 2.4.7): navy on the white card, gold in the navy footer */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--navy);
+    outline-offset: 3px;
+  }
+
+  .footer a:focus-visible {
+    outline-color: #fbbf24;
+  }
+
+  /* --- "Guardar contacto" confirmation --- */
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translate(-50%, 16px);
+    width: calc(100% - 40px);
+    max-width: 380px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: var(--navy);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.12);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .toast a {
+    color: #fbbf24;
+    font-weight: 800;
+    display: inline-block;
+    padding: 6px 2px;
+  }
+
+  .toast a:focus-visible {
+    outline-color: #fbbf24;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card { animation: none; }
+    .btn, .footer .powered a { transition: none; }
+    .toast { transition: opacity 0.2s ease, visibility 0.2s; transform: translate(-50%, 0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">
+      <div class="logo-shield"></div>
+      <div class="logo-text">
+        <span class="biz">Biz</span><span class="map">Map</span><span class="shield">Shield</span>
+      </div>
+    </div>
+    <div class="tagline">Protege tu reputación. <span class="red">Multiplica tus clientes.</span></div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>
+      ¿Y si tus clientes
+      <span class="red">NO TE VEN</span>
+      en el mapa?
+    </h1>
+    <p>Cada día que tu negocio no aparece bien posicionado, tus competidores se llevan a tus clientes.</p>
+
+    <div class="split">
+      <div class="split-box before">
+        <div class="icon">📍</div>
+        <div class="label">Sin visibilidad</div>
+        <div class="label" style="font-weight:600; font-size:10px; color:#9ca3af;">No hay clientes</div>
+      </div>
+      <div class="split-box after">
+        <div class="stars">★★★★★</div>
+        <div class="label">Con BizMapShield</div>
+        <div class="label" style="font-weight:600; font-size:10px; color:#cbd5e1;">Aparece y vende más</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="benefits">
+    <div class="benefit">
+      <div class="check">✓</div>
+      <div class="text">Más visibilidad en Google Maps</div>
+    </div>
+    <div class="benefit">
+      <div class="check">✓</div>
+      <div class="text">Más reseñas de 5 estrellas, en automático</div>
+    </div>
+    <div class="benefit">
+      <div class="check">✓</div>
+      <div class="text">Más confianza = más clientes que compran</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <a class="btn btn-whatsapp"
+       href="https://wa.me/50663889598?text=Hola%2C%20vi%20la%20tarjeta%20de%20BizMapShield%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n."
+       target="_blank" rel="noopener"
+       onclick="gtag('event', 'click_whatsapp', { event_category: 'CTA', event_label: 'WhatsApp Button' });">
+      💬 Escríbeme por WhatsApp
+    </a>
+    <a class="btn btn-call"
+       href="tel:+50663889598"
+       onclick="gtag('event', 'click_call', { event_category: 'CTA', event_label: 'Call Button' });">
+      📞 Llamar ahora
+    </a>
+    <button class="btn btn-save"
+            onclick="saveContact(); gtag('event', 'click_save_contact', { event_category: 'CTA', event_label: 'Save Contact Button' });">
+      ⬇️ Guardar contacto
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="role">BizMapShield</div>
+    <div class="location">🇨🇷 Costa Rica · Gran Área Metropolitana</div>
+    <div class="powered">
+      Powered, created &amp; sponsored by
+      <a href="https://auralinkdigital.com" target="_blank" rel="noopener">AuralinkDigital.com</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // "Save Contact": download the static vCard. A real file URL (not a blob) also works in
+  // in-app browsers (WhatsApp, Instagram, Facebook), where it opens the "add contact" sheet.
+  const VCARD_URL = 'bizmapshield.vcf';
+  let toastTimer;
+
+  function saveContact() {
+    const a = document.createElement('a');
+    a.href = VCARD_URL;
+    a.download = 'BizMapShield.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    showToast();
+  }
+
+  // Confirmation with a manual fallback in case the download was blocked
+  function showToast() {
+    let toast = document.getElementById('contact-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'contact-toast';
+      toast.className = 'toast';
+      toast.setAttribute('role', 'status');
+      toast.innerHTML = '✓ Contacto descargado. ¿No se abrió? <a href="' + VCARD_URL + '">Ábrelo aquí</a>';
+      document.body.appendChild(toast);
+    }
+    requestAnimationFrame(() => toast.classList.add('show'));
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 7000);
+  }
+</script>
+
+</body>
+</html>
