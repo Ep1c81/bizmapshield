@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BizMapShield — Domina tu Mapa. Multiplica tus Clientes.</title>
+<meta name="description" content="Consigue más reseñas de 5 estrellas en Google automáticamente. Domina tu zona en Google Maps y multiplica tus clientes. Desde ₡19,900. Costa Rica." />
+
+<!-- Open Graph (for WhatsApp/Facebook preview) -->
+<meta property="og:title" content="BizMapShield" />
+<meta property="og:description" content="Más visibilidad. Más reputación. Más clientes." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80&auto=format&fit=crop" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H999LY10ZN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H999LY10ZN');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --red: #d81f26;
+    --red-dark: #a5171c;
+    --navy: #0d1b2a;
+    --navy-light: #1b2a3d;
+    --ink: #0d1b2a;
+    --ink-2: #475569;
+    --ink-3: #64748b;
+    --line: #e2e8f0;
+    --surface: #ffffff;
+    --surface-2: #f8fafc;
+    --white: #ffffff;
+    --gray: #64748b;
+    --green: #25D366;
+    --gold: #fbbf24;
+    --font-display: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --radius: 20px;
+    --radius-lg: 28px;
+    --shadow-sm: 0 1px 2px rgba(13,27,42,0.04), 0 2px 6px rgba(13,27,42,0.04);
+    --shadow-md: 0 2px 4px rgba(13,27,42,0.04), 0 12px 32px -8px rgba(13,27,42,0.12);
+    --shadow-lg: 0 4px 8px rgba(13,27,42,0.04), 0 32px 64px -16px rgba(13,27,42,0.22);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--surface);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  img { display: block; max-width: 100%; }
+  h1, h2, h3, h4 { font-family: var(--font-display); }
+
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); transition-delay: var(--d, 0s); }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-img { clip-path: inset(8% 8% 8% 8% round var(--radius-lg)); opacity: 0; transition: clip-path 1.2s var(--ease), opacity 0.8s ease; }
+  .reveal-img.visible { clip-path: inset(0 0 0 0 round var(--radius-lg)); opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-img { opacity: 1; transform: none; clip-path: none; transition: none; }
+    .float, .dot { animation: none !important; }
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Topbar / Nav ---------- */
+  .topbar { background: var(--navy); color: var(--white); padding: 10px 16px; font-size: 12px; text-align: center; letter-spacing: 0.3px; }
+  .topbar strong { color: var(--gold); }
+
+  .navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.82); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid transparent; padding: 12px 0; transition: border-color 0.3s, box-shadow 0.3s; }
+  .navbar.scrolled { border-bottom-color: rgba(13,27,42,0.06); box-shadow: 0 6px 24px -12px rgba(13,27,42,0.18); }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
+  .brand-shield { width: 30px; height: 36px; background: linear-gradient(135deg, var(--red), var(--red-dark)); border-radius: 6px 6px 50% 50% / 6px 6px 60% 60%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 14px -4px rgba(216,31,38,0.55); flex-shrink: 0; }
+  .brand-shield::after { content: "📍"; font-size: 15px; filter: brightness(0) invert(1); }
+  .brand .biz { color: var(--red); }
+  .brand .map { color: var(--navy); }
+  .brand .shield { color: var(--red); }
+  .nav-links { display: none; gap: 28px; }
+  .nav-links a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta { display: flex; align-items: center; gap: 8px; background: var(--navy); color: var(--white); padding: 10px 16px; border-radius: 50px; font-size: 13px; font-weight: 700; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap; box-shadow: var(--shadow-sm); }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  @media (max-width: 420px) { .nav-cta .long { display: none; } }
+  @media (min-width: 960px) { .nav-links { display: flex; } }
+
+  /* ---------- Buttons ---------- */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 26px; border-radius: 14px; font-size: 16px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.2s, color 0.2s; font-family: inherit; }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--green); color: var(--white); box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 12px 28px -8px rgba(37,211,102,0.6); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 18px 36px -10px rgba(37,211,102,0.7); }
+  .btn-secondary { background: var(--white); color: var(--navy); border: 1.5px solid rgba(13,27,42,0.16); box-shadow: var(--shadow-sm); }
+  .btn-secondary:hover { border-color: var(--navy); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; padding: 48px 0 72px; background: radial-gradient(900px 500px at 10% -10%, rgba(216,31,38,0.07), transparent 60%), radial-gradient(700px 500px at 100% 20%, rgba(13,27,42,0.06), transparent 60%), linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(216,31,38,0.08); color: var(--red); padding: 7px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 22px; border: 1px solid rgba(216,31,38,0.14); }
+  .hero-badge .dot { width: 7px; height: 7px; background: var(--red); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  .hero h1 { font-size: clamp(36px, 8vw, 62px); font-weight: 800; line-height: 1.04; letter-spacing: -0.035em; color: var(--navy); margin-bottom: 20px; }
+  .hero h1 .red { color: var(--red); }
+  .hero p.lead { font-size: clamp(17px, 2.2vw, 19px); color: var(--ink-2); line-height: 1.65; margin-bottom: 30px; max-width: 540px; }
+  .hero p.lead strong { color: var(--navy); }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-ctas .btn { flex: 1 1 auto; }
+  @media (min-width: 560px) { .hero-ctas .btn { flex: 0 0 auto; } }
+  .hero-trust { display: flex; gap: 10px 22px; margin-top: 28px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); font-weight: 600; }
+  .trust-item .check { width: 20px; height: 20px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; flex-shrink: 0; }
+
+  .hero-visual { position: relative; }
+  .hero-photo { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4 / 3.4; background: #e2e8f0; }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(13,27,42,0.45) 100%); }
+  .float-card { position: absolute; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.7); border-radius: 16px; box-shadow: var(--shadow-lg); padding: 12px 14px; z-index: 2; }
+  .float { animation: float 6s ease-in-out infinite; }
+  .fc-rating { left: -8px; bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .fc-rating .g { width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; font-family: var(--font-display); }
+  .fc-rating .g span:nth-child(1) { color: #4285F4; }
+  .fc-rating .score { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--navy); line-height: 1; }
+  .fc-rating .stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; }
+  .fc-rating .sub { font-size: 11px; color: var(--ink-3); font-weight: 600; }
+  .fc-growth { right: -8px; top: 20px; animation-delay: -3s; min-width: 150px; }
+  .fc-growth .k { font-size: 11px; color: var(--ink-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; }
+  .fc-growth .v { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1.2; }
+  .fc-growth .v small { color: #15803d; font-size: 13px; font-weight: 700; margin-left: 4px; }
+  .fc-growth svg { display: block; margin-top: 6px; }
+  @media (min-width: 960px) {
+    .hero { padding: 72px 0 100px; }
+    .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 64px; }
+    .fc-rating { left: -36px; }
+    .fc-growth { right: -28px; }
+  }
+
+  /* ---------- Trustbar ---------- */
+  .trustbar { background: var(--navy); color: var(--white); padding: 18px 0; }
+  .trustbar-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; padding: 0 20px; max-width: 1100px; margin: 0 auto; }
+  .trustbar-item { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.4px; color: rgba(255,255,255,0.85); }
+  .trustbar-item .icon { color: var(--gold); font-size: 17px; }
+  @media (min-width: 820px) { .trustbar-inner { display: flex; justify-content: center; gap: 48px; } .trustbar-item { font-size: 13px; } }
+
+  /* ---------- Sections ---------- */
+  section { padding: 76px 0; }
+  @media (min-width: 960px) { section { padding: 110px 0; } }
+  .section-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+  .section-label { display: inline-block; color: var(--red); font-size: 12px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 14px; }
+  .section-head h2 { font-size: clamp(30px, 5vw, 46px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--navy); margin-bottom: 16px; }
+  .section-head h2 .red { color: var(--red); }
+  .section-head p { font-size: clamp(16px, 2vw, 18px); color: var(--ink-2); line-height: 1.65; }
+
+  /* ---------- Problem / Solution ---------- */
+  .problem { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
+  .ba-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1040px; margin: 0 auto; }
+  @media (min-width: 820px) { .ba-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+  .ba-card { border-radius: var(--radius-lg); position: relative; overflow: hidden; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); box-shadow: var(--shadow-md); }
+  .ba-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  .ba-photo { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
+  .ba-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+  .ba-card:hover .ba-photo img { transform: scale(1.04); }
+  .ba-card.before .ba-photo img { filter: grayscale(0.85) brightness(0.8) contrast(0.95); }
+  .ba-body { padding: 28px 26px 32px; }
+  .ba-card.before { background: #f1f5f9; border: 1px solid #e2e8f0; }
+  .ba-card.after { background: linear-gradient(160deg, var(--navy), var(--navy-light)); color: var(--white); border: 1px solid rgba(216,31,38,0.5); }
+  .ba-tag { position: absolute; top: 16px; left: 16px; font-size: 10px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; z-index: 2; }
+  .before .ba-tag { background: rgba(255,255,255,0.92); color: #dc2626; }
+  .after .ba-tag { background: var(--gold); color: var(--navy); }
+  .ba-card h3 { font-size: 24px; font-weight: 800; margin-bottom: 12px; line-height: 1.2; letter-spacing: -0.02em; }
+  .ba-card p { font-size: 15px; line-height: 1.7; }
+  .before p { color: var(--ink-2); }
+  .after p { color: rgba(255,255,255,0.8); }
+  .ba-list { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .ba-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
+  .ba-list li .mark { flex-shrink: 0; font-size: 15px; line-height: 1.3; }
+
+  /* ---------- How it works ---------- */
+  .how { background: var(--white); }
+  .how-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; max-width: 1100px; margin: 0 auto; }
+  @media (min-width: 900px) { .how-grid { grid-template-columns: 1fr 1.05fr; gap: 64px; } }
+  .how-photo { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4 / 3.6; background: #e2e8f0; }
+  .how-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .how-photo .chip { position: absolute; left: 16px; bottom: 16px; background: rgba(13,27,42,0.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-size: 13px; font-weight: 700; padding: 10px 14px; border-radius: 12px; display: flex; align-items: center; gap: 8px; }
+  .how-photo .chip b { color: var(--gold); }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: grid; grid-template-columns: 48px 1fr; gap: 18px; padding: 22px 22px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow-sm); transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s; }
+  .step:hover { transform: translateX(4px); box-shadow: var(--shadow-md); border-color: rgba(216,31,38,0.4); }
+  .step-num { width: 48px; height: 48px; background: linear-gradient(135deg, var(--red), var(--red-dark)); color: var(--white); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px; font-weight: 800; box-shadow: 0 8px 18px -6px rgba(216,31,38,0.6); }
+  .step h4 { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 4px; letter-spacing: -0.01em; }
+  .step p { font-size: 14.5px; color: var(--ink-2); line-height: 1.6; }
+
+  /* ---------- ROI & Revenue Impact ---------- */
+  .roi { background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%); position: relative; overflow: hidden; }
+  .roi-kpis { display: grid; grid-template-columns: 1fr; gap: 14px; max-width: 1100px; margin: 0 auto 20px; }
+  @media (min-width: 720px) { .roi-kpis { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+  .kpi { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow-sm); text-align: left; cursor: pointer; font-family: inherit; color: inherit; transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s var(--ease); position: relative; }
+  .kpi:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .kpi[aria-pressed="true"] { border-color: var(--navy); box-shadow: 0 0 0 1px var(--navy), var(--shadow-md); }
+  .kpi[aria-pressed="true"]::after { content: ""; position: absolute; left: 22px; right: 22px; bottom: -1px; height: 3px; border-radius: 3px 3px 0 0; background: var(--red); }
+  .kpi .k-label { font-size: 12px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--ink-3); display: flex; align-items: center; gap: 8px; }
+  .kpi .k-value { font-family: var(--font-display); font-size: clamp(30px, 5vw, 38px); font-weight: 800; color: var(--navy); letter-spacing: -0.03em; line-height: 1.15; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .kpi .k-sub { font-size: 13px; color: var(--ink-2); margin-top: 2px; }
+  .kpi .k-sub b { color: #15803d; }
+  @media (max-width: 719px) {
+    .roi-kpis { gap: 10px; }
+    .kpi { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "label value" "sub value"; align-items: center; column-gap: 12px; padding: 14px 16px; }
+    .kpi .k-label { grid-area: label; font-size: 11px; }
+    .kpi .k-sub { grid-area: sub; font-size: 12px; }
+    .kpi .k-value { grid-area: value; margin-top: 0; font-size: 26px; }
+    .kpi[aria-pressed="true"]::after { left: 0; right: auto; top: 14px; bottom: 14px; width: 3px; height: auto; border-radius: 0 3px 3px 0; }
+  }
+
+  .chart-card { max-width: 1100px; margin: 0 auto; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 22px 18px 18px; }
+  @media (min-width: 720px) { .chart-card { padding: 30px 32px 24px; } }
+  .chart-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px 20px; margin-bottom: 14px; }
+  .chart-title { font-family: var(--font-display); font-size: 19px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
+  .chart-sub { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+  .chart-phases { display: flex; gap: 6px; flex-wrap: wrap; }
+  @media (max-width: 719px) { .chart-phases { display: none; } .chart-title { font-size: 17px; } }
+  .chart-phases span { font-size: 11px; font-weight: 700; color: var(--ink-2); background: var(--surface-2); border: 1px solid var(--line); padding: 5px 10px; border-radius: 50px; }
+  .chart-wrap { position: relative; width: 100%; }
+  .chart-wrap svg { display: block; width: 100%; height: auto; overflow: visible; touch-action: pan-y; }
+  .chart-wrap .grid line { stroke: #e2e8f0; stroke-width: 1; }
+  .chart-wrap .axis text { fill: var(--ink-3); font-size: 11px; font-family: var(--font-body); }
+  .chart-wrap .line { fill: none; stroke: var(--red); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .chart-wrap .baseline { stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 4 5; fill: none; }
+  .chart-wrap .area { opacity: 0; transition: opacity 1s ease 0.6s; }
+  .chart-wrap.drawn .area { opacity: 1; }
+  .chart-wrap .end-dot { opacity: 0; transition: opacity 0.4s ease 1.8s; }
+  .chart-wrap.drawn .end-dot { opacity: 1; }
+  .chart-wrap .end-label { font-family: var(--font-display); font-size: 13px; font-weight: 800; fill: var(--navy); }
+  .chart-wrap .base-label { font-size: 11px; font-weight: 600; fill: var(--ink-3); }
+  .chart-wrap .cross { stroke: var(--navy); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0; }
+  .chart-wrap .hover-dot { opacity: 0; }
+  .chart-wrap.hovering .cross, .chart-wrap.hovering .hover-dot { opacity: 1; }
+  .tooltip { position: absolute; top: 0; left: 0; pointer-events: none; background: var(--navy); color: #fff; border-radius: 10px; padding: 8px 12px; font-size: 12px; line-height: 1.45; box-shadow: var(--shadow-lg); opacity: 0; transform: translate(-50%, -110%); transition: opacity 0.15s; white-space: nowrap; z-index: 3; }
+  .tooltip b { font-family: var(--font-display); font-size: 15px; display: block; }
+  .tooltip span { color: #cbd5e1; }
+  .chart-wrap.hovering .tooltip { opacity: 1; }
+  .chart-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 10px; font-size: 12px; color: var(--ink-2); font-weight: 600; }
+  .chart-legend i { display: inline-block; width: 18px; height: 0; border-top: 2.5px solid var(--red); vertical-align: middle; margin-right: 6px; border-radius: 2px; }
+  .chart-legend i.dash { border-top: 1.5px dashed #94a3b8; }
+  .chart-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-3); line-height: 1.5; }
+  .chart-foot details { font-size: 12px; }
+  .chart-foot summary { cursor: pointer; font-weight: 700; color: var(--navy); }
+  .data-table { margin-top: 10px; border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  .data-table th, .data-table td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--line); }
+  .data-table th:first-child, .data-table td:first-child { text-align: left; }
+  .table-scroll { overflow-x: auto; max-width: 100%; }
+
+  /* ---------- Owners (photo band) ---------- */
+  .owners { background: var(--white); }
+  .owners-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; max-width: 1100px; margin: 0 auto; }
+  @media (min-width: 900px) { .owners-grid { grid-template-columns: 1.05fr 1fr; gap: 64px; } }
+  .owners-collage { display: grid; grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; aspect-ratio: 1 / 0.9; }
+  .owners-collage figure { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); background: #e2e8f0; }
+  .owners-collage figure:first-child { grid-row: 1 / 3; }
+  .owners-collage img { width: 100%; height: 100%; object-fit: cover; }
+  .owners-copy h2 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; color: var(--navy); margin-bottom: 16px; }
+  .owners-copy h2 .red { color: var(--red); }
+  .owners-copy > p { color: var(--ink-2); font-size: 17px; margin-bottom: 22px; }
+  .owners-list { list-style: none; display: grid; gap: 12px; }
+  .owners-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--ink); }
+  .owners-list .ico { width: 34px; height: 34px; border-radius: 10px; background: rgba(216,31,38,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
+  .owners-list b { display: block; font-family: var(--font-display); }
+  .owners-list span { color: var(--ink-2); font-size: 14px; }
+
+  /* ---------- Benefits ---------- */
+  .benefits { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
+  .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 18px; max-width: 1100px; margin: 0 auto; }
+  .benefit-card { background: var(--white); border-radius: var(--radius); padding: 28px 26px; border: 1px solid var(--line); box-shadow: var(--shadow-sm); transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s; }
+  .benefit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: rgba(216,31,38,0.35); }
+  .benefit-icon { width: 52px; height: 52px; background: linear-gradient(135deg, rgba(216,31,38,0.12), rgba(216,31,38,0.04)); border: 1px solid rgba(216,31,38,0.12); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 18px; }
+  .benefit-card h4 { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.01em; }
+  .benefit-card p { font-size: 14.5px; color: var(--ink-2); }
+
+  /* ---------- Stats ---------- */
+  .stats { background: radial-gradient(800px 400px at 50% 0%, rgba(216,31,38,0.18), transparent 70%), linear-gradient(160deg, var(--navy), #0a1622); color: var(--white); }
+  .stats-head { text-align: center; max-width: 700px; margin: 0 auto 44px; }
+  .stats-head h2 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; margin-bottom: 14px; }
+  .stats-head .gold { color: var(--gold); }
+  .stats-head p { color: rgba(255,255,255,0.72); font-size: 17px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 1000px; margin: 0 auto; }
+  @media (min-width: 820px) { .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; } }
+  .stat { text-align: center; padding: 26px 12px; border-radius: var(--radius); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+  .stat-num { font-family: var(--font-display); font-size: clamp(38px, 6vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .stat-num .suffix { color: var(--gold); font-size: 0.6em; margin-left: 2px; }
+  .stat-label { margin-top: 10px; font-size: 13px; color: rgba(255,255,255,0.72); font-weight: 600; }
+
+  /* ---------- Pricing ---------- */
+  .pricing { background: var(--white); }
+  .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1100px; margin: 0 auto; align-items: stretch; }
+  @media (min-width: 900px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; } }
+  .price-card { position: relative; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 32px 26px; box-shadow: var(--shadow-md); display: flex; flex-direction: column; transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+  .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .price-card.featured { background: linear-gradient(165deg, var(--navy), var(--navy-light)); color: var(--white); border: 1px solid rgba(216,31,38,0.6); box-shadow: 0 0 0 1px rgba(216,31,38,0.25), 0 40px 80px -24px rgba(13,27,42,0.55); }
+  @media (min-width: 900px) { .price-card.featured { padding: 44px 30px; } }
+  .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 800; letter-spacing: 1px; padding: 7px 14px; border-radius: 50px; white-space: nowrap; box-shadow: 0 8px 18px -6px rgba(251,191,36,0.7); }
+  .price-tier { font-size: 12px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--red); }
+  .featured .price-tier { color: var(--gold); }
+  .price-name { font-family: var(--font-display); font-size: 21px; font-weight: 800; margin: 6px 0 16px; letter-spacing: -0.01em; }
+  .price-amount { font-family: var(--font-display); font-size: 46px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-amount .currency { font-size: 0.55em; vertical-align: top; margin-right: 2px; position: relative; top: 4px; }
+  .price-sub { font-size: 13px; color: var(--ink-3); margin: 10px 0 22px; }
+  .featured .price-sub { color: rgba(255,255,255,0.7); }
+  .price-features { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 26px; flex: 1; }
+  .price-features li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; }
+  .price-features .check { width: 20px; height: 20px; border-radius: 50%; background: rgba(37,211,102,0.14); color: #15803d; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+  .featured .price-features .check { background: rgba(37,211,102,0.2); color: var(--green); }
+  .price-cta { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 20px; border-radius: 14px; font-weight: 700; font-size: 15px; text-decoration: none; transition: transform 0.25s var(--ease), box-shadow 0.25s, background 0.2s, color 0.2s; }
+  .price-cta.primary { background: var(--green); color: var(--white); box-shadow: 0 12px 28px -8px rgba(37,211,102,0.6); }
+  .price-cta.primary:hover { transform: translateY(-2px); }
+  .price-cta.secondary { background: var(--white); color: var(--navy); border: 1.5px solid rgba(13,27,42,0.16); }
+  .price-cta.secondary:hover { border-color: var(--navy); background: var(--navy); color: var(--white); }
+
+  /* ---------- Guarantee ---------- */
+  .guarantee { padding-top: 0; background: var(--white); }
+  .guarantee-box { max-width: 860px; margin: 0 auto; text-align: center; padding: 40px 26px; border-radius: var(--radius-lg); background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid rgba(251,191,36,0.5); box-shadow: var(--shadow-md); }
+  .guarantee-icon { font-size: 44px; display: block; margin-bottom: 10px; }
+  .guarantee-box h3 { font-size: clamp(22px, 3.5vw, 28px); font-weight: 800; color: var(--navy); margin-bottom: 12px; letter-spacing: -0.02em; }
+  .guarantee-box p { color: var(--ink-2); font-size: 16px; line-height: 1.7; }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta { position: relative; text-align: center; color: var(--white); overflow: hidden; isolation: isolate; }
+  .final-cta .bg { position: absolute; inset: 0; z-index: -2; }
+  .final-cta .bg img { width: 100%; height: 100%; object-fit: cover; }
+  .final-cta::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(160deg, rgba(13,27,42,0.93), rgba(13,27,42,0.8) 60%, rgba(165,23,28,0.78)); }
+  .final-cta h2 { font-size: clamp(30px, 5.5vw, 50px); font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 18px; }
+  .final-cta p { color: rgba(255,255,255,0.8); font-size: 18px; max-width: 580px; margin: 0 auto 32px; }
+  .final-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .final-ctas .btn-secondary { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+  .final-ctas .btn-secondary:hover { background: var(--white); color: var(--navy); }
+
+  /* ---------- Footer ---------- */
+  .footer { background: var(--navy); color: var(--white); padding: 44px 0 100px; text-align: center; }
+  .footer .brand .map { color: var(--white); }
+  .footer .role { color: rgba(255,255,255,0.72); font-size: 14px; }
+  .footer .powered { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); color: #64748b; font-size: 12px; letter-spacing: 0.3px; }
+  .footer .powered a { color: #ffffff; font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.25); transition: color 0.15s, border-color 0.15s; }
+  .footer .powered a:hover { color: var(--red); border-bottom-color: var(--red); }
+
+  /* ---------- Floating WhatsApp ---------- */
+  .wa-float { position: fixed; right: 18px; bottom: 18px; width: 58px; height: 58px; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 26px; text-decoration: none; z-index: 200; box-shadow: 0 14px 30px -8px rgba(37,211,102,0.7), 0 2px 6px rgba(0,0,0,0.15); transition: transform 0.25s var(--ease); }
+  .wa-float:hover { transform: scale(1.08); }
+  .wa-float::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--green); animation: ring 2.4s ease-out infinite; }
+  @keyframes ring { from { transform: scale(1); opacity: 0.7; } to { transform: scale(1.6); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .wa-float::before { animation: none; } }
+</style>
+</head>
+<body>
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  🔥 <strong>OFERTA DE LANZAMIENTO:</strong> Instalación GRATIS en la Gran Área Metropolitana · Solo este mes
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-shield"></div>
+      <div><span class="biz">Biz</span><span class="map">Map</span><span class="shield">Shield</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#roi">Resultados</a>
+      <a href="#pricing">Precios</a>
+    </div>
+    <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20BizMapShield"
+       target="_blank" rel="noopener" class="nav-cta"
+       onclick="gtag('event','click_whatsapp',{event_category:'CTA',event_label:'Nav WhatsApp'});">
+      💬 <span class="long">Hablar por&nbsp;</span>WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="reveal">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Sistema #1 en Costa Rica
+        </div>
+        <h1>
+          ¿Y si tus clientes<br>
+          <span class="red">NO TE VEN</span><br>
+          en el mapa?
+        </h1>
+        <p class="lead">
+          Cada día que tu negocio no aparece bien posicionado en Google, tus competidores se llevan a tus clientes.
+          <strong>BizMapShield</strong> lo arregla en 3 segundos — con cada cliente que entra a tu negocio.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20ver%20c%C3%B3mo%20funciona%20BizMapShield"
+             target="_blank" rel="noopener" class="btn btn-primary"
+             onclick="gtag('event','click_whatsapp',{event_category:'CTA',event_label:'Hero WhatsApp'});">
+            💬 Quiero ver cómo funciona
+          </a>
+          <a href="#pricing" class="btn btn-secondary">
+            Ver precios
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><div class="check">✓</div> Instalación GRATIS</div>
+          <div class="trust-item"><div class="check">✓</div> Garantía 30 días</div>
+          <div class="trust-item"><div class="check">✓</div> Soporte en español</div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" style="--d:0.15s">
+        <div class="hero-photo">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1100&q=80&auto=format&fit=crop"
+               srcset="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&q=75&auto=format&fit=crop 640w,
+                       https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1100&q=80&auto=format&fit=crop 1100w,
+                       https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600&q=80&auto=format&fit=crop 1600w"
+               sizes="(min-width: 960px) 560px, 100vw"
+               alt="Dueño de negocio sonriente atendiendo a una clienta que paga con su celular en el mostrador"
+               width="1100" height="935" fetchpriority="high" />
+        </div>
+        <div class="float-card fc-rating float" aria-hidden="true">
+          <div class="g"><span>G</span></div>
+          <div>
+            <div class="score">4.9 <span class="stars">★★★★★</span></div>
+            <div class="sub">Tu perfil en Google Maps</div>
+          </div>
+        </div>
+        <div class="float-card fc-growth float" aria-hidden="true">
+          <div class="k">Reseñas 5★ · 90 días</div>
+          <div class="v">+98<small>▲</small></div>
+          <svg width="130" height="30" viewBox="0 0 130 30"><path d="M2 27 C 20 26, 30 24, 45 20 S 75 12, 90 9 S 115 4, 128 3" fill="none" stroke="#d81f26" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUSTBAR ============ -->
+<div class="trustbar">
+  <div class="trustbar-inner">
+    <div class="trustbar-item"><span class="icon">⭐</span> 5 ESTRELLAS AUTOMÁTICAS</div>
+    <div class="trustbar-item"><span class="icon">🇨🇷</span> HECHO EN COSTA RICA</div>
+    <div class="trustbar-item"><span class="icon">⚡</span> CONFIGURACIÓN EN 1 DÍA</div>
+    <div class="trustbar-item"><span class="icon">🛡️</span> GARANTÍA 30 DÍAS</div>
+  </div>
+</div>
+
+<!-- ============ PROBLEM / SOLUTION ============ -->
+<section class="problem">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">La diferencia es brutal</span>
+      <h2>Mira lo que ven tus clientes<br>cuando te buscan en <span class="red">Google</span></h2>
+      <p>La diferencia entre aparecer y desaparecer en el mapa se mide en estrellas.</p>
+    </div>
+
+    <div class="ba-grid">
+      <div class="ba-card before reveal">
+        <div class="ba-tag">Sin BizMapShield</div>
+        <div class="ba-photo">
+          <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=900&q=75&auto=format&fit=crop"
+               alt="Cafetería vacía con poca luz" loading="lazy" width="900" height="506" />
+        </div>
+        <div class="ba-body">
+          <h3>😰 Tu competencia gana</h3>
+          <p>Buscas "barbería en Escazú" y aparecen 15 negocios. El cliente toca el primero — el que tiene más estrellas y más reseñas. No el más barato, no el más cercano. El más <strong>confiable</strong>.</p>
+          <ul class="ba-list">
+            <li><span class="mark">❌</span> 12 reseñas vs. 150 de tu competencia</li>
+            <li><span class="mark">❌</span> Clientes se van sin dejar reseña</li>
+            <li><span class="mark">❌</span> Apareces en la página 3 del mapa</li>
+            <li><span class="mark">❌</span> Pierdes ₡200,000+ al mes en clientes invisibles</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ba-card after reveal" style="--d:0.12s">
+        <div class="ba-tag">Con BizMapShield</div>
+        <div class="ba-photo">
+          <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=900&q=75&auto=format&fit=crop"
+               alt="Cafetería moderna llena de clientes" loading="lazy" width="900" height="506" />
+        </div>
+        <div class="ba-body">
+          <h3>🚀 Dominas tu zona</h3>
+          <p>El cliente toca el celular contra tu stand y en 3 segundos aparece la pantalla de Google lista para dejar 5 estrellas. Sin buscar, sin escribir, sin excusas.</p>
+          <ul class="ba-list">
+            <li><span class="mark">✅</span> 30+ reseñas nuevas cada mes</li>
+            <li><span class="mark">✅</span> Clientes dejan reseña sin que se lo pidas</li>
+            <li><span class="mark">✅</span> Apareces PRIMERO en tu zona</li>
+            <li><span class="mark">✅</span> Ganas ₡500,000+ al mes en clientes nuevos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how" id="como-funciona">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Tan simple como 1, 2, 3</span>
+      <h2>Así funciona en <span class="red">3 segundos</span></h2>
+      <p>Sin apps. Sin configuraciones. Sin que el cliente tenga que pensar.</p>
+    </div>
+
+    <div class="how-grid">
+      <div class="how-photo reveal-img">
+        <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1000&q=78&auto=format&fit=crop"
+             alt="Cliente acercando su celular a un dispositivo en el mostrador de un negocio" loading="lazy" width="1000" height="900" />
+        <div class="chip">📡 Un toque · <b>3 segundos</b></div>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <div>
+            <h4>📱 El cliente toca</h4>
+            <p>El cliente acerca su celular al stand BizMapShield. Sin escanear nada, sin abrir apps. Solo un toque.</p>
+          </div>
+        </div>
+        <div class="step reveal" style="--d:0.1s">
+          <div class="step-num">2</div>
+          <div>
+            <h4>⭐ Google se abre solo</h4>
+            <p>Automáticamente se abre la página de reseñas de tu negocio en Google. Lista para que el cliente deje su opinión.</p>
+          </div>
+        </div>
+        <div class="step reveal" style="--d:0.2s">
+          <div class="step-num">3</div>
+          <div>
+            <h4>🚀 Subes en el mapa</h4>
+            <p>Cada reseña te acerca al top. En 30 días tienes más estrellas que tu competencia. En 90 días, dominas tu zona.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROI & REVENUE IMPACT ============ -->
+<section class="roi" id="roi">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">ROI e impacto en ingresos</span>
+      <h2>Tus primeros <span class="red">90 días</span> con BizMapShield</h2>
+      <p>Más reseñas de 5 estrellas, más visitas y más ingresos: así crece un negocio local típico mientras el stand trabaja con cada cliente.</p>
+    </div>
+
+    <div class="roi-kpis reveal" role="group" aria-label="Seleccionar métrica">
+      <button class="kpi" type="button" data-metric="reviews" aria-pressed="true">
+        <div class="k-label">⭐ Reseñas de 5 estrellas</div>
+        <div class="k-value" data-count="98" data-prefix="+">+0</div>
+        <div class="k-sub">De 12 a <b>110</b> reseñas en 90 días</div>
+      </button>
+      <button class="kpi" type="button" data-metric="traffic" aria-pressed="false">
+        <div class="k-label">🚶 Tráfico de clientes</div>
+        <div class="k-value" data-count="38" data-prefix="+" data-suffix="%">+0%</div>
+        <div class="k-sub">Visitas semanales vs. antes del stand</div>
+      </button>
+      <button class="kpi" type="button" data-metric="revenue" aria-pressed="false">
+        <div class="k-label">💰 Ingreso adicional estimado</div>
+        <div class="k-value" data-count="520000" data-prefix="₡">₡0</div>
+        <div class="k-sub">Por mes, al cierre del día 90</div>
+      </button>
+    </div>
+
+    <div class="chart-card reveal" style="--d:0.1s">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title" id="chart-title">Reseñas de 5 estrellas acumuladas</div>
+          <div class="chart-sub" id="chart-sub">Total de reseñas en Google, semana a semana</div>
+        </div>
+        <div class="chart-phases" aria-hidden="true">
+          <span>Día 0–30 · Arranque</span><span>Día 30–60 · Tracción</span><span>Día 60–90 · Dominio</span>
+        </div>
+      </div>
+
+      <div class="chart-wrap" id="chart">
+        <svg id="chart-svg" viewBox="0 0 800 340" role="img" aria-labelledby="chart-title chart-sub"></svg>
+        <div class="tooltip" id="chart-tip"></div>
+      </div>
+
+      <div class="chart-legend">
+        <span><i></i>Con BizMapShield</span>
+        <span><i class="dash"></i>Sin BizMapShield (tendencia actual)</span>
+      </div>
+
+      <div class="chart-foot">
+        <span>Proyección ilustrativa para un negocio con ~250 clientes por semana. Los resultados reales varían según el tipo de negocio, la ubicación y el volumen de clientes.</span>
+        <details>
+          <summary>Ver datos en tabla</summary>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead><tr><th>Día</th><th>Reseñas 5★</th><th>Tráfico vs. base</th><th>Ingreso extra / mes</th></tr></thead>
+              <tbody id="data-table-body"></tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OWNERS ============ -->
+<section class="owners">
+  <div class="container">
+    <div class="owners-grid">
+      <div class="owners-collage reveal-img">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=800&q=78&auto=format&fit=crop"
+               alt="Dueño de restaurante sonriendo en su local" loading="lazy" width="800" height="1000" />
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=75&auto=format&fit=crop"
+               alt="Cafetería moderna con clientes" loading="lazy" width="600" height="450" />
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=75&auto=format&fit=crop"
+               alt="Empresaria sonriendo" loading="lazy" width="600" height="450" />
+        </figure>
+      </div>
+
+      <div class="owners-copy reveal">
+        <span class="section-label">Hecho para dueños de negocio</span>
+        <h2>Tú atiendes a tus clientes.<br><span class="red">Nosotros cuidamos tu reputación.</span></h2>
+        <p>Cafeterías, restaurantes, barberías, salones, clínicas y tiendas de la Gran Área Metropolitana usan un solo gesto para convertir cada visita en una reseña.</p>
+        <ul class="owners-list">
+          <li><span class="ico">⚡</span><div><b>Listo en 1 día</b><span>Instalamos y configuramos todo en tu local.</span></div></li>
+          <li><span class="ico">🤝</span><div><b>Sin trabajo extra para tu equipo</b><span>El stand hace la solicitud por ti, con cada cliente.</span></div></li>
+          <li><span class="ico">🛡️</span><div><b>Garantía de 30 días</b><span>Si no ves resultados, te devolvemos tu dinero.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section class="benefits">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Lo que ganas</span>
+      <h2>Más que un aparato —<br>una <span class="red">máquina de clientes</span></h2>
+      <p>Esto no es un gadget. Es la herramienta que convierte cada cliente satisfecho en publicidad gratis para tu negocio.</p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">⭐</div>
+        <h4>Reseñas en automático</h4>
+        <p>Tus clientes dejan 5 estrellas sin que se lo pidas. Se convierte en parte natural de la experiencia — como pagar.</p>
+      </div>
+      <div class="benefit-card reveal" style="--d:0.06s">
+        <div class="benefit-icon">🗺️</div>
+        <h4>Domina tu zona</h4>
+        <p>Más reseñas = mejor ranking. Apareces primero cuando alguien busca tu servicio cerca de ti. Antes que tu competencia.</p>
+      </div>
+      <div class="benefit-card reveal" style="--d:0.12s">
+        <div class="benefit-icon">💰</div>
+        <h4>Más clientes, más ventas</h4>
+        <p>El 90% de la gente elige el negocio con más estrellas. Cada reseña nueva se traduce en dólares en tu caja.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🛡️</div>
+        <h4>Proteges tu reputación</h4>
+        <p>Más reseñas positivas diluyen cualquier comentario negativo. Tu marca queda blindada.</p>
+      </div>
+      <div class="benefit-card reveal" style="--d:0.06s">
+        <div class="benefit-icon">⚡</div>
+        <h4>Sin trabajo extra</h4>
+        <p>No tienes que pedir nada. No tienes que recordar nada. El sistema trabaja por ti 24/7 — incluso cuando duermes.</p>
+      </div>
+      <div class="benefit-card reveal" style="--d:0.12s">
+        <div class="benefit-icon">📊</div>
+        <h4>Datos en tiempo real</h4>
+        <p>Sabes cuántas reseñas nuevas entraron, cuántos clientes tocaron el stand, y cómo va tu reputación vs. la competencia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-head reveal">
+      <h2>Lo que <span class="gold">significan las reseñas</span> para tu negocio</h2>
+      <p>Los números no mienten. Las reseñas de Google son la moneda más valiosa de tu negocio.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="stat-num">90<span class="suffix">%</span></div>
+        <div class="stat-label">Elige el de más estrellas</div>
+      </div>
+      <div class="stat reveal" style="--d:0.06s">
+        <div class="stat-num">270<span class="suffix">%</span></div>
+        <div class="stat-label">Más conversión con 5★</div>
+      </div>
+      <div class="stat reveal" style="--d:0.12s">
+        <div class="stat-num">3<span class="suffix">x</span></div>
+        <div class="stat-label">Más clics en Google</div>
+      </div>
+      <div class="stat reveal" style="--d:0.18s">
+        <div class="stat-num">30<span class="suffix">d</span></div>
+        <div class="stat-label">Para ver resultados</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Inversión</span>
+      <h2>Elige tu nivel de <span class="red">dominio</span></h2>
+      <p>Empieza con el stand y crece cuando quieras. Sin contratos, sin letra pequeña.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- BÁSICO -->
+      <div class="price-card reveal">
+        <div class="price-tier">Básico</div>
+        <div class="price-name">Empieza a dominar</div>
+        <div class="price-amount"><span class="currency">₡</span>19,900</div>
+        <div class="price-sub">Pago único · Instalación incluida</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> 1 Stand NFC BizMapShield</li>
+          <li><span class="check">✓</span> Código QR de respaldo</li>
+          <li><span class="check">✓</span> Configuración completa</li>
+          <li><span class="check">✓</span> Optimización de tu Google Business</li>
+          <li><span class="check">✓</span> Plantillas de WhatsApp para pedir reseñas</li>
+        </ul>
+        <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20B%C3%A1sico%20de%20BizMapShield%20(1%20Stand%20-%20%E2%82%A119%2C900)"
+           target="_blank" rel="noopener" class="price-cta secondary"
+           onclick="gtag('event','click_whatsapp',{event_category:'Pricing',event_label:'Básico'});">
+          💬 Pedir el Básico
+        </a>
+      </div>
+
+      <!-- PRO (FEATURED) -->
+      <div class="price-card featured reveal" style="--d:0.08s">
+        <div class="featured-badge">⭐ MÁS POPULAR</div>
+        <div class="price-tier">Pro</div>
+        <div class="price-name">Domina y mantén</div>
+        <div class="price-amount"><span class="currency">₡</span>19,900</div>
+        <div class="price-sub">Pago único + ₡9,900/mes mantenimiento</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> Todo lo del plan Básico</li>
+          <li><span class="check">✓</span> Monitoreo de reseñas en tiempo real</li>
+          <li><span class="check">✓</span> Reporte mensual en PDF</li>
+          <li><span class="check">✓</span> Alertas por reseñas negativas</li>
+          <li><span class="check">✓</span> Score de reputación actualizado</li>
+          <li><span class="check">✓</span> Soporte prioritario por WhatsApp</li>
+        </ul>
+        <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20Pro%20de%20BizMapShield%20(Stand%20%2B%20Mantenimiento%20%E2%82%A19%2C900%2Fmes)"
+           target="_blank" rel="noopener" class="price-cta primary"
+           onclick="gtag('event','click_whatsapp',{event_category:'Pricing',event_label:'Pro'});">
+          💬 Pedir el Pro
+        </a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="price-card reveal" style="--d:0.16s">
+        <div class="price-tier">Premium</div>
+        <div class="price-name">Delegación total</div>
+        <div class="price-amount"><span class="currency">₡</span>39,900</div>
+        <div class="price-sub">Pago único + ₡39,900/mes gestión total</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> Todo lo del plan Pro</li>
+          <li><span class="check">✓</span> Respuesta activa a todas las reseñas</li>
+          <li><span class="check">✓</span> Gestión completa de tu reputación</li>
+          <li><span class="check">✓</span> Revisión trimestral con estrategia</li>
+          <li><span class="check">✓</span> Reportes ejecutivos personalizados</li>
+          <li><span class="check">✓</span> Múltiples sucursales (hasta 4)</li>
+        </ul>
+        <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20Premium%20de%20BizMapShield%20(Gesti%C3%B3n%20Total)"
+           target="_blank" rel="noopener" class="price-cta secondary"
+           onclick="gtag('event','click_whatsapp',{event_category:'Pricing',event_label:'Premium'});">
+          💬 Pedir el Premium
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUARANTEE ============ -->
+<section class="guarantee">
+  <div class="container">
+    <div class="guarantee-box reveal">
+      <span class="guarantee-icon">🛡️</span>
+      <h3>Garantía de resultados en 30 días</h3>
+      <p>Si en 30 días no consigues al menos <strong>10 reseñas nuevas de 5 estrellas</strong> con BizMapShield, te devolvemos el 100% de tu dinero y te quedas con el stand. Sin preguntas, sin letra pequeña. Así de seguros estamos de que funciona.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy" />
+  </div>
+  <div class="container">
+    <h2 class="reveal">Tu competencia ya está en el mapa.<br>¿Y tú?</h2>
+    <p class="reveal">Cada día que pasa sin reseñas nuevas es un cliente que se va con otro. Empieza hoy. Te tomamos 5 minutos.</p>
+    <div class="final-ctas reveal">
+      <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20dominar%20mi%20mapa%20con%20BizMapShield"
+         target="_blank" rel="noopener" class="btn btn-primary"
+         onclick="gtag('event','click_whatsapp',{event_category:'CTA',event_label:'Final WhatsApp'});">
+        💬 Hablar por WhatsApp
+      </a>
+      <a href="tel:+50663889598" class="btn btn-secondary"
+         onclick="gtag('event','click_call',{event_category:'CTA',event_label:'Final Call'});">
+        📞 Llamar ahora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="brand" style="justify-content:center; margin-bottom:14px;">
+      <div class="brand-shield"></div>
+      <div><span class="biz">Biz</span><span class="map">Map</span><span class="shield">Shield</span></div>
+    </div>
+    <div class="role">Protege tu reputación. Domina tu mapa. Multiplica tus clientes.</div>
+    <div class="role" style="margin-bottom:20px;">🇨🇷 Costa Rica · Gran Área Metropolitana</div>
+    <div class="powered">
+      Powered, created &amp; sponsored by
+      <a href="https://auralinkdigital.com" target="_blank" rel="noopener">AuralinkDigital.com</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20BizMapShield"
+   target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp"
+   onclick="gtag('event','click_whatsapp',{event_category:'CTA',event_label:'Floating Button'});">
+  💬
+</a>
+
+<!-- ============ JAVASCRIPT ============ -->
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-img').forEach(el => observer.observe(el));
+
+  // Navbar shadow on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 8), { passive: true });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ============ ROI CHART ============
+  (function () {
+    // Illustrative 90-day projection, sampled every 7 days (day 0 → day 90).
+    const days = [0, 7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 90];
+    const fmtCRC = v => '₡' + Math.round(v).toLocaleString('en-US');
+    const metrics = {
+      reviews: {
+        title: 'Reseñas de 5 estrellas acumuladas',
+        sub: 'Total de reseñas en Google, semana a semana',
+        data: [12, 17, 23, 30, 37, 45, 53, 61, 69, 78, 86, 94, 102, 110],
+        base: [12, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 16, 16, 16],
+        fmt: v => Math.round(v) + ' reseñas',
+        axis: v => Math.round(v)
+      },
+      traffic: {
+        title: 'Tráfico de clientes vs. antes del stand',
+        sub: 'Crecimiento de visitas semanales al local (%)',
+        data: [0, 1, 3, 5, 8, 11, 15, 18, 22, 25, 29, 32, 35, 38],
+        base: [0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 2, 1, 2, 2],
+        fmt: v => '+' + Math.round(v) + '% de visitas',
+        axis: v => Math.round(v) + '%'
+      },
+      revenue: {
+        title: 'Ingreso adicional estimado por mes',
+        sub: 'Ventas extra atribuibles a nuevos clientes (₡)',
+        data: [0, 15000, 40000, 70000, 105000, 145000, 190000, 235000, 285000, 330000, 380000, 430000, 475000, 520000],
+        base: [0, 0, 0, 5000, 5000, 5000, 10000, 10000, 10000, 15000, 15000, 15000, 20000, 20000],
+        fmt: v => fmtCRC(v) + ' / mes',
+        axis: v => v >= 1000 ? '₡' + Math.round(v / 1000) + 'k' : '₡' + v
+      }
+    };
+
+    // Data table (a11y)
+    const tbody = document.getElementById('data-table-body');
+    tbody.innerHTML = days.map((d, i) =>
+      `<tr><td>${d}</td><td>${metrics.reviews.data[i]}</td><td>+${metrics.traffic.data[i]}%</td><td>${fmtCRC(metrics.revenue.data[i])}</td></tr>`
+    ).join('');
+
+    const svg = document.getElementById('chart-svg');
+    const wrap = document.getElementById('chart');
+    const tip = document.getElementById('chart-tip');
+    const NS = 'http://www.w3.org/2000/svg';
+    let W = 800, H = 340;
+    const M = { t: 20, r: 24, b: 34, l: 56 };
+    let current = 'reviews';
+    let hasDrawn = false;
+    let scaleX, scaleY, pts;
+
+    function el(tag, attrs, parent) {
+      const n = document.createElementNS(NS, tag);
+      for (const k in attrs) n.setAttribute(k, attrs[k]);
+      if (parent) parent.appendChild(n);
+      return n;
+    }
+
+    function niceMax(v) {
+      const p = Math.pow(10, Math.floor(Math.log10(v)));
+      const n = v / p;
+      return (n <= 1.2 ? 1.2 : n <= 1.5 ? 1.5 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 3 ? 3 : n <= 4 ? 4 : n <= 5 ? 5 : n <= 6 ? 6 : n <= 8 ? 8 : 10) * p;
+    }
+
+    // Smooth path (monotone-ish Catmull-Rom → Bézier)
+    function smooth(p) {
+      let d = `M${p[0][0]},${p[0][1]}`;
+      for (let i = 0; i < p.length - 1; i++) {
+        const p0 = p[i - 1] || p[i], p1 = p[i], p2 = p[i + 1], p3 = p[i + 2] || p2;
+        const c1x = p1[0] + (p2[0] - p0[0]) / 6, c1y = p1[1] + (p2[1] - p0[1]) / 6;
+        const c2x = p2[0] - (p3[0] - p1[0]) / 6, c2y = p2[1] - (p3[1] - p1[1]) / 6;
+        d += ` C${c1x.toFixed(1)},${c1y.toFixed(1)} ${c2x.toFixed(1)},${c2y.toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`;
+      }
+      return d;
+    }
+
+    function render(animate) {
+      const m = metrics[current];
+      // Narrow screens: taller aspect so labels stay legible
+      const narrow = wrap.clientWidth < 520;
+      W = narrow ? Math.max(280, Math.round(wrap.clientWidth)) : 800; H = narrow ? 260 : 340;
+      M.l = narrow ? 48 : 56; M.r = narrow ? 14 : 24;
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      svg.innerHTML = '';
+      document.getElementById('chart-title').textContent = m.title;
+      document.getElementById('chart-sub').textContent = m.sub;
+
+      const max = niceMax(Math.max(...m.data));
+      const iw = W - M.l - M.r, ih = H - M.t - M.b;
+      scaleX = d => M.l + (d / 90) * iw;
+      scaleY = v => M.t + ih - (v / max) * ih;
+
+      const defs = el('defs', {}, svg);
+      const grad = el('linearGradient', { id: 'areaGrad', x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+      el('stop', { offset: '0%', 'stop-color': '#d81f26', 'stop-opacity': 0.22 }, grad);
+      el('stop', { offset: '100%', 'stop-color': '#d81f26', 'stop-opacity': 0 }, grad);
+
+      // Grid + y axis
+      const g = el('g', { class: 'grid' }, svg);
+      const ax = el('g', { class: 'axis' }, svg);
+      const ticks = 4;
+      for (let i = 0; i <= ticks; i++) {
+        const v = (max / ticks) * i, y = scaleY(v);
+        el('line', { x1: M.l, x2: W - M.r, y1: y, y2: y }, g);
+        const t = el('text', { x: M.l - 10, y: y + 4, 'text-anchor': 'end' }, ax);
+        t.textContent = m.axis(v);
+      }
+      // X axis labels
+      [0, 30, 60, 90].forEach(d => {
+        const t = el('text', { x: scaleX(d), y: H - 10, 'text-anchor': d === 0 ? 'start' : d === 90 ? 'end' : 'middle' }, ax);
+        t.textContent = 'Día ' + d;
+        if (d === 30 || d === 60) el('line', { x1: scaleX(d), x2: scaleX(d), y1: M.t, y2: M.t + ih, 'stroke-dasharray': '2 4' }, g);
+      });
+
+      // Baseline (without product)
+      const bpts = days.map((d, i) => [scaleX(d), scaleY(m.base[i])]);
+      el('path', { d: smooth(bpts), class: 'baseline' }, svg);
+
+      // Area + line
+      pts = days.map((d, i) => [scaleX(d), scaleY(m.data[i])]);
+      const linePath = smooth(pts);
+      el('path', { d: `${linePath} L${pts[pts.length - 1][0]},${M.t + ih} L${pts[0][0]},${M.t + ih} Z`, fill: 'url(#areaGrad)', class: 'area' }, svg);
+      const line = el('path', { d: linePath, class: 'line' }, svg);
+
+      // End point + direct label
+      const last = pts[pts.length - 1];
+      const endG = el('g', { class: 'end-dot' }, svg);
+      el('circle', { cx: last[0], cy: last[1], r: 6, fill: '#d81f26', stroke: '#fff', 'stroke-width': 2 }, endG);
+      const lbl = el('text', { x: last[0] - 12, y: last[1] - 14, 'text-anchor': 'end', class: 'end-label' }, endG);
+      lbl.textContent = m.fmt(m.data[m.data.length - 1]);
+      const bl = bpts[bpts.length - 1];
+      const bt = el('text', { x: bl[0] - 4, y: bl[1] - 8, 'text-anchor': 'end', class: 'base-label' }, endG);
+      bt.textContent = 'Sin BizMapShield';
+
+      // Hover layer
+      const cross = el('line', { class: 'cross', y1: M.t, y2: M.t + ih, x1: 0, x2: 0 }, svg);
+      const hdot = el('circle', { class: 'hover-dot', r: 5, fill: '#d81f26', stroke: '#fff', 'stroke-width': 2 }, svg);
+      const hit = el('rect', { x: M.l, y: M.t, width: iw, height: ih, fill: 'transparent' }, svg);
+
+      function move(evt) {
+        const r = svg.getBoundingClientRect();
+        const cx = (evt.clientX - r.left) * (W / r.width);
+        let idx = 0, best = Infinity;
+        pts.forEach((p, i) => { const dd = Math.abs(p[0] - cx); if (dd < best) { best = dd; idx = i; } });
+        const [px, py] = pts[idx];
+        cross.setAttribute('x1', px); cross.setAttribute('x2', px);
+        hdot.setAttribute('cx', px); hdot.setAttribute('cy', py);
+        tip.innerHTML = `<b>${m.fmt(m.data[idx])}</b><span>Día ${days[idx]} · sin stand: ${m.fmt(m.base[idx])}</span>`;
+        const sx = r.width / W;
+        let left = px * sx;
+        const tw = tip.offsetWidth / 2;
+        left = Math.max(tw, Math.min(r.width - tw, left));
+        tip.style.left = left + 'px';
+        tip.style.top = (py * sx) + 'px';
+        wrap.classList.add('hovering');
+      }
+      hit.addEventListener('pointermove', move);
+      hit.addEventListener('pointerdown', move);
+      hit.addEventListener('pointerleave', () => wrap.classList.remove('hovering'));
+
+      // Draw animation
+      const len = line.getTotalLength();
+      if (animate === 'hidden' && !reduceMotion) {
+        line.style.strokeDasharray = len;
+        line.style.strokeDashoffset = len;
+        wrap.classList.remove('drawn');
+      } else if (animate && !reduceMotion) {
+        wrap.classList.remove('drawn');
+        line.style.strokeDasharray = len;
+        line.style.strokeDashoffset = len;
+        line.getBoundingClientRect();
+        line.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(0.22, 1, 0.36, 1)';
+        requestAnimationFrame(() => {
+          line.style.strokeDashoffset = 0;
+          wrap.classList.add('drawn');
+        });
+      } else {
+        wrap.classList.add('drawn');
+      }
+    }
+
+    // Count-up KPIs
+    function countUp(node) {
+      const target = +node.dataset.count, pre = node.dataset.prefix || '', suf = node.dataset.suffix || '';
+      const fmt = v => pre + Math.round(v).toLocaleString('en-US') + suf;
+      if (reduceMotion) { node.textContent = fmt(target); return; }
+      const t0 = performance.now(), dur = 1600;
+      (function step(t) {
+        const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        node.textContent = fmt(target * e);
+        if (p < 1) requestAnimationFrame(step);
+      })(t0);
+    }
+
+    // Metric toggle
+    document.querySelectorAll('.kpi').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.metric === current) return;
+        document.querySelectorAll('.kpi').forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+        current = btn.dataset.metric;
+        render(true);
+        if (typeof gtag === 'function') gtag('event', 'roi_metric', { event_category: 'ROI', event_label: current });
+      });
+    });
+
+    // Initial static render (so layout is stable), animate when scrolled into view
+    render('hidden');
+    const chartObs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !hasDrawn) {
+        hasDrawn = true;
+        render(true);
+        chartObs.disconnect();
+      }
+    }, { threshold: 0.35 });
+    chartObs.observe(wrap);
+
+    const kpiObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { countUp(e.target); kpiObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('.k-value[data-count]').forEach(n => kpiObs.observe(n));
+
+    // Re-render on resize (breakpoint switch), without re-animating
+    let rw = wrap.clientWidth, rt;
+    window.addEventListener('resize', () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => { if (Math.abs(wrap.clientWidth - rw) > 40) { rw = wrap.clientWidth; render(false); } }, 150);
+    });
+  })();
+</script>
+
+</body>
+</html>
