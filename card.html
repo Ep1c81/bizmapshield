@@ -12,13 +12,8 @@
 <meta property="og:type" content="website" />
 
 <!-- ============ GOOGLE ANALYTICS (GA4) — BizMapShield ============ -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H999LY10ZN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-H999LY10ZN');
-</script>
+<!-- GA4: see assets/analytics.js and ANALYTICS.md -->
+<script src="assets/analytics.js"></script>
 <!-- ============ END GOOGLE ANALYTICS ============ -->
 
 <style>
@@ -440,17 +435,15 @@
   <div class="cta-wrap">
     <a class="btn btn-whatsapp"
        href="https://wa.me/50663889598?text=Hola%2C%20vi%20la%20tarjeta%20de%20BizMapShield%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n."
-       target="_blank" rel="noopener"
-       onclick="gtag('event', 'click_whatsapp', { event_category: 'CTA', event_label: 'WhatsApp Button' });">
+       target="_blank" rel="noopener">
       💬 Escríbeme por WhatsApp
     </a>
     <a class="btn btn-call"
-       href="tel:+50663889598"
-       onclick="gtag('event', 'click_call', { event_category: 'CTA', event_label: 'Call Button' });">
+       href="tel:+50663889598">
       📞 Llamar ahora
     </a>
     <button class="btn btn-save"
-            onclick="saveContact(); gtag('event', 'click_save_contact', { event_category: 'CTA', event_label: 'Save Contact Button' });">
+            onclick="saveContact(); bmsTrack('save_contact', { cta_location: 'card' });">
       ⬇️ Guardar contacto
     </button>
   </div>

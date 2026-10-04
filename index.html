@@ -33,14 +33,9 @@
 <meta name="twitter:description" content="Consigue más reseñas de 5 estrellas en Google automáticamente. Domina tu zona en Google Maps y multiplica tus clientes. Desde ₡19,900. Costa Rica." />
 <meta name="twitter:image" content="https://bizmapshield.com/assets/og-image.png" />
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H999LY10ZN"></script>
+<!-- GA4: see assets/analytics.js and ANALYTICS.md -->
+<script src="assets/analytics.js"></script>
 <script>document.documentElement.classList.add('js');</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-H999LY10ZN');
-</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -138,14 +133,29 @@
   .hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(216,31,38,0.08); color: var(--red-dark); padding: 7px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 22px; border: 1px solid rgba(216,31,38,0.14); }
   .hero-badge .dot { width: 7px; height: 7px; background: var(--red); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
-  .hero h1 { font-size: clamp(36px, 8vw, 62px); font-weight: 800; line-height: 1.04; letter-spacing: -0.035em; color: var(--navy); margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(34px, 7.5vw, 54px); font-weight: 800; line-height: 1.04; letter-spacing: -0.035em; color: var(--navy); margin-bottom: 20px; }
   .hero h1 .red { color: var(--red); }
   .hero p.lead { font-size: clamp(17px, 2.2vw, 19px); color: var(--ink-2); line-height: 1.65; margin-bottom: 30px; max-width: 540px; }
   .hero p.lead strong { color: var(--navy); }
-  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-  .hero-ctas .btn { flex: 1 1 auto; }
-  @media (min-width: 560px) { .hero-ctas .btn { flex: 0 0 auto; } }
-  .hero-trust { display: flex; gap: 10px 22px; margin-top: 28px; flex-wrap: wrap; }
+  /* Hero diagnosis form: the single primary CTA above the fold */
+  .scan-form { max-width: 560px; background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 16px; box-shadow: var(--shadow-md); }
+  .scan-label { display: block; font-family: var(--font-display); font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+  .scan-row { display: flex; flex-direction: column; gap: 10px; }
+  .scan-input { width: 100%; min-height: 52px; padding: 14px 16px; border: 1.5px solid rgba(13,27,42,0.18); border-radius: 12px; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface-2); transition: border-color 0.2s, background 0.2s; }
+  .scan-input::placeholder { color: var(--ink-3); }
+  .scan-input:focus { outline: none; border-color: var(--navy); background: var(--white); box-shadow: 0 0 0 3px rgba(13,27,42,0.12); }
+  .scan-btn { min-height: 52px; white-space: nowrap; }
+  .scan-note { margin-top: 10px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+  .scan-note a { color: var(--navy); font-weight: 700; }
+  @media (min-width: 560px) { .scan-row { flex-direction: row; } .scan-input { flex: 1; } }
+  .hero-trust { display: flex; gap: 10px 22px; margin-top: 22px; flex-wrap: wrap; }
+  @media (max-width: 559px) {
+    .hero { padding-top: 28px; }
+    .hero-badge, .hide-sm { display: none; }
+    .scan-form { padding: 14px; }
+    .hero h1 { margin-bottom: 14px; }
+    .hero p.lead { margin-bottom: 20px; font-size: 16px; }
+  }
   .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); font-weight: 600; }
   .trust-item .check { width: 20px; height: 20px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; flex-shrink: 0; }
 
@@ -167,10 +177,39 @@
   .fc-growth .v small { color: #15803d; font-size: 13px; font-weight: 700; margin-left: 4px; }
   .fc-growth svg { display: block; margin-top: 6px; }
   @media (min-width: 960px) {
-    .hero { padding: 72px 0 100px; }
-    .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 64px; }
+    .hero { padding: 44px 0 90px; }
+    .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 56px; }
+    .hero h1 { font-size: clamp(40px, 4.2vw, 54px); }
     .fc-rating { left: -36px; }
     .fc-growth { right: -28px; }
+  }
+
+  /* Hero QR demo: glass card overlapping the bottom of the hero photo */
+  .hero-media { position: relative; }
+  .hero-media .fc-rating { bottom: 60px; } /* clear the QR card that overlaps the photo's bottom edge */
+  .qr-demo { position: relative; z-index: 3; display: flex; align-items: center; gap: 16px; max-width: 420px; margin: -40px 12px 0 auto; padding: 14px 18px 14px 14px; border-radius: 22px; background: rgba(255,255,255,0.74); backdrop-filter: blur(18px) saturate(170%); -webkit-backdrop-filter: blur(18px) saturate(170%); border: 1px solid rgba(255,255,255,0.85); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), var(--shadow-lg); transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+  .qr-frame { position: relative; flex-shrink: 0; width: 112px; height: 112px; padding: 5px; border-radius: 16px; background: var(--white); box-shadow: 0 0 0 1px rgba(13,27,42,0.06), 0 10px 24px -10px rgba(13,27,42,0.35); overflow: hidden; }
+  .qr-svg { display: block; width: 100%; height: 100%; color: var(--navy); }
+  .qr-frame::before, .qr-frame::after { content: ""; position: absolute; width: 18px; height: 18px; border: 2.5px solid var(--red); pointer-events: none; }
+  .qr-frame::before { top: 2px; left: 2px; border-right: 0; border-bottom: 0; border-radius: 9px 0 0 0; }
+  .qr-frame::after { bottom: 2px; right: 2px; border-left: 0; border-top: 0; border-radius: 0 0 9px 0; }
+  .qr-scan { position: absolute; left: 6px; right: 6px; top: 6px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, transparent, var(--red), transparent); box-shadow: 0 0 12px 2px rgba(216,31,38,0.45); opacity: 0.85; animation: qrScan 2.8s var(--ease) infinite; pointer-events: none; }
+  @keyframes qrScan { 0% { transform: translateY(0); opacity: 0; } 12% { opacity: 0.85; } 88% { opacity: 0.85; } 100% { transform: translateY(var(--scan-y, 98px)); opacity: 0; } }
+  .qr-kicker { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--red-dark); margin-bottom: 4px; }
+  .qr-kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 3px rgba(216,31,38,0.18); animation: pulse 2s ease-in-out infinite; }
+  .qr-cta { font-family: var(--font-display); font-size: 15px; font-weight: 800; line-height: 1.35; color: var(--navy); letter-spacing: -0.01em; }
+  .qr-tap { display: inline-flex; align-items: center; min-height: 44px; margin: 2px 0 -10px; font-size: 13px; font-weight: 700; color: var(--navy); text-decoration: underline; text-decoration-color: rgba(216,31,38,0.5); text-underline-offset: 3px; }
+  .qr-tap .desk { display: none; }
+  @media (hover: hover) and (pointer: fine) {
+    .qr-tap .mob { display: none; }
+    .qr-tap .desk { display: inline; }
+    .qr-demo:hover { transform: translateY(-3px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 4px 8px rgba(13,27,42,0.05), 0 40px 70px -18px rgba(13,27,42,0.3); }
+  }
+  @media (max-width: 559px) {
+    .qr-demo { margin: -32px 8px 0; max-width: none; gap: 14px; padding: 12px 14px 12px 12px; }
+    .qr-frame { width: 96px; height: 96px; }
+    .qr-scan { --scan-y: 82px; }
+    .qr-cta { font-size: 14px; }
   }
 
   /* ---------- Trustbar ---------- */
@@ -210,6 +249,73 @@
   .ba-list { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
   .ba-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
   .ba-list li .mark { flex-shrink: 0; font-size: 15px; line-height: 1.3; }
+
+  /* Before/after switch. Only shown once JS has wired it up (.ba-ready); without JS the two cards render as before. */
+  .problem { position: relative; isolation: isolate; }
+  .problem::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(70% 55% at 50% 30%, rgba(251,191,36,0.16), transparent 70%), radial-gradient(50% 40% at 80% 90%, rgba(216,31,38,0.08), transparent 70%); opacity: 0; transition: opacity 0.8s var(--ease); }
+  .problem[data-ba="on"]::before { opacity: 1; }
+  .ba-switch { display: none; max-width: 560px; margin: -16px auto 32px; text-align: center; }
+  .ba-ready .ba-switch { display: block; }
+  .ba-listing { display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; align-items: center; text-align: left; padding: 16px 18px; border-radius: 20px; background: rgba(255,255,255,0.7); backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); border: 1px solid var(--line); box-shadow: var(--shadow-md); filter: saturate(0.35); opacity: 0.86; position: relative; overflow: hidden; transition: filter 0.6s var(--ease), opacity 0.6s var(--ease), border-color 0.6s, box-shadow 0.6s var(--ease), transform 0.6s var(--ease); }
+  .ba-listing::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.75) 48%, transparent 66%); transform: translateX(-110%); pointer-events: none; }
+  .bl-pin { grid-row: 1 / 3; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; background: #f1f5f9; border: 1px solid var(--line); transition: background 0.6s, border-color 0.6s; }
+  .bl-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; }
+  .bl-name { font-family: var(--font-display); font-size: 16px; font-weight: 800; color: var(--navy); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bl-rank { flex-shrink: 0; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 50px; background: #f1f5f9; color: var(--ink-3); border: 1px solid var(--line); font-variant-numeric: tabular-nums; transition: background 0.6s, color 0.6s, border-color 0.6s, box-shadow 0.6s; }
+  .bl-rating { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; font-size: 13px; color: var(--ink-2); }
+  .bl-score { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: var(--navy); font-variant-numeric: tabular-nums; min-width: 2.2ch; }
+  .bl-stars { display: inline-flex; gap: 1px; font-size: 18px; line-height: 1; }
+  .bl-star { color: #cbd5e1; display: inline-block; transition: color 0.35s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), text-shadow 0.35s; transition-delay: calc(var(--i) * 90ms); }
+  .bl-star.lit { color: var(--gold); }
+  .bl-count { font-variant-numeric: tabular-nums; }
+  .problem[data-ba="on"] .ba-listing { filter: none; opacity: 1; border-color: rgba(251,191,36,0.65); box-shadow: 0 0 0 1px rgba(251,191,36,0.35), 0 24px 60px -18px rgba(216,31,38,0.35), 0 0 48px -6px rgba(251,191,36,0.4); transform: translateY(-2px); }
+  .problem[data-ba="on"] .ba-listing::after { transform: translateX(110%); transition: transform 1.1s var(--ease) 0.15s; }
+  .problem[data-ba="on"] .bl-pin { background: linear-gradient(135deg, var(--red), var(--red-dark)); border-color: transparent; }
+  .problem[data-ba="on"] .bl-rank { background: var(--gold); color: var(--navy); border-color: var(--gold); box-shadow: 0 6px 16px -6px rgba(251,191,36,0.8); }
+  .problem[data-ba="on"] .bl-star.lit { transform: scale(1.18); text-shadow: 0 0 10px rgba(251,191,36,0.7); }
+
+  .ba-toggle-row { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 22px; }
+  .ba-toggle-label { font-size: 14px; font-weight: 700; color: var(--ink-3); cursor: pointer; user-select: none; -webkit-user-select: none; transition: color 0.4s; padding: 10px 0; }
+  .problem[data-ba="off"] .ba-toggle-label.off { color: var(--red-dark); }
+  .problem[data-ba="on"] .ba-toggle-label.on { color: var(--navy); }
+  .ba-toggle { position: relative; flex-shrink: 0; width: 84px; height: 46px; padding: 0; border-radius: 999px; cursor: pointer; border: 1px solid rgba(13,27,42,0.14); background: linear-gradient(180deg, #cbd5e1, #e2e8f0); box-shadow: inset 0 2px 6px rgba(13,27,42,0.28), inset 0 -1px 0 rgba(255,255,255,0.8), 0 1px 0 #fff; transition: background 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+  .ba-toggle .knob { position: absolute; top: 4px; left: 4px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 35% 28%, #ffffff, #f1f5f9 55%, #cbd5e1); box-shadow: 0 5px 12px rgba(13,27,42,0.3), 0 1px 2px rgba(13,27,42,0.25), inset 0 -2px 3px rgba(13,27,42,0.12); transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .ba-toggle .led { width: 8px; height: 8px; border-radius: 50%; background: #94a3b8; box-shadow: inset 0 1px 1px rgba(0,0,0,0.25); transition: background 0.4s, box-shadow 0.4s; }
+  .ba-toggle:active .knob { transform: scaleX(1.12); }
+  .ba-toggle[aria-checked="true"] { border-color: rgba(21,128,61,0.5); background: linear-gradient(180deg, #16a34a, #25D366); box-shadow: inset 0 2px 6px rgba(0,0,0,0.22), inset 0 -1px 0 rgba(255,255,255,0.3), 0 0 26px -2px rgba(37,211,102,0.65); }
+  .ba-toggle[aria-checked="true"] .knob { transform: translateX(38px); }
+  .ba-toggle[aria-checked="true"]:active .knob { transform: translateX(38px) scaleX(1.12); }
+  .ba-toggle[aria-checked="true"] .led { background: var(--green); box-shadow: 0 0 8px 2px rgba(37,211,102,0.85); }
+  .ba-toggle::after { content: ""; position: absolute; inset: -6px; border-radius: 999px; border: 2px solid rgba(37,211,102,0.55); opacity: 0; pointer-events: none; }
+  .problem:not(.ba-touched) .ba-toggle::after { animation: ring 2.2s ease-out infinite; }
+  .ba-hint { margin-top: 8px; font-size: 13px; color: var(--ink-3); transition: opacity 0.4s; }
+  .ba-touched .ba-hint { opacity: 0; }
+
+  /* Cards react to the switch: the active side glows, the other recedes */
+  .ba-ready .ba-card { transition: opacity 0.6s var(--ease), transform 0.6s var(--ease), filter 0.6s var(--ease), box-shadow 0.6s var(--ease), border-color 0.6s, visibility 0s; }
+  .ba-ready .ba-card.after.visible { box-shadow: 0 0 0 1px rgba(251,191,36,0.35), 0 30px 70px -20px rgba(216,31,38,0.45), 0 0 60px -10px rgba(251,191,36,0.35); }
+  .ba-ready[data-ba="off"] .ba-card.after.visible { box-shadow: var(--shadow-md); }
+  @media (min-width: 820px) {
+    .ba-ready[data-ba="off"] .ba-card.after.visible { opacity: 0.5; filter: grayscale(0.7); transform: scale(0.97); }
+    .ba-ready[data-ba="on"] .ba-card.before.visible { opacity: 0.5; filter: grayscale(0.4); transform: scale(0.97); }
+  }
+  /* Phones: both cards share one grid cell and cross-fade */
+  @media (max-width: 819px) {
+    .ba-ready .ba-card { grid-area: 1 / 1; }
+    .ba-ready[data-ba="off"] .ba-card.after,
+    .ba-ready[data-ba="on"] .ba-card.before { opacity: 0; visibility: hidden; transform: scale(0.96); pointer-events: none; transition-property: opacity, transform, filter, box-shadow, border-color, visibility; transition-delay: 0s, 0s, 0s, 0s, 0s, 0.6s; }
+  }
+  @media (max-width: 459px) {
+    .ba-toggle-row { gap: 10px; }
+    .ba-toggle-label { font-size: 12.5px; white-space: nowrap; }
+  }
+  @media (max-width: 360px) {
+    .ba-toggle-row { gap: 8px; }
+    .ba-toggle-label { font-size: 11px; }
+    .ba-toggle { width: 76px; }
+    .ba-toggle[aria-checked="true"] .knob { transform: translateX(30px); }
+    .ba-toggle[aria-checked="true"]:active .knob { transform: translateX(30px) scaleX(1.12); }
+  }
 
   /* ---------- How it works ---------- */
   .how { background: var(--white); }
@@ -282,6 +388,55 @@
   .data-table th, .data-table td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--line); }
   .data-table th:first-child, .data-table td:first-child { text-align: left; }
   .table-scroll { overflow-x: auto; max-width: 100%; }
+
+  /* Revenue calculator */
+  .calc { display: grid; grid-template-columns: 1fr; max-width: 1100px; margin: 0 auto 72px; border-radius: var(--radius-lg); overflow: hidden; background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow-lg); }
+  @media (min-width: 900px) { .calc { grid-template-columns: 1fr 1.05fr; } }
+  .calc-inputs { padding: 26px 20px 22px; display: flex; flex-direction: column; gap: 26px; }
+  @media (min-width: 720px) { .calc-inputs { padding: 36px 34px 30px; } }
+  .calc-title { font-family: var(--font-display); font-size: 19px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
+  .calc-title + p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .calc-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .calc-row label { font-size: 14px; font-weight: 700; color: var(--ink); }
+  .calc-row output { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--navy); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .calc-scale { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-3); font-weight: 600; margin-top: 2px; }
+  .calc-range { --fill: 50%; -webkit-appearance: none; appearance: none; display: block; width: 100%; height: 44px; margin: 0; background: transparent; cursor: pointer; touch-action: pan-y; }
+  .calc-range:focus { outline: none; }
+  .calc-range::-webkit-slider-runnable-track { height: 8px; border-radius: 8px; background: linear-gradient(90deg, var(--red-dark), var(--red) var(--fill), #e2e8f0 var(--fill)); box-shadow: inset 0 1px 2px rgba(13,27,42,0.12); }
+  .calc-range::-moz-range-track { height: 8px; border-radius: 8px; background: #e2e8f0; box-shadow: inset 0 1px 2px rgba(13,27,42,0.12); }
+  .calc-range::-moz-range-progress { height: 8px; border-radius: 8px; background: linear-gradient(90deg, var(--red-dark), var(--red)); }
+  .calc-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 30px; height: 30px; margin-top: -11px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #f1f5f9 60%, #e2e8f0); border: 2px solid var(--red); box-shadow: 0 4px 12px -2px rgba(216,31,38,0.45), 0 1px 3px rgba(13,27,42,0.2); transition: transform 0.2s var(--ease), box-shadow 0.2s; }
+  .calc-range::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #f1f5f9 60%, #e2e8f0); border: 2px solid var(--red); box-shadow: 0 4px 12px -2px rgba(216,31,38,0.45), 0 1px 3px rgba(13,27,42,0.2); transition: transform 0.2s var(--ease), box-shadow 0.2s; }
+  .calc-range:active::-webkit-slider-thumb { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(216,31,38,0.14), 0 4px 12px -2px rgba(216,31,38,0.45); }
+  .calc-range:active::-moz-range-thumb { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(216,31,38,0.14), 0 4px 12px -2px rgba(216,31,38,0.45); }
+  .calc-range:focus-visible::-webkit-slider-thumb { outline: 3px solid var(--navy); outline-offset: 3px; }
+  .calc-range:focus-visible::-moz-range-thumb { outline: 3px solid var(--navy); outline-offset: 3px; }
+  .calc-assume { font-size: 12px; color: var(--ink-3); line-height: 1.55; margin-top: auto; }
+
+  .calc-results { position: relative; isolation: isolate; padding: 26px 20px 24px; color: var(--white); background: radial-gradient(80% 60% at 100% 0%, rgba(216,31,38,0.32), transparent 60%), radial-gradient(70% 60% at 0% 100%, rgba(251,191,36,0.14), transparent 60%), linear-gradient(160deg, var(--navy), #0a1622); display: flex; flex-direction: column; gap: 14px; }
+  @media (min-width: 720px) { .calc-results { padding: 36px 34px 30px; } }
+  .calc-stat { padding: 18px 18px 16px; border-radius: 18px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08); }
+  .calc-stat.gain { background: linear-gradient(160deg, rgba(37,211,102,0.14), rgba(255,255,255,0.05)); border-color: rgba(37,211,102,0.35); }
+  .calc-k { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: rgba(255,255,255,0.72); }
+  .calc-k::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #f87171; box-shadow: 0 0 10px rgba(248,113,113,0.8); }
+  .calc-stat.gain .calc-k::before { background: var(--green); box-shadow: 0 0 10px rgba(37,211,102,0.9); }
+  .calc-v { display: block; font-family: var(--font-display); font-size: clamp(32px, 7vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .calc-stat.lost .calc-v { color: #fca5a5; }
+  .calc-stat.gain .calc-v { color: #86efac; }
+  .calc-v small { font-size: 0.42em; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 0; margin-left: 4px; }
+  .calc-bar { height: 6px; border-radius: 6px; background: rgba(255,255,255,0.08); margin-top: 10px; overflow: hidden; }
+  .calc-bar i { display: block; height: 100%; width: 0; border-radius: 6px; background: linear-gradient(90deg, #b91c1c, #f87171); transition: width 0.6s var(--ease); }
+  .calc-stat.gain .calc-bar i { background: linear-gradient(90deg, #15803d, var(--green)); box-shadow: 0 0 12px rgba(37,211,102,0.6); }
+  .calc-note { display: block; font-size: 13px; color: rgba(255,255,255,0.62); margin-top: 8px; }
+  .calc-payback { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.55; }
+  .calc-payback b { color: var(--gold); font-variant-numeric: tabular-nums; }
+  .calc-cta { width: 100%; margin-top: 4px; }
+  .calc-results :focus-visible { outline-color: var(--gold); }
+  .roi-subhead { text-align: center; max-width: 720px; margin: 0 auto 28px; }
+  .roi-subhead h3 { font-size: clamp(22px, 3.6vw, 30px); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; line-height: 1.2; }
+  .roi-subhead h3 .red { color: var(--red); }
+  .roi-subhead p { font-size: 15px; color: var(--ink-2); margin-top: 8px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
   /* ---------- Owners (photo band) ---------- */
   .owners { background: var(--white); }
@@ -390,6 +545,20 @@
   .guarantee-box h3 { font-size: clamp(22px, 3.5vw, 28px); font-weight: 800; color: var(--navy); margin-bottom: 12px; letter-spacing: -0.02em; }
   .guarantee-box p { color: var(--ink-2); font-size: 16px; line-height: 1.7; }
 
+  /* ---------- FAQ ---------- */
+  .faq { background: var(--surface-2); }
+  .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { background: var(--white); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-sm); transition: border-color 0.25s; }
+  .faq-item[open] { border-color: rgba(13,27,42,0.25); }
+  .faq-item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 22px; min-height: 44px; font-family: var(--font-display); font-size: 16px; font-weight: 800; color: var(--navy); }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; flex-shrink: 0; font-size: 22px; line-height: 1; color: var(--red); transition: transform 0.25s var(--ease); }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p { padding: 0 22px 20px; font-size: 15px; color: var(--ink-2); line-height: 1.7; }
+  .faq-item a { color: var(--navy); font-weight: 700; }
+  .faq-cta { text-align: center; margin-top: 36px; }
+  .faq-cta p { color: var(--ink-2); margin-bottom: 14px; }
+
   /* ---------- Final CTA ---------- */
   .final-cta { position: relative; text-align: center; color: var(--white); overflow: hidden; isolation: isolate; }
   .final-cta .bg { position: absolute; inset: 0; z-index: -2; }
@@ -477,13 +646,18 @@
     .kpi:hover, .price-card:hover, .btn:hover, .btn:focus-visible, .price-cta:hover, .price-cta:focus-visible,
     .nav-cta:hover, .nav-cta:focus-visible, .wa-float:hover, .wa-float:focus-visible { transform: none; }
     .ba-card:hover .ba-photo img { transform: none; }
+    .qr-scan, .qr-kicker::before, .problem .ba-toggle::after { animation: none !important; }
+    .qr-scan { display: none; }
+    .qr-demo:hover, .problem[data-ba="on"] .ba-listing, .problem[data-ba="on"] .bl-star.lit { transform: none; }
+    .ba-listing::after { display: none; }
+    .ba-toggle .knob { transition-duration: 0.2s; }
   }
 </style>
 </head>
 <body>
 <!-- ============ TOPBAR ============ -->
 <div class="topbar">
-  <span aria-hidden="true">🔥</span> <strong>OFERTA DE LANZAMIENTO:</strong> Instalación GRATIS en la Gran Área Metropolitana · Solo este mes
+  <span aria-hidden="true">🔥</span> <strong>OFERTA DE LANZAMIENTO:</strong> Instalación GRATIS<span class="hide-sm"> en la Gran Área Metropolitana</span> · Solo este mes
 </div>
 
 <!-- ============ NAVBAR ============ -->
@@ -497,10 +671,10 @@
       <a href="#como-funciona">Cómo funciona</a>
       <a href="#roi">Resultados</a>
       <a href="#pricing">Precios</a>
+      <a href="#faq">Preguntas</a>
     </div>
     <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20BizMapShield"
-       target="_blank" rel="noopener" class="nav-cta"
-       onclick="gtag('event','click_whatsapp',{event_category:'CTA',event_label:'Nav WhatsApp'});">
+       target="_blank" rel="noopener" class="nav-cta">
       <span aria-hidden="true">💬</span> <span class="long">Hablar por&nbsp;</span>WhatsApp
     </a>
   </div>
@@ -513,35 +687,42 @@
       <div class="reveal">
         <div class="hero-badge">
           <span class="dot"></span>
-          Sistema #1 en Costa Rica
+          Google Maps · Negocios locales en Costa Rica
         </div>
         <h1>
-          ¿Y si tus clientes<br>
-          <span class="red">NO TE VEN</span><br>
-          en el mapa?
+          Más reseñas en Google.<br>
+          <span class="red">Más clientes</span> en tu puerta.
         </h1>
         <p class="lead">
-          Cada día que tu negocio no aparece bien posicionado en Google, tus competidores se llevan a tus clientes.
-          <strong>BizMapShield</strong> lo arregla en 3 segundos — con cada cliente que entra a tu negocio.
+          Tus clientes tocan el stand <strong>BizMapShield</strong> con el celular y dejan su reseña en Google en 3 segundos.
+          <span class="hide-sm">Subes en el mapa sin trabajo extra para tu equipo.</span>
         </p>
-        <div class="hero-ctas">
-          <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20ver%20c%C3%B3mo%20funciona%20BizMapShield"
-             target="_blank" rel="noopener" class="btn btn-primary"
-             onclick="gtag('event','click_whatsapp',{event_category:'CTA',event_label:'Hero WhatsApp'});">
-            <span aria-hidden="true">💬</span> Quiero ver cómo funciona
-          </a>
-          <a href="#pricing" class="btn btn-secondary">
-            Ver precios
-          </a>
-        </div>
+
+        <!-- Primary CTA: low-commitment free diagnosis (opens WhatsApp with the business name pre-filled) -->
+        <form class="scan-form" id="diagnostico" data-cta="hero_diagnostico" novalidate>
+          <label class="scan-label" for="scan-business">Diagnóstico GRATIS de tu perfil de Google</label>
+          <div class="scan-row">
+            <input class="scan-input" id="scan-business" name="negocio" type="text" autocomplete="organization"
+                   placeholder="Nombre de tu negocio y zona" maxlength="80" enterkeyhint="send" />
+            <button class="btn btn-primary scan-btn" type="submit">
+              Ver mi diagnóstico <span aria-hidden="true">→</span>
+            </button>
+          </div>
+          <p class="scan-note">
+            <span aria-hidden="true">🔒</span> Gratis y sin compromiso · Te respondemos por WhatsApp ·
+            <a href="#pricing" data-track="view_pricing">Ver precios</a>
+          </p>
+        </form>
+
         <div class="hero-trust">
+          <div class="trust-item"><div class="check" aria-hidden="true">✓</div> Garantía 30 días o te devolvemos tu dinero</div>
+          <div class="trust-item"><div class="check" aria-hidden="true">✓</div> Cumple las políticas de Google</div>
           <div class="trust-item"><div class="check" aria-hidden="true">✓</div> Instalación GRATIS</div>
-          <div class="trust-item"><div class="check" aria-hidden="true">✓</div> Garantía 30 días</div>
-          <div class="trust-item"><div class="check" aria-hidden="true">✓</div> Soporte en español</div>
         </div>
       </div>
 
       <div class="hero-visual reveal">
+        <div class="hero-media">
         <div class="hero-photo">
           <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1100&q=80&auto=format&fit=crop"
                srcset="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&q=75&auto=format&fit=crop 640w,
@@ -563,6 +744,41 @@
           <div class="v">+98<small>▲</small></div>
           <svg width="130" height="30" viewBox="0 0 130 30"><path d="M2 27 C 20 26, 30 24, 45 20 S 75 12, 90 9 S 115 4, 128 3" fill="none" stroke="#d81f26" stroke-width="2.5" stroke-linecap="round"/></svg>
         </div>
+        </div>
+
+        <!-- Live demo: real, scannable QR (ECC level H, so the center logo doesn't break it).
+             Encodes https://bizmapshield.com/card.html?utm_source=hero_qr -->
+        <div class="qr-demo">
+          <div class="qr-frame">
+            <svg class="qr-svg" viewBox="-4 -4 49 49" role="img" aria-label="Código QR de demostración de BizMapShield" shape-rendering="crispEdges">
+              <rect x="-4" y="-4" width="49" height="49" fill="#fff"/>
+              <path fill="currentColor" d="M8 0h1v1h-1zM11 0h1v1h-1zM14 0h2v1h-2zM18 0h3v1h-3zM23 0h1v1h-1zM25 0h2v1h-2zM29 0h1v1h-1zM31 0h1v1h-1zM9 1h4v1h-4zM15 1h10v1h-10zM29 1h2v1h-2zM32 1h1v1h-1zM8 2h3v1h-3zM13 2h2v1h-2zM18 2h1v1h-1zM20 2h1v1h-1zM23 2h1v1h-1zM26 2h1v1h-1zM30 2h1v1h-1zM32 2h1v1h-1zM9 3h2v1h-2zM13 3h2v1h-2zM16 3h6v1h-6zM23 3h1v1h-1zM26 3h1v1h-1zM28 3h1v1h-1zM30 3h3v1h-3zM8 4h2v1h-2zM11 4h2v1h-2zM15 4h2v1h-2zM22 4h2v1h-2zM26 4h1v1h-1zM28 4h1v1h-1zM30 4h3v1h-3zM10 5h1v1h-1zM12 5h1v1h-1zM15 5h1v1h-1zM17 5h4v1h-4zM22 5h1v1h-1zM25 5h2v1h-2zM29 5h2v1h-2zM32 5h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM8 7h1v1h-1zM10 7h8v1h-8zM19 7h1v1h-1zM21 7h1v1h-1zM23 7h1v1h-1zM27 7h1v1h-1zM30 7h3v1h-3zM5 8h2v1h-2zM10 8h3v1h-3zM15 8h2v1h-2zM19 8h1v1h-1zM23 8h7v1h-7zM31 8h1v1h-1zM34 8h1v1h-1zM36 8h1v1h-1zM38 8h1v1h-1zM40 8h1v1h-1zM1 9h5v1h-5zM8 9h1v1h-1zM12 9h1v1h-1zM14 9h2v1h-2zM18 9h1v1h-1zM21 9h3v1h-3zM27 9h1v1h-1zM29 9h3v1h-3zM33 9h1v1h-1zM36 9h1v1h-1zM39 9h1v1h-1zM0 10h1v1h-1zM4 10h1v1h-1zM6 10h3v1h-3zM10 10h3v1h-3zM18 10h2v1h-2zM21 10h1v1h-1zM26 10h3v1h-3zM32 10h2v1h-2zM36 10h1v1h-1zM39 10h1v1h-1zM0 11h2v1h-2zM3 11h1v1h-1zM8 11h1v1h-1zM13 11h1v1h-1zM15 11h1v1h-1zM18 11h2v1h-2zM21 11h1v1h-1zM23 11h1v1h-1zM25 11h2v1h-2zM31 11h2v1h-2zM34 11h2v1h-2zM37 11h1v1h-1zM39 11h1v1h-1zM1 12h1v1h-1zM3 12h6v1h-6zM10 12h2v1h-2zM15 12h1v1h-1zM17 12h2v1h-2zM20 12h1v1h-1zM22 12h3v1h-3zM26 12h3v1h-3zM30 12h1v1h-1zM34 12h2v1h-2zM40 12h1v1h-1zM0 13h6v1h-6zM7 13h1v1h-1zM9 13h2v1h-2zM12 13h1v1h-1zM14 13h3v1h-3zM18 13h2v1h-2zM23 13h1v1h-1zM26 13h1v1h-1zM28 13h5v1h-5zM34 13h3v1h-3zM38 13h1v1h-1zM40 13h1v1h-1zM5 14h2v1h-2zM15 14h2v1h-2zM19 14h1v1h-1zM21 14h2v1h-2zM26 14h1v1h-1zM29 14h1v1h-1zM32 14h2v1h-2zM36 14h1v1h-1zM2 15h3v1h-3zM7 15h1v1h-1zM9 15h1v1h-1zM11 15h3v1h-3zM17 15h4v1h-4zM26 15h2v1h-2zM32 15h2v1h-2zM35 15h1v1h-1zM37 15h2v1h-2zM6 16h1v1h-1zM10 16h1v1h-1zM12 16h1v1h-1zM14 16h1v1h-1zM16 16h1v1h-1zM18 16h3v1h-3zM22 16h1v1h-1zM25 16h1v1h-1zM28 16h2v1h-2zM33 16h1v1h-1zM35 16h1v1h-1zM38 16h1v1h-1zM40 16h1v1h-1zM0 17h1v1h-1zM3 17h1v1h-1zM5 17h1v1h-1zM10 17h2v1h-2zM14 17h5v1h-5zM20 17h1v1h-1zM22 17h1v1h-1zM24 17h1v1h-1zM27 17h2v1h-2zM31 17h6v1h-6zM38 17h1v1h-1zM40 17h1v1h-1zM0 18h5v1h-5zM6 18h2v1h-2zM9 18h1v1h-1zM12 18h3v1h-3zM17 18h1v1h-1zM19 18h1v1h-1zM21 18h1v1h-1zM24 18h1v1h-1zM26 18h2v1h-2zM29 18h4v1h-4zM34 18h5v1h-5zM40 18h1v1h-1zM1 19h2v1h-2zM4 19h1v1h-1zM8 19h2v1h-2zM14 19h1v1h-1zM17 19h7v1h-7zM26 19h1v1h-1zM28 19h1v1h-1zM30 19h1v1h-1zM32 19h1v1h-1zM36 19h2v1h-2zM39 19h2v1h-2zM0 20h3v1h-3zM4 20h1v1h-1zM6 20h5v1h-5zM12 20h2v1h-2zM17 20h1v1h-1zM19 20h1v1h-1zM21 20h2v1h-2zM25 20h1v1h-1zM27 20h2v1h-2zM30 20h1v1h-1zM33 20h1v1h-1zM35 20h1v1h-1zM37 20h3v1h-3zM5 21h1v1h-1zM7 21h2v1h-2zM12 21h1v1h-1zM15 21h5v1h-5zM23 21h3v1h-3zM27 21h1v1h-1zM29 21h3v1h-3zM35 21h3v1h-3zM2 22h3v1h-3zM6 22h5v1h-5zM12 22h7v1h-7zM20 22h1v1h-1zM23 22h2v1h-2zM26 22h3v1h-3zM30 22h1v1h-1zM32 22h1v1h-1zM34 22h4v1h-4zM0 23h3v1h-3zM4 23h2v1h-2zM10 23h1v1h-1zM14 23h1v1h-1zM16 23h1v1h-1zM18 23h1v1h-1zM20 23h1v1h-1zM23 23h1v1h-1zM25 23h1v1h-1zM31 23h1v1h-1zM33 23h5v1h-5zM39 23h1v1h-1zM2 24h2v1h-2zM5 24h4v1h-4zM10 24h2v1h-2zM13 24h1v1h-1zM15 24h3v1h-3zM20 24h1v1h-1zM22 24h7v1h-7zM31 24h2v1h-2zM34 24h2v1h-2zM37 24h1v1h-1zM40 24h1v1h-1zM2 25h1v1h-1zM4 25h2v1h-2zM7 25h5v1h-5zM15 25h1v1h-1zM18 25h1v1h-1zM20 25h5v1h-5zM27 25h3v1h-3zM31 25h1v1h-1zM33 25h5v1h-5zM40 25h1v1h-1zM3 26h1v1h-1zM6 26h3v1h-3zM10 26h1v1h-1zM12 26h2v1h-2zM15 26h1v1h-1zM17 26h1v1h-1zM19 26h3v1h-3zM25 26h1v1h-1zM27 26h3v1h-3zM32 26h1v1h-1zM34 26h3v1h-3zM0 27h1v1h-1zM4 27h2v1h-2zM7 27h1v1h-1zM9 27h6v1h-6zM17 27h2v1h-2zM22 27h5v1h-5zM31 27h1v1h-1zM33 27h1v1h-1zM35 27h1v1h-1zM37 27h3v1h-3zM1 28h2v1h-2zM5 28h2v1h-2zM11 28h7v1h-7zM19 28h1v1h-1zM21 28h2v1h-2zM25 28h1v1h-1zM28 28h2v1h-2zM31 28h2v1h-2zM37 28h3v1h-3zM0 29h5v1h-5zM10 29h3v1h-3zM14 29h2v1h-2zM18 29h3v1h-3zM26 29h1v1h-1zM30 29h4v1h-4zM35 29h2v1h-2zM38 29h1v1h-1zM40 29h1v1h-1zM0 30h2v1h-2zM4 30h3v1h-3zM12 30h1v1h-1zM14 30h2v1h-2zM20 30h4v1h-4zM25 30h3v1h-3zM30 30h2v1h-2zM33 30h1v1h-1zM36 30h1v1h-1zM38 30h3v1h-3zM0 31h1v1h-1zM5 31h1v1h-1zM7 31h1v1h-1zM12 31h1v1h-1zM14 31h3v1h-3zM19 31h2v1h-2zM22 31h1v1h-1zM24 31h2v1h-2zM31 31h2v1h-2zM34 31h4v1h-4zM0 32h1v1h-1zM3 32h1v1h-1zM5 32h2v1h-2zM8 32h1v1h-1zM11 32h1v1h-1zM15 32h2v1h-2zM22 32h3v1h-3zM26 32h4v1h-4zM31 32h6v1h-6zM38 32h1v1h-1zM8 33h1v1h-1zM12 33h1v1h-1zM15 33h1v1h-1zM17 33h1v1h-1zM19 33h1v1h-1zM21 33h4v1h-4zM26 33h2v1h-2zM29 33h4v1h-4zM36 33h4v1h-4zM9 34h2v1h-2zM13 34h1v1h-1zM18 34h1v1h-1zM22 34h3v1h-3zM27 34h3v1h-3zM31 34h2v1h-2zM34 34h1v1h-1zM36 34h1v1h-1zM8 35h1v1h-1zM10 35h2v1h-2zM14 35h1v1h-1zM16 35h2v1h-2zM19 35h2v1h-2zM25 35h8v1h-8zM36 35h2v1h-2zM11 36h1v1h-1zM15 36h2v1h-2zM19 36h4v1h-4zM24 36h2v1h-2zM28 36h2v1h-2zM31 36h7v1h-7zM39 36h2v1h-2zM10 37h1v1h-1zM13 37h1v1h-1zM15 37h3v1h-3zM20 37h1v1h-1zM23 37h3v1h-3zM27 37h5v1h-5zM35 37h1v1h-1zM38 37h3v1h-3zM9 38h1v1h-1zM11 38h4v1h-4zM16 38h1v1h-1zM19 38h1v1h-1zM23 38h1v1h-1zM26 38h6v1h-6zM33 38h4v1h-4zM39 38h1v1h-1zM9 39h1v1h-1zM14 39h2v1h-2zM17 39h3v1h-3zM21 39h3v1h-3zM26 39h3v1h-3zM30 39h1v1h-1zM33 39h1v1h-1zM36 39h3v1h-3zM40 39h1v1h-1zM9 40h2v1h-2zM17 40h1v1h-1zM19 40h4v1h-4zM25 40h1v1h-1zM27 40h1v1h-1zM29 40h1v1h-1zM31 40h1v1h-1zM33 40h4v1h-4zM38 40h1v1h-1z"/>
+              <g fill="none" stroke="currentColor" stroke-width="1" shape-rendering="geometricPrecision">
+                <rect x="0.5" y="0.5" width="6" height="6" rx="1.2"/>
+                <rect x="34.5" y="0.5" width="6" height="6" rx="1.2"/>
+                <rect x="0.5" y="34.5" width="6" height="6" rx="1.2"/>
+              </g>
+              <g fill="#d81f26" shape-rendering="geometricPrecision">
+                <rect x="2" y="2" width="3" height="3" rx="0.6"/>
+                <rect x="36" y="2" width="3" height="3" rx="0.6"/>
+                <rect x="2" y="36" width="3" height="3" rx="0.6"/>
+              </g>
+              <g shape-rendering="geometricPrecision">
+                <rect x="16" y="16" width="9" height="9" rx="2.2" fill="#fff"/>
+                <path d="M18.3 17.4h4.4a0.9 0.9 0 0 1 0.9 0.9v2.4c0 1.8-1.4 3.1-3.1 3.9-1.7-0.8-3.1-2.1-3.1-3.9v-2.4a0.9 0.9 0 0 1 0.9-0.9z" fill="#d81f26"/>
+                <circle cx="20.5" cy="20.1" r="1" fill="#fff"/>
+              </g>
+            </svg>
+            <span class="qr-scan" aria-hidden="true"></span>
+          </div>
+          <div>
+            <span class="qr-kicker">Demo en vivo</span>
+            <p class="qr-cta">Escanea esto con tu celular para ver lo que ven tus clientes.</p>
+            <a class="qr-tap" href="card.html?utm_source=hero_qr_tap" data-track="qr_demo_open" data-cta="hero_qr">
+              <span class="mob">¿Ya estás en tu celular? Toca aquí&nbsp;→</span><span class="desk">O ábrelo aquí&nbsp;→</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -579,7 +795,7 @@
 </div>
 
 <!-- ============ PROBLEM / SOLUTION ============ -->
-<section class="problem">
+<section class="problem" id="diferencia" data-ba="off">
   <div class="container">
     <div class="section-head reveal">
       <span class="section-label">La diferencia es brutal</span>
@@ -587,7 +803,34 @@
       <p>La diferencia entre aparecer y desaparecer en el mapa se mide en estrellas.</p>
     </div>
 
-    <div class="ba-grid">
+    <!-- Before/after switch (enabled by JS; hidden otherwise) -->
+    <div class="ba-switch reveal">
+      <div class="ba-listing" aria-hidden="true">
+        <div class="bl-pin">📍</div>
+        <div class="bl-top">
+          <span class="bl-name">Tu negocio</span>
+          <span class="bl-rank" data-off="Puesto #9 · Página 3" data-on="#1 en tu zona">Puesto #9 · Página 3</span>
+        </div>
+        <div class="bl-rating">
+          <span class="bl-score" data-off="3.2" data-on="4.9">3.2</span>
+          <span class="bl-stars">
+            <span class="bl-star lit" style="--i:0">★</span><span class="bl-star lit" style="--i:1">★</span><span class="bl-star lit" style="--i:2">★</span><span class="bl-star" style="--i:3">★</span><span class="bl-star" style="--i:4">★</span>
+          </span>
+          <span class="bl-count">(<span data-off="12" data-on="150">12</span> reseñas)</span>
+        </div>
+      </div>
+      <div class="ba-toggle-row">
+        <span class="ba-toggle-label off" data-set="off" aria-hidden="true">Sin BizMapShield</span>
+        <button class="ba-toggle" type="button" role="switch" aria-checked="false" aria-label="Con BizMapShield" aria-controls="ba-grid">
+          <span class="knob" aria-hidden="true"><span class="led"></span></span>
+        </button>
+        <span class="ba-toggle-label on" data-set="on" aria-hidden="true">Con BizMapShield</span>
+      </div>
+      <p class="ba-hint">Activa el interruptor y mira la diferencia</p>
+      <p class="sr-only" aria-live="polite" id="ba-status"></p>
+    </div>
+
+    <div class="ba-grid" id="ba-grid">
       <div class="ba-card before reveal">
         <div class="ba-tag">Sin BizMapShield</div>
         <div class="ba-photo">
@@ -675,7 +918,60 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="section-label">ROI e impacto en ingresos</span>
-      <h2>Tus primeros <span class="red">90 días</span> con BizMapShield</h2>
+      <h2>¿Cuánto dinero estás <span class="red">dejando ir</span>?</h2>
+      <p>Mueve los controles con los datos de tu negocio y mira cuánto se va hoy con tu competencia y cuánto puedes recuperar.</p>
+    </div>
+
+    <!-- Revenue calculator -->
+    <div class="calc reveal" id="calc">
+      <div class="calc-inputs">
+        <div>
+          <div class="calc-title">Calcula tu caso</div>
+          <p>Ajusta los valores a tu negocio. El resultado se actualiza al instante.</p>
+        </div>
+        <div>
+          <div class="calc-row">
+            <label for="calc-traffic">Tráfico diario de clientes</label>
+            <output for="calc-traffic" id="calc-traffic-out">40</output>
+          </div>
+          <input class="calc-range" id="calc-traffic" type="range" min="10" max="400" step="5" value="40" aria-valuetext="40 clientes al día" />
+          <div class="calc-scale" aria-hidden="true"><span>10</span><span>400</span></div>
+        </div>
+        <div>
+          <div class="calc-row">
+            <label for="calc-ticket">Ticket promedio</label>
+            <output for="calc-ticket" id="calc-ticket-out">₡6,000</output>
+          </div>
+          <input class="calc-range" id="calc-ticket" type="range" min="1000" max="50000" step="500" value="6000" aria-valuetext="6,000 colones" />
+          <div class="calc-scale" aria-hidden="true"><span>₡1,000</span><span>₡50,000</span></div>
+        </div>
+        <p class="calc-assume">Estimación ilustrativa con 26 días de atención al mes. Supone que hoy un 8% de tus clientes potenciales elige a un competidor con más reseñas, y que con BizMapShield recuperas esa fuga y atraes un 4% adicional al subir en el mapa (12% en total). Los resultados reales varían según el tipo de negocio y la ubicación.</p>
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-stat lost">
+          <span class="calc-k">Ingresos mensuales perdidos</span>
+          <span class="calc-v" aria-hidden="true"><span id="calc-lost">₡0</span><small>/mes</small></span>
+          <div class="calc-bar" aria-hidden="true"><i id="calc-lost-bar"></i></div>
+          <span class="calc-note">Clientes que hoy se van con un competidor mejor calificado</span>
+        </div>
+        <div class="calc-stat gain">
+          <span class="calc-k">Potencial con BizMapShield</span>
+          <span class="calc-v" aria-hidden="true"><span id="calc-gain">₡0</span><small>/mes</small></span>
+          <div class="calc-bar" aria-hidden="true"><i id="calc-gain-bar"></i></div>
+          <span class="calc-note">Ingreso adicional estimado al dominar tu zona</span>
+        </div>
+        <p class="calc-payback">El plan Pro (₡9,900/mes) se paga con solo <b id="calc-payback">2 clientes nuevos</b> al mes.</p>
+        <p class="sr-only" aria-live="polite" id="calc-status"></p>
+        <a class="btn btn-primary calc-cta" id="calc-cta" data-cta="roi_calculator" target="_blank" rel="noopener"
+           href="https://wa.me/50663889598?text=Hola%2C%20us%C3%A9%20la%20calculadora%20de%20BizMapShield%20y%20quiero%20recuperar%20esos%20ingresos.">
+          <span aria-hidden="true">💬</span> Quiero recuperar esos ingresos
+        </a>
+      </div>
+    </div>
+
+    <div class="roi-subhead reveal">
+      <h3>Tus primeros <span class="red">90 días</span> con BizMapShield</h3>
       <p>Más reseñas de 5 estrellas, más visitas y más ingresos: así crece un negocio local típico mientras el stand trabaja con cada cliente.</p>
     </div>
 
@@ -931,8 +1227,7 @@
           <li><span class="check" aria-hidden="true">✓</span> Plantillas de WhatsApp para pedir reseñas</li>
         </ul>
         <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20B%C3%A1sico%20de%20BizMapShield%20(1%20Stand%20-%20%E2%82%A119%2C900)"
-           target="_blank" rel="noopener" class="price-cta secondary"
-           onclick="gtag('event','click_whatsapp',{event_category:'Pricing',event_label:'Básico'});">
+           target="_blank" rel="noopener" class="price-cta secondary">
           <span aria-hidden="true">💬</span> Pedir el Básico
         </a>
       </div>
@@ -953,8 +1248,7 @@
           <li><span class="check" aria-hidden="true">✓</span> Soporte prioritario por WhatsApp</li>
         </ul>
         <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20Pro%20de%20BizMapShield%20(Stand%20%2B%20Mantenimiento%20%E2%82%A19%2C900%2Fmes)"
-           target="_blank" rel="noopener" class="price-cta primary"
-           onclick="gtag('event','click_whatsapp',{event_category:'Pricing',event_label:'Pro'});">
+           target="_blank" rel="noopener" class="price-cta primary">
           <span aria-hidden="true">💬</span> Pedir el Pro
         </a>
       </div>
@@ -974,8 +1268,7 @@
           <li><span class="check" aria-hidden="true">✓</span> Múltiples sucursales (hasta 4)</li>
         </ul>
         <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20Premium%20de%20BizMapShield%20(Gesti%C3%B3n%20Total)"
-           target="_blank" rel="noopener" class="price-cta secondary"
-           onclick="gtag('event','click_whatsapp',{event_category:'Pricing',event_label:'Premium'});">
+           target="_blank" rel="noopener" class="price-cta secondary">
           <span aria-hidden="true">💬</span> Pedir el Premium
         </a>
       </div>
@@ -1023,6 +1316,52 @@
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Preguntas frecuentes</span>
+      <h2>Tu perfil de Google, <span class="red">seguro</span></h2>
+      <p>Lo que todo dueño de negocio nos pregunta antes de empezar.</p>
+    </div>
+
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>¿Google puede suspender mi perfil por usar BizMapShield?</summary>
+        <p>No. El stand solo abre el enlace oficial de reseñas que Google le da a tu negocio — el mismo que podrías compartir tú. No compramos reseñas, no las escribimos y no filtramos a quién se le pide: se invita a todos los clientes por igual, que es exactamente lo que permiten las políticas de Google.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Tengo que darles mi contraseña de Google?</summary>
+        <p>Nunca. Tu perfil de Google Business sigue siendo 100% tuyo. Si contratas la optimización, nos das acceso de administrador desde tu propia cuenta y puedes quitarlo cuando quieras.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Y si un cliente deja una reseña negativa?</summary>
+        <p>Google no permite ocultar reseñas, y eso es bueno: un perfil con muchas reseñas reales genera más confianza. Con el plan Pro te avisamos al instante de cualquier reseña negativa, y con el Premium la respondemos por ti de forma profesional.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Mis clientes necesitan una app?</summary>
+        <p>No. Los celulares con NFC solo tocan el stand. Para los que no tienen NFC, el stand incluye un código QR que se escanea con la cámara.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo funciona la garantía de 30 días?</summary>
+        <p>Si en 30 días no consigues al menos 10 reseñas nuevas de 5 estrellas, te devolvemos el 100% de tu dinero y te quedas con el stand. Detalles en nuestra <a href="legal.html#reembolso">Política de Reembolso</a>.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto tarda y cómo pago?</summary>
+        <p>Instalamos y configuramos todo en 1 día en la Gran Área Metropolitana. Pagas por SINPE Móvil, transferencia o en efectivo al momento de la instalación.</p>
+      </details>
+    </div>
+
+    <div class="faq-cta reveal">
+      <p>¿Tienes otra pregunta? Te respondemos por WhatsApp.</p>
+      <a href="https://wa.me/50663889598?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20BizMapShield"
+         target="_blank" rel="noopener" class="btn btn-primary" data-cta="faq">
+        <span aria-hidden="true">💬</span> Preguntar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FINAL CTA ============ -->
 <section class="final-cta">
   <div class="bg" aria-hidden="true">
@@ -1033,12 +1372,10 @@
     <p class="reveal">Cada día que pasa sin reseñas nuevas es un cliente que se va con otro. Empieza hoy. Te tomamos 5 minutos.</p>
     <div class="final-ctas reveal">
       <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20dominar%20mi%20mapa%20con%20BizMapShield"
-         target="_blank" rel="noopener" class="btn btn-primary"
-         onclick="gtag('event','click_whatsapp',{event_category:'CTA',event_label:'Final WhatsApp'});">
+         target="_blank" rel="noopener" class="btn btn-primary">
         <span aria-hidden="true">💬</span> Hablar por WhatsApp
       </a>
-      <a href="tel:+50663889598" class="btn btn-secondary"
-         onclick="gtag('event','click_call',{event_category:'CTA',event_label:'Final Call'});">
+      <a href="tel:+50663889598" class="btn btn-secondary">
         <span aria-hidden="true">📞</span> Llamar ahora
       </a>
     </div>
@@ -1092,8 +1429,7 @@
 
 <!-- ============ FLOATING WHATSAPP ============ -->
 <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20BizMapShield"
-   target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp"
-   onclick="gtag('event','click_whatsapp',{event_category:'CTA',event_label:'Floating Button'});">
+   target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp" data-cta="floating">
   💬
 </a>
 
@@ -1130,6 +1466,25 @@
         e.preventDefault();
         target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
       }
+    });
+  });
+
+  // Free-diagnosis form → WhatsApp with the business name pre-filled
+  const scanForm = document.getElementById('diagnostico');
+  scanForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const business = scanForm.negocio.value.trim();
+    const text = business
+      ? `Hola, quiero el diagnóstico gratis de mi perfil de Google. Mi negocio: ${business}`
+      : 'Hola, quiero el diagnóstico gratis de mi perfil de Google.';
+    bmsTrack('generate_lead', { method: 'whatsapp', cta_location: 'hero_diagnostico', form_filled: business ? 'yes' : 'no' });
+    window.open('https://wa.me/50663889598?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  });
+
+  // FAQ: which objections people open
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) bmsTrack('faq_open', { faq_question: item.querySelector('summary').textContent.trim().slice(0, 100) });
     });
   });
 
@@ -1332,7 +1687,7 @@
         current = btn.dataset.metric;
         hasDrawn = true;
         render(true);
-        if (typeof gtag === 'function') gtag('event', 'roi_metric', { event_category: 'ROI', event_label: current });
+        bmsTrack('roi_metric', { metric: current });
       });
     });
 
@@ -1371,6 +1726,149 @@
       rt = setTimeout(() => { if (Math.abs(wrap.clientWidth - rw) > 40) { rw = wrap.clientWidth; render(hasDrawn ? false : 'hidden'); } }, 150);
     });
   })();
+</script>
+
+<!-- ============ INTERACTIVE MODULES (self-contained; no globals) ============ -->
+<script>
+(function () {
+  'use strict';
+  var noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var track = function (name, params) { if (typeof window.bmsTrack === 'function') window.bmsTrack(name, params); };
+  var fmtNum = function (v) { return Math.round(v).toLocaleString('en-US'); };
+  var fmtCRC = function (v) { return '₡' + fmtNum(v); };
+
+  // Animates node's number from its current value to `to`. Re-targets cleanly if called mid-animation.
+  function tween(node, to, format, dur) {
+    if (node._raf) cancelAnimationFrame(node._raf);
+    var from = typeof node._val === 'number' ? node._val : to;
+    if (noMotion || from === to) { node._val = to; node.textContent = format(to); return; }
+    var t0 = performance.now();
+    dur = dur || 650;
+    (function step(t) {
+      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      node._val = from + (to - from) * e;
+      node.textContent = format(node._val);
+      node._raf = p < 1 ? requestAnimationFrame(step) : 0;
+    })(t0);
+  }
+
+  // ---------- Revenue calculator ----------
+  (function () {
+    var root = document.getElementById('calc');
+    if (!root) return;
+    var DAYS = 26, LOST_RATE = 0.08, GAIN_RATE = 0.12, PRO_MONTHLY = 9900;
+    var traffic = document.getElementById('calc-traffic');
+    var ticket = document.getElementById('calc-ticket');
+    var trafficOut = document.getElementById('calc-traffic-out');
+    var ticketOut = document.getElementById('calc-ticket-out');
+    var lostEl = document.getElementById('calc-lost');
+    var gainEl = document.getElementById('calc-gain');
+    var lostBar = document.getElementById('calc-lost-bar');
+    var gainBar = document.getElementById('calc-gain-bar');
+    var payback = document.getElementById('calc-payback');
+    var status = document.getElementById('calc-status');
+    var cta = document.getElementById('calc-cta');
+    // Bars use a square-root scale against the slider maximums, so small businesses still see movement
+    var MAX_GAIN = +traffic.max * +ticket.max * DAYS * GAIN_RATE;
+    var started = false, statusTimer, tracked = false;
+
+    function fill(input) {
+      var p = (input.value - input.min) / (input.max - input.min) * 100;
+      input.style.setProperty('--fill', p + '%');
+    }
+
+    function update() {
+      var t = +traffic.value, k = +ticket.value;
+      var monthly = t * k * DAYS, lost = monthly * LOST_RATE, gain = monthly * GAIN_RATE;
+      var clients = Math.max(1, Math.ceil(PRO_MONTHLY / k));
+      fill(traffic); fill(ticket);
+      trafficOut.textContent = fmtNum(t);
+      ticketOut.textContent = fmtCRC(k);
+      traffic.setAttribute('aria-valuetext', fmtNum(t) + ' clientes al día');
+      ticket.setAttribute('aria-valuetext', fmtNum(k) + ' colones');
+      if (started) {
+        tween(lostEl, lost, fmtCRC);
+        tween(gainEl, gain, fmtCRC);
+        lostBar.style.width = (Math.sqrt(lost / MAX_GAIN) * 100).toFixed(1) + '%';
+        gainBar.style.width = (Math.sqrt(gain / MAX_GAIN) * 100).toFixed(1) + '%';
+      }
+      payback.textContent = clients + (clients === 1 ? ' cliente nuevo' : ' clientes nuevos');
+      cta.href = 'https://wa.me/50663889598?text=' + encodeURIComponent(
+        'Hola, usé la calculadora de BizMapShield: ' + fmtNum(t) + ' clientes al día y ticket promedio de ' + fmtCRC(k) +
+        '. Quiero recuperar los ' + fmtCRC(gain) + ' al mes que estoy dejando ir.');
+      clearTimeout(statusTimer);
+      statusTimer = setTimeout(function () {
+        status.textContent = 'Ingresos mensuales perdidos: ' + fmtNum(lost) + ' colones. Potencial con BizMapShield: ' + fmtNum(gain) + ' colones al mes.';
+      }, 700);
+    }
+
+    [traffic, ticket].forEach(function (input) {
+      input.addEventListener('input', update);
+      input.addEventListener('change', function () {
+        if (tracked) return;
+        tracked = true;
+        track('roi_calculator', { daily_customers: +traffic.value, avg_ticket: +ticket.value });
+      });
+    });
+
+    function start() {
+      if (started) return;
+      started = true;
+      lostEl._val = 0; gainEl._val = 0;
+      update();
+    }
+    update();
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { start(); obs.disconnect(); }
+      }, { threshold: 0.3 });
+      obs.observe(root);
+    } else {
+      start();
+    }
+    // Sliders moved before the card scrolled into view (e.g. keyboard): start right away
+    root.addEventListener('input', start, { once: true });
+  })();
+
+  // ---------- Before / after switch ----------
+  (function () {
+    var section = document.getElementById('diferencia');
+    if (!section) return;
+    var toggle = section.querySelector('.ba-toggle');
+    var stars = section.querySelectorAll('.bl-star');
+    var score = section.querySelector('.bl-score');
+    var count = section.querySelector('.bl-count [data-on]');
+    var rank = section.querySelector('.bl-rank');
+    var status = document.getElementById('ba-status');
+    var fmtScore = function (v) { return v.toFixed(1); };
+
+    function set(on, user) {
+      section.setAttribute('data-ba', on ? 'on' : 'off');
+      toggle.setAttribute('aria-checked', on ? 'true' : 'false');
+      stars.forEach(function (s, i) { s.classList.toggle('lit', i < (on ? 5 : 3)); });
+      tween(score, parseFloat(score.getAttribute(on ? 'data-on' : 'data-off')), fmtScore, 900);
+      tween(count, +count.getAttribute(on ? 'data-on' : 'data-off'), fmtNum, 900);
+      rank.textContent = rank.getAttribute(on ? 'data-on' : 'data-off');
+      if (user) {
+        section.classList.add('ba-touched');
+        status.textContent = on
+          ? 'Con BizMapShield: 4.9 estrellas, 150 reseñas, primer lugar en tu zona.'
+          : 'Sin BizMapShield: 3.2 estrellas, 12 reseñas, página 3 del mapa.';
+        track('ba_toggle', { state: on ? 'on' : 'off' });
+      }
+    }
+
+    score._val = 3.2; count._val = 12;
+    toggle.addEventListener('click', function () { set(toggle.getAttribute('aria-checked') !== 'true', true); });
+    section.querySelectorAll('.ba-toggle-label').forEach(function (label) {
+      label.addEventListener('click', function () {
+        var on = label.getAttribute('data-set') === 'on';
+        if (on !== (toggle.getAttribute('aria-checked') === 'true')) set(on, true);
+      });
+    });
+    section.classList.add('ba-ready');
+  })();
+})();
 </script>
 
 </body>
