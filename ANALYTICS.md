@@ -7,7 +7,8 @@ Property: `G-H999LY10ZN`. All tracking lives in [`assets/analytics.js`](assets/a
 | Event | When | Key params |
 |---|---|---|
 | `generate_lead` | Any click on a WhatsApp (`wa.me`), `tel:` or `mailto:` link, anywhere on any page, plus the hero "Diagnóstico gratis" form submit | `method` (`whatsapp` / `phone` / `email`), `cta_location` (`hero_diagnostico`, `pricing`, `navbar`, `faq`, `final-cta`, `floating`, `footer`, `card`…), `link_text` |
-| `view_pricing` | "Ver precios" link under the hero form | `cta_location` |
+| `view_pricing` | "Ver precios" link under the hero form or in the mobile sticky bar | `cta_location` (`hero_diagnostico`, `sticky_bar`) |
+| `calc_jump` | "Calcula cuánto pierdes" link under the hero form | `cta_location` |
 | `faq_open` | A FAQ question is expanded | `faq_question` |
 | `roi_metric` | A KPI toggle in the ROI chart is clicked | `metric` |
 | `save_contact` | "Guardar contacto" on `card.html` | `cta_location` |
@@ -15,11 +16,19 @@ Property: `G-H999LY10ZN`. All tracking lives in [`assets/analytics.js`](assets/a
 | `ba_toggle` | The "Sin / Con BizMapShield" switch is flipped | `state` (`on` / `off`) |
 | `qr_demo_open` | "Toca aquí / O ábrelo aquí" link under the hero QR demo | `cta_location` (`hero_qr`) |
 
-The calculator's WhatsApp button is a normal `generate_lead` with `cta_location: roi_calculator`.
+The calculator's WhatsApp button is a normal `generate_lead` with `cta_location: roi_calculator`. The mobile sticky bar's WhatsApp button is `generate_lead` with `cta_location: sticky_bar`.
+
+Outbound clicks to other sites (e.g. the Google review demo link) are already logged by GA4 Enhanced Measurement as `click` with `outbound: true`, so there is no custom outbound event.
 
 New contact links are tracked automatically. Add `data-cta="some_name"` to a link (or a parent) to name its location.
 
 > The old events (`click_whatsapp`, `click_call`) are no longer sent. They were never marked as key events, which is why GA4 showed **0 key events**.
+
+## Campaign attribution (UTM)
+
+When a visitor lands with `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `gclid` or `fbclid` in the URL, `analytics.js` saves them in `sessionStorage` for the rest of the visit. Every WhatsApp link that has a prefilled message (including the hero diagnosis form) then gets a short tag appended, e.g. `… [ref: instagram/social/octubre]`, so you can see in WhatsApp which campaign a chat came from. GA4 attributes the session to the campaign itself, so nothing extra is needed there.
+
+Always tag the links you share, e.g. `https://bizmapshield.com/?utm_source=instagram&utm_medium=social&utm_campaign=octubre`.
 
 ## Required GA4 admin setup (one-time, ~5 min)
 

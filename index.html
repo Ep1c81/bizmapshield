@@ -43,7 +43,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
 
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -607,6 +607,16 @@
   .wa-float::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--green); animation: ring 2.4s ease-out infinite; }
   @keyframes ring { from { transform: scale(1); opacity: 0.7; } to { transform: scale(1.6); opacity: 0; } }
 
+  /* ---------- Mobile sticky CTA bar (replaces the floating button on phones) ---------- */
+  .m-cta { display: none; }
+  @media (max-width: 640px) {
+    .m-cta { display: flex; gap: 10px; align-items: center; position: fixed; left: 0; right: 0; bottom: 0; z-index: 200; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--line); box-shadow: 0 -8px 24px -12px rgba(13,27,42,0.25); transform: translateY(110%); transition: transform 0.3s var(--ease); }
+    .m-cta.show { transform: none; }
+    .m-cta-main { flex: 1; justify-content: center; min-height: 48px; }
+    .m-cta-sec { flex: 0 0 auto; min-height: 48px; display: inline-flex; align-items: center; padding: 0 12px; color: var(--navy); font-weight: 700; font-size: 14px; text-decoration: none; }
+    .js .wa-float { display: none; }
+  }
+
   /* Hover feedback only where a real pointer hovers (no sticky hover after a tap).
      Informational cards tint; only price cards (which hold the CTAs) and the KPI toggles lift. */
   @media (hover: hover) and (pointer: fine) {
@@ -713,6 +723,7 @@
           </div>
           <p class="scan-note">
             <span aria-hidden="true">🔒</span> Gratis y sin compromiso · Te respondemos por WhatsApp ·
+            <a href="#roi" data-track="calc_jump">Calcula cuánto pierdes</a> ·
             <a href="#pricing" data-track="view_pricing">Ver precios</a>
           </p>
         </form>
@@ -1430,6 +1441,15 @@
   </div>
 </footer>
 
+<!-- ============ MOBILE STICKY CTA (appears once the hero scrolls away) ============ -->
+<div class="m-cta" id="m-cta" data-cta="sticky_bar" aria-hidden="true">
+  <a href="#pricing" class="m-cta-sec" data-track="view_pricing" tabindex="-1">Ver precios</a>
+  <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20BizMapShield"
+     target="_blank" rel="noopener" class="btn btn-primary m-cta-main" tabindex="-1">
+    <span aria-hidden="true">💬</span> Hablar por WhatsApp
+  </a>
+</div>
+
 <!-- ============ FLOATING WHATSAPP ============ -->
 <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20BizMapShield"
    target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp" data-cta="floating">
@@ -1457,6 +1477,17 @@
     document.querySelectorAll('.reveal, .reveal-img').forEach(el => el.classList.add('visible'));
   }
 
+  // Mobile sticky CTA: shown once the hero has scrolled out of view
+  const mCta = document.getElementById('m-cta');
+  const heroEl = document.querySelector('.hero');
+  const setMCta = (show) => {
+    mCta.classList.toggle('show', show);
+    mCta.setAttribute('aria-hidden', show ? 'false' : 'true');
+    mCta.querySelectorAll('a').forEach(a => a.tabIndex = show ? 0 : -1);
+  };
+  if (hasIO) new IntersectionObserver(([entry]) => setMCta(!entry.isIntersecting)).observe(heroEl);
+  else setMCta(true);
+
   // Navbar shadow on scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 8), { passive: true });
@@ -1481,7 +1512,7 @@
       ? `Hola, quiero el diagnóstico gratis de mi perfil de Google. Mi negocio: ${business}`
       : 'Hola, quiero el diagnóstico gratis de mi perfil de Google.';
     bmsTrack('generate_lead', { method: 'whatsapp', cta_location: 'hero_diagnostico', form_filled: business ? 'yes' : 'no' });
-    window.open('https://wa.me/50663889598?text=' + encodeURIComponent(text), '_blank', 'noopener');
+    window.open(bmsTagWhatsApp('https://wa.me/50663889598?text=' + encodeURIComponent(text)), '_blank', 'noopener');
   });
 
   // FAQ: which objections people open

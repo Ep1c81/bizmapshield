@@ -63,6 +63,41 @@
   }
   window.bmsTrack = track;
 
+  // Campaign attribution: remember UTM / click IDs for the whole visit (sessionStorage), so a lead that
+  // lands on the site via a campaign link still carries its source after in-page navigation.
+  var ATTR_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'];
+  var session = null;
+  try { session = window.sessionStorage; } catch (e) {}
+  var landing = {};
+  ATTR_KEYS.forEach(function (k) { if (params.get && params.get(k)) landing[k] = params.get(k).slice(0, 100); });
+  if (session && Object.keys(landing).length) {
+    try { session.setItem('bms_attr', JSON.stringify(landing)); } catch (e) {}
+  }
+
+  function attribution() {
+    var stored = null;
+    try { stored = session && JSON.parse(session.getItem('bms_attr') || 'null'); } catch (e) {}
+    return stored || landing;
+  }
+  window.bmsAttribution = attribution;
+
+  // Appends a short "[ref: source/medium/campaign]" to a WhatsApp link's prefilled message, so the
+  // source of each chat is visible in WhatsApp itself. Links without a prefilled message are left alone.
+  function tagWhatsApp(href) {
+    var a = attribution();
+    var source = a.utm_source || (a.gclid ? 'google_ads' : a.fbclid ? 'facebook' : '');
+    if (!source) return href;
+    try {
+      var url = new URL(href);
+      var text = url.searchParams.get('text');
+      if (!text || text.indexOf('[ref:') !== -1) return href;
+      var ref = [source, a.utm_medium, a.utm_campaign].filter(Boolean).join('/');
+      // Rebuilt by hand: URLSearchParams encodes spaces as "+", which WhatsApp may not decode
+      return url.origin + url.pathname + '?text=' + encodeURIComponent(text + ' [ref: ' + ref + ']');
+    } catch (e) { return href; }
+  }
+  window.bmsTagWhatsApp = tagWhatsApp;
+
   function contactMethod(href) {
     if (/^https?:\/\/(wa\.me|api\.whatsapp\.com|web\.whatsapp\.com)\//i.test(href)) return 'whatsapp';
     if (/^tel:/i.test(href)) return 'phone';
@@ -84,6 +119,7 @@
     if (!link) return;
     var method = contactMethod(link.getAttribute('href'));
     if (method) {
+      if (method === 'whatsapp') link.href = tagWhatsApp(link.href); // capture phase: runs before navigation
       track('generate_lead', {
         method: method,
         cta_location: ctaLocation(link),
