@@ -436,8 +436,8 @@
   .calc-cta { width: 100%; margin-top: 4px; }
   .calc-results :focus-visible { outline-color: var(--gold); }
   .roi-subhead { text-align: center; max-width: 720px; margin: 0 auto 28px; }
-  .roi-subhead h3 { font-size: clamp(22px, 3.6vw, 30px); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; line-height: 1.2; }
-  .roi-subhead h3 .red { color: var(--red); }
+  .roi-subhead h2 { font-size: clamp(22px, 3.6vw, 30px); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; line-height: 1.2; }
+  .roi-subhead h2 .red { color: var(--red); }
   .roi-subhead p { font-size: 15px; color: var(--ink-2); margin-top: 8px; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
@@ -723,7 +723,7 @@
           </div>
           <p class="scan-note">
             <span aria-hidden="true">🔒</span> Gratis y sin compromiso · Te respondemos por WhatsApp ·
-            <a href="#roi" data-track="calc_jump">Calcula cuánto pierdes</a> ·
+            <a href="#calculadora" data-track="calc_jump">Calcula cuánto pierdes</a> ·
             <a href="#pricing" data-track="view_pricing">Ver precios</a>
           </p>
         </form>
@@ -807,6 +807,65 @@
     <div class="trustbar-item"><span class="icon" aria-hidden="true">🛡️</span> GARANTÍA 30 DÍAS</div>
   </div>
 </div>
+
+<!-- ============ REVENUE CALCULATOR ============ -->
+<section class="roi" id="calculadora">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Calculadora</span>
+      <h2>¿Cuánto dinero estás <span class="red">dejando ir</span>?</h2>
+      <p>Mueve los controles con los datos de tu negocio y mira cuánto se va hoy con tu competencia y cuánto puedes recuperar.</p>
+    </div>
+
+    <!-- Revenue calculator -->
+    <div class="calc reveal" id="calc">
+      <div class="calc-inputs">
+        <div>
+          <div class="calc-title">Calcula tu caso</div>
+          <p>Ajusta los valores a tu negocio. El resultado se actualiza al instante.</p>
+        </div>
+        <div>
+          <div class="calc-row">
+            <label for="calc-traffic">Tráfico diario de clientes</label>
+            <output for="calc-traffic" id="calc-traffic-out">40</output>
+          </div>
+          <input class="calc-range" id="calc-traffic" type="range" min="10" max="400" step="5" value="40" aria-valuetext="40 clientes al día" />
+          <div class="calc-scale" aria-hidden="true"><span>10</span><span>400</span></div>
+        </div>
+        <div>
+          <div class="calc-row">
+            <label for="calc-ticket">Ticket promedio</label>
+            <output for="calc-ticket" id="calc-ticket-out">₡6,000</output>
+          </div>
+          <input class="calc-range" id="calc-ticket" type="range" min="1000" max="50000" step="500" value="6000" aria-valuetext="6,000 colones" />
+          <div class="calc-scale" aria-hidden="true"><span>₡1,000</span><span>₡50,000</span></div>
+        </div>
+        <p class="calc-assume">Estimación ilustrativa con 26 días de atención al mes. Supone que hoy un 8% de tus clientes potenciales elige a un competidor con más reseñas, y que con BizMapShield recuperas esa fuga y atraes un 4% adicional al subir en el mapa (12% en total). Los resultados reales varían según el tipo de negocio y la ubicación.</p>
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-stat lost">
+          <span class="calc-k">Ingresos mensuales perdidos</span>
+          <span class="calc-v" aria-hidden="true"><span id="calc-lost">₡0</span><small>/mes</small></span>
+          <div class="calc-bar" aria-hidden="true"><i id="calc-lost-bar"></i></div>
+          <span class="calc-note">Clientes que hoy se van con un competidor mejor calificado</span>
+        </div>
+        <div class="calc-stat gain">
+          <span class="calc-k">Potencial con BizMapShield</span>
+          <span class="calc-v" aria-hidden="true"><span id="calc-gain">₡0</span><small>/mes</small></span>
+          <div class="calc-bar" aria-hidden="true"><i id="calc-gain-bar"></i></div>
+          <span class="calc-note">Ingreso adicional estimado al dominar tu zona</span>
+        </div>
+        <p class="calc-payback">El plan Pro (₡9,900/mes) se paga con solo <b id="calc-payback">2 clientes nuevos</b> al mes.</p>
+        <p class="sr-only" aria-live="polite" id="calc-status"></p>
+        <a class="btn btn-primary calc-cta" id="calc-cta" data-cta="roi_calculator" target="_blank" rel="noopener"
+           href="https://wa.me/50663889598?text=Hola%2C%20us%C3%A9%20la%20calculadora%20de%20BizMapShield%20y%20quiero%20recuperar%20esos%20ingresos.">
+          <span aria-hidden="true">💬</span> Quiero recuperar esos ingresos
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ PROBLEM / SOLUTION ============ -->
 <section class="problem" id="diferencia" data-ba="off">
@@ -930,62 +989,8 @@
 <!-- ============ ROI & REVENUE IMPACT ============ -->
 <section class="roi" id="roi">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="section-label">ROI e impacto en ingresos</span>
-      <h2>¿Cuánto dinero estás <span class="red">dejando ir</span>?</h2>
-      <p>Mueve los controles con los datos de tu negocio y mira cuánto se va hoy con tu competencia y cuánto puedes recuperar.</p>
-    </div>
-
-    <!-- Revenue calculator -->
-    <div class="calc reveal" id="calc">
-      <div class="calc-inputs">
-        <div>
-          <div class="calc-title">Calcula tu caso</div>
-          <p>Ajusta los valores a tu negocio. El resultado se actualiza al instante.</p>
-        </div>
-        <div>
-          <div class="calc-row">
-            <label for="calc-traffic">Tráfico diario de clientes</label>
-            <output for="calc-traffic" id="calc-traffic-out">40</output>
-          </div>
-          <input class="calc-range" id="calc-traffic" type="range" min="10" max="400" step="5" value="40" aria-valuetext="40 clientes al día" />
-          <div class="calc-scale" aria-hidden="true"><span>10</span><span>400</span></div>
-        </div>
-        <div>
-          <div class="calc-row">
-            <label for="calc-ticket">Ticket promedio</label>
-            <output for="calc-ticket" id="calc-ticket-out">₡6,000</output>
-          </div>
-          <input class="calc-range" id="calc-ticket" type="range" min="1000" max="50000" step="500" value="6000" aria-valuetext="6,000 colones" />
-          <div class="calc-scale" aria-hidden="true"><span>₡1,000</span><span>₡50,000</span></div>
-        </div>
-        <p class="calc-assume">Estimación ilustrativa con 26 días de atención al mes. Supone que hoy un 8% de tus clientes potenciales elige a un competidor con más reseñas, y que con BizMapShield recuperas esa fuga y atraes un 4% adicional al subir en el mapa (12% en total). Los resultados reales varían según el tipo de negocio y la ubicación.</p>
-      </div>
-
-      <div class="calc-results">
-        <div class="calc-stat lost">
-          <span class="calc-k">Ingresos mensuales perdidos</span>
-          <span class="calc-v" aria-hidden="true"><span id="calc-lost">₡0</span><small>/mes</small></span>
-          <div class="calc-bar" aria-hidden="true"><i id="calc-lost-bar"></i></div>
-          <span class="calc-note">Clientes que hoy se van con un competidor mejor calificado</span>
-        </div>
-        <div class="calc-stat gain">
-          <span class="calc-k">Potencial con BizMapShield</span>
-          <span class="calc-v" aria-hidden="true"><span id="calc-gain">₡0</span><small>/mes</small></span>
-          <div class="calc-bar" aria-hidden="true"><i id="calc-gain-bar"></i></div>
-          <span class="calc-note">Ingreso adicional estimado al dominar tu zona</span>
-        </div>
-        <p class="calc-payback">El plan Pro (₡9,900/mes) se paga con solo <b id="calc-payback">2 clientes nuevos</b> al mes.</p>
-        <p class="sr-only" aria-live="polite" id="calc-status"></p>
-        <a class="btn btn-primary calc-cta" id="calc-cta" data-cta="roi_calculator" target="_blank" rel="noopener"
-           href="https://wa.me/50663889598?text=Hola%2C%20us%C3%A9%20la%20calculadora%20de%20BizMapShield%20y%20quiero%20recuperar%20esos%20ingresos.">
-          <span aria-hidden="true">💬</span> Quiero recuperar esos ingresos
-        </a>
-      </div>
-    </div>
-
     <div class="roi-subhead reveal">
-      <h3>Tus primeros <span class="red">90 días</span> con BizMapShield</h3>
+      <h2>Tus primeros <span class="red">90 días</span> con BizMapShield</h2>
       <p>Más reseñas de 5 estrellas, más visitas y más ingresos: así crece un negocio local típico mientras el stand trabaja con cada cliente.</p>
     </div>
 
