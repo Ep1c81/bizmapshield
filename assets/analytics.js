@@ -1,4 +1,4 @@
-/* BizMapShield analytics (GA4). Loaded synchronously in <head> on every page.
+/* BizMapShield analytics (GA4). Loaded in <head> on every page (deferred on index.html).
  *
  * - Never sends data from local/dev/preview hosts (localhost, file://, *.vercel.app, ...).
  *   On those hosts events are logged to the console instead, so tracking can still be tested.

@@ -1,12 +1,12 @@
 # Analytics (GA4) — BizMapShield
 
-Property: `G-H999LY10ZN`. All tracking lives in [`assets/analytics.js`](assets/analytics.js), which every page loads in `<head>`.
+Property: `G-H999LY10ZN`. All tracking lives in [`assets/analytics.js`](assets/analytics.js), which every page loads in `<head>` (with `defer` on `index.html`). Page scripts call it only through guards, so a blocked or failed `analytics.js` never breaks a CTA.
 
 ## Events sent
 
 | Event | When | Key params |
 |---|---|---|
-| `generate_lead` | Any click on a WhatsApp (`wa.me`), `tel:` or `mailto:` link, anywhere on any page, plus the hero "Diagnóstico gratis" form submit | `method` (`whatsapp` / `phone` / `email`), `cta_location` (`hero_diagnostico`, `pricing`, `navbar`, `faq`, `final-cta`, `floating`, `footer`, `card`…), `link_text` |
+| `generate_lead` | Any click on a WhatsApp (`wa.me`), `tel:` or `mailto:` link, anywhere on any page, plus the hero "Diagnóstico gratis" form submit | `method` (`whatsapp` / `phone` / `email`), `cta_location` (`hero_diagnostico`, `navbar`, `roi_calculator`, `pricing_basico` / `pricing_pro` / `pricing_premium`, `faq`, `final_cta`, `sticky_bar`, `floating`, `footer`, `card`…), `link_text` |
 | `view_pricing` | "Ver precios" link under the hero form or in the mobile sticky bar | `cta_location` (`hero_diagnostico`, `sticky_bar`) |
 | `calc_jump` | "Calcula cuánto pierdes" link under the hero form | `cta_location` |
 | `faq_open` | A FAQ question is expanded | `faq_question` |

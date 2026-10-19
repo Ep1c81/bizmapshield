@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BizMapShield — Domina tu Mapa. Multiplica tus Clientes.</title>
 <meta name="description" content="Consigue más reseñas de 5 estrellas en Google automáticamente. Domina tu zona en Google Maps y multiplica tus clientes. Desde ₡19,900. Costa Rica." />
+<meta name="keywords" content="reseñas Google, Google Maps, stand NFC, reseñas 5 estrellas, reputación online, Google Business Profile, SEO local, negocios Costa Rica, San José, Escazú" />
+<meta name="author" content="BizMapShield · AuralinkDigital" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#0d1b2a" />
+
+<!-- Connection warm-up: fonts (CORS) and images/analytics (no CORS) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+<link rel="dns-prefetch" href="https://images.unsplash.com" />
+<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -29,20 +42,118 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="BizMapShield — Domina tu Mapa. Multiplica tus Clientes." />
+<meta property="og:image:type" content="image/png" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="BizMapShield — Domina tu Mapa. Multiplica tus Clientes." />
 <meta name="twitter:description" content="Consigue más reseñas de 5 estrellas en Google automáticamente. Domina tu zona en Google Maps y multiplica tus clientes. Desde ₡19,900. Costa Rica." />
 <meta name="twitter:image" content="https://bizmapshield.com/assets/og-image.png" />
+<meta name="twitter:image:alt" content="BizMapShield — Domina tu Mapa. Multiplica tus Clientes." />
 
-<!-- GA4: see assets/analytics.js and ANALYTICS.md -->
-<script src="assets/analytics.js"></script>
+<!-- Structured data: business, product offers and site -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://bizmapshield.com/#business",
+      "name": "BizMapShield",
+      "url": "https://bizmapshield.com/",
+      "logo": "https://bizmapshield.com/assets/favicon-512.png",
+      "image": "https://bizmapshield.com/assets/og-image.png",
+      "description": "Stands NFC y código QR que llevan a tus clientes directo a dejar su reseña en Google. Gestión de reputación y posicionamiento en Google Maps para negocios locales en Costa Rica.",
+      "telephone": "+506 6388 9598",
+      "email": "premium@auralinkdigital.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mata Redonda",
+        "addressRegion": "San José",
+        "addressCountry": "CR"
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Gran Área Metropolitana" },
+        { "@type": "Country", "name": "Costa Rica" }
+      ],
+      "priceRange": "₡19,900 – ₡39,900",
+      "currenciesAccepted": "CRC",
+      "paymentAccepted": "SINPE Móvil, Transferencia bancaria, Efectivo",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+506 6388 9598",
+        "url": "https://wa.me/50663889598",
+        "availableLanguage": ["es"],
+        "areaServed": "CR"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://bizmapshield.com/#product",
+      "name": "Stand NFC BizMapShield",
+      "description": "Stand NFC con código QR de respaldo que abre la página oficial de reseñas de Google de tu negocio en 3 segundos. Incluye instalación y configuración.",
+      "image": "https://bizmapshield.com/assets/og-image.png",
+      "brand": { "@type": "Brand", "name": "BizMapShield" },
+      "category": "Gestión de reputación en Google Maps",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Básico",
+          "description": "1 Stand NFC, código QR de respaldo, configuración y optimización de Google Business. Pago único.",
+          "price": "19900",
+          "priceCurrency": "CRC",
+          "availability": "https://schema.org/InStock",
+          "url": "https://bizmapshield.com/#pricing",
+          "seller": { "@id": "https://bizmapshield.com/#business" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "description": "Stand inicial + monitoreo de reseñas, reporte mensual y alertas. ₡19,900 pago único + ₡9,900 al mes.",
+          "price": "19900",
+          "priceCurrency": "CRC",
+          "priceSpecification": [
+            { "@type": "UnitPriceSpecification", "name": "Stand e instalación (pago único)", "price": "19900", "priceCurrency": "CRC" },
+            { "@type": "UnitPriceSpecification", "name": "Mantenimiento mensual", "price": "9900", "priceCurrency": "CRC", "referenceQuantity": { "@type": "QuantitativeValue", "value": 1, "unitCode": "MON" } }
+          ],
+          "availability": "https://schema.org/InStock",
+          "url": "https://bizmapshield.com/#pricing",
+          "seller": { "@id": "https://bizmapshield.com/#business" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Premium",
+          "description": "Gestión total de reputación, respuesta a reseñas y hasta 4 sucursales. ₡39,900 pago único + ₡39,900 al mes.",
+          "price": "39900",
+          "priceCurrency": "CRC",
+          "priceSpecification": [
+            { "@type": "UnitPriceSpecification", "name": "Stand e instalación (pago único)", "price": "39900", "priceCurrency": "CRC" },
+            { "@type": "UnitPriceSpecification", "name": "Gestión total mensual", "price": "39900", "priceCurrency": "CRC", "referenceQuantity": { "@type": "QuantitativeValue", "value": 1, "unitCode": "MON" } }
+          ],
+          "availability": "https://schema.org/InStock",
+          "url": "https://bizmapshield.com/#pricing",
+          "seller": { "@id": "https://bizmapshield.com/#business" }
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bizmapshield.com/#website",
+      "url": "https://bizmapshield.com/",
+      "name": "BizMapShield",
+      "inLanguage": "es-CR",
+      "publisher": { "@id": "https://bizmapshield.com/#business" }
+    }
+  ]
+}
+</script>
+
+<!-- GA4: see assets/analytics.js and ANALYTICS.md. Deferred: page scripts only call it from event
+     handlers, through guards that tolerate it being late or blocked. -->
+<script src="assets/analytics.js" defer></script>
 <script>document.documentElement.classList.add('js');</script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://images.unsplash.com" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
 
 <style>
@@ -100,6 +211,11 @@
   .js .hero .reveal:not(.visible) { opacity: 1; transform: none; }
 
   .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Skip link (WCAG 2.4.1): off-screen until focused ---------- */
+  .skip-link { position: absolute; top: 8px; left: 8px; z-index: 300; padding: 12px 18px; border-radius: 12px; background: var(--navy); color: var(--white); font-weight: 700; font-size: 14px; text-decoration: none; transform: translateY(-160%); transition: transform 0.2s var(--ease); }
+  .skip-link:focus { transform: none; }
+  main:focus { outline: none; }
 
   /* ---------- Topbar / Nav ---------- */
   .topbar { background: var(--navy); color: var(--white); padding: 10px 16px; font-size: 12px; text-align: center; letter-spacing: 0.3px; }
@@ -232,7 +348,7 @@
   .section-head p { font-size: clamp(16px, 2vw, 18px); color: var(--ink-2); line-height: 1.65; }
 
   /* ---------- Problem / Solution ---------- */
-  .problem { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
+  .problem { position: relative; isolation: isolate; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
   .ba-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1040px; margin: 0 auto; }
   @media (min-width: 820px) { .ba-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
   .ba-card { border-radius: var(--radius-lg); position: relative; overflow: hidden; transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s; box-shadow: var(--shadow-md); }
@@ -254,7 +370,6 @@
   .ba-list li .mark { flex-shrink: 0; font-size: 15px; line-height: 1.3; }
 
   /* Before/after switch. Only shown once JS has wired it up (.ba-ready); without JS the two cards render as before. */
-  .problem { position: relative; isolation: isolate; }
   .problem::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(70% 55% at 50% 30%, rgba(251,191,36,0.16), transparent 70%), radial-gradient(50% 40% at 80% 90%, rgba(216,31,38,0.08), transparent 70%); opacity: 0; transition: opacity 0.8s var(--ease); }
   .problem[data-ba="on"]::before { opacity: 1; }
   .ba-switch { display: none; max-width: 560px; margin: -16px auto 32px; text-align: center; }
@@ -264,7 +379,7 @@
   .bl-pin { grid-row: 1 / 3; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; background: #f1f5f9; border: 1px solid var(--line); transition: background 0.6s, border-color 0.6s; }
   .bl-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; }
   .bl-name { font-family: var(--font-display); font-size: 16px; font-weight: 800; color: var(--navy); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .bl-rank { flex-shrink: 0; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 50px; background: #f1f5f9; color: var(--ink-3); border: 1px solid var(--line); font-variant-numeric: tabular-nums; transition: background 0.6s, color 0.6s, border-color 0.6s, box-shadow 0.6s; }
+  .bl-rank { flex-shrink: 0; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 50px; background: #f1f5f9; color: var(--ink-2); border: 1px solid var(--line); font-variant-numeric: tabular-nums; transition: background 0.6s, color 0.6s, border-color 0.6s, box-shadow 0.6s; }
   .bl-rating { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; font-size: 13px; color: var(--ink-2); }
   .bl-score { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: var(--navy); font-variant-numeric: tabular-nums; min-width: 2.2ch; }
   .bl-stars { display: inline-flex; gap: 1px; font-size: 18px; line-height: 1; }
@@ -434,7 +549,6 @@
   .calc-payback { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.55; }
   .calc-payback b { color: var(--gold); font-variant-numeric: tabular-nums; }
   .calc-cta { width: 100%; margin-top: 4px; }
-  .calc-results :focus-visible { outline-color: var(--gold); }
   .roi-subhead { text-align: center; max-width: 720px; margin: 0 auto 28px; }
   .roi-subhead h2 { font-size: clamp(22px, 3.6vw, 30px); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; line-height: 1.2; }
   .roi-subhead h2 .red { color: var(--red); }
@@ -597,7 +711,7 @@
   .footer-disclaimer strong { color: rgba(255,255,255,0.85); }
   .footer-copy { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
   .footer-copy p { font-size: 12px; color: rgba(255,255,255,0.55); }
-  .footer-powered { margin-top: 8px; font-size: 12px !important; }
+  .footer-powered { margin-top: 8px; }
   .footer-powered a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 700; }
   .footer-powered a:hover, .footer-powered a:focus-visible { color: var(--red); }
 
@@ -632,7 +746,9 @@
   /* Keyboard focus ring (WCAG 2.4.7): navy on light surfaces, gold on dark ones */
   a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
   .topbar :focus-visible, .stats :focus-visible, .final-cta :focus-visible, .footer :focus-visible,
-  .ba-card.after :focus-visible, .price-card.featured :focus-visible { outline-color: var(--gold); }
+  .ba-card.after :focus-visible, .price-card.featured :focus-visible, .calc-results :focus-visible,
+  .proof-stats :focus-visible { outline-color: var(--gold); }
+  .skip-link:focus-visible { outline-color: var(--gold); }
   .wa-float:focus-visible { outline: 3px solid var(--white); outline-offset: 2px; box-shadow: 0 0 0 7px var(--navy), 0 14px 30px -8px rgba(37,211,102,0.7); }
 
   /* Touch targets (44px) on phones and tablets */
@@ -668,15 +784,17 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
 <!-- ============ TOPBAR ============ -->
 <div class="topbar">
   <span aria-hidden="true">🔥</span> <strong>OFERTA DE LANZAMIENTO:</strong> Instalación GRATIS<span class="hide-sm"> en la Gran Área Metropolitana</span> · Solo este mes
 </div>
 
 <!-- ============ NAVBAR ============ -->
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Principal">
   <div class="nav-inner">
-    <div class="brand">
+    <div class="brand" role="img" aria-label="BizMapShield">
       <div class="brand-shield"></div>
       <div><span class="biz">Biz</span><span class="map">Map</span><span class="shield">Shield</span></div>
     </div>
@@ -687,12 +805,13 @@
       <a href="#faq">Preguntas</a>
     </div>
     <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20BizMapShield"
-       target="_blank" rel="noopener" class="nav-cta">
+       target="_blank" rel="noopener" class="nav-cta" data-cta="navbar">
       <span aria-hidden="true">💬</span> <span class="long">Hablar por&nbsp;</span>WhatsApp
     </a>
   </div>
 </nav>
 
+<main id="main" tabindex="-1">
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="container">
@@ -737,27 +856,27 @@
 
       <div class="hero-visual reveal">
         <div class="hero-media">
-        <div class="hero-photo">
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1100&q=80&auto=format&fit=crop"
-               srcset="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&q=75&auto=format&fit=crop 640w,
-                       https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1100&q=80&auto=format&fit=crop 1100w,
-                       https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600&q=80&auto=format&fit=crop 1600w"
-               sizes="(min-width: 960px) 560px, 100vw"
-               alt="Dueño de negocio sonriente atendiendo a una clienta que paga con su celular en el mostrador"
-               width="1100" height="935" fetchpriority="high" />
-        </div>
-        <div class="float-card fc-rating float" aria-hidden="true">
-          <div class="g"><span>G</span></div>
-          <div>
-            <div class="score">4.9 <span class="stars">★★★★★</span></div>
-            <div class="sub">Tu perfil en Google Maps</div>
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1100&q=80&auto=format&fit=crop"
+                 srcset="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&q=75&auto=format&fit=crop 640w,
+                         https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1100&q=80&auto=format&fit=crop 1100w,
+                         https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600&q=80&auto=format&fit=crop 1600w"
+                 sizes="(min-width: 960px) 560px, 100vw"
+                 alt="Dueño de negocio sonriente atendiendo a una clienta que paga con su celular en el mostrador"
+                 width="1100" height="935" loading="eager" fetchpriority="high" />
           </div>
-        </div>
-        <div class="float-card fc-growth float" aria-hidden="true">
-          <div class="k">Reseñas 5★ · 90 días</div>
-          <div class="v">+98<small>▲</small></div>
-          <svg width="130" height="30" viewBox="0 0 130 30"><path d="M2 27 C 20 26, 30 24, 45 20 S 75 12, 90 9 S 115 4, 128 3" fill="none" stroke="#d81f26" stroke-width="2.5" stroke-linecap="round"/></svg>
-        </div>
+          <div class="float-card fc-rating float" aria-hidden="true">
+            <div class="g"><span>G</span></div>
+            <div>
+              <div class="score">4.9 <span class="stars">★★★★★</span></div>
+              <div class="sub">Tu perfil en Google Maps</div>
+            </div>
+          </div>
+          <div class="float-card fc-growth float" aria-hidden="true">
+            <div class="k">Reseñas 5★ · 90 días</div>
+            <div class="v">+98<small>▲</small></div>
+            <svg width="130" height="30" viewBox="0 0 130 30"><path d="M2 27 C 20 26, 30 24, 45 20 S 75 12, 90 9 S 115 4, 128 3" fill="none" stroke="#d81f26" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
         </div>
 
         <!-- Live demo: real, scannable QR (ECC level H, so the center logo doesn't break it).
@@ -829,7 +948,7 @@
             <label for="calc-traffic">Tráfico diario de clientes</label>
             <output for="calc-traffic" id="calc-traffic-out">40</output>
           </div>
-          <input class="calc-range" id="calc-traffic" type="range" min="10" max="400" step="5" value="40" aria-valuetext="40 clientes al día" />
+          <input class="calc-range" id="calc-traffic" type="range" min="10" max="400" step="5" value="40" aria-valuetext="40 clientes al día" aria-controls="calc-results" />
           <div class="calc-scale" aria-hidden="true"><span>10</span><span>400</span></div>
         </div>
         <div>
@@ -837,13 +956,13 @@
             <label for="calc-ticket">Ticket promedio</label>
             <output for="calc-ticket" id="calc-ticket-out">₡6,000</output>
           </div>
-          <input class="calc-range" id="calc-ticket" type="range" min="1000" max="50000" step="500" value="6000" aria-valuetext="6,000 colones" />
+          <input class="calc-range" id="calc-ticket" type="range" min="1000" max="50000" step="500" value="6000" aria-valuetext="6,000 colones" aria-controls="calc-results" />
           <div class="calc-scale" aria-hidden="true"><span>₡1,000</span><span>₡50,000</span></div>
         </div>
         <p class="calc-assume">Estimación ilustrativa con 26 días de atención al mes. Supone que hoy un 8% de tus clientes potenciales elige a un competidor con más reseñas, y que con BizMapShield recuperas esa fuga y atraes un 4% adicional al subir en el mapa (12% en total). Los resultados reales varían según el tipo de negocio y la ubicación.</p>
       </div>
 
-      <div class="calc-results">
+      <div class="calc-results" id="calc-results">
         <div class="calc-stat lost">
           <span class="calc-k">Ingresos mensuales perdidos</span>
           <span class="calc-v" aria-hidden="true"><span id="calc-lost">₡0</span><small>/mes</small></span>
@@ -908,7 +1027,7 @@
         <div class="ba-tag">Sin BizMapShield</div>
         <div class="ba-photo">
           <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=900&q=75&auto=format&fit=crop"
-               alt="Cafetería vacía con poca luz" loading="lazy" width="900" height="506" />
+               alt="Cafetería vacía con poca luz" loading="lazy" decoding="async" width="900" height="506" />
         </div>
         <div class="ba-body">
           <h3><span aria-hidden="true">😰</span> Tu competencia gana</h3>
@@ -926,7 +1045,7 @@
         <div class="ba-tag">Con BizMapShield</div>
         <div class="ba-photo">
           <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=900&q=75&auto=format&fit=crop"
-               alt="Cafetería moderna llena de clientes" loading="lazy" width="900" height="506" />
+               alt="Cafetería moderna llena de clientes" loading="lazy" decoding="async" width="900" height="506" />
         </div>
         <div class="ba-body">
           <h3><span aria-hidden="true">🚀</span> Dominas tu zona</h3>
@@ -955,7 +1074,7 @@
     <div class="how-grid">
       <div class="how-photo reveal-img">
         <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1000&q=78&auto=format&fit=crop"
-             alt="Cliente acercando su celular a un dispositivo en el mostrador de un negocio" loading="lazy" width="1000" height="900" />
+             alt="Cliente acercando su celular a un dispositivo en el mostrador de un negocio" loading="lazy" decoding="async" width="1000" height="900" />
         <div class="chip"><span aria-hidden="true">📡</span> Un toque · <b>3 segundos</b></div>
       </div>
 
@@ -1056,15 +1175,15 @@
       <div class="owners-collage reveal-img">
         <figure>
           <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=800&q=78&auto=format&fit=crop"
-               alt="Dueño de restaurante sonriendo en su local" loading="lazy" width="800" height="1000" />
+               alt="Dueño de restaurante sonriendo en su local" loading="lazy" decoding="async" width="800" height="1000" />
         </figure>
         <figure>
           <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=75&auto=format&fit=crop"
-               alt="Cafetería moderna con clientes" loading="lazy" width="600" height="450" />
+               alt="Cafetería moderna con clientes" loading="lazy" decoding="async" width="600" height="450" />
         </figure>
         <figure>
           <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=75&auto=format&fit=crop"
-               alt="Empresaria sonriendo" loading="lazy" width="600" height="450" />
+               alt="Empresaria sonriendo" loading="lazy" decoding="async" width="600" height="450" />
         </figure>
       </div>
 
@@ -1246,7 +1365,7 @@
           <li><span class="check" aria-hidden="true">✓</span> Plantillas de WhatsApp para pedir reseñas</li>
         </ul>
         <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20B%C3%A1sico%20de%20BizMapShield%20(1%20Stand%20-%20%E2%82%A119%2C900)"
-           target="_blank" rel="noopener" class="price-cta secondary">
+           target="_blank" rel="noopener" class="price-cta secondary" data-cta="pricing_basico">
           <span aria-hidden="true">💬</span> Pedir el Básico
         </a>
       </div>
@@ -1267,7 +1386,7 @@
           <li><span class="check" aria-hidden="true">✓</span> Soporte prioritario por WhatsApp</li>
         </ul>
         <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20Pro%20de%20BizMapShield%20(Stand%20%2B%20Mantenimiento%20%E2%82%A19%2C900%2Fmes)"
-           target="_blank" rel="noopener" class="price-cta primary">
+           target="_blank" rel="noopener" class="price-cta primary" data-cta="pricing_pro">
           <span aria-hidden="true">💬</span> Pedir el Pro
         </a>
       </div>
@@ -1287,40 +1406,40 @@
           <li><span class="check" aria-hidden="true">✓</span> Múltiples sucursales (hasta 4)</li>
         </ul>
         <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20Premium%20de%20BizMapShield%20(Gesti%C3%B3n%20Total)"
-           target="_blank" rel="noopener" class="price-cta secondary">
+           target="_blank" rel="noopener" class="price-cta secondary" data-cta="pricing_premium">
           <span aria-hidden="true">💬</span> Pedir el Premium
         </a>
       </div>
 
     </div>
     <p class="iva-note reveal">Todos los precios incluyen IVA.</p>
-<div class="payment-methods reveal">
-  <h3 class="payment-title"><span aria-hidden="true">💳</span> Métodos de pago aceptados</h3>
-  <div class="payment-grid">
-    <div class="payment-item">
-      <div class="payment-icon" aria-hidden="true">🟢</div>
-      <div>
-        <div class="payment-name">SINPE Móvil</div>
-        <div class="payment-detail">+506 6388 9598</div>
+    <div class="payment-methods reveal">
+      <h3 class="payment-title"><span aria-hidden="true">💳</span> Métodos de pago aceptados</h3>
+      <div class="payment-grid">
+        <div class="payment-item">
+          <div class="payment-icon" aria-hidden="true">🟢</div>
+          <div>
+            <div class="payment-name">SINPE Móvil</div>
+            <div class="payment-detail">+506 6388 9598</div>
+          </div>
+        </div>
+        <div class="payment-item">
+          <div class="payment-icon" aria-hidden="true">🏦</div>
+          <div>
+            <div class="payment-name">Transferencia Bancaria</div>
+            <div class="payment-detail">Coordinamos por WhatsApp</div>
+          </div>
+        </div>
+        <div class="payment-item">
+          <div class="payment-icon" aria-hidden="true">💵</div>
+          <div>
+            <div class="payment-name">Efectivo</div>
+            <div class="payment-detail">Al momento de la instalación</div>
+          </div>
+        </div>
       </div>
+      <p class="payment-note">Emitimos comprobante de pago. Factura electrónica disponible próximamente.</p>
     </div>
-    <div class="payment-item">
-      <div class="payment-icon" aria-hidden="true">🏦</div>
-      <div>
-        <div class="payment-name">Transferencia Bancaria</div>
-        <div class="payment-detail">Coordinamos por WhatsApp</div>
-      </div>
-    </div>
-    <div class="payment-item">
-      <div class="payment-icon" aria-hidden="true">💵</div>
-      <div>
-        <div class="payment-name">Efectivo</div>
-        <div class="payment-detail">Al momento de la instalación</div>
-      </div>
-    </div>
-  </div>
-  <p class="payment-note">Emitimos comprobante de pago. Factura electrónica disponible próximamente.</p>
-</div>
   </div>
 </section>
 
@@ -1384,12 +1503,12 @@
 <!-- ============ FINAL CTA ============ -->
 <section class="final-cta">
   <div class="bg" aria-hidden="true">
-    <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy" />
+    <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async" width="1600" height="1067" />
   </div>
   <div class="container">
     <h2 class="reveal">Tu competencia ya está en el mapa.<br>¿Y tú?</h2>
     <p class="reveal">Cada día que pasa sin reseñas nuevas es un cliente que se va con otro. Empieza hoy. Te tomamos 5 minutos.</p>
-    <div class="final-ctas reveal">
+    <div class="final-ctas reveal" data-cta="final_cta">
       <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20dominar%20mi%20mapa%20con%20BizMapShield"
          target="_blank" rel="noopener" class="btn btn-primary">
         <span aria-hidden="true">💬</span> Hablar por WhatsApp
@@ -1400,6 +1519,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer class="footer">
   <div class="container">
@@ -1410,7 +1530,7 @@
     <p class="footer-tagline">Protege tu reputación. Domina tu mapa. Multiplica tus clientes.</p>
 
     <div class="footer-grid">
-      <div class="footer-col">
+      <div class="footer-col" data-cta="footer">
         <h4>Contacto</h4>
         <p><span aria-hidden="true">📍</span> San José, Mata Redonda, Costa Rica</p>
         <p><span aria-hidden="true">📱</span> <a href="https://wa.me/50663889598" target="_blank" rel="noopener">+506 6388 9598</a></p>
@@ -1447,8 +1567,8 @@
 </footer>
 
 <!-- ============ MOBILE STICKY CTA (appears once the hero scrolls away) ============ -->
-<div class="m-cta" id="m-cta" data-cta="sticky_bar" aria-hidden="true">
-  <a href="#pricing" class="m-cta-sec" data-track="view_pricing" tabindex="-1">Ver precios</a>
+<div class="m-cta" id="m-cta" data-cta="sticky_bar" role="region" aria-label="Contacto rápido" aria-hidden="true">
+  <a href="#pricing" class="m-cta-sec" data-track="view_pricing" aria-controls="pricing" tabindex="-1">Ver precios</a>
   <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20BizMapShield"
      target="_blank" rel="noopener" class="btn btn-primary m-cta-main" tabindex="-1">
     <span aria-hidden="true">💬</span> Hablar por WhatsApp
@@ -1457,14 +1577,25 @@
 
 <!-- ============ FLOATING WHATSAPP ============ -->
 <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20BizMapShield"
-   target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp" data-cta="floating">
-  💬
+   target="_blank" rel="noopener" class="wa-float" aria-label="Escribir por WhatsApp (se abre en una nueva pestaña)" data-cta="floating">
+  <span aria-hidden="true">💬</span>
 </a>
 
 <!-- ============ JAVASCRIPT ============ -->
 <script>
+(function () {
+  'use strict';
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const hasIO = 'IntersectionObserver' in window;
+
+  // Analytics guards: assets/analytics.js is deferred and may be blocked (ad-blockers), so never let
+  // a missing or failing tracker break a CTA.
+  const track = (name, params) => {
+    try { if (typeof window.bmsTrack === 'function') window.bmsTrack(name, params); } catch (e) { /* tracking is best-effort */ }
+  };
+  const tagWhatsApp = (href) => {
+    try { return typeof window.bmsTagWhatsApp === 'function' ? window.bmsTagWhatsApp(href) : href; } catch (e) { return href; }
+  };
 
   // Reveal on scroll (show everything immediately if IntersectionObserver is unavailable)
   if (hasIO) {
@@ -1497,8 +1628,8 @@
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 8), { passive: true });
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  // Smooth scroll for anchor links (the skip link keeps native behavior so keyboard focus moves too)
+  document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
@@ -1516,14 +1647,14 @@
     const text = business
       ? `Hola, quiero el diagnóstico gratis de mi perfil de Google. Mi negocio: ${business}`
       : 'Hola, quiero el diagnóstico gratis de mi perfil de Google.';
-    bmsTrack('generate_lead', { method: 'whatsapp', cta_location: 'hero_diagnostico', form_filled: business ? 'yes' : 'no' });
-    window.open(bmsTagWhatsApp('https://wa.me/50663889598?text=' + encodeURIComponent(text)), '_blank', 'noopener');
+    track('generate_lead', { method: 'whatsapp', cta_location: 'hero_diagnostico', form_filled: business ? 'yes' : 'no' });
+    window.open(tagWhatsApp('https://wa.me/50663889598?text=' + encodeURIComponent(text)), '_blank', 'noopener');
   });
 
   // FAQ: which objections people open
   document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('toggle', () => {
-      if (item.open) bmsTrack('faq_open', { faq_question: item.querySelector('summary').textContent.trim().slice(0, 100) });
+      if (item.open) track('faq_open', { faq_question: item.querySelector('summary').textContent.trim().slice(0, 100) });
     });
   });
 
@@ -1726,7 +1857,7 @@
         current = btn.dataset.metric;
         hasDrawn = true;
         render(true);
-        bmsTrack('roi_metric', { metric: current });
+        track('roi_metric', { metric: current });
       });
     });
 
@@ -1765,6 +1896,7 @@
       rt = setTimeout(() => { if (Math.abs(wrap.clientWidth - rw) > 40) { rw = wrap.clientWidth; render(hasDrawn ? false : 'hidden'); } }, 150);
     });
   })();
+})();
 </script>
 
 <!-- ============ INTERACTIVE MODULES (self-contained; no globals) ============ -->
@@ -1772,7 +1904,9 @@
 (function () {
   'use strict';
   var noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var track = function (name, params) { if (typeof window.bmsTrack === 'function') window.bmsTrack(name, params); };
+  var track = function (name, params) {
+    try { if (typeof window.bmsTrack === 'function') window.bmsTrack(name, params); } catch (e) { /* tracking is best-effort */ }
+  };
   var fmtNum = function (v) { return Math.round(v).toLocaleString('en-US'); };
   var fmtCRC = function (v) { return '₡' + fmtNum(v); };
 
