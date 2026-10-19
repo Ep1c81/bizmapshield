@@ -28,7 +28,7 @@ New contact links are tracked automatically. Add `data-cta="some_name"` to a lin
 
 When a visitor lands with `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `gclid` or `fbclid` in the URL, `analytics.js` saves them in `sessionStorage` for the rest of the visit. Every WhatsApp link that has a prefilled message (including the hero diagnosis form) then gets a short tag appended, e.g. `… [ref: instagram/social/octubre]`, so you can see in WhatsApp which campaign a chat came from. GA4 attributes the session to the campaign itself, so nothing extra is needed there.
 
-Always tag the links you share, e.g. `https://bizmapshield.com/?utm_source=instagram&utm_medium=social&utm_campaign=octubre`.
+Always tag the links you share, e.g. `https://bizmapshield.vercel.app/?utm_source=instagram&utm_medium=social&utm_campaign=octubre`.
 
 ## Required GA4 admin setup (one-time, ~5 min)
 
@@ -37,13 +37,13 @@ Without these steps, GA4 still shows 0 key events, whatever the code does.
 1. **Mark the lead as a key event.** Admin → Data display → Events → wait until `generate_lead` appears (up to 24 h after the first click), then toggle **Mark as key event**. You can also create it ahead of time: Admin → Key events → *New key event* → `generate_lead`.
 2. **Define internal traffic.** Admin → Data streams → (web stream) → Configure tag settings → Show more → *Define internal traffic*. Add a rule `traffic_type = internal` for your office/home IP. The code also sets `traffic_type=internal` for any browser flagged with `?internal=1` (see below), and that works even on mobile data.
 3. **Activate the filter.** Admin → Data collection and modification → Data filters → *Internal Traffic* → set to **Active** (it ships as *Testing*). Also activate the **Developer Traffic** filter.
-4. **Exclude unwanted referrals.** Data stream → Configure tag settings → *List unwanted referrals* → add `vercel.com`, `vercel.app`, `github.com`, `localhost`. This stops your own dashboard-to-site clicks from appearing as "referral" sessions.
-5. (Optional) **Hostname check.** Explore → filter by *Hostname*. Only `bizmapshield.com` (and `www.`) should be real traffic.
+4. **Exclude unwanted referrals.** Data stream → Configure tag settings → *List unwanted referrals* → add `vercel.com`, `github.com`, `localhost` (not `vercel.app`: the live site is `bizmapshield.vercel.app`). This stops your own dashboard-to-site clicks from appearing as "referral" sessions.
+5. (Optional) **Hostname check.** Explore → filter by *Hostname*. Only `bizmapshield.vercel.app` should be real traffic (plus `bizmapshield.com` if that domain is restored).
 
 ## Keeping internal and dev traffic out
 
-- **Dev and preview hosts never send data.** `localhost`, `127.0.0.1`, LAN IPs, `file://`, `*.vercel.app`, `*.netlify.app`, `*.pages.dev`, `*.ngrok.app` and `*.local` are all blocked in `analytics.js`. On those hosts events are printed to the browser console as `[analytics:dev] …` instead, so you can still check that every button fires.
-- **Your own browsers on the live site:** open `https://bizmapshield.com/?internal=1` once on each phone or laptop you use. The flag is stored in localStorage. Those visits are sent with `traffic_type=internal` (dropped by the filter) and `debug_mode` (visible in Admin → DebugView), so you can test the live site without polluting reports. `?internal=0` removes the flag. Clearing site data also removes it, so set it again afterwards.
+- **Dev and preview hosts never send data.** `localhost`, `127.0.0.1`, LAN IPs, `file://`, Vercel preview builds (any `*.vercel.app` host other than `bizmapshield.vercel.app`), `*.netlify.app`, `*.pages.dev`, `*.ngrok.app` and `*.local` are all blocked in `analytics.js`. On those hosts events are printed to the browser console as `[analytics:dev] …` instead, so you can still check that every button fires.
+- **Your own browsers on the live site:** open `https://bizmapshield.vercel.app/?internal=1` once on each phone or laptop you use. The flag is stored in localStorage. Those visits are sent with `traffic_type=internal` (dropped by the filter) and `debug_mode` (visible in Admin → DebugView), so you can test the live site without polluting reports. `?internal=0` removes the flag. Clearing site data also removes it, so set it again afterwards.
 
 ## How to verify tracking
 

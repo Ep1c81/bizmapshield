@@ -12,13 +12,16 @@
 (function () {
   var GA_ID = 'G-H999LY10ZN';
 
+  var PROD_HOSTS = ['bizmapshield.vercel.app', 'bizmapshield.com', 'www.bizmapshield.com'];
   var host = location.hostname;
   var isDevHost =
     location.protocol === 'file:' ||
     host === '' ||
     host === 'localhost' ||
     /^127\.|^0\.0\.0\.0$|^192\.168\.|^10\.|^\[?::1\]?$/.test(host) ||
-    /\.local$|\.vercel\.app$|\.ngrok(-free)?\.(app|io)$|\.netlify\.app$|\.pages\.dev$/.test(host);
+    /\.local$|\.ngrok(-free)?\.(app|io)$|\.netlify\.app$|\.pages\.dev$/.test(host) ||
+    // The production Vercel domain sends data; every other *.vercel.app host is a preview build
+    (/\.vercel\.app$/.test(host) && PROD_HOSTS.indexOf(host) === -1);
 
   // Internal-traffic flag, persisted per browser
   var store = null;
