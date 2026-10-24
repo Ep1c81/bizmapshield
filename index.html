@@ -1,2048 +1,272 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BizMapShield — Domina tu Mapa. Multiplica tus Clientes.</title>
-<meta name="description" content="Consigue más reseñas de 5 estrellas en Google automáticamente. Domina tu zona en Google Maps y multiplica tus clientes. Desde ₡19,900. Costa Rica." />
-<meta name="keywords" content="reseñas Google, Google Maps, stand NFC, reseñas 5 estrellas, reputación online, Google Business Profile, SEO local, negocios Costa Rica, San José, Escazú" />
-<meta name="author" content="BizMapShield · AuralinkDigital" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-<meta name="theme-color" content="#0d1b2a" />
-
-<!-- Connection warm-up: fonts (CORS) and images/analytics (no CORS) -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://images.unsplash.com" />
-<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-<link rel="dns-prefetch" href="https://images.unsplash.com" />
-<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
-<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-
-<!-- Canonical -->
-<link rel="canonical" href="https://bizmapshield.vercel.app/" />
-
-<!-- Google Search Console -->
-<meta name="google-site-verification" content="tOPKIpJ3fiCdlK9Jh3YzVRpnzYQrSfb7G9CvI20-KGc" />
-
-<!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="BizMapShield" />
-<meta property="og:locale" content="es_CR" />
-<meta property="og:url" content="https://bizmapshield.vercel.app/" />
-<meta property="og:title" content="BizMapShield — Domina tu Mapa. Multiplica tus Clientes." />
-<meta property="og:description" content="Consigue más reseñas de 5 estrellas en Google automáticamente. Domina tu zona en Google Maps y multiplica tus clientes. Desde ₡19,900. Costa Rica." />
-<meta property="og:image" content="https://bizmapshield.vercel.app/assets/og-image.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="BizMapShield — Domina tu Mapa. Multiplica tus Clientes." />
-<meta property="og:image:type" content="image/png" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="BizMapShield — Domina tu Mapa. Multiplica tus Clientes." />
-<meta name="twitter:description" content="Consigue más reseñas de 5 estrellas en Google automáticamente. Domina tu zona en Google Maps y multiplica tus clientes. Desde ₡19,900. Costa Rica." />
-<meta name="twitter:image" content="https://bizmapshield.vercel.app/assets/og-image.png" />
-<meta name="twitter:image:alt" content="BizMapShield — Domina tu Mapa. Multiplica tus Clientes." />
-
-<!-- Structured data: business, product offers and site -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://bizmapshield.vercel.app/#business",
-      "name": "BizMapShield",
-      "url": "https://bizmapshield.vercel.app/",
-      "logo": "https://bizmapshield.vercel.app/assets/favicon-512.png",
-      "image": "https://bizmapshield.vercel.app/assets/og-image.png",
-      "description": "Stands NFC y código QR que llevan a tus clientes directo a dejar su reseña en Google. Gestión de reputación y posicionamiento en Google Maps para negocios locales en Costa Rica.",
-      "telephone": "+506 6388 9598",
-      "email": "premium@auralinkdigital.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Mata Redonda",
-        "addressRegion": "San José",
-        "addressCountry": "CR"
-      },
-      "areaServed": [
-        { "@type": "AdministrativeArea", "name": "Gran Área Metropolitana" },
-        { "@type": "Country", "name": "Costa Rica" }
-      ],
-      "priceRange": "₡19,900 – ₡39,900",
-      "currenciesAccepted": "CRC",
-      "paymentAccepted": "SINPE Móvil, Transferencia bancaria, Efectivo",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "sales",
-        "telephone": "+506 6388 9598",
-        "url": "https://wa.me/50663889598",
-        "availableLanguage": ["es"],
-        "areaServed": "CR"
-      }
-    },
-    {
-      "@type": "Product",
-      "@id": "https://bizmapshield.vercel.app/#product",
-      "name": "Stand NFC BizMapShield",
-      "description": "Stand NFC con código QR de respaldo que abre la página oficial de reseñas de Google de tu negocio en 3 segundos. Incluye instalación y configuración.",
-      "image": "https://bizmapshield.vercel.app/assets/og-image.png",
-      "brand": { "@type": "Brand", "name": "BizMapShield" },
-      "category": "Gestión de reputación en Google Maps",
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "Básico",
-          "description": "1 Stand NFC, código QR de respaldo, configuración y optimización de Google Business. Pago único.",
-          "price": "19900",
-          "priceCurrency": "CRC",
-          "availability": "https://schema.org/InStock",
-          "url": "https://bizmapshield.vercel.app/#pricing",
-          "seller": { "@id": "https://bizmapshield.vercel.app/#business" }
-        },
-        {
-          "@type": "Offer",
-          "name": "Pro",
-          "description": "Stand inicial + monitoreo de reseñas, reporte mensual y alertas. ₡19,900 pago único + ₡9,900 al mes.",
-          "price": "19900",
-          "priceCurrency": "CRC",
-          "priceSpecification": [
-            { "@type": "UnitPriceSpecification", "name": "Stand e instalación (pago único)", "price": "19900", "priceCurrency": "CRC" },
-            { "@type": "UnitPriceSpecification", "name": "Mantenimiento mensual", "price": "9900", "priceCurrency": "CRC", "referenceQuantity": { "@type": "QuantitativeValue", "value": 1, "unitCode": "MON" } }
-          ],
-          "availability": "https://schema.org/InStock",
-          "url": "https://bizmapshield.vercel.app/#pricing",
-          "seller": { "@id": "https://bizmapshield.vercel.app/#business" }
-        },
-        {
-          "@type": "Offer",
-          "name": "Premium",
-          "description": "Gestión total de reputación, respuesta a reseñas y hasta 4 sucursales. ₡39,900 pago único + ₡39,900 al mes.",
-          "price": "39900",
-          "priceCurrency": "CRC",
-          "priceSpecification": [
-            { "@type": "UnitPriceSpecification", "name": "Stand e instalación (pago único)", "price": "39900", "priceCurrency": "CRC" },
-            { "@type": "UnitPriceSpecification", "name": "Gestión total mensual", "price": "39900", "priceCurrency": "CRC", "referenceQuantity": { "@type": "QuantitativeValue", "value": 1, "unitCode": "MON" } }
-          ],
-          "availability": "https://schema.org/InStock",
-          "url": "https://bizmapshield.vercel.app/#pricing",
-          "seller": { "@id": "https://bizmapshield.vercel.app/#business" }
-        }
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://bizmapshield.vercel.app/#website",
-      "url": "https://bizmapshield.vercel.app/",
-      "name": "BizMapShield",
-      "inLanguage": "es-CR",
-      "publisher": { "@id": "https://bizmapshield.vercel.app/#business" }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BizMapShield — Domina tu Mapa. Multiplica tus Clientes.</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-  ]
-}
-</script>
+    
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
 
-<!-- GA4: see assets/analytics.js and ANALYTICS.md. Deferred: page scripts only call it from event
-     handlers, through guards that tolerate it being late or blocked. -->
-<script src="assets/analytics.js" defer></script>
-<script>document.documentElement.classList.add('js');</script>
+    /* Hero Section */
+    .bms-hero {
+      text-align: center;
+      padding: 5rem 1rem;
+      background: linear-gradient(to bottom, #0f172a, #1e1b4b);
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+    .bms-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --red: #d81f26;
-    --red-dark: #a5171c;
-    --navy: #0d1b2a;
-    --navy-light: #1b2a3d;
-    --ink: #0d1b2a;
-    --ink-2: #475569;
-    --ink-3: #64748b;
-    --line: #e2e8f0;
-    --surface: #ffffff;
-    --surface-2: #f8fafc;
-    --white: #ffffff;
-    --gray: #64748b;
-    --green: #25D366;
-    --gold: #fbbf24;
-    --font-display: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    --radius: 20px;
-    --radius-lg: 28px;
-    --shadow-sm: 0 1px 2px rgba(13,27,42,0.04), 0 2px 6px rgba(13,27,42,0.04);
-    --shadow-md: 0 2px 4px rgba(13,27,42,0.04), 0 12px 32px -8px rgba(13,27,42,0.12);
-    --shadow-lg: 0 4px 8px rgba(13,27,42,0.04), 0 32px 64px -16px rgba(13,27,42,0.22);
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--font-body);
-    background: var(--surface);
-    color: var(--ink);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    line-height: 1.6;
-    font-size: 16px;
-  }
-  img { display: block; max-width: 100%; }
-  h1, h2, h3, h4 { font-family: var(--font-display); }
+    .bms-hero p {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
+    }
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
-  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    /* AI Glassmorphism Section */
+    .bms-ia-section {
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    }
 
-  /* ---------- Scroll reveal ---------- */
-  /* Content is only hidden-until-revealed when JS is running (html.js is set in <head>) */
-  .reveal { transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); transition-delay: var(--d, 0s); }
-  .js .reveal:not(.visible) { opacity: 0; transform: translateY(28px); }
-  .reveal-img { clip-path: inset(0 0 0 0 round var(--radius-lg)); transition: clip-path 1.2s var(--ease), opacity 0.8s ease; }
-  .js .reveal-img:not(.visible) { clip-path: inset(8% 8% 8% 8% round var(--radius-lg)); opacity: 0; }
-  /* Hero never waits on the observer: CSS-only entrance */
-  .hero .reveal { animation: fadeUp 0.9s var(--ease) both; }
-  .hero .hero-visual.reveal { animation-delay: 0.15s; }
-  .js .hero .reveal:not(.visible) { opacity: 1; transform: none; }
+    .bms-ia-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
 
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .bms-ia-header h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-  /* ---------- Skip link (WCAG 2.4.1): off-screen until focused ---------- */
-  .skip-link { position: absolute; top: 8px; left: 8px; z-index: 300; padding: 12px 18px; border-radius: 12px; background: var(--navy); color: var(--white); font-weight: 700; font-size: 14px; text-decoration: none; transform: translateY(-160%); transition: transform 0.2s var(--ease); }
-  .skip-link:focus { transform: none; }
-  main:focus { outline: none; }
+    .bms-ia-header p {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
 
-  /* ---------- Topbar / Nav ---------- */
-  .topbar { background: var(--navy); color: var(--white); padding: 10px 16px; font-size: 12px; text-align: center; letter-spacing: 0.3px; }
-  .topbar strong { color: var(--gold); }
+    .bms-scroll-container {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding-bottom: 2rem;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    .bms-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
 
-  .navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.82); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid transparent; padding: 12px 0; transition: border-color 0.3s, box-shadow 0.3s; }
-  .navbar.scrolled { border-bottom-color: rgba(13,27,42,0.06); box-shadow: 0 6px 24px -12px rgba(13,27,42,0.18); }
-  .nav-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; gap: 12px; }
-  .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
-  .brand-shield { width: 30px; height: 36px; background: linear-gradient(135deg, var(--red), var(--red-dark)); border-radius: 6px 6px 50% 50% / 6px 6px 60% 60%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 14px -4px rgba(216,31,38,0.55); flex-shrink: 0; }
-  .brand-shield::after { content: "📍"; content: "📍" / ""; font-size: 15px; filter: brightness(0) invert(1); }
-  .brand .biz { color: var(--red); }
-  .brand .map { color: var(--navy); }
-  .brand .shield { color: var(--red); }
-  .nav-links { display: none; gap: 28px; }
-  .nav-links a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
-  .nav-links a:hover, .nav-links a:focus-visible { color: var(--navy); }
-  .nav-cta { display: flex; align-items: center; gap: 8px; background: var(--navy); color: var(--white); padding: 10px 16px; border-radius: 50px; font-size: 13px; font-weight: 700; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap; box-shadow: var(--shadow-sm); }
-  .nav-cta:hover, .nav-cta:focus-visible { transform: translateY(-1px); box-shadow: var(--shadow-md); }
-  @media (max-width: 420px) { .nav-cta .long { display: none; } }
-  @media (min-width: 960px) { .nav-links { display: flex; } }
+    .bms-glass-card {
+      flex: 0 0 85vw;
+      max-width: 320px;
+      height: 250px;
+      scroll-snap-align: center;
+      perspective: 1000px;
+      cursor: pointer;
+    }
 
-  /* ---------- Buttons ---------- */
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 26px; border-radius: 14px; font-size: 16px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.2s, color 0.2s; font-family: inherit; }
-  .btn:active { transform: scale(0.97); }
-  /* Navy text on WhatsApp green: white was 1.98:1 */
-  .btn-primary { background: var(--green); color: var(--navy); box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 12px 28px -8px rgba(37,211,102,0.6); }
-  .btn-primary:hover, .btn-primary:focus-visible { transform: translateY(-2px); box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 18px 36px -10px rgba(37,211,102,0.7); }
-  .btn-secondary { background: var(--white); color: var(--navy); border: 1.5px solid rgba(13,27,42,0.16); box-shadow: var(--shadow-sm); }
-  .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--navy); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .bms-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
 
-  /* ---------- Hero ---------- */
-  .hero { position: relative; padding: 48px 0 72px; background: radial-gradient(900px 500px at 10% -10%, rgba(216,31,38,0.07), transparent 60%), radial-gradient(700px 500px at 100% 20%, rgba(13,27,42,0.06), transparent 60%), linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); overflow: hidden; }
-  .hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(216,31,38,0.08); color: var(--red-dark); padding: 7px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 22px; border: 1px solid rgba(216,31,38,0.14); }
-  .hero-badge .dot { width: 7px; height: 7px; background: var(--red); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
-  .hero h1 { font-size: clamp(34px, 7.5vw, 54px); font-weight: 800; line-height: 1.04; letter-spacing: -0.035em; color: var(--navy); margin-bottom: 20px; }
-  .hero h1 .red { color: var(--red); }
-  .hero p.lead { font-size: clamp(17px, 2.2vw, 19px); color: var(--ink-2); line-height: 1.65; margin-bottom: 30px; max-width: 540px; }
-  .hero p.lead strong { color: var(--navy); }
-  /* Hero diagnosis form: the single primary CTA above the fold */
-  .scan-form { max-width: 560px; background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 16px; box-shadow: var(--shadow-md); }
-  .scan-label { display: block; font-family: var(--font-display); font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
-  .scan-row { display: flex; flex-direction: column; gap: 10px; }
-  .scan-input { width: 100%; min-height: 52px; padding: 14px 16px; border: 1.5px solid rgba(13,27,42,0.18); border-radius: 12px; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface-2); transition: border-color 0.2s, background 0.2s; }
-  .scan-input::placeholder { color: var(--ink-3); }
-  .scan-input:focus { outline: none; border-color: var(--navy); background: var(--white); box-shadow: 0 0 0 3px rgba(13,27,42,0.12); }
-  .scan-btn { min-height: 52px; white-space: nowrap; }
-  .scan-note { margin-top: 10px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
-  .scan-note a { color: var(--navy); font-weight: 700; }
-  @media (min-width: 560px) { .scan-row { flex-direction: row; } .scan-input { flex: 1; } }
-  .hero-trust { display: flex; gap: 10px 22px; margin-top: 22px; flex-wrap: wrap; }
-  @media (max-width: 559px) {
-    .hero { padding-top: 28px; }
-    .hero-badge, .hide-sm { display: none; }
-    .scan-form { padding: 14px; }
-    .hero h1 { margin-bottom: 14px; }
-    .hero p.lead { margin-bottom: 20px; font-size: 16px; }
-  }
-  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); font-weight: 600; }
-  .trust-item .check { width: 20px; height: 20px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; flex-shrink: 0; }
+    .bms-glass-card.flipped .bms-card-inner {
+      transform: rotateY(180deg);
+    }
 
-  .hero-visual { position: relative; }
-  .hero-photo { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4 / 3.4; background: #e2e8f0; }
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(13,27,42,0.45) 100%); }
-  .float-card { position: absolute; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.7); border-radius: 16px; box-shadow: var(--shadow-lg); padding: 12px 14px; z-index: 2; }
-  .float { animation: float 6s ease-in-out infinite; }
-  .fc-rating { left: -8px; bottom: 24px; display: flex; align-items: center; gap: 12px; }
-  .fc-rating .g { width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; font-family: var(--font-display); }
-  .fc-rating .g span:nth-child(1) { color: #4285F4; }
-  .fc-rating .score { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--navy); line-height: 1; }
-  .fc-rating .stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; }
-  .fc-rating .sub { font-size: 12px; color: var(--ink-3); font-weight: 600; }
-  .fc-growth { right: -8px; top: 20px; animation-delay: -3s; min-width: 150px; }
-  .fc-growth .k { font-size: 12px; color: var(--ink-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; }
-  .fc-growth .v { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1.2; }
-  .fc-growth .v small { color: #15803d; font-size: 13px; font-weight: 700; margin-left: 4px; }
-  .fc-growth svg { display: block; margin-top: 6px; }
-  @media (min-width: 960px) {
-    .hero { padding: 44px 0 90px; }
-    .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 56px; }
-    .hero h1 { font-size: clamp(40px, 4.2vw, 54px); }
-    .fc-rating { left: -36px; }
-    .fc-growth { right: -28px; }
-  }
+    .bms-card-front, .bms-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
 
-  /* Hero QR demo: glass card overlapping the bottom of the hero photo */
-  .hero-media { position: relative; }
-  .hero-media .fc-rating { bottom: 60px; } /* clear the QR card that overlaps the photo's bottom edge */
-  .qr-demo { position: relative; z-index: 3; display: flex; align-items: center; gap: 16px; max-width: 420px; margin: -40px 12px 0 auto; padding: 14px 18px 14px 14px; border-radius: 22px; background: rgba(255,255,255,0.74); backdrop-filter: blur(18px) saturate(170%); -webkit-backdrop-filter: blur(18px) saturate(170%); border: 1px solid rgba(255,255,255,0.85); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), var(--shadow-lg); transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
-  .qr-frame { position: relative; flex-shrink: 0; width: 112px; height: 112px; padding: 5px; border-radius: 16px; background: var(--white); box-shadow: 0 0 0 1px rgba(13,27,42,0.06), 0 10px 24px -10px rgba(13,27,42,0.35); overflow: hidden; }
-  .qr-svg { display: block; width: 100%; height: 100%; color: var(--navy); }
-  .qr-frame::before, .qr-frame::after { content: ""; position: absolute; width: 18px; height: 18px; border: 2.5px solid var(--red); pointer-events: none; }
-  .qr-frame::before { top: 2px; left: 2px; border-right: 0; border-bottom: 0; border-radius: 9px 0 0 0; }
-  .qr-frame::after { bottom: 2px; right: 2px; border-left: 0; border-top: 0; border-radius: 0 0 9px 0; }
-  .qr-scan { position: absolute; left: 6px; right: 6px; top: 6px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, transparent, var(--red), transparent); box-shadow: 0 0 12px 2px rgba(216,31,38,0.45); opacity: 0.85; animation: qrScan 2.8s var(--ease) infinite; pointer-events: none; }
-  @keyframes qrScan { 0% { transform: translateY(0); opacity: 0; } 12% { opacity: 0.85; } 88% { opacity: 0.85; } 100% { transform: translateY(var(--scan-y, 98px)); opacity: 0; } }
-  .qr-kicker { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--red-dark); margin-bottom: 4px; }
-  .qr-kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 3px rgba(216,31,38,0.18); animation: pulse 2s ease-in-out infinite; }
-  .qr-cta { font-family: var(--font-display); font-size: 15px; font-weight: 800; line-height: 1.35; color: var(--navy); letter-spacing: -0.01em; }
-  .qr-tap { display: inline-flex; align-items: center; min-height: 44px; margin: 2px 0 -10px; font-size: 13px; font-weight: 700; color: var(--navy); text-decoration: underline; text-decoration-color: rgba(216,31,38,0.5); text-underline-offset: 3px; }
-  .qr-tap .desk { display: none; }
-  @media (hover: hover) and (pointer: fine) {
-    .qr-tap .mob { display: none; }
-    .qr-tap .desk { display: inline; }
-    .qr-demo:hover { transform: translateY(-3px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 4px 8px rgba(13,27,42,0.05), 0 40px 70px -18px rgba(13,27,42,0.3); }
-  }
-  @media (max-width: 559px) {
-    .qr-demo { margin: -32px 8px 0; max-width: none; gap: 14px; padding: 12px 14px 12px 12px; }
-    .qr-frame { width: 96px; height: 96px; }
-    .qr-scan { --scan-y: 82px; }
-    .qr-cta { font-size: 14px; }
-  }
+    .bms-card-back {
+      transform: rotateY(180deg);
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
 
-  /* ---------- Trustbar ---------- */
-  .trustbar { background: var(--navy); color: var(--white); padding: 18px 0; }
-  .trustbar-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; padding: 0 20px; max-width: 1100px; margin: 0 auto; }
-  .trustbar-item { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.4px; color: rgba(255,255,255,0.85); }
-  .trustbar-item .icon { color: var(--gold); font-size: 17px; }
-  @media (min-width: 820px) { .trustbar-inner { display: flex; justify-content: center; gap: 48px; } .trustbar-item { font-size: 13px; } }
+    .bms-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
 
-  /* ---------- Sections ---------- */
-  section { padding: 76px 0; }
-  @media (min-width: 960px) { section { padding: 110px 0; } }
-  .section-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
-  .section-label { display: inline-block; color: var(--red-dark); font-size: 12px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 14px; }
-  .section-head h2 { font-size: clamp(30px, 5vw, 46px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--navy); margin-bottom: 16px; }
-  .section-head h2 .red { color: var(--red); }
-  .section-head p { font-size: clamp(16px, 2vw, 18px); color: var(--ink-2); line-height: 1.65; }
+    .bms-card-front h3 {
+      font-size: 1.25rem;
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+    }
 
-  /* ---------- Problem / Solution ---------- */
-  .problem { position: relative; isolation: isolate; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
-  .ba-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1040px; margin: 0 auto; }
-  @media (min-width: 820px) { .ba-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
-  .ba-card { border-radius: var(--radius-lg); position: relative; overflow: hidden; transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s; box-shadow: var(--shadow-md); }
-  .ba-photo { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
-  .ba-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
-  .ba-card.before .ba-photo img { filter: grayscale(0.85) brightness(0.8) contrast(0.95); }
-  .ba-body { padding: 28px 26px 32px; }
-  .ba-card.before { background: #f1f5f9; border: 1px solid #e2e8f0; }
-  .ba-card.after { background: linear-gradient(160deg, var(--navy), var(--navy-light)); color: var(--white); border: 1px solid rgba(216,31,38,0.5); }
-  .ba-tag { position: absolute; top: 16px; left: 16px; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; z-index: 2; }
-  .before .ba-tag { background: rgba(255,255,255,0.94); color: var(--red-dark); }
-  .after .ba-tag { background: var(--gold); color: var(--navy); }
-  .ba-card h3 { font-size: 24px; font-weight: 800; margin-bottom: 12px; line-height: 1.2; letter-spacing: -0.02em; }
-  .ba-card p { font-size: 15px; line-height: 1.7; }
-  .before p { color: var(--ink-2); }
-  .after p { color: rgba(255,255,255,0.8); }
-  .ba-list { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
-  .ba-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
-  .ba-list li .mark { flex-shrink: 0; font-size: 15px; line-height: 1.3; }
+    .bms-cta-text {
+      font-size: 0.8rem;
+      color: #a78bfa;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      animation: pulse 2s infinite;
+    }
 
-  /* Before/after switch. Only shown once JS has wired it up (.ba-ready); without JS the two cards render as before. */
-  .problem::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(70% 55% at 50% 30%, rgba(251,191,36,0.16), transparent 70%), radial-gradient(50% 40% at 80% 90%, rgba(216,31,38,0.08), transparent 70%); opacity: 0; transition: opacity 0.8s var(--ease); }
-  .problem[data-ba="on"]::before { opacity: 1; }
-  .ba-switch { display: none; max-width: 560px; margin: -16px auto 32px; text-align: center; }
-  .ba-ready .ba-switch { display: block; }
-  .ba-listing { display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; align-items: center; text-align: left; padding: 16px 18px; border-radius: 20px; background: rgba(255,255,255,0.7); backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); border: 1px solid var(--line); box-shadow: var(--shadow-md); filter: saturate(0.35); opacity: 0.86; position: relative; overflow: hidden; transition: filter 0.6s var(--ease), opacity 0.6s var(--ease), border-color 0.6s, box-shadow 0.6s var(--ease), transform 0.6s var(--ease); }
-  .ba-listing::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.75) 48%, transparent 66%); transform: translateX(-110%); pointer-events: none; }
-  .bl-pin { grid-row: 1 / 3; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; background: #f1f5f9; border: 1px solid var(--line); transition: background 0.6s, border-color 0.6s; }
-  .bl-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; }
-  .bl-name { font-family: var(--font-display); font-size: 16px; font-weight: 800; color: var(--navy); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .bl-rank { flex-shrink: 0; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 50px; background: #f1f5f9; color: var(--ink-2); border: 1px solid var(--line); font-variant-numeric: tabular-nums; transition: background 0.6s, color 0.6s, border-color 0.6s, box-shadow 0.6s; }
-  .bl-rating { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; font-size: 13px; color: var(--ink-2); }
-  .bl-score { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: var(--navy); font-variant-numeric: tabular-nums; min-width: 2.2ch; }
-  .bl-stars { display: inline-flex; gap: 1px; font-size: 18px; line-height: 1; }
-  .bl-star { color: #cbd5e1; display: inline-block; transition: color 0.35s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), text-shadow 0.35s; transition-delay: calc(var(--i) * 90ms); }
-  .bl-star.lit { color: var(--gold); }
-  .bl-count { font-variant-numeric: tabular-nums; }
-  .problem[data-ba="on"] .ba-listing { filter: none; opacity: 1; border-color: rgba(251,191,36,0.65); box-shadow: 0 0 0 1px rgba(251,191,36,0.35), 0 24px 60px -18px rgba(216,31,38,0.35), 0 0 48px -6px rgba(251,191,36,0.4); transform: translateY(-2px); }
-  .problem[data-ba="on"] .ba-listing::after { transform: translateX(110%); transition: transform 1.1s var(--ease) 0.15s; }
-  .problem[data-ba="on"] .bl-pin { background: linear-gradient(135deg, var(--red), var(--red-dark)); border-color: transparent; }
-  .problem[data-ba="on"] .bl-rank { background: var(--gold); color: var(--navy); border-color: var(--gold); box-shadow: 0 6px 16px -6px rgba(251,191,36,0.8); }
-  .problem[data-ba="on"] .bl-star.lit { transform: scale(1.18); text-shadow: 0 0 10px rgba(251,191,36,0.7); }
+    .bms-card-back p {
+      font-size: 1.05rem;
+      line-height: 1.5;
+      margin: 0;
+      color: #f8fafc;
+    }
 
-  .ba-toggle-row { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 22px; }
-  .ba-toggle-label { font-size: 14px; font-weight: 700; color: var(--ink-3); cursor: pointer; user-select: none; -webkit-user-select: none; transition: color 0.4s; padding: 10px 0; }
-  .problem[data-ba="off"] .ba-toggle-label.off { color: var(--red-dark); }
-  .problem[data-ba="on"] .ba-toggle-label.on { color: var(--navy); }
-  .ba-toggle { position: relative; flex-shrink: 0; width: 84px; height: 46px; padding: 0; border-radius: 999px; cursor: pointer; border: 1px solid rgba(13,27,42,0.14); background: linear-gradient(180deg, #cbd5e1, #e2e8f0); box-shadow: inset 0 2px 6px rgba(13,27,42,0.28), inset 0 -1px 0 rgba(255,255,255,0.8), 0 1px 0 #fff; transition: background 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
-  .ba-toggle .knob { position: absolute; top: 4px; left: 4px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 35% 28%, #ffffff, #f1f5f9 55%, #cbd5e1); box-shadow: 0 5px 12px rgba(13,27,42,0.3), 0 1px 2px rgba(13,27,42,0.25), inset 0 -2px 3px rgba(13,27,42,0.12); transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1); }
-  .ba-toggle .led { width: 8px; height: 8px; border-radius: 50%; background: #94a3b8; box-shadow: inset 0 1px 1px rgba(0,0,0,0.25); transition: background 0.4s, box-shadow 0.4s; }
-  .ba-toggle:active .knob { transform: scaleX(1.12); }
-  .ba-toggle[aria-checked="true"] { border-color: rgba(21,128,61,0.5); background: linear-gradient(180deg, #16a34a, #25D366); box-shadow: inset 0 2px 6px rgba(0,0,0,0.22), inset 0 -1px 0 rgba(255,255,255,0.3), 0 0 26px -2px rgba(37,211,102,0.65); }
-  .ba-toggle[aria-checked="true"] .knob { transform: translateX(38px); }
-  .ba-toggle[aria-checked="true"]:active .knob { transform: translateX(38px) scaleX(1.12); }
-  .ba-toggle[aria-checked="true"] .led { background: var(--green); box-shadow: 0 0 8px 2px rgba(37,211,102,0.85); }
-  .ba-toggle::after { content: ""; position: absolute; inset: -6px; border-radius: 999px; border: 2px solid rgba(37,211,102,0.55); opacity: 0; pointer-events: none; }
-  .problem:not(.ba-touched) .ba-toggle::after { animation: ring 2.2s ease-out infinite; }
-  .ba-hint { margin-top: 8px; font-size: 13px; color: var(--ink-3); transition: opacity 0.4s; }
-  .ba-touched .ba-hint { opacity: 0; }
+    /* Footer */
+    .bms-footer {
+      text-align: center;
+      padding: 2rem;
+      color: #64748b;
+      font-size: 0.875rem;
+      background-color: #0f172a;
+    }
 
-  /* Cards react to the switch: the active side glows, the other recedes */
-  .ba-ready .ba-card { transition: opacity 0.6s var(--ease), transform 0.6s var(--ease), filter 0.6s var(--ease), box-shadow 0.6s var(--ease), border-color 0.6s, visibility 0s; }
-  .ba-ready .ba-card.after.visible { box-shadow: 0 0 0 1px rgba(251,191,36,0.35), 0 30px 70px -20px rgba(216,31,38,0.45), 0 0 60px -10px rgba(251,191,36,0.35); }
-  .ba-ready[data-ba="off"] .ba-card.after.visible { box-shadow: var(--shadow-md); }
-  @media (min-width: 820px) {
-    .ba-ready[data-ba="off"] .ba-card.after.visible { opacity: 0.5; filter: grayscale(0.7); transform: scale(0.97); }
-    .ba-ready[data-ba="on"] .ba-card.before.visible { opacity: 0.5; filter: grayscale(0.4); transform: scale(0.97); }
-  }
-  /* Phones: both cards share one grid cell and cross-fade */
-  @media (max-width: 819px) {
-    .ba-ready .ba-card { grid-area: 1 / 1; }
-    .ba-ready[data-ba="off"] .ba-card.after,
-    .ba-ready[data-ba="on"] .ba-card.before { opacity: 0; visibility: hidden; transform: scale(0.96); pointer-events: none; transition-property: opacity, transform, filter, box-shadow, border-color, visibility; transition-delay: 0s, 0s, 0s, 0s, 0s, 0.6s; }
-  }
-  @media (max-width: 459px) {
-    .ba-toggle-row { gap: 10px; }
-    .ba-toggle-label { font-size: 12.5px; white-space: nowrap; }
-  }
-  @media (max-width: 360px) {
-    .ba-toggle-row { gap: 8px; }
-    .ba-toggle-label { font-size: 11px; }
-    .ba-toggle { width: 76px; }
-    .ba-toggle[aria-checked="true"] .knob { transform: translateX(30px); }
-    .ba-toggle[aria-checked="true"]:active .knob { transform: translateX(30px) scaleX(1.12); }
-  }
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
 
-  /* ---------- How it works ---------- */
-  .how { background: var(--white); }
-  .how-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; max-width: 1100px; margin: 0 auto; }
-  @media (min-width: 900px) { .how-grid { grid-template-columns: 1fr 1.05fr; gap: 64px; } }
-  .how-photo { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4 / 3.6; background: #e2e8f0; }
-  .how-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .how-photo .chip { position: absolute; left: 16px; bottom: 16px; background: rgba(13,27,42,0.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-size: 13px; font-weight: 700; padding: 10px 14px; border-radius: 12px; display: flex; align-items: center; gap: 8px; }
-  .how-photo .chip b { color: var(--gold); }
-  .steps { display: flex; flex-direction: column; gap: 14px; }
-  .step { display: grid; grid-template-columns: 48px 1fr; gap: 18px; padding: 22px 22px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow-sm); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s; }
-  .step-num { width: 48px; height: 48px; background: linear-gradient(135deg, var(--red), var(--red-dark)); color: var(--white); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px; font-weight: 800; box-shadow: 0 8px 18px -6px rgba(216,31,38,0.6); }
-  .step h3 { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 4px; letter-spacing: -0.01em; }
-  .step p { font-size: 15px; color: var(--ink-2); line-height: 1.6; }
-
-  /* ---------- ROI & Revenue Impact ---------- */
-  .roi { background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%); position: relative; overflow: hidden; }
-  .roi-kpis { display: grid; grid-template-columns: 1fr; gap: 14px; max-width: 1100px; margin: 0 auto 20px; }
-  @media (min-width: 720px) { .roi-kpis { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
-  .kpi { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow-sm); text-align: left; cursor: pointer; font-family: inherit; color: inherit; transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s var(--ease); position: relative; }
-  .kpi[aria-pressed="true"] { border-color: var(--navy); box-shadow: 0 0 0 1px var(--navy), var(--shadow-md); }
-  .kpi[aria-pressed="true"]::after { content: ""; position: absolute; left: 22px; right: 22px; bottom: -1px; height: 3px; border-radius: 3px 3px 0 0; background: var(--red); }
-  .kpi .k-label { font-size: 12px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--ink-3); display: flex; align-items: center; gap: 8px; }
-  .kpi .k-value { display: block; font-family: var(--font-display); font-size: clamp(30px, 5vw, 38px); font-weight: 800; color: var(--navy); letter-spacing: -0.03em; line-height: 1.15; margin-top: 6px; font-variant-numeric: tabular-nums; }
-  .kpi .k-sub { display: block; font-size: 13px; color: var(--ink-2); margin-top: 2px; }
-  .kpi .k-sub b { color: #15803d; }
-  @media (max-width: 719px) {
-    .roi-kpis { gap: 10px; }
-    .kpi { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "label value" "sub value"; align-items: center; column-gap: 12px; padding: 14px 16px; }
-    .kpi .k-label { grid-area: label; }
-    .kpi .k-sub { grid-area: sub; font-size: 12px; }
-    .kpi .k-value { grid-area: value; margin-top: 0; font-size: 26px; }
-    .kpi[aria-pressed="true"]::after { left: 0; right: auto; top: 14px; bottom: 14px; width: 3px; height: auto; border-radius: 0 3px 3px 0; }
-  }
-
-  .chart-card { max-width: 1100px; margin: 0 auto; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 22px 18px 18px; }
-  @media (min-width: 720px) { .chart-card { padding: 30px 32px 24px; } }
-  .chart-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px 20px; margin-bottom: 14px; }
-  .chart-title { font-family: var(--font-display); font-size: 19px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
-  .chart-sub { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
-  .chart-phases { display: flex; gap: 6px; flex-wrap: wrap; }
-  @media (max-width: 719px) { .chart-phases { display: none; } .chart-title { font-size: 17px; } }
-  .chart-phases span { font-size: 12px; font-weight: 700; color: var(--ink-2); background: var(--surface-2); border: 1px solid var(--line); padding: 5px 10px; border-radius: 50px; }
-  .chart-wrap { position: relative; width: 100%; }
-  .chart-wrap svg { display: block; width: 100%; height: auto; overflow: visible; touch-action: pan-y; }
-  .chart-wrap .grid line { stroke: #e2e8f0; stroke-width: 1; }
-  .chart-wrap .axis text { fill: var(--ink-3); font-size: 12px; font-family: var(--font-body); }
-  .chart-wrap .line { fill: none; stroke: var(--red); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-  .chart-wrap .baseline { stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 4 5; fill: none; }
-  .chart-wrap .area { opacity: 0; transition: opacity 1s ease 0.6s; }
-  .chart-wrap.drawn .area { opacity: 1; }
-  .chart-wrap .end-dot { opacity: 0; transition: opacity 0.4s ease 1.8s; }
-  .chart-wrap.drawn .end-dot { opacity: 1; }
-  .chart-wrap .end-label { font-family: var(--font-display); font-size: 13px; font-weight: 800; fill: var(--navy); }
-  .chart-wrap .base-label { font-size: 12px; font-weight: 600; fill: var(--ink-3); }
-  .chart-wrap .cross { stroke: var(--navy); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0; }
-  .chart-wrap .hover-dot { opacity: 0; }
-  .chart-wrap.hovering .cross, .chart-wrap.hovering .hover-dot { opacity: 1; }
-  .tooltip { position: absolute; top: 0; left: 0; pointer-events: none; background: var(--navy); color: #fff; border-radius: 10px; padding: 8px 12px; font-size: 12px; line-height: 1.45; box-shadow: var(--shadow-lg); opacity: 0; transform: translate(-50%, -110%); transition: opacity 0.15s; white-space: nowrap; z-index: 3; }
-  .tooltip b { font-family: var(--font-display); font-size: 15px; display: block; }
-  .tooltip span { color: #cbd5e1; }
-  .chart-wrap.hovering .tooltip { opacity: 1; }
-  .chart-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 10px; font-size: 12px; color: var(--ink-2); font-weight: 600; }
-  .chart-legend i { display: inline-block; width: 18px; height: 0; border-top: 2.5px solid var(--red); vertical-align: middle; margin-right: 6px; border-radius: 2px; }
-  .chart-legend i.dash { border-top: 1.5px dashed #94a3b8; }
-  .chart-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-3); line-height: 1.5; }
-  .chart-foot details { font-size: 12px; }
-  .chart-foot summary { cursor: pointer; font-weight: 700; color: var(--navy); }
-  .data-table { margin-top: 10px; border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-  .data-table th, .data-table td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--line); }
-  .data-table th:first-child, .data-table td:first-child { text-align: left; }
-  .table-scroll { overflow-x: auto; max-width: 100%; }
-
-  /* Revenue calculator */
-  .calc { display: grid; grid-template-columns: 1fr; max-width: 1100px; margin: 0 auto 72px; border-radius: var(--radius-lg); overflow: hidden; background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow-lg); }
-  @media (min-width: 900px) { .calc { grid-template-columns: 1fr 1.05fr; } }
-  .calc-inputs { padding: 26px 20px 22px; display: flex; flex-direction: column; gap: 26px; }
-  @media (min-width: 720px) { .calc-inputs { padding: 36px 34px 30px; } }
-  .calc-title { font-family: var(--font-display); font-size: 19px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
-  .calc-title + p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
-  .calc-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
-  .calc-row label { font-size: 14px; font-weight: 700; color: var(--ink); }
-  .calc-row output { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--navy); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .calc-scale { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-3); font-weight: 600; margin-top: 2px; }
-  .calc-range { --fill: 50%; -webkit-appearance: none; appearance: none; display: block; width: 100%; height: 44px; margin: 0; background: transparent; cursor: pointer; touch-action: pan-y; }
-  .calc-range:focus { outline: none; }
-  .calc-range::-webkit-slider-runnable-track { height: 8px; border-radius: 8px; background: linear-gradient(90deg, var(--red-dark), var(--red) var(--fill), #e2e8f0 var(--fill)); box-shadow: inset 0 1px 2px rgba(13,27,42,0.12); }
-  .calc-range::-moz-range-track { height: 8px; border-radius: 8px; background: #e2e8f0; box-shadow: inset 0 1px 2px rgba(13,27,42,0.12); }
-  .calc-range::-moz-range-progress { height: 8px; border-radius: 8px; background: linear-gradient(90deg, var(--red-dark), var(--red)); }
-  .calc-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 30px; height: 30px; margin-top: -11px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #f1f5f9 60%, #e2e8f0); border: 2px solid var(--red); box-shadow: 0 4px 12px -2px rgba(216,31,38,0.45), 0 1px 3px rgba(13,27,42,0.2); transition: transform 0.2s var(--ease), box-shadow 0.2s; }
-  .calc-range::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #f1f5f9 60%, #e2e8f0); border: 2px solid var(--red); box-shadow: 0 4px 12px -2px rgba(216,31,38,0.45), 0 1px 3px rgba(13,27,42,0.2); transition: transform 0.2s var(--ease), box-shadow 0.2s; }
-  .calc-range:active::-webkit-slider-thumb { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(216,31,38,0.14), 0 4px 12px -2px rgba(216,31,38,0.45); }
-  .calc-range:active::-moz-range-thumb { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(216,31,38,0.14), 0 4px 12px -2px rgba(216,31,38,0.45); }
-  .calc-range:focus-visible::-webkit-slider-thumb { outline: 3px solid var(--navy); outline-offset: 3px; }
-  .calc-range:focus-visible::-moz-range-thumb { outline: 3px solid var(--navy); outline-offset: 3px; }
-  .calc-assume { font-size: 12px; color: var(--ink-3); line-height: 1.55; margin-top: auto; }
-
-  .calc-results { position: relative; isolation: isolate; padding: 26px 20px 24px; color: var(--white); background: radial-gradient(80% 60% at 100% 0%, rgba(216,31,38,0.32), transparent 60%), radial-gradient(70% 60% at 0% 100%, rgba(251,191,36,0.14), transparent 60%), linear-gradient(160deg, var(--navy), #0a1622); display: flex; flex-direction: column; gap: 14px; }
-  @media (min-width: 720px) { .calc-results { padding: 36px 34px 30px; } }
-  .calc-stat { padding: 18px 18px 16px; border-radius: 18px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08); }
-  .calc-stat.gain { background: linear-gradient(160deg, rgba(37,211,102,0.14), rgba(255,255,255,0.05)); border-color: rgba(37,211,102,0.35); }
-  .calc-k { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: rgba(255,255,255,0.72); }
-  .calc-k::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #f87171; box-shadow: 0 0 10px rgba(248,113,113,0.8); }
-  .calc-stat.gain .calc-k::before { background: var(--green); box-shadow: 0 0 10px rgba(37,211,102,0.9); }
-  .calc-v { display: block; font-family: var(--font-display); font-size: clamp(32px, 7vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-top: 6px; font-variant-numeric: tabular-nums; }
-  .calc-stat.lost .calc-v { color: #fca5a5; }
-  .calc-stat.gain .calc-v { color: #86efac; }
-  .calc-v small { font-size: 0.42em; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 0; margin-left: 4px; }
-  .calc-bar { height: 6px; border-radius: 6px; background: rgba(255,255,255,0.08); margin-top: 10px; overflow: hidden; }
-  .calc-bar i { display: block; height: 100%; width: 0; border-radius: 6px; background: linear-gradient(90deg, #b91c1c, #f87171); transition: width 0.6s var(--ease); }
-  .calc-stat.gain .calc-bar i { background: linear-gradient(90deg, #15803d, var(--green)); box-shadow: 0 0 12px rgba(37,211,102,0.6); }
-  .calc-note { display: block; font-size: 13px; color: rgba(255,255,255,0.62); margin-top: 8px; }
-  .calc-payback { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.55; }
-  .calc-payback b { color: var(--gold); font-variant-numeric: tabular-nums; }
-  .calc-cta { width: 100%; margin-top: 4px; }
-  .roi-subhead { text-align: center; max-width: 720px; margin: 0 auto 28px; }
-  .roi-subhead h2 { font-size: clamp(22px, 3.6vw, 30px); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; line-height: 1.2; }
-  .roi-subhead h2 .red { color: var(--red); }
-  .roi-subhead p { font-size: 15px; color: var(--ink-2); margin-top: 8px; }
-  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-
-  /* ---------- Owners (photo band) ---------- */
-  .owners { background: var(--white); }
-  .owners-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; max-width: 1100px; margin: 0 auto; }
-  @media (min-width: 900px) { .owners-grid { grid-template-columns: 1.05fr 1fr; gap: 64px; } }
-  .owners-collage { display: grid; grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; aspect-ratio: 1 / 0.9; }
-  .owners-collage figure { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); background: #e2e8f0; }
-  .owners-collage figure:first-child { grid-row: 1 / 3; }
-  .owners-collage img { width: 100%; height: 100%; object-fit: cover; }
-  .owners-copy h2 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; color: var(--navy); margin-bottom: 16px; }
-  .owners-copy h2 .red { color: var(--red); }
-  .owners-copy > p { color: var(--ink-2); font-size: 17px; margin-bottom: 22px; }
-  .owners-list { list-style: none; display: grid; gap: 12px; }
-  .owners-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--ink); }
-  .owners-list .ico { width: 34px; height: 34px; border-radius: 10px; background: rgba(216,31,38,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
-  .owners-list b { display: block; font-family: var(--font-display); }
-  .owners-list span { color: var(--ink-2); font-size: 14px; }
-
-  /* ---------- Benefits ---------- */
-  .benefits { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
-  .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 18px; max-width: 1100px; margin: 0 auto; }
-  .benefit-card { background: var(--white); border-radius: var(--radius); padding: 28px 26px; border: 1px solid var(--line); box-shadow: var(--shadow-sm); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s; }
-  .benefit-icon { width: 52px; height: 52px; background: linear-gradient(135deg, rgba(216,31,38,0.12), rgba(216,31,38,0.04)); border: 1px solid rgba(216,31,38,0.12); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 18px; }
-  .benefit-card h3 { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.01em; }
-  .benefit-card p { font-size: 15px; color: var(--ink-2); }
-
-  /* ---------- Stats ---------- */
-  .stats { background: radial-gradient(800px 400px at 50% 0%, rgba(216,31,38,0.18), transparent 70%), linear-gradient(160deg, var(--navy), #0a1622); color: var(--white); }
-  .stats-head { text-align: center; max-width: 700px; margin: 0 auto 44px; }
-  .stats-head h2 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; margin-bottom: 14px; }
-  .stats-head .gold { color: var(--gold); }
-  .stats-head p { color: rgba(255,255,255,0.72); font-size: 17px; }
-  .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 1000px; margin: 0 auto; }
-  @media (min-width: 820px) { .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; } }
-  .stat { text-align: center; padding: 26px 12px; border-radius: var(--radius); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), border-color 0.35s, background-color 0.35s; }
-  .stat-num { font-family: var(--font-display); font-size: clamp(38px, 6vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
-  .stat-num .suffix { color: var(--gold); font-size: 0.6em; margin-left: 2px; }
-  .stat-label { margin-top: 10px; font-size: 13px; color: rgba(255,255,255,0.72); font-weight: 600; }
-
-  /* ---------- Social proof ---------- */
-  .social-proof { background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); }
-  .testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 1100px; margin: 0 auto 40px; }
-  @media (min-width: 900px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
-  .testimonial { position: relative; display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px; box-shadow: var(--shadow-sm); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s; }
-  .testimonial::before { content: "\201C"; position: absolute; top: 8px; right: 22px; font-size: 80px; color: rgba(216,31,38,0.08); font-family: Georgia, serif; line-height: 1; }
-  .testimonial-stars { color: var(--gold); font-size: 18px; letter-spacing: 2px; margin-bottom: 14px; }
-  .testimonial-text { font-size: 15.5px; line-height: 1.7; color: var(--ink); margin-bottom: 22px; flex: 1; position: relative; z-index: 1; }
-  .testimonial-author { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--line); }
-  .testimonial-avatar { width: 46px; height: 46px; background: linear-gradient(135deg, rgba(216,31,38,0.12), rgba(216,31,38,0.04)); border: 1px solid rgba(216,31,38,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 21px; flex-shrink: 0; }
-  .testimonial-name { font-family: var(--font-display); font-size: 15px; font-weight: 800; color: var(--navy); }
-  .testimonial-role { font-size: 13px; color: var(--ink-3); font-weight: 600; }
-  .proof-stats { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 760px; margin: 0 auto; padding: 26px 22px; border-radius: var(--radius-lg); background: radial-gradient(60% 90% at 0% 0%, rgba(216,31,38,0.22), transparent 60%), linear-gradient(160deg, var(--navy), var(--navy-light)); box-shadow: var(--shadow-lg); }
-  @media (min-width: 560px) { .proof-stats { grid-template-columns: repeat(3, 1fr); padding: 30px; } }
-  .proof-stat { text-align: center; }
-  .proof-num { font-family: var(--font-display); font-size: clamp(28px, 4vw, 34px); font-weight: 800; color: var(--gold); line-height: 1; letter-spacing: -0.02em; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
-  .proof-label { font-size: 12px; color: rgba(255,255,255,0.72); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-
-  /* ---------- Pricing ---------- */
-  .pricing { background: var(--white); }
-  .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1100px; margin: 0 auto; align-items: stretch; }
-  @media (min-width: 900px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; } }
-  .price-card { position: relative; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 32px 26px; box-shadow: var(--shadow-md); display: flex; flex-direction: column; transition: opacity 0.9s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
-  .price-card.featured { background: linear-gradient(165deg, var(--navy), var(--navy-light)); color: var(--white); border: 1px solid rgba(216,31,38,0.6); box-shadow: 0 0 0 1px rgba(216,31,38,0.25), 0 40px 80px -24px rgba(13,27,42,0.55); }
-  @media (min-width: 900px) { .price-card.featured { padding: 44px 30px; } }
-  .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-size: 12px; font-weight: 800; letter-spacing: 1px; padding: 7px 14px; border-radius: 50px; white-space: nowrap; box-shadow: 0 8px 18px -6px rgba(251,191,36,0.7); }
-  .price-tier { font-size: 12px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--red); }
-  .featured .price-tier { color: var(--gold); }
-  .price-name { font-family: var(--font-display); font-size: 21px; font-weight: 800; margin: 6px 0 16px; letter-spacing: -0.01em; }
-  .price-amount { font-family: var(--font-display); font-size: 46px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
-  .price-amount .currency { font-size: 0.55em; vertical-align: top; margin-right: 2px; position: relative; top: 4px; }
-  /* One-time + monthly price (Pro): smaller so both parts fit on one line */
-  .price-amount.price-amount--split { font-size: 36px; }
-  .price-monthly { font-size: 16px; font-weight: 700; letter-spacing: 0; color: var(--gold); }
-  .price-sub { font-size: 13px; color: var(--ink-3); margin: 10px 0 22px; }
-  .featured .price-sub { color: rgba(255,255,255,0.7); }
-  .price-features { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 26px; flex: 1; }
-  .price-features li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; }
-  .price-features .check { width: 20px; height: 20px; border-radius: 50%; background: rgba(37,211,102,0.14); color: #15803d; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
-  .featured .price-features .check { background: rgba(37,211,102,0.2); color: var(--green); }
-  .price-cta { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 20px; border-radius: 14px; font-weight: 700; font-size: 15px; text-decoration: none; transition: transform 0.25s var(--ease), box-shadow 0.25s, background 0.2s, color 0.2s; }
-  .price-cta.primary { background: var(--green); color: var(--navy); box-shadow: 0 12px 28px -8px rgba(37,211,102,0.6); }
-  .price-cta.primary:hover, .price-cta.primary:focus-visible { transform: translateY(-2px); }
-  .price-cta.secondary { background: var(--white); color: var(--navy); border: 1.5px solid rgba(13,27,42,0.16); }
-  .price-cta.secondary:hover, .price-cta.secondary:focus-visible { border-color: var(--navy); background: var(--navy); color: var(--white); }
-
-  /* ---------- IVA note & payment methods ---------- */
-  .iva-note { text-align: center; margin-top: 32px; font-size: 13px; font-weight: 700; color: var(--ink-3); letter-spacing: 0.3px; }
-  .payment-methods { position: relative; isolation: isolate; overflow: hidden; max-width: 900px; margin: 40px auto 0; padding: 30px 22px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); text-align: center; }
-  @media (min-width: 720px) { .payment-methods { padding: 34px 32px; } }
-  /* Green top accent line + corner glow */
-  .payment-methods::before { content: ""; position: absolute; top: 0; left: 12%; right: 12%; height: 2px; z-index: -1; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(22,163,74,0.7), transparent); }
-  .payment-methods::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(90% 70% at 0% 0%, rgba(22,163,74,0.06), transparent 60%), radial-gradient(70% 60% at 100% 100%, rgba(251,191,36,0.06), transparent 60%); }
-  .payment-title { font-size: 18px; font-weight: 800; color: #14532d; margin-bottom: 22px; letter-spacing: -0.01em; }
-  .payment-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px; }
-  @media (min-width: 720px) { .payment-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
-  .payment-item { display: flex; align-items: center; gap: 12px; text-align: left; padding: 18px 16px; border-radius: 14px; background: #f0fdf4; border: 1px solid rgba(22,163,74,0.15); box-shadow: var(--shadow-sm); }
-  .payment-icon { font-size: 26px; flex-shrink: 0; }
-  .payment-name { font-size: 14px; font-weight: 800; color: #14532d; margin-bottom: 2px; }
-  .payment-detail { font-size: 12px; color: #166534; font-weight: 600; }
-  .payment-note { font-size: 12px; color: #166534; font-style: italic; margin: 0; }
-
-  /* ---------- Guarantee ---------- */
-  .guarantee { padding-top: 0; background: var(--white); }
-  .guarantee-box { max-width: 860px; margin: 0 auto; text-align: center; padding: 40px 26px; border-radius: var(--radius-lg); background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid rgba(251,191,36,0.5); box-shadow: var(--shadow-md); }
-  .guarantee-icon { font-size: 44px; display: block; margin-bottom: 10px; }
-  .guarantee-box h3 { font-size: clamp(22px, 3.5vw, 28px); font-weight: 800; color: var(--navy); margin-bottom: 12px; letter-spacing: -0.02em; }
-  .guarantee-box p { color: var(--ink-2); font-size: 16px; line-height: 1.7; }
-
-  /* ---------- FAQ ---------- */
-  .faq { background: var(--surface-2); }
-  .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
-  .faq-item { background: var(--white); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-sm); transition: border-color 0.25s; }
-  .faq-item[open] { border-color: rgba(13,27,42,0.25); }
-  .faq-item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 22px; min-height: 44px; font-family: var(--font-display); font-size: 16px; font-weight: 800; color: var(--navy); }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after { content: "+"; flex-shrink: 0; font-size: 22px; line-height: 1; color: var(--red); transition: transform 0.25s var(--ease); }
-  .faq-item[open] summary::after { transform: rotate(45deg); }
-  .faq-item p { padding: 0 22px 20px; font-size: 15px; color: var(--ink-2); line-height: 1.7; }
-  .faq-item a { color: var(--navy); font-weight: 700; }
-  .faq-cta { text-align: center; margin-top: 36px; }
-  .faq-cta p { color: var(--ink-2); margin-bottom: 14px; }
-
-  /* ---------- Final CTA ---------- */
-  .final-cta { position: relative; text-align: center; color: var(--white); overflow: hidden; isolation: isolate; }
-  .final-cta .bg { position: absolute; inset: 0; z-index: -2; }
-  .final-cta .bg img { width: 100%; height: 100%; object-fit: cover; }
-  .final-cta::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(160deg, rgba(13,27,42,0.93), rgba(13,27,42,0.8) 60%, rgba(165,23,28,0.78)); }
-  .final-cta h2 { font-size: clamp(30px, 5.5vw, 50px); font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 18px; }
-  .final-cta p { color: rgba(255,255,255,0.8); font-size: 18px; max-width: 580px; margin: 0 auto 32px; }
-  .final-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .final-ctas .btn-secondary { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
-  .final-ctas .btn-secondary:hover, .final-ctas .btn-secondary:focus-visible { background: var(--white); color: var(--navy); }
-
-  /* ---------- Footer ---------- */
-  .footer { position: relative; isolation: isolate; background: var(--navy); color: var(--white); padding: 60px 0 100px; }
-  .footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; z-index: -1; background: linear-gradient(90deg, transparent, rgba(216,31,38,0.5) 30%, rgba(251,191,36,0.4) 50%, rgba(216,31,38,0.5) 70%, transparent); pointer-events: none; }
-  .footer::after { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 160px; z-index: -1; background: radial-gradient(60% 100% at 50% 0%, rgba(216,31,38,0.1), transparent 70%); pointer-events: none; }
-  .footer-brand { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 14px; }
-  .footer-brand .brand-shield { width: 38px; height: 44px; border-radius: 8px 8px 50% 50% / 8px 8px 60% 60%; }
-  .footer-brand .brand-shield::after { font-size: 18px; }
-  .footer-brand .brand-text { font-family: var(--font-display); font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
-  .footer-brand .brand-text .biz { color: var(--red); }
-  .footer-brand .brand-text .map { color: #ffffff; }
-  .footer-brand .brand-text .shield { color: var(--red); }
-  .footer-tagline { text-align: center; font-size: 14px; color: rgba(255,255,255,0.72); margin-bottom: 40px; }
-  .footer-grid { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 900px; margin: 0 auto 40px; text-align: center; }
-  @media (min-width: 820px) { .footer-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: left; } }
-  .footer-col h4 { font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-  .footer-col p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 6px; }
-  .footer-col a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease; }
-  .footer-col a:hover, .footer-col a:focus-visible { color: var(--gold); }
-  .footer-disclaimer { max-width: 900px; margin: 0 auto 30px; padding: 24px; background: rgba(255,255,255,0.04); border-radius: 12px; border-left: 3px solid var(--red); box-shadow: 0 12px 30px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,255,255,0.05); }
-  .footer-disclaimer p { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 10px; }
-  .footer-disclaimer p:last-child { margin-bottom: 0; }
-  .footer-disclaimer strong { color: rgba(255,255,255,0.85); }
-  .footer-copy { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
-  .footer-copy p { font-size: 12px; color: rgba(255,255,255,0.55); }
-  .footer-powered { margin-top: 8px; }
-  .footer-powered a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 700; }
-  .footer-powered a:hover, .footer-powered a:focus-visible { color: var(--red); }
-
-  /* ---------- Floating WhatsApp ---------- */
-  .wa-float { position: fixed; right: 18px; bottom: 18px; width: 58px; height: 58px; border-radius: 50%; background: var(--green); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 26px; text-decoration: none; z-index: 200; box-shadow: 0 14px 30px -8px rgba(37,211,102,0.7), 0 2px 6px rgba(0,0,0,0.15); transition: transform 0.25s var(--ease); }
-  .wa-float:hover, .wa-float:focus-visible { transform: scale(1.08); }
-  .wa-float::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--green); animation: ring 2.4s ease-out infinite; }
-  @keyframes ring { from { transform: scale(1); opacity: 0.7; } to { transform: scale(1.6); opacity: 0; } }
-
-  /* ---------- Mobile sticky CTA bar (replaces the floating button on phones) ---------- */
-  .m-cta { display: none; }
-  @media (max-width: 640px) {
-    .m-cta { display: flex; gap: 10px; align-items: center; position: fixed; left: 0; right: 0; bottom: 0; z-index: 200; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--line); box-shadow: 0 -8px 24px -12px rgba(13,27,42,0.25); transform: translateY(110%); transition: transform 0.3s var(--ease); }
-    .m-cta.show { transform: none; }
-    .m-cta-main { flex: 1; justify-content: center; min-height: 48px; }
-    .m-cta-sec { flex: 0 0 auto; min-height: 48px; display: inline-flex; align-items: center; padding: 0 12px; color: var(--navy); font-weight: 700; font-size: 14px; text-decoration: none; }
-    .js .wa-float { display: none; }
-  }
-
-  /* Hover feedback only where a real pointer hovers (no sticky hover after a tap).
-     Informational cards tint; only price cards (which hold the CTAs) and the KPI toggles lift. */
-  @media (hover: hover) and (pointer: fine) {
-    .ba-card:hover { box-shadow: var(--shadow-lg); }
-    .ba-card:hover .ba-photo img { transform: scale(1.04); }
-    .step:hover { box-shadow: var(--shadow-md); border-color: rgba(216,31,38,0.4); }
-    .benefit-card:hover, .testimonial:hover { box-shadow: var(--shadow-md); border-color: rgba(216,31,38,0.35); }
-    .stat:hover { border-color: rgba(251,191,36,0.35); background-color: rgba(255,255,255,0.07); }
-    .kpi:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-    .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-  }
-
-  /* Keyboard focus ring (WCAG 2.4.7): navy on light surfaces, gold on dark ones */
-  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
-  .topbar :focus-visible, .stats :focus-visible, .final-cta :focus-visible, .footer :focus-visible,
-  .ba-card.after :focus-visible, .price-card.featured :focus-visible, .calc-results :focus-visible,
-  .proof-stats :focus-visible { outline-color: var(--gold); }
-  .skip-link:focus-visible { outline-color: var(--gold); }
-  .wa-float:focus-visible { outline: 3px solid var(--white); outline-offset: 2px; box-shadow: 0 0 0 7px var(--navy), 0 14px 30px -8px rgba(37,211,102,0.7); }
-
-  /* Touch targets (44px) on phones and tablets */
-  @media (max-width: 900px) {
-    .nav-cta { min-height: 44px; }
-    .footer-col a, .footer-powered a { display: inline-block; padding: 11px 4px; }
-  }
-  @media (max-width: 380px) {
-    .nav-inner { gap: 8px; }
-    .brand { font-size: 16px; gap: 8px; }
-    .brand-shield { width: 24px; height: 28px; }
-    .nav-cta { font-size: 12px; padding: 8px 12px; }
-    .price-amount { font-size: 38px; }
-    .price-amount.price-amount--split { font-size: 28px; }
-    .price-monthly { font-size: 14px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .hero .reveal, .float, .hero-badge .dot, .wa-float::before { animation: none !important; }
-    .reveal, .reveal-img { transition: opacity 0.3s ease; }
-    .js .reveal:not(.visible) { transform: none; }
-    .js .reveal-img:not(.visible) { clip-path: inset(0 0 0 0 round var(--radius-lg)); }
-    .kpi:hover, .price-card:hover, .btn:hover, .btn:focus-visible, .price-cta:hover, .price-cta:focus-visible,
-    .nav-cta:hover, .nav-cta:focus-visible, .wa-float:hover, .wa-float:focus-visible { transform: none; }
-    .ba-card:hover .ba-photo img { transform: none; }
-    .qr-scan, .qr-kicker::before, .problem .ba-toggle::after { animation: none !important; }
-    .qr-scan { display: none; }
-    .qr-demo:hover, .problem[data-ba="on"] .ba-listing, .problem[data-ba="on"] .bl-star.lit { transform: none; }
-    .ba-listing::after { display: none; }
-    .ba-toggle .knob { transition-duration: 0.2s; }
-  }
-</style>
+    @media (min-width: 768px) {
+      .bms-hero h1 {
+        font-size: 3.5rem;
+      }
+      .bms-scroll-container {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow-x: visible;
+      }
+      .bms-glass-card {
+        flex: 0 0 300px;
+      }
+    }
+  </style>
 </head>
 <body>
-<a class="skip-link" href="#main">Saltar al contenido</a>
 
-<!-- ============ TOPBAR ============ -->
-<div class="topbar">
-  <span aria-hidden="true">🔥</span> <strong>OFERTA DE LANZAMIENTO:</strong> Instalación GRATIS<span class="hide-sm"> en la Gran Área Metropolitana</span> · Solo este mes
-</div>
+  <!-- Hero Section -->
+  <header class="bms-hero">
+    <h1>BizMapShield</h1>
+    <p>Domina tu Mapa. Multiplica tus Clientes. El sistema automatizado con tecnología NFC para recolectar reseñas 5 estrellas y proteger tu reputación al instante.</p>
+  </header>
 
-<!-- ============ NAVBAR ============ -->
-<nav class="navbar" id="navbar" aria-label="Principal">
-  <div class="nav-inner">
-    <div class="brand" role="img" aria-label="BizMapShield">
-      <div class="brand-shield"></div>
-      <div><span class="biz">Biz</span><span class="map">Map</span><span class="shield">Shield</span></div>
+  <!-- AI Visibility Section -->
+  <section class="bms-ia-section">
+    <div class="bms-ia-header">
+      <h2>Domina las Recomendaciones de la IA</h2>
+      <p>Desliza y toca para descubrir la nueva regla del SEO local.</p>
     </div>
-    <div class="nav-links">
-      <a href="#como-funciona">Cómo funciona</a>
-      <a href="#roi">Resultados</a>
-      <a href="#pricing">Precios</a>
-      <a href="#faq">Preguntas</a>
-    </div>
-    <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20BizMapShield"
-       target="_blank" rel="noopener" class="nav-cta" data-cta="navbar">
-      <span aria-hidden="true">💬</span> <span class="long">Hablar por&nbsp;</span>WhatsApp
-    </a>
-  </div>
-</nav>
 
-<main id="main" tabindex="-1">
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="reveal">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Google Maps · Negocios locales en Costa Rica
-        </div>
-        <h1>
-          Más reseñas en Google.<br>
-          <span class="red">Más clientes</span> en tu puerta.
-        </h1>
-        <p class="lead">
-          Tus clientes tocan el stand <strong>BizMapShield</strong> con el celular y dejan su reseña en Google en 3 segundos.
-          <span class="hide-sm">Subes en el mapa sin trabajo extra para tu equipo.</span>
-        </p>
-
-        <!-- Primary CTA: low-commitment free diagnosis (opens WhatsApp with the business name pre-filled) -->
-        <form class="scan-form" id="diagnostico" data-cta="hero_diagnostico" novalidate>
-          <label class="scan-label" for="scan-business">Diagnóstico GRATIS de tu perfil de Google</label>
-          <div class="scan-row">
-            <input class="scan-input" id="scan-business" name="negocio" type="text" autocomplete="organization"
-                   placeholder="Nombre de tu negocio y zona" maxlength="80" enterkeyhint="send" />
-            <button class="btn btn-primary scan-btn" type="submit">
-              Ver mi diagnóstico <span aria-hidden="true">→</span>
-            </button>
+    <div class="bms-scroll-container">
+      
+      <!-- Card 1 -->
+      <div class="bms-glass-card" onclick="this.classList.toggle('flipped')">
+        <div class="bms-card-inner">
+          <div class="bms-card-front">
+            <span class="bms-icon">🚨</span>
+            <h3>El Despertar de la IA</h3>
+            <p class="bms-cta-text">Tocar para revelar</p>
           </div>
-          <p class="scan-note">
-            <span aria-hidden="true">🔒</span> Gratis y sin compromiso · Te respondemos por WhatsApp ·
-            <a href="#calculadora" data-track="calc_jump">Calcula cuánto pierdes</a> ·
-            <a href="#pricing" data-track="view_pricing">Ver precios</a>
-          </p>
-        </form>
-
-        <div class="hero-trust">
-          <div class="trust-item"><div class="check" aria-hidden="true">✓</div> Garantía 30 días o te devolvemos tu dinero</div>
-          <div class="trust-item"><div class="check" aria-hidden="true">✓</div> Cumple las políticas de Google</div>
-          <div class="trust-item"><div class="check" aria-hidden="true">✓</div> Instalación GRATIS</div>
-        </div>
-      </div>
-
-      <div class="hero-visual reveal">
-        <div class="hero-media">
-          <div class="hero-photo">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1100&q=80&auto=format&fit=crop"
-                 srcset="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&q=75&auto=format&fit=crop 640w,
-                         https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1100&q=80&auto=format&fit=crop 1100w,
-                         https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600&q=80&auto=format&fit=crop 1600w"
-                 sizes="(min-width: 960px) 560px, 100vw"
-                 alt="Dueño de negocio sonriente atendiendo a una clienta que paga con su celular en el mostrador"
-                 width="1100" height="935" loading="eager" fetchpriority="high" />
-          </div>
-          <div class="float-card fc-rating float" aria-hidden="true">
-            <div class="g"><span>G</span></div>
-            <div>
-              <div class="score">4.9 <span class="stars">★★★★★</span></div>
-              <div class="sub">Tu perfil en Google Maps</div>
-            </div>
-          </div>
-          <div class="float-card fc-growth float" aria-hidden="true">
-            <div class="k">Reseñas 5★ · 90 días</div>
-            <div class="v">+98<small>▲</small></div>
-            <svg width="130" height="30" viewBox="0 0 130 30"><path d="M2 27 C 20 26, 30 24, 45 20 S 75 12, 90 9 S 115 4, 128 3" fill="none" stroke="#d81f26" stroke-width="2.5" stroke-linecap="round"/></svg>
-          </div>
-        </div>
-
-        <!-- Live demo: real, scannable QR (ECC level H, so the center logo doesn't break it).
-             Encodes https://g.page/r/CYP2rpOSalMQEAI/review (BizMapShield Google review link) -->
-        <div class="qr-demo">
-          <div class="qr-frame">
-            <svg class="qr-svg" viewBox="-4 -4 45 45" role="img" aria-label="Código QR de demostración de BizMapShield" shape-rendering="crispEdges">
-              <rect x="-4" y="-4" width="45" height="45" fill="#fff"/>
-              <path fill="currentColor" d="M9 0h1v1h-1zM11 0h1v1h-1zM13 0h4v1h-4zM18 0h1v1h-1zM20 0h4v1h-4zM25 0h1v1h-1zM28 0h1v1h-1zM8 1h1v1h-1zM10 1h2v1h-2zM15 1h3v1h-3zM19 1h1v1h-1zM21 1h1v1h-1zM24 1h3v1h-3zM28 1h1v1h-1zM9 2h1v1h-1zM13 2h1v1h-1zM16 2h3v1h-3zM21 2h1v1h-1zM23 2h1v1h-1zM26 2h1v1h-1zM28 2h1v1h-1zM9 3h1v1h-1zM12 3h1v1h-1zM15 3h4v1h-4zM20 3h1v1h-1zM22 3h3v1h-3zM26 3h3v1h-3zM10 4h2v1h-2zM14 4h3v1h-3zM18 4h3v1h-3zM22 4h2v1h-2zM26 4h2v1h-2zM8 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM14 5h2v1h-2zM18 5h1v1h-1zM21 5h2v1h-2zM28 5h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM8 7h5v1h-5zM16 7h3v1h-3zM22 7h1v1h-1zM25 7h1v1h-1zM4 8h4v1h-4zM11 8h3v1h-3zM15 8h3v1h-3zM21 8h1v1h-1zM23 8h3v1h-3zM27 8h1v1h-1zM30 8h2v1h-2zM35 8h1v1h-1zM0 9h4v1h-4zM9 9h1v1h-1zM12 9h1v1h-1zM15 9h1v1h-1zM17 9h1v1h-1zM20 9h3v1h-3zM26 9h1v1h-1zM32 9h1v1h-1zM35 9h1v1h-1zM0 10h2v1h-2zM5 10h4v1h-4zM13 10h1v1h-1zM16 10h1v1h-1zM18 10h2v1h-2zM22 10h2v1h-2zM25 10h5v1h-5zM31 10h1v1h-1zM33 10h1v1h-1zM2 11h1v1h-1zM5 11h1v1h-1zM7 11h1v1h-1zM9 11h1v1h-1zM11 11h4v1h-4zM17 11h1v1h-1zM20 11h3v1h-3zM26 11h4v1h-4zM32 11h1v1h-1zM34 11h3v1h-3zM2 12h2v1h-2zM6 12h2v1h-2zM10 12h2v1h-2zM14 12h2v1h-2zM17 12h1v1h-1zM19 12h6v1h-6zM28 12h4v1h-4zM34 12h1v1h-1zM36 12h1v1h-1zM1 13h1v1h-1zM4 13h1v1h-1zM7 13h3v1h-3zM11 13h2v1h-2zM15 13h4v1h-4zM20 13h1v1h-1zM23 13h2v1h-2zM26 13h1v1h-1zM28 13h2v1h-2zM32 13h1v1h-1zM34 13h1v1h-1zM1 14h1v1h-1zM3 14h2v1h-2zM6 14h6v1h-6zM13 14h1v1h-1zM17 14h1v1h-1zM19 14h1v1h-1zM21 14h4v1h-4zM27 14h1v1h-1zM30 14h5v1h-5zM0 15h1v1h-1zM2 15h1v1h-1zM8 15h1v1h-1zM10 15h2v1h-2zM13 15h1v1h-1zM15 15h1v1h-1zM18 15h1v1h-1zM20 15h1v1h-1zM22 15h2v1h-2zM26 15h2v1h-2zM30 15h1v1h-1zM34 15h2v1h-2zM0 16h2v1h-2zM4 16h3v1h-3zM8 16h1v1h-1zM10 16h1v1h-1zM12 16h4v1h-4zM17 16h1v1h-1zM21 16h2v1h-2zM24 16h2v1h-2zM27 16h1v1h-1zM29 16h3v1h-3zM33 16h2v1h-2zM36 16h1v1h-1zM0 17h3v1h-3zM5 17h1v1h-1zM8 17h5v1h-5zM14 17h1v1h-1zM16 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM23 17h1v1h-1zM25 17h1v1h-1zM28 17h2v1h-2zM31 17h2v1h-2zM0 18h2v1h-2zM6 18h1v1h-1zM10 18h4v1h-4zM15 18h2v1h-2zM18 18h1v1h-1zM20 18h1v1h-1zM24 18h1v1h-1zM26 18h2v1h-2zM29 18h1v1h-1zM31 18h1v1h-1zM34 18h1v1h-1zM1 19h1v1h-1zM4 19h2v1h-2zM7 19h2v1h-2zM10 19h4v1h-4zM15 19h1v1h-1zM20 19h3v1h-3zM24 19h1v1h-1zM26 19h1v1h-1zM31 19h1v1h-1zM34 19h1v1h-1zM36 19h1v1h-1zM0 20h1v1h-1zM3 20h4v1h-4zM8 20h2v1h-2zM11 20h2v1h-2zM16 20h1v1h-1zM19 20h1v1h-1zM21 20h1v1h-1zM24 20h2v1h-2zM27 20h1v1h-1zM29 20h2v1h-2zM34 20h3v1h-3zM0 21h3v1h-3zM4 21h2v1h-2zM7 21h1v1h-1zM10 21h2v1h-2zM14 21h1v1h-1zM16 21h1v1h-1zM18 21h1v1h-1zM23 21h1v1h-1zM25 21h3v1h-3zM32 21h1v1h-1zM35 21h1v1h-1zM4 22h1v1h-1zM6 22h1v1h-1zM8 22h1v1h-1zM14 22h1v1h-1zM16 22h1v1h-1zM19 22h1v1h-1zM23 22h1v1h-1zM27 22h2v1h-2zM33 22h2v1h-2zM1 23h1v1h-1zM3 23h2v1h-2zM8 23h3v1h-3zM12 23h1v1h-1zM15 23h5v1h-5zM21 23h2v1h-2zM24 23h1v1h-1zM26 23h1v1h-1zM28 23h1v1h-1zM31 23h1v1h-1zM34 23h1v1h-1zM36 23h1v1h-1zM1 24h1v1h-1zM4 24h1v1h-1zM6 24h1v1h-1zM8 24h1v1h-1zM11 24h3v1h-3zM15 24h1v1h-1zM18 24h2v1h-2zM21 24h3v1h-3zM25 24h3v1h-3zM29 24h3v1h-3zM35 24h1v1h-1zM0 25h4v1h-4zM10 25h10v1h-10zM21 25h1v1h-1zM24 25h2v1h-2zM29 25h1v1h-1zM32 25h2v1h-2zM35 25h1v1h-1zM4 26h4v1h-4zM9 26h2v1h-2zM12 26h1v1h-1zM14 26h1v1h-1zM17 26h1v1h-1zM19 26h1v1h-1zM21 26h1v1h-1zM23 26h5v1h-5zM29 26h1v1h-1zM32 26h1v1h-1zM34 26h1v1h-1zM3 27h1v1h-1zM5 27h1v1h-1zM8 27h1v1h-1zM10 27h1v1h-1zM12 27h4v1h-4zM17 27h2v1h-2zM21 27h1v1h-1zM23 27h1v1h-1zM26 27h1v1h-1zM30 27h2v1h-2zM34 27h3v1h-3zM0 28h2v1h-2zM3 28h1v1h-1zM5 28h3v1h-3zM9 28h3v1h-3zM14 28h1v1h-1zM16 28h4v1h-4zM24 28h1v1h-1zM26 28h1v1h-1zM28 28h7v1h-7zM36 28h1v1h-1zM8 29h2v1h-2zM11 29h7v1h-7zM19 29h1v1h-1zM23 29h4v1h-4zM28 29h1v1h-1zM32 29h2v1h-2zM35 29h1v1h-1zM8 30h3v1h-3zM12 30h3v1h-3zM17 30h2v1h-2zM20 30h1v1h-1zM23 30h2v1h-2zM27 30h2v1h-2zM30 30h1v1h-1zM32 30h3v1h-3zM8 31h3v1h-3zM12 31h1v1h-1zM14 31h4v1h-4zM20 31h4v1h-4zM28 31h1v1h-1zM32 31h1v1h-1zM34 31h3v1h-3zM8 32h3v1h-3zM12 32h3v1h-3zM21 32h1v1h-1zM23 32h2v1h-2zM26 32h1v1h-1zM28 32h8v1h-8zM11 33h2v1h-2zM14 33h4v1h-4zM20 33h2v1h-2zM25 33h1v1h-1zM30 33h1v1h-1zM32 33h2v1h-2zM9 34h1v1h-1zM13 34h2v1h-2zM16 34h1v1h-1zM20 34h2v1h-2zM30 34h2v1h-2zM35 34h1v1h-1zM10 35h1v1h-1zM13 35h1v1h-1zM16 35h4v1h-4zM24 35h1v1h-1zM26 35h2v1h-2zM29 35h1v1h-1zM31 35h2v1h-2zM34 35h2v1h-2zM10 36h4v1h-4zM16 36h5v1h-5zM23 36h3v1h-3zM34 36h3v1h-3z"/>
-              <g fill="none" stroke="currentColor" stroke-width="1" shape-rendering="geometricPrecision">
-                <rect x="0.5" y="0.5" width="6" height="6" rx="1.2"/>
-                <rect x="30.5" y="0.5" width="6" height="6" rx="1.2"/>
-                <rect x="0.5" y="30.5" width="6" height="6" rx="1.2"/>
-              </g>
-              <g fill="#d81f26" shape-rendering="geometricPrecision">
-                <rect x="2" y="2" width="3" height="3" rx="0.6"/>
-                <rect x="32" y="2" width="3" height="3" rx="0.6"/>
-                <rect x="2" y="32" width="3" height="3" rx="0.6"/>
-              </g>
-              <g shape-rendering="geometricPrecision" transform="translate(-2 -2)">
-                <rect x="16" y="16" width="9" height="9" rx="2.2" fill="#fff"/>
-                <path d="M18.3 17.4h4.4a0.9 0.9 0 0 1 0.9 0.9v2.4c0 1.8-1.4 3.1-3.1 3.9-1.7-0.8-3.1-2.1-3.1-3.9v-2.4a0.9 0.9 0 0 1 0.9-0.9z" fill="#d81f26"/>
-                <circle cx="20.5" cy="20.1" r="1" fill="#fff"/>
-              </g>
-            </svg>
-            <span class="qr-scan" aria-hidden="true"></span>
-          </div>
-          <div>
-            <span class="qr-kicker">Demo en vivo</span>
-            <p class="qr-cta">Escanea esto con tu celular para ver lo que ven tus clientes.</p>
-            <a class="qr-tap" href="https://g.page/r/CYP2rpOSalMQEAI/review" target="_blank" rel="noopener" data-track="qr_demo_open" data-cta="hero_qr">
-              <span class="mob">¿Ya estás en tu celular? Toca aquí&nbsp;→</span><span class="desk">O ábrelo aquí&nbsp;→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TRUSTBAR ============ -->
-<div class="trustbar">
-  <div class="trustbar-inner">
-    <div class="trustbar-item"><span class="icon" aria-hidden="true">⭐</span> 5 ESTRELLAS AUTOMÁTICAS</div>
-    <div class="trustbar-item"><span class="icon" aria-hidden="true">🇨🇷</span> HECHO EN COSTA RICA</div>
-    <div class="trustbar-item"><span class="icon" aria-hidden="true">⚡</span> CONFIGURACIÓN EN 1 DÍA</div>
-    <div class="trustbar-item"><span class="icon" aria-hidden="true">🛡️</span> GARANTÍA 30 DÍAS</div>
-  </div>
-</div>
-
-<!-- ============ REVENUE CALCULATOR ============ -->
-<section class="roi" id="calculadora">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-label">Calculadora</span>
-      <h2>¿Cuánto dinero estás <span class="red">dejando ir</span>?</h2>
-      <p>Mueve los controles con los datos de tu negocio y mira cuánto se va hoy con tu competencia y cuánto puedes recuperar.</p>
-    </div>
-
-    <!-- Revenue calculator -->
-    <div class="calc reveal" id="calc">
-      <div class="calc-inputs">
-        <div>
-          <div class="calc-title">Calcula tu caso</div>
-          <p>Ajusta los valores a tu negocio. El resultado se actualiza al instante.</p>
-        </div>
-        <div>
-          <div class="calc-row">
-            <label for="calc-traffic">Tráfico diario de clientes</label>
-            <output for="calc-traffic" id="calc-traffic-out">40</output>
-          </div>
-          <input class="calc-range" id="calc-traffic" type="range" min="10" max="400" step="5" value="40" aria-valuetext="40 clientes al día" aria-controls="calc-results" />
-          <div class="calc-scale" aria-hidden="true"><span>10</span><span>400</span></div>
-        </div>
-        <div>
-          <div class="calc-row">
-            <label for="calc-ticket">Ticket promedio</label>
-            <output for="calc-ticket" id="calc-ticket-out">₡6,000</output>
-          </div>
-          <input class="calc-range" id="calc-ticket" type="range" min="1000" max="50000" step="500" value="6000" aria-valuetext="6,000 colones" aria-controls="calc-results" />
-          <div class="calc-scale" aria-hidden="true"><span>₡1,000</span><span>₡50,000</span></div>
-        </div>
-        <p class="calc-assume">Estimación ilustrativa con 26 días de atención al mes. Supone que hoy un 8% de tus clientes potenciales elige a un competidor con más reseñas, y que con BizMapShield recuperas esa fuga y atraes un 4% adicional al subir en el mapa (12% en total). Los resultados reales varían según el tipo de negocio y la ubicación.</p>
-      </div>
-
-      <div class="calc-results" id="calc-results">
-        <div class="calc-stat lost">
-          <span class="calc-k">Ingresos mensuales perdidos</span>
-          <span class="calc-v" aria-hidden="true"><span id="calc-lost">₡0</span><small>/mes</small></span>
-          <div class="calc-bar" aria-hidden="true"><i id="calc-lost-bar"></i></div>
-          <span class="calc-note">Clientes que hoy se van con un competidor mejor calificado</span>
-        </div>
-        <div class="calc-stat gain">
-          <span class="calc-k">Potencial con BizMapShield</span>
-          <span class="calc-v" aria-hidden="true"><span id="calc-gain">₡0</span><small>/mes</small></span>
-          <div class="calc-bar" aria-hidden="true"><i id="calc-gain-bar"></i></div>
-          <span class="calc-note">Ingreso adicional estimado al dominar tu zona</span>
-        </div>
-        <p class="calc-payback">El plan Pro (₡9,900/mes) se paga con solo <b id="calc-payback">2 clientes nuevos</b> al mes.</p>
-        <p class="sr-only" aria-live="polite" id="calc-status"></p>
-        <a class="btn btn-primary calc-cta" id="calc-cta" data-cta="roi_calculator" target="_blank" rel="noopener"
-           href="https://wa.me/50663889598?text=Hola%2C%20us%C3%A9%20la%20calculadora%20de%20BizMapShield%20y%20quiero%20recuperar%20esos%20ingresos.">
-          <span aria-hidden="true">💬</span> Quiero recuperar esos ingresos
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROBLEM / SOLUTION ============ -->
-<section class="problem" id="diferencia" data-ba="off">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-label">La diferencia es brutal</span>
-      <h2>Mira lo que ven tus clientes<br>cuando te buscas en <span class="red">Google</span></h2>
-      <p>La diferencia entre aparecer y desaparecer en el mapa se mide en estrellas.</p>
-    </div>
-
-    <!-- Before/after switch (enabled by JS; hidden otherwise) -->
-    <div class="ba-switch reveal">
-      <div class="ba-listing" aria-hidden="true">
-        <div class="bl-pin">📍</div>
-        <div class="bl-top">
-          <span class="bl-name">Tu negocio</span>
-          <span class="bl-rank" data-off="Puesto #9 · Página 3" data-on="#1 en tu zona">Puesto #9 · Página 3</span>
-        </div>
-        <div class="bl-rating">
-          <span class="bl-score" data-off="3.2" data-on="4.9">3.2</span>
-          <span class="bl-stars">
-            <span class="bl-star lit" style="--i:0">★</span><span class="bl-star lit" style="--i:1">★</span><span class="bl-star lit" style="--i:2">★</span><span class="bl-star" style="--i:3">★</span><span class="bl-star" style="--i:4">★</span>
-          </span>
-          <span class="bl-count">(<span data-off="12" data-on="150">12</span> reseñas)</span>
-        </div>
-      </div>
-      <div class="ba-toggle-row">
-        <span class="ba-toggle-label off" data-set="off" aria-hidden="true">Sin BizMapShield</span>
-        <button class="ba-toggle" type="button" role="switch" aria-checked="false" aria-label="Con BizMapShield" aria-controls="ba-grid">
-          <span class="knob" aria-hidden="true"><span class="led"></span></span>
-        </button>
-        <span class="ba-toggle-label on" data-set="on" aria-hidden="true">Con BizMapShield</span>
-      </div>
-      <p class="ba-hint">Activa el interruptor y mira la diferencia</p>
-      <p class="sr-only" aria-live="polite" id="ba-status"></p>
-    </div>
-
-    <div class="ba-grid" id="ba-grid">
-      <div class="ba-card before reveal">
-        <div class="ba-tag">Sin BizMapShield</div>
-        <div class="ba-photo">
-          <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=900&q=75&auto=format&fit=crop"
-               alt="Cafetería vacía con poca luz" loading="lazy" decoding="async" width="900" height="506" />
-        </div>
-        <div class="ba-body">
-          <h3><span aria-hidden="true">😰</span> Tu competencia gana</h3>
-          <p>Buscas "barbería en Escazú" y aparecen 15 negocios. El cliente toca el primero — el que tiene más estrellas y más reseñas. No el más barato, no el más cercano. El más <strong>confiable</strong>.</p>
-          <ul class="ba-list">
-            <li><span class="mark" aria-hidden="true">❌</span> 12 reseñas vs. 150 de tu competencia</li>
-            <li><span class="mark" aria-hidden="true">❌</span> Clientes se van sin dejar reseña</li>
-            <li><span class="mark" aria-hidden="true">❌</span> Apareces en la página 3 del mapa</li>
-            <li><span class="mark" aria-hidden="true">❌</span> Pierdes ₡200,000+ al mes en clientes invisibles</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="ba-card after reveal" style="--d:0.12s">
-        <div class="ba-tag">Con BizMapShield</div>
-        <div class="ba-photo">
-          <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=900&q=75&auto=format&fit=crop"
-               alt="Cafetería moderna llena de clientes" loading="lazy" decoding="async" width="900" height="506" />
-        </div>
-        <div class="ba-body">
-          <h3><span aria-hidden="true">🚀</span> Dominas tu zona</h3>
-          <p>El cliente toca el celular contra tu stand y en 3 segundos aparece la pantalla de Google lista para dejar 5 estrellas. Sin buscar, sin escribir, sin excusas.</p>
-          <ul class="ba-list">
-            <li><span class="mark" aria-hidden="true">✅</span> 30+ reseñas nuevas cada mes</li>
-            <li><span class="mark" aria-hidden="true">✅</span> Clientes dejan reseña sin que se lo pidas</li>
-            <li><span class="mark" aria-hidden="true">✅</span> Apareces PRIMERO en tu zona</li>
-            <li><span class="mark" aria-hidden="true">✅</span> Ganas ₡500,000+ al mes en clientes nuevos</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ HOW IT WORKS ============ -->
-<section class="how" id="como-funciona">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-label">Tan simple como 1, 2, 3</span>
-      <h2>Así funciona en <span class="red">3 segundos</span></h2>
-      <p>Sin apps. Sin configuraciones. Sin que el cliente tenga que pensar.</p>
-    </div>
-
-    <div class="how-grid">
-      <div class="how-photo reveal-img">
-        <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1000&q=78&auto=format&fit=crop"
-             alt="Cliente acercando su celular a un dispositivo en el mostrador de un negocio" loading="lazy" decoding="async" width="1000" height="900" />
-        <div class="chip"><span aria-hidden="true">📡</span> Un toque · <b>3 segundos</b></div>
-      </div>
-
-      <div class="steps">
-        <div class="step reveal">
-          <div class="step-num" aria-hidden="true">1</div>
-          <div>
-            <h3><span aria-hidden="true">📱</span> El cliente toca</h3>
-            <p>El cliente acerca su celular al stand BizMapShield. Sin escanear nada, sin abrir apps. Solo un toque.</p>
-          </div>
-        </div>
-        <div class="step reveal" style="--d:0.1s">
-          <div class="step-num" aria-hidden="true">2</div>
-          <div>
-            <h3><span aria-hidden="true">⭐</span> Google se abre solo</h3>
-            <p>Automáticamente se abre la página de reseñas de tu negocio en Google. Lista para que el cliente deje su opinión.</p>
-          </div>
-        </div>
-        <div class="step reveal" style="--d:0.2s">
-          <div class="step-num" aria-hidden="true">3</div>
-          <div>
-            <h3><span aria-hidden="true">🚀</span> Subes en el mapa</h3>
-            <p>Cada reseña te acerca al top. En 30 días tienes más estrellas que tu competencia. En 90 días, dominas tu zona.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ROI & REVENUE IMPACT ============ -->
-<section class="roi" id="roi">
-  <div class="container">
-    <div class="roi-subhead reveal">
-      <h2>Tus primeros <span class="red">90 días</span> con BizMapShield</h2>
-      <p>Más reseñas de 5 estrellas, más visitas y más ingresos: así crece un negocio local típico mientras el stand trabaja con cada cliente.</p>
-    </div>
-
-    <div class="roi-kpis reveal" role="group" aria-label="Seleccionar métrica">
-      <button class="kpi" type="button" data-metric="reviews" aria-pressed="true">
-        <span class="k-label"><span aria-hidden="true">⭐</span> Reseñas de 5 estrellas</span>
-        <span class="k-value" data-count="98" data-prefix="+">+0</span>
-        <span class="k-sub">De 12 a <b>110</b> reseñas en 90 días</span>
-      </button>
-      <button class="kpi" type="button" data-metric="traffic" aria-pressed="false">
-        <span class="k-label"><span aria-hidden="true">🚶</span> Tráfico de clientes</span>
-        <span class="k-value" data-count="38" data-prefix="+" data-suffix="%">+0%</span>
-        <span class="k-sub">Visitas semanales vs. antes del stand</span>
-      </button>
-      <button class="kpi" type="button" data-metric="revenue" aria-pressed="false">
-        <span class="k-label"><span aria-hidden="true">💰</span> Ingreso adicional estimado</span>
-        <span class="k-value" data-count="520000" data-prefix="₡">₡0</span>
-        <span class="k-sub">Por mes, al cierre del día 90</span>
-      </button>
-    </div>
-
-    <div class="chart-card reveal" style="--d:0.1s">
-      <div class="chart-head">
-        <div>
-          <div class="chart-title" id="chart-title">Reseñas de 5 estrellas acumuladas</div>
-          <div class="chart-sub" id="chart-sub">Total de reseñas en Google, semana a semana</div>
-        </div>
-        <div class="chart-phases" aria-hidden="true">
-          <span>Día 0–30 · Arranque</span><span>Día 30–60 · Tracción</span><span>Día 60–90 · Dominio</span>
-        </div>
-      </div>
-
-      <div class="chart-wrap" id="chart">
-        <svg id="chart-svg" viewBox="0 0 800 340" role="img" aria-labelledby="chart-title chart-sub"></svg>
-        <div class="tooltip" id="chart-tip" aria-hidden="true"></div>
-      </div>
-
-      <div class="chart-legend">
-        <span><i></i>Con BizMapShield</span>
-        <span><i class="dash"></i>Sin BizMapShield (tendencia actual)</span>
-      </div>
-
-      <div class="chart-foot">
-        <span>Proyección ilustrativa para un negocio con ~250 clientes por semana. Los resultados reales varían según el tipo de negocio, la ubicación y el volumen de clientes.</span>
-        <details>
-          <summary>Ver datos en tabla</summary>
-          <div class="table-scroll">
-            <table class="data-table">
-              <thead><tr><th>Día</th><th>Reseñas 5★</th><th>Tráfico vs. base</th><th>Ingreso extra / mes</th></tr></thead>
-              <tbody id="data-table-body"></tbody>
-            </table>
-          </div>
-        </details>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ OWNERS ============ -->
-<section class="owners">
-  <div class="container">
-    <div class="owners-grid">
-      <div class="owners-collage reveal-img">
-        <figure>
-          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=800&q=78&auto=format&fit=crop"
-               alt="Dueño de restaurante sonriendo en su local" loading="lazy" decoding="async" width="800" height="1000" />
-        </figure>
-        <figure>
-          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=75&auto=format&fit=crop"
-               alt="Cafetería moderna con clientes" loading="lazy" decoding="async" width="600" height="450" />
-        </figure>
-        <figure>
-          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=75&auto=format&fit=crop"
-               alt="Empresaria sonriendo" loading="lazy" decoding="async" width="600" height="450" />
-        </figure>
-      </div>
-
-      <div class="owners-copy reveal">
-        <span class="section-label">Hecho para dueños de negocio</span>
-        <h2>Tú atiendes a tus clientes.<br><span class="red">Nosotros cuidamos tu reputación.</span></h2>
-        <p>Cafeterías, restaurantes, barberías, salones, clínicas y tiendas de la Gran Área Metropolitana usan un solo gesto para convertir cada visita en una reseña.</p>
-        <ul class="owners-list">
-          <li><span class="ico" aria-hidden="true">⚡</span><div><b>Listo en 1 día</b><span>Instalamos y configuramos todo en tu local.</span></div></li>
-          <li><span class="ico" aria-hidden="true">🤝</span><div><b>Sin trabajo extra para tu equipo</b><span>El stand hace la solicitud por ti, con cada cliente.</span></div></li>
-          <li><span class="ico" aria-hidden="true">🛡️</span><div><b>Garantía de 30 días</b><span>Si no ves resultados, te devolvemos tu dinero.</span></div></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ BENEFITS ============ -->
-<section class="benefits">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-label">Lo que ganas</span>
-      <h2>Más que un aparato —<br>una <span class="red">máquina de clientes</span></h2>
-      <p>Esto no es un gadget. Es la herramienta que convierte cada cliente satisfecho en publicidad gratis para tu negocio.</p>
-    </div>
-
-    <div class="benefits-grid">
-      <div class="benefit-card reveal">
-        <div class="benefit-icon" aria-hidden="true">⭐</div>
-        <h3>Reseñas en automático</h3>
-        <p>Tus clientes dejan 5 estrellas sin que se lo pidas. Se convierte en parte natural de la experiencia — como pagar.</p>
-      </div>
-      <div class="benefit-card reveal" style="--d:0.06s">
-        <div class="benefit-icon" aria-hidden="true">🗺️</div>
-        <h3>Domina tu zona</h3>
-        <p>Más reseñas = mejor ranking. Apareces primero cuando alguien busca tu servicio cerca de ti. Antes que tu competencia.</p>
-      </div>
-      <div class="benefit-card reveal" style="--d:0.12s">
-        <div class="benefit-icon" aria-hidden="true">💰</div>
-        <h3>Más clientes, más ventas</h3>
-        <p>El 90% de la gente elige el negocio con más estrellas. Cada reseña nueva se traduce en dólares en tu caja.</p>
-      </div>
-      <div class="benefit-card reveal">
-        <div class="benefit-icon" aria-hidden="true">🛡️</div>
-        <h3>Proteges tu reputación</h3>
-        <p>Más reseñas positivas diluyen cualquier comentario negativo. Tu marca queda blindada.</p>
-      </div>
-      <div class="benefit-card reveal" style="--d:0.06s">
-        <div class="benefit-icon" aria-hidden="true">⚡</div>
-        <h3>Sin trabajo extra</h3>
-        <p>No tienes que pedir nada. No tienes que recordar nada. El sistema trabaja por ti 24/7 — incluso cuando duermes.</p>
-      </div>
-      <div class="benefit-card reveal" style="--d:0.12s">
-        <div class="benefit-icon" aria-hidden="true">📊</div>
-        <h3>Datos en tiempo real</h3>
-        <p>Sabes cuántas reseñas nuevas entraron, cuántos clientes tocaron el stand, y cómo va tu reputación vs. la competencia.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ STATS ============ -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-head reveal">
-      <h2>Lo que <span class="gold">significan las reseñas</span> para tu negocio</h2>
-      <p>Los números no mienten. Las reseñas de Google son la moneda más valiosa de tu negocio.</p>
-    </div>
-
-    <div class="stats-grid">
-      <div class="stat reveal">
-        <div class="stat-num">90<span class="suffix">%</span></div>
-        <div class="stat-label">Elige el de más estrellas</div>
-      </div>
-      <div class="stat reveal" style="--d:0.06s">
-        <div class="stat-num">270<span class="suffix">%</span></div>
-        <div class="stat-label">Más conversión con 5★</div>
-      </div>
-      <div class="stat reveal" style="--d:0.12s">
-        <div class="stat-num">3<span class="suffix">x</span></div>
-        <div class="stat-label">Más clics en Google</div>
-      </div>
-      <div class="stat reveal" style="--d:0.18s">
-        <div class="stat-num">30<span class="suffix">d</span></div>
-        <div class="stat-label">Para ver resultados</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SOCIAL PROOF ============ -->
-<section class="social-proof">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-label">Casos reales</span>
-      <h2>Negocios que ya <span class="red">dominan su zona</span></h2>
-      <p>Resultados reales de negocios en la Gran Área Metropolitana.</p>
-    </div>
-
-    <div class="testimonials-grid">
-
-      <div class="testimonial reveal">
-        <div class="testimonial-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
-        <p class="testimonial-text">"Pasamos de 12 a 45 reseñas en un mes. Increíble cómo la gente toca el stand y califica sola. Ya no tengo que pedirle nada a nadie."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" aria-hidden="true">💈</div>
-          <div>
-            <div class="testimonial-name">Mauricio R.</div>
-            <div class="testimonial-role">Barbería Élite · Escazú</div>
+          <div class="bms-card-back">
+            <p>La Inteligencia Artificial ya le está diciendo a los turistas dónde gastar su dinero. Si no tienes la mayor cantidad de reseñas en tu mapa, simplemente no existes para los nuevos algoritmos.</p>
           </div>
         </div>
       </div>
 
-      <div class="testimonial reveal" style="--d:0.08s">
-        <div class="testimonial-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
-        <p class="testimonial-text">"Lo pusimos en el mostrador y en 3 semanas subimos del lugar 8 al lugar 1 en Google Maps. Los fines de semana ya no alcanzamos las mesas."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" aria-hidden="true">🍽️</div>
-          <div>
-            <div class="testimonial-name">Andrea M.</div>
-            <div class="testimonial-role">Restaurante Sabores · Santa Ana</div>
+      <!-- Card 2 -->
+      <div class="bms-glass-card" onclick="this.classList.toggle('flipped')">
+        <div class="bms-card-inner">
+          <div class="bms-card-front">
+            <span class="bms-icon">👻</span>
+            <h3>El Competidor Invisible</h3>
+            <p class="bms-cta-text">Tocar para revelar</p>
+          </div>
+          <div class="bms-card-back">
+            <p>Tus competidores ya no solo te superan en búsquedas; te están robando clientes a través de la IA. Esta es la métrica exacta que usan para decidir a quién recomendar.</p>
           </div>
         </div>
       </div>
 
-      <div class="testimonial reveal" style="--d:0.16s">
-        <div class="testimonial-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
-        <p class="testimonial-text">"Lo mejor es que el paciente no tiene que buscar nada. Toca, califica, y listo. Nuestra clínica ahora aparece primera cuando buscan dentista en la zona."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" aria-hidden="true">🦷</div>
-          <div>
-            <div class="testimonial-name">Dr. Carlos V.</div>
-            <div class="testimonial-role">Clínica Dental Sonrisa · Escazú</div>
+      <!-- Card 3 -->
+      <div class="bms-glass-card" onclick="this.classList.toggle('flipped')">
+        <div class="bms-card-inner">
+          <div class="bms-card-front">
+            <span class="bms-icon">⚡</span>
+            <h3>El Hack del Algoritmo</h3>
+            <p class="bms-cta-text">Tocar para revelar</p>
+          </div>
+          <div class="bms-card-back">
+            <p>¿Quieres que la IA envíe compradores listos para pagar directo a tu puerta? Todo se reduce a una métrica que puedes controlar desde tu propio mostrador con tecnología NFC.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bms-glass-card" onclick="this.classList.toggle('flipped')">
+        <div class="bms-card-inner">
+          <div class="bms-card-front">
+            <span class="bms-icon">👁️</span>
+            <h3>El Baño de Realidad</h3>
+            <p class="bms-cta-text">Tocar para revelar</p>
+          </div>
+          <div class="bms-card-back">
+            <p>A la IA no le importa tu nueva página web. Cuando las personas le piden recomendaciones locales, escanea los mapas. Así es como logras ser su única respuesta.</p>
           </div>
         </div>
       </div>
 
     </div>
+  </section>
 
-    <div class="proof-stats reveal">
-      <div class="proof-stat">
-        <div class="proof-num">+180</div>
-        <div class="proof-label">Reseñas generadas</div>
-      </div>
-      <div class="proof-stat">
-        <div class="proof-num">+15</div>
-        <div class="proof-label">Negocios activos</div>
-      </div>
-      <div class="proof-stat">
-        <div class="proof-num">4.9★</div>
-        <div class="proof-label">Promedio de satisfacción</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRICING ============ -->
-<section class="pricing" id="pricing">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-label">Inversión</span>
-      <h2>Elige tu nivel de <span class="red">dominio</span></h2>
-      <p>Empieza con el stand y crece cuando quieras. Sin contratos, sin letra pequeña.</p>
-    </div>
-
-    <div class="pricing-grid">
-
-      <!-- BÁSICO -->
-      <div class="price-card reveal">
-        <div class="price-tier">Básico</div>
-        <div class="price-name">Empieza a dominar</div>
-        <div class="price-amount"><span class="currency">₡</span>19,900</div>
-        <div class="price-sub">Pago único · Instalación incluida</div>
-        <ul class="price-features">
-          <li><span class="check" aria-hidden="true">✓</span> 1 Stand NFC BizMapShield</li>
-          <li><span class="check" aria-hidden="true">✓</span> Código QR de respaldo</li>
-          <li><span class="check" aria-hidden="true">✓</span> Configuración completa</li>
-          <li><span class="check" aria-hidden="true">✓</span> Optimización de tu Google Business</li>
-          <li><span class="check" aria-hidden="true">✓</span> Plantillas de WhatsApp para pedir reseñas</li>
-        </ul>
-        <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20B%C3%A1sico%20de%20BizMapShield%20(1%20Stand%20-%20%E2%82%A119%2C900)"
-           target="_blank" rel="noopener" class="price-cta secondary" data-cta="pricing_basico">
-          <span aria-hidden="true">💬</span> Pedir el Básico
-        </a>
-      </div>
-
-      <!-- PRO (FEATURED) -->
-      <div class="price-card featured reveal" style="--d:0.08s">
-        <div class="featured-badge"><span aria-hidden="true">⭐</span> MÁS POPULAR</div>
-        <div class="price-tier">Pro</div>
-        <div class="price-name">Domina y mantén</div>
-        <div class="price-amount price-amount--split"><span class="currency">₡</span>19,900 <span class="price-monthly">+ ₡9,900/mes</span></div>
-        <div class="price-sub">Stand inicial + Mantenimiento continuo</div>
-        <ul class="price-features">
-          <li><span class="check" aria-hidden="true">✓</span> Todo lo del plan Básico</li>
-          <li><span class="check" aria-hidden="true">✓</span> Monitoreo de reseñas en tiempo real</li>
-          <li><span class="check" aria-hidden="true">✓</span> Reporte mensual en PDF</li>
-          <li><span class="check" aria-hidden="true">✓</span> Alertas por reseñas negativas</li>
-          <li><span class="check" aria-hidden="true">✓</span> Score de reputación actualizado</li>
-          <li><span class="check" aria-hidden="true">✓</span> Soporte prioritario por WhatsApp</li>
-        </ul>
-        <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20Pro%20de%20BizMapShield%20(Stand%20%2B%20Mantenimiento%20%E2%82%A19%2C900%2Fmes)"
-           target="_blank" rel="noopener" class="price-cta primary" data-cta="pricing_pro">
-          <span aria-hidden="true">💬</span> Pedir el Pro
-        </a>
-      </div>
-
-      <!-- PREMIUM -->
-      <div class="price-card reveal" style="--d:0.16s">
-        <div class="price-tier">Premium</div>
-        <div class="price-name">Delegación total</div>
-        <div class="price-amount"><span class="currency">₡</span>39,900</div>
-        <div class="price-sub">Pago único + ₡39,900/mes gestión total</div>
-        <ul class="price-features">
-          <li><span class="check" aria-hidden="true">✓</span> Todo lo del plan Pro</li>
-          <li><span class="check" aria-hidden="true">✓</span> Respuesta activa a todas las reseñas</li>
-          <li><span class="check" aria-hidden="true">✓</span> Gestión completa de tu reputación</li>
-          <li><span class="check" aria-hidden="true">✓</span> Revisión trimestral con estrategia</li>
-          <li><span class="check" aria-hidden="true">✓</span> Reportes ejecutivos personalizados</li>
-          <li><span class="check" aria-hidden="true">✓</span> Múltiples sucursales (hasta 4)</li>
-        </ul>
-        <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20el%20plan%20Premium%20de%20BizMapShield%20(Gesti%C3%B3n%20Total)"
-           target="_blank" rel="noopener" class="price-cta secondary" data-cta="pricing_premium">
-          <span aria-hidden="true">💬</span> Pedir el Premium
-        </a>
-      </div>
-
-    </div>
-    <p class="iva-note reveal">Todos los precios incluyen IVA.</p>
-    <div class="payment-methods reveal">
-      <h3 class="payment-title"><span aria-hidden="true">💳</span> Métodos de pago aceptados</h3>
-      <div class="payment-grid">
-        <div class="payment-item">
-          <div class="payment-icon" aria-hidden="true">🟢</div>
-          <div>
-            <div class="payment-name">SINPE Móvil</div>
-            <div class="payment-detail">+506 6388 9598</div>
-          </div>
-        </div>
-        <div class="payment-item">
-          <div class="payment-icon" aria-hidden="true">🏦</div>
-          <div>
-            <div class="payment-name">Transferencia Bancaria</div>
-            <div class="payment-detail">Coordinamos por WhatsApp</div>
-          </div>
-        </div>
-        <div class="payment-item">
-          <div class="payment-icon" aria-hidden="true">💵</div>
-          <div>
-            <div class="payment-name">Efectivo</div>
-            <div class="payment-detail">Al momento de la instalación</div>
-          </div>
-        </div>
-      </div>
-      <p class="payment-note">Emitimos comprobante de pago. Factura electrónica disponible próximamente.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GUARANTEE ============ -->
-<section class="guarantee">
-  <div class="container">
-    <div class="guarantee-box reveal">
-      <span class="guarantee-icon" aria-hidden="true">🛡️</span>
-      <h3>Garantía de resultados en 30 días</h3>
-      <p>Si en 30 días no consigues al menos <strong>10 reseñas nuevas de 5 estrellas</strong> con BizMapShield, te devolvemos el 100% de tu dinero y te quedas con el stand. Sin preguntas, sin letra pequeña. Así de seguros estamos de que funciona.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FAQ ============ -->
-<section class="faq" id="faq">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-label">Preguntas frecuentes</span>
-      <h2>Tu perfil de Google, <span class="red">seguro</span></h2>
-      <p>Lo que todo dueño de negocio nos pregunta antes de empezar.</p>
-    </div>
-
-    <div class="faq-list reveal">
-      <details class="faq-item">
-        <summary>¿Google puede suspender mi perfil por usar BizMapShield?</summary>
-        <p>No. El stand solo abre el enlace oficial de reseñas que Google le da a tu negocio — el mismo que podrías compartir tú. No compramos reseñas, no las escribimos y no filtramos a quién se le pide: se invita a todos los clientes por igual, que es exactamente lo que permiten las políticas de Google.</p>
-      </details>
-      <details class="faq-item">
-        <summary>¿Tengo que darles mi contraseña de Google?</summary>
-        <p>Nunca. Tu perfil de Google Business sigue siendo 100% tuyo. Si contratas la optimización, nos das acceso de administrador desde tu propia cuenta y puedes quitarlo cuando quieras.</p>
-      </details>
-      <details class="faq-item">
-        <summary>¿Y si un cliente deja una reseña negativa?</summary>
-        <p>Google no permite ocultar reseñas, y eso es bueno: un perfil con muchas reseñas reales genera más confianza. Con el plan Pro te avisamos al instante de cualquier reseña negativa, y con el Premium la respondemos por ti de forma profesional.</p>
-      </details>
-      <details class="faq-item">
-        <summary>¿Mis clientes necesitan una app?</summary>
-        <p>No. Los celulares con NFC solo tocan el stand. Para los que no tienen NFC, el stand incluye un código QR que se escanea con la cámara.</p>
-      </details>
-      <details class="faq-item">
-        <summary>¿Cómo funciona la garantía de 30 días?</summary>
-        <p>Si en 30 días no consigues al menos 10 reseñas nuevas de 5 estrellas, te devolvemos el 100% de tu dinero y te quedas con el stand. Detalles en nuestra <a href="legal.html#reembolso">Política de Reembolso</a>.</p>
-      </details>
-      <details class="faq-item">
-        <summary>¿Cuánto tarda y cómo pago?</summary>
-        <p>Instalamos y configuramos todo en 1 día en la Gran Área Metropolitana. Pagas por SINPE Móvil, transferencia o en efectivo al momento de la instalación.</p>
-      </details>
-    </div>
-
-    <div class="faq-cta reveal">
-      <p>¿Tienes otra pregunta? Te respondemos por WhatsApp.</p>
-      <a href="https://wa.me/50663889598?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20BizMapShield"
-         target="_blank" rel="noopener" class="btn btn-primary" data-cta="faq">
-        <span aria-hidden="true">💬</span> Preguntar por WhatsApp
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FINAL CTA ============ -->
-<section class="final-cta">
-  <div class="bg" aria-hidden="true">
-    <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async" width="1600" height="1067" />
-  </div>
-  <div class="container">
-    <h2 class="reveal">Tu competencia ya está en el mapa.<br>¿Y tú?</h2>
-    <p class="reveal">Cada día que pasa sin reseñas nuevas es un cliente que se va con otro. Empieza hoy. Te tomamos 5 minutos.</p>
-    <div class="final-ctas reveal" data-cta="final_cta">
-      <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20dominar%20mi%20mapa%20con%20BizMapShield"
-         target="_blank" rel="noopener" class="btn btn-primary">
-        <span aria-hidden="true">💬</span> Hablar por WhatsApp
-      </a>
-      <a href="tel:+50663889598" class="btn btn-secondary">
-        <span aria-hidden="true">📞</span> Llamar ahora
-      </a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-brand">
-      <div class="brand-shield"></div>
-      <div class="brand-text"><span class="biz">Biz</span><span class="map">Map</span><span class="shield">Shield</span></div>
-    </div>
-    <p class="footer-tagline">Protege tu reputación. Domina tu mapa. Multiplica tus clientes.</p>
-
-    <div class="footer-grid">
-      <div class="footer-col" data-cta="footer">
-        <h4>Contacto</h4>
-        <p><span aria-hidden="true">📍</span> San José, Mata Redonda, Costa Rica</p>
-        <p><span aria-hidden="true">📱</span> <a href="https://wa.me/50663889598" target="_blank" rel="noopener">+506 6388 9598</a></p>
-        <p><span aria-hidden="true">✉️</span> <a href="mailto:premium@auralinkdigital.com">premium@auralinkdigital.com</a></p>
-      </div>
-      <div class="footer-col">
-        <h4>Servicios</h4>
-        <p><a href="#pricing">Stand NFC BizMapShield</a></p>
-        <p><a href="#pricing">Monitoreo mensual</a></p>
-        <p><a href="#pricing">Gestión de reputación</a></p>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <p><a href="legal.html#terminos">Términos y Condiciones</a></p>
-        <p><a href="legal.html#privacidad">Política de Privacidad</a></p>
-        <p><a href="legal.html#reembolso">Política de Reembolso</a></p>
-      </div>
-    </div>
-
-    <div class="footer-disclaimer">
-      <p><strong>Aviso Legal:</strong> BizMapShield es una empresa costarricense especializada en gestión de reputación digital. Utilizamos las herramientas oficiales de Google para negocios, siempre con total transparencia sobre nuestros servicios y resultados. BizMapShield no representa ni está afiliado a Google LLC.</p>
-      <p>La información publicada en este sitio cumple con lo establecido en la <strong>Ley 7472</strong> de Promoción de la Competencia y Defensa Efectiva del Consumidor. Los precios están expresados en colones costarricenses (CRC).</p>
-      <p>Por el momento, los pagos se aceptan por <strong>SINPE Móvil y transferencia bancaria</strong>. La emisión de factura electrónica está en proceso de habilitación.</p>
-    </div>
-
-    <div class="footer-copy">
-      <p>© 2026 BizMapShield · Todos los derechos reservados</p>
-      <p class="footer-powered">
-        Powered, created &amp; sponsored by
-        <a href="https://auralinkdigital.com" target="_blank" rel="noopener">AuralinkDigital.com</a>
-      </p>
-    </div>
-  </div>
-</footer>
-
-<!-- ============ MOBILE STICKY CTA (appears once the hero scrolls away) ============ -->
-<div class="m-cta" id="m-cta" data-cta="sticky_bar" role="region" aria-label="Contacto rápido" aria-hidden="true">
-  <a href="#pricing" class="m-cta-sec" data-track="view_pricing" aria-controls="pricing" tabindex="-1">Ver precios</a>
-  <a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20BizMapShield"
-     target="_blank" rel="noopener" class="btn btn-primary m-cta-main" tabindex="-1">
-    <span aria-hidden="true">💬</span> Hablar por WhatsApp
-  </a>
-</div>
-
-<!-- ============ FLOATING WHATSAPP ============ -->
-<a href="https://wa.me/50663889598?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20BizMapShield"
-   target="_blank" rel="noopener" class="wa-float" aria-label="Escribir por WhatsApp (se abre en una nueva pestaña)" data-cta="floating">
-  <span aria-hidden="true">💬</span>
-</a>
-
-<!-- ============ JAVASCRIPT ============ -->
-<script>
-(function () {
-  'use strict';
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const hasIO = 'IntersectionObserver' in window;
-
-  // Analytics guards: assets/analytics.js is deferred and may be blocked (ad-blockers), so never let
-  // a missing or failing tracker break a CTA.
-  const track = (name, params) => {
-    try { if (typeof window.bmsTrack === 'function') window.bmsTrack(name, params); } catch (e) { /* tracking is best-effort */ }
-  };
-  const tagWhatsApp = (href) => {
-    try { return typeof window.bmsTagWhatsApp === 'function' ? window.bmsTagWhatsApp(href) : href; } catch (e) { return href; }
-  };
-
-  // Reveal on scroll (show everything immediately if IntersectionObserver is unavailable)
-  if (hasIO) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.reveal, .reveal-img').forEach(el => observer.observe(el));
-  } else {
-    document.querySelectorAll('.reveal, .reveal-img').forEach(el => el.classList.add('visible'));
-  }
-
-  // Mobile sticky CTA: shown once the hero has scrolled out of view
-  const mCta = document.getElementById('m-cta');
-  const heroEl = document.querySelector('.hero');
-  const setMCta = (show) => {
-    mCta.classList.toggle('show', show);
-    mCta.setAttribute('aria-hidden', show ? 'false' : 'true');
-    mCta.querySelectorAll('a').forEach(a => a.tabIndex = show ? 0 : -1);
-  };
-  if (hasIO) new IntersectionObserver(([entry]) => setMCta(!entry.isIntersecting)).observe(heroEl);
-  else setMCta(true);
-
-  // Navbar shadow on scroll
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 8), { passive: true });
-
-  // Smooth scroll for anchor links (the skip link keeps native behavior so keyboard focus moves too)
-  document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  // Free-diagnosis form → WhatsApp with the business name pre-filled
-  const scanForm = document.getElementById('diagnostico');
-  scanForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const business = scanForm.negocio.value.trim();
-    const text = business
-      ? `Hola, quiero el diagnóstico gratis de mi perfil de Google. Mi negocio: ${business}`
-      : 'Hola, quiero el diagnóstico gratis de mi perfil de Google.';
-    track('generate_lead', { method: 'whatsapp', cta_location: 'hero_diagnostico', form_filled: business ? 'yes' : 'no' });
-    window.open(tagWhatsApp('https://wa.me/50663889598?text=' + encodeURIComponent(text)), '_blank', 'noopener');
-  });
-
-  // FAQ: which objections people open
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('toggle', () => {
-      if (item.open) track('faq_open', { faq_question: item.querySelector('summary').textContent.trim().slice(0, 100) });
-    });
-  });
-
-  // ============ ROI CHART ============
-  (function () {
-    // Illustrative 90-day projection, sampled every 7 days (day 0 → day 90).
-    const days = [0, 7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 90];
-    const fmtCRC = v => '₡' + Math.round(v).toLocaleString('en-US');
-    const metrics = {
-      reviews: {
-        title: 'Reseñas de 5 estrellas acumuladas',
-        sub: 'Total de reseñas en Google, semana a semana',
-        data: [12, 17, 23, 30, 37, 45, 53, 61, 69, 78, 86, 94, 102, 110],
-        base: [12, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 16, 16, 16],
-        fmt: v => Math.round(v) + ' reseñas',
-        axis: v => Math.round(v)
-      },
-      traffic: {
-        title: 'Tráfico de clientes vs. antes del stand',
-        sub: 'Crecimiento de visitas semanales al local (%)',
-        data: [0, 1, 3, 5, 8, 11, 15, 18, 22, 25, 29, 32, 35, 38],
-        base: [0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 2, 1, 2, 2],
-        fmt: v => '+' + Math.round(v) + '% de visitas',
-        axis: v => Math.round(v) + '%'
-      },
-      revenue: {
-        title: 'Ingreso adicional estimado por mes',
-        sub: 'Ventas extra atribuibles a nuevos clientes (₡)',
-        data: [0, 15000, 40000, 70000, 105000, 145000, 190000, 235000, 285000, 330000, 380000, 430000, 475000, 520000],
-        base: [0, 0, 0, 5000, 5000, 5000, 10000, 10000, 10000, 15000, 15000, 15000, 20000, 20000],
-        fmt: v => fmtCRC(v) + ' / mes',
-        axis: v => v >= 1000 ? '₡' + Math.round(v / 1000) + 'k' : '₡' + v
-      }
-    };
-
-    // Data table (a11y)
-    const tbody = document.getElementById('data-table-body');
-    tbody.innerHTML = days.map((d, i) =>
-      `<tr><td>${d}</td><td>${metrics.reviews.data[i]}</td><td>+${metrics.traffic.data[i]}%</td><td>${fmtCRC(metrics.revenue.data[i])}</td></tr>`
-    ).join('');
-
-    const svg = document.getElementById('chart-svg');
-    const wrap = document.getElementById('chart');
-    const tip = document.getElementById('chart-tip');
-    const NS = 'http://www.w3.org/2000/svg';
-    let W = 800, H = 340;
-    const M = { t: 20, r: 24, b: 34, l: 56 };
-    let current = 'reviews';
-    let hasDrawn = false;
-    let scaleX, scaleY, pts;
-
-    function el(tag, attrs, parent) {
-      const n = document.createElementNS(NS, tag);
-      for (const k in attrs) n.setAttribute(k, attrs[k]);
-      if (parent) parent.appendChild(n);
-      return n;
-    }
-
-    function niceMax(v) {
-      const p = Math.pow(10, Math.floor(Math.log10(v)));
-      const n = v / p;
-      return (n <= 1.2 ? 1.2 : n <= 1.5 ? 1.5 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 3 ? 3 : n <= 4 ? 4 : n <= 5 ? 5 : n <= 6 ? 6 : n <= 8 ? 8 : 10) * p;
-    }
-
-    // Smooth path (monotone-ish Catmull-Rom → Bézier)
-    function smooth(p) {
-      let d = `M${p[0][0]},${p[0][1]}`;
-      for (let i = 0; i < p.length - 1; i++) {
-        const p0 = p[i - 1] || p[i], p1 = p[i], p2 = p[i + 1], p3 = p[i + 2] || p2;
-        const c1x = p1[0] + (p2[0] - p0[0]) / 6, c1y = p1[1] + (p2[1] - p0[1]) / 6;
-        const c2x = p2[0] - (p3[0] - p1[0]) / 6, c2y = p2[1] - (p3[1] - p1[1]) / 6;
-        d += ` C${c1x.toFixed(1)},${c1y.toFixed(1)} ${c2x.toFixed(1)},${c2y.toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`;
-      }
-      return d;
-    }
-
-    function render(animate) {
-      const m = metrics[current];
-      // Narrow screens: taller aspect so labels stay legible
-      const narrow = wrap.clientWidth < 520;
-      W = narrow ? Math.max(280, Math.round(wrap.clientWidth)) : 800; H = narrow ? 260 : 340;
-      M.l = narrow ? 48 : 56; M.r = narrow ? 14 : 24;
-      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-      svg.innerHTML = '';
-      document.getElementById('chart-title').textContent = m.title;
-      document.getElementById('chart-sub').textContent = m.sub;
-
-      const max = niceMax(Math.max(...m.data));
-      const iw = W - M.l - M.r, ih = H - M.t - M.b;
-      scaleX = d => M.l + (d / 90) * iw;
-      scaleY = v => M.t + ih - (v / max) * ih;
-
-      const defs = el('defs', {}, svg);
-      const grad = el('linearGradient', { id: 'areaGrad', x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
-      el('stop', { offset: '0%', 'stop-color': '#d81f26', 'stop-opacity': 0.22 }, grad);
-      el('stop', { offset: '100%', 'stop-color': '#d81f26', 'stop-opacity': 0 }, grad);
-
-      // Grid + y axis
-      const g = el('g', { class: 'grid' }, svg);
-      const ax = el('g', { class: 'axis' }, svg);
-      const ticks = 4;
-      for (let i = 0; i <= ticks; i++) {
-        const v = (max / ticks) * i, y = scaleY(v);
-        el('line', { x1: M.l, x2: W - M.r, y1: y, y2: y }, g);
-        const t = el('text', { x: M.l - 10, y: y + 4, 'text-anchor': 'end' }, ax);
-        t.textContent = m.axis(v);
-      }
-      // X axis labels
-      [0, 30, 60, 90].forEach(d => {
-        const t = el('text', { x: scaleX(d), y: H - 10, 'text-anchor': d === 0 ? 'start' : d === 90 ? 'end' : 'middle' }, ax);
-        t.textContent = 'Día ' + d;
-        if (d === 30 || d === 60) el('line', { x1: scaleX(d), x2: scaleX(d), y1: M.t, y2: M.t + ih, 'stroke-dasharray': '2 4' }, g);
-      });
-
-      // Baseline (without product)
-      const bpts = days.map((d, i) => [scaleX(d), scaleY(m.base[i])]);
-      el('path', { d: smooth(bpts), class: 'baseline' }, svg);
-
-      // Area + line
-      pts = days.map((d, i) => [scaleX(d), scaleY(m.data[i])]);
-      const linePath = smooth(pts);
-      el('path', { d: `${linePath} L${pts[pts.length - 1][0]},${M.t + ih} L${pts[0][0]},${M.t + ih} Z`, fill: 'url(#areaGrad)', class: 'area' }, svg);
-      const line = el('path', { d: linePath, class: 'line' }, svg);
-
-      // End point + direct label
-      const last = pts[pts.length - 1];
-      const endG = el('g', { class: 'end-dot' }, svg);
-      el('circle', { cx: last[0], cy: last[1], r: 6, fill: '#d81f26', stroke: '#fff', 'stroke-width': 2 }, endG);
-      const lbl = el('text', { x: last[0] - 12, y: last[1] - 14, 'text-anchor': 'end', class: 'end-label' }, endG);
-      lbl.textContent = m.fmt(m.data[m.data.length - 1]);
-      const bl = bpts[bpts.length - 1];
-      const bt = el('text', { x: bl[0] - 4, y: bl[1] - 8, 'text-anchor': 'end', class: 'base-label' }, endG);
-      bt.textContent = 'Sin BizMapShield';
-
-      // Hover layer
-      const cross = el('line', { class: 'cross', y1: M.t, y2: M.t + ih, x1: 0, x2: 0 }, svg);
-      const hdot = el('circle', { class: 'hover-dot', r: 5, fill: '#d81f26', stroke: '#fff', 'stroke-width': 2 }, svg);
-      const hit = el('rect', { x: M.l, y: M.t, width: iw, height: ih, fill: 'transparent' }, svg);
-
-      function move(evt) {
-        const r = svg.getBoundingClientRect();
-        const cx = (evt.clientX - r.left) * (W / r.width);
-        let idx = 0, best = Infinity;
-        pts.forEach((p, i) => { const dd = Math.abs(p[0] - cx); if (dd < best) { best = dd; idx = i; } });
-        const [px, py] = pts[idx];
-        cross.setAttribute('x1', px); cross.setAttribute('x2', px);
-        hdot.setAttribute('cx', px); hdot.setAttribute('cy', py);
-        tip.innerHTML = `<b>${m.fmt(m.data[idx])}</b><span>Día ${days[idx]} · sin stand: ${m.fmt(m.base[idx])}</span>`;
-        const sx = r.width / W;
-        let left = px * sx;
-        const tw = tip.offsetWidth / 2;
-        left = Math.max(tw, Math.min(r.width - tw, left));
-        tip.style.left = left + 'px';
-        tip.style.top = (py * sx) + 'px';
-        wrap.classList.add('hovering');
-      }
-      hit.addEventListener('pointermove', move);
-      hit.addEventListener('pointerdown', move);
-      hit.addEventListener('pointerleave', () => wrap.classList.remove('hovering'));
-
-      // Draw animation
-      const len = line.getTotalLength();
-      if (animate === 'hidden' && !reduceMotion) {
-        line.style.strokeDasharray = len;
-        line.style.strokeDashoffset = len;
-        wrap.classList.remove('drawn');
-      } else if (animate && !reduceMotion) {
-        wrap.classList.remove('drawn');
-        line.style.strokeDasharray = len;
-        line.style.strokeDashoffset = len;
-        line.getBoundingClientRect();
-        line.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(0.22, 1, 0.36, 1)';
-        requestAnimationFrame(() => {
-          line.style.strokeDashoffset = 0;
-          wrap.classList.add('drawn');
-        });
-      } else {
-        wrap.classList.add('drawn');
-      }
-    }
-
-    // Count-up KPIs
-    function countUp(node) {
-      const target = +node.dataset.count, pre = node.dataset.prefix || '', suf = node.dataset.suffix || '';
-      const fmt = v => pre + Math.round(v).toLocaleString('en-US') + suf;
-      if (reduceMotion) { node.textContent = fmt(target); return; }
-      const t0 = performance.now(), dur = 1600;
-      (function step(t) {
-        const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
-        node.textContent = fmt(target * e);
-        if (p < 1) requestAnimationFrame(step);
-      })(t0);
-    }
-
-    // Metric toggle
-    document.querySelectorAll('.kpi').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (btn.dataset.metric === current) return;
-        document.querySelectorAll('.kpi').forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
-        current = btn.dataset.metric;
-        hasDrawn = true;
-        render(true);
-        track('roi_metric', { metric: current });
-      });
-    });
-
-    const kpiValues = document.querySelectorAll('.k-value[data-count]');
-    if (hasIO) {
-      // Initial static render (so layout is stable), animate when scrolled into view
-      render('hidden');
-      const chartObs = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting && !hasDrawn) {
-          hasDrawn = true;
-          render(true);
-        }
-        if (hasDrawn) chartObs.disconnect();
-      }, { threshold: 0.35 });
-      chartObs.observe(wrap);
-
-      const kpiObs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { countUp(e.target); kpiObs.unobserve(e.target); }
-        });
-      }, { threshold: 0.6 });
-      kpiValues.forEach(n => kpiObs.observe(n));
-    } else {
-      // No IntersectionObserver: show the finished chart and final KPI values
-      hasDrawn = true;
-      render(false);
-      kpiValues.forEach(n => {
-        n.textContent = (n.dataset.prefix || '') + (+n.dataset.count).toLocaleString('en-US') + (n.dataset.suffix || '');
-      });
-    }
-
-    // Re-render on resize (breakpoint switch), without re-animating
-    let rw = wrap.clientWidth, rt;
-    window.addEventListener('resize', () => {
-      clearTimeout(rt);
-      rt = setTimeout(() => { if (Math.abs(wrap.clientWidth - rw) > 40) { rw = wrap.clientWidth; render(hasDrawn ? false : 'hidden'); } }, 150);
-    });
-  })();
-})();
-</script>
-
-<!-- ============ INTERACTIVE MODULES (self-contained; no globals) ============ -->
-<script>
-(function () {
-  'use strict';
-  var noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var track = function (name, params) {
-    try { if (typeof window.bmsTrack === 'function') window.bmsTrack(name, params); } catch (e) { /* tracking is best-effort */ }
-  };
-  var fmtNum = function (v) { return Math.round(v).toLocaleString('en-US'); };
-  var fmtCRC = function (v) { return '₡' + fmtNum(v); };
-
-  // Animates node's number from its current value to `to`. Re-targets cleanly if called mid-animation.
-  function tween(node, to, format, dur) {
-    if (node._raf) cancelAnimationFrame(node._raf);
-    var from = typeof node._val === 'number' ? node._val : to;
-    if (noMotion || from === to) { node._val = to; node.textContent = format(to); return; }
-    var t0 = performance.now();
-    dur = dur || 650;
-    (function step(t) {
-      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
-      node._val = from + (to - from) * e;
-      node.textContent = format(node._val);
-      node._raf = p < 1 ? requestAnimationFrame(step) : 0;
-    })(t0);
-  }
-
-  // ---------- Revenue calculator ----------
-  (function () {
-    var root = document.getElementById('calc');
-    if (!root) return;
-    var DAYS = 26, LOST_RATE = 0.08, GAIN_RATE = 0.12, PRO_MONTHLY = 9900;
-    var traffic = document.getElementById('calc-traffic');
-    var ticket = document.getElementById('calc-ticket');
-    var trafficOut = document.getElementById('calc-traffic-out');
-    var ticketOut = document.getElementById('calc-ticket-out');
-    var lostEl = document.getElementById('calc-lost');
-    var gainEl = document.getElementById('calc-gain');
-    var lostBar = document.getElementById('calc-lost-bar');
-    var gainBar = document.getElementById('calc-gain-bar');
-    var payback = document.getElementById('calc-payback');
-    var status = document.getElementById('calc-status');
-    var cta = document.getElementById('calc-cta');
-    // Bars use a square-root scale against the slider maximums, so small businesses still see movement
-    var MAX_GAIN = +traffic.max * +ticket.max * DAYS * GAIN_RATE;
-    var started = false, statusTimer, tracked = false;
-
-    function fill(input) {
-      var p = (input.value - input.min) / (input.max - input.min) * 100;
-      input.style.setProperty('--fill', p + '%');
-    }
-
-    function update() {
-      var t = +traffic.value, k = +ticket.value;
-      var monthly = t * k * DAYS, lost = monthly * LOST_RATE, gain = monthly * GAIN_RATE;
-      var clients = Math.max(1, Math.ceil(PRO_MONTHLY / k));
-      fill(traffic); fill(ticket);
-      trafficOut.textContent = fmtNum(t);
-      ticketOut.textContent = fmtCRC(k);
-      traffic.setAttribute('aria-valuetext', fmtNum(t) + ' clientes al día');
-      ticket.setAttribute('aria-valuetext', fmtNum(k) + ' colones');
-      if (started) {
-        tween(lostEl, lost, fmtCRC);
-        tween(gainEl, gain, fmtCRC);
-        lostBar.style.width = (Math.sqrt(lost / MAX_GAIN) * 100).toFixed(1) + '%';
-        gainBar.style.width = (Math.sqrt(gain / MAX_GAIN) * 100).toFixed(1) + '%';
-      }
-      payback.textContent = clients + (clients === 1 ? ' cliente nuevo' : ' clientes nuevos');
-      cta.href = 'https://wa.me/50663889598?text=' + encodeURIComponent(
-        'Hola, usé la calculadora de BizMapShield: ' + fmtNum(t) + ' clientes al día y ticket promedio de ' + fmtCRC(k) +
-        '. Quiero recuperar los ' + fmtCRC(gain) + ' al mes que estoy dejando ir.');
-      clearTimeout(statusTimer);
-      statusTimer = setTimeout(function () {
-        status.textContent = 'Ingresos mensuales perdidos: ' + fmtNum(lost) + ' colones. Potencial con BizMapShield: ' + fmtNum(gain) + ' colones al mes.';
-      }, 700);
-    }
-
-    [traffic, ticket].forEach(function (input) {
-      input.addEventListener('input', update);
-      input.addEventListener('change', function () {
-        if (tracked) return;
-        tracked = true;
-        track('roi_calculator', { daily_customers: +traffic.value, avg_ticket: +ticket.value });
-      });
-    });
-
-    function start() {
-      if (started) return;
-      started = true;
-      lostEl._val = 0; gainEl._val = 0;
-      update();
-    }
-    update();
-    if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) { start(); obs.disconnect(); }
-      }, { threshold: 0.3 });
-      obs.observe(root);
-    } else {
-      start();
-    }
-    // Sliders moved before the card scrolled into view (e.g. keyboard): start right away
-    root.addEventListener('input', start, { once: true });
-  })();
-
-  // ---------- Before / after switch ----------
-  (function () {
-    var section = document.getElementById('diferencia');
-    if (!section) return;
-    var toggle = section.querySelector('.ba-toggle');
-    var stars = section.querySelectorAll('.bl-star');
-    var score = section.querySelector('.bl-score');
-    var count = section.querySelector('.bl-count [data-on]');
-    var rank = section.querySelector('.bl-rank');
-    var status = document.getElementById('ba-status');
-    var fmtScore = function (v) { return v.toFixed(1); };
-
-    function set(on, user) {
-      section.setAttribute('data-ba', on ? 'on' : 'off');
-      toggle.setAttribute('aria-checked', on ? 'true' : 'false');
-      stars.forEach(function (s, i) { s.classList.toggle('lit', i < (on ? 5 : 3)); });
-      tween(score, parseFloat(score.getAttribute(on ? 'data-on' : 'data-off')), fmtScore, 900);
-      tween(count, +count.getAttribute(on ? 'data-on' : 'data-off'), fmtNum, 900);
-      rank.textContent = rank.getAttribute(on ? 'data-on' : 'data-off');
-      if (user) {
-        section.classList.add('ba-touched');
-        status.textContent = on
-          ? 'Con BizMapShield: 4.9 estrellas, 150 reseñas, primer lugar en tu zona.'
-          : 'Sin BizMapShield: 3.2 estrellas, 12 reseñas, página 3 del mapa.';
-        track('ba_toggle', { state: on ? 'on' : 'off' });
-      }
-    }
-
-    score._val = 3.2; count._val = 12;
-    toggle.addEventListener('click', function () { set(toggle.getAttribute('aria-checked') !== 'true', true); });
-    section.querySelectorAll('.ba-toggle-label').forEach(function (label) {
-      label.addEventListener('click', function () {
-        var on = label.getAttribute('data-set') === 'on';
-        if (on !== (toggle.getAttribute('aria-checked') === 'true')) set(on, true);
-      });
-    });
-    section.classList.add('ba-ready');
-  })();
-})();
-</script>
+  <!-- Footer -->
+  <footer class="bms-footer">
+    <p>&copy; 2026 BizMapShield. Todos los derechos reservados.</p>
+  </footer>
 
 </body>
 </html>
