@@ -267,6 +267,11 @@
   .scan-note { margin-top: 10px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
   .scan-note a { color: var(--navy); font-weight: 700; }
   @media (min-width: 560px) { .scan-row { flex-direction: row; } .scan-input { flex: 1; } }
+  .hero-proof { display: flex; align-items: center; gap: 12px; max-width: 540px; margin: -10px 0 22px; padding: 10px 14px; border-radius: 14px; background: var(--white); border: 1px solid rgba(216,31,38,0.22); box-shadow: var(--shadow-sm); font-size: 14px; line-height: 1.45; color: var(--ink); text-decoration: none; transition: border-color 0.25s, box-shadow 0.25s; }
+  .hero-proof:hover, .hero-proof:focus-visible { border-color: var(--red); box-shadow: var(--shadow-md); }
+  .hero-proof b { color: var(--navy); }
+  .hero-proof-ico { width: 34px; height: 34px; border-radius: 50%; background: rgba(216,31,38,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
+  .hero-proof-link { color: var(--red-dark); font-weight: 700; white-space: nowrap; }
   .hero-trust { display: flex; gap: 10px 22px; margin-top: 22px; flex-wrap: wrap; }
   @media (max-width: 559px) {
     .hero { padding-top: 28px; }
@@ -274,6 +279,7 @@
     .scan-form { padding: 14px; }
     .hero h1 { margin-bottom: 14px; }
     .hero p.lead { margin-bottom: 20px; font-size: 16px; }
+    .hero-proof { margin: -6px 0 16px; font-size: 13px; }
   }
   .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); font-weight: 600; }
   .trust-item .check { width: 20px; height: 20px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; flex-shrink: 0; }
@@ -880,13 +886,18 @@
           Google Maps · Negocios locales en Costa Rica
         </div>
         <h1>
-          Más reseñas en Google.<br>
-          <span class="red">Más clientes</span> en tu puerta.
+          Cada día sin reseñas,<br>
+          <span class="red">tu competencia te gana</span> en Google Maps.
         </h1>
         <p class="lead">
-          Tus clientes tocan el stand o la tarjeta NFC <strong>BizMapShield</strong> con el celular y dejan su reseña en Google en 3 segundos.
-          <span class="hide-sm">Más reseñas de 5 estrellas, mejor posición en Google Maps y cero trabajo extra para tu equipo.</span>
+          Tus clientes tocan la tarjeta o el stand NFC <strong>BizMapShield</strong> y dejan 5 estrellas en Google en 3 segundos.
+          <span class="hide-sm">Subes en el mapa antes de que otro negocio se quede con ese cliente.</span>
         </p>
+
+        <a class="hero-proof" href="#casos" data-track="hero_proof">
+          <span class="hero-proof-ico" aria-hidden="true">✂️</span>
+          <span><b>NS Barbershop</b> pasó de <b>4 a 34+ reseñas</b> en Google con BizMapShield<span class="hero-proof-link"> · Ver caso&nbsp;→</span></span>
+        </a>
 
         <!-- Primary CTA: low-commitment free diagnosis (opens WhatsApp with the business name pre-filled) -->
         <form class="scan-form" id="diagnostico" data-cta="hero_diagnostico" novalidate>
@@ -1037,7 +1048,7 @@
         <p class="sr-only" aria-live="polite" id="calc-status"></p>
         <a class="btn btn-primary calc-cta" id="calc-cta" data-cta="roi_calculator" target="_blank" rel="noopener"
            href="https://wa.me/50663889598?text=Hola%2C%20us%C3%A9%20la%20calculadora%20de%20BizMapShield%20y%20quiero%20recuperar%20esos%20ingresos.">
-          <span aria-hidden="true">💬</span> Quiero recuperar esos ingresos
+          <span aria-hidden="true">💬</span> Cotizar por WhatsApp ahora
         </a>
       </div>
     </div>
@@ -1363,7 +1374,7 @@
 </section>
 
 <!-- ============ SOCIAL PROOF ============ -->
-<section class="social-proof has-orbs">
+<section class="social-proof has-orbs" id="casos">
   <div class="orbs" aria-hidden="true"><span class="orb orb-blue"></span><span class="orb orb-red"></span></div>
   <div class="container">
     <div class="section-head reveal">
@@ -1375,7 +1386,7 @@
     <div class="testimonials-grid">
 
       <div class="testimonial testimonial--featured glass reveal reveal-3d">
-        <span class="testimonial-kicker">Caso de éxito</span>
+        <span class="testimonial-kicker">Caso de éxito · De 4 a 34+ reseñas en Google</span>
         <div class="testimonial-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
         <p class="testimonial-text">"Desde que implementamos el sistema en NS Barbershop, los clientes se quedan impresionados al tocar el stand con su celular. Las reseñas de 5 estrellas subieron orgánicamente sin esfuerzo."</p>
         <div class="testimonial-author">
@@ -2103,7 +2114,7 @@
       payback.textContent = clients + (clients === 1 ? ' cliente nuevo' : ' clientes nuevos');
       cta.href = 'https://wa.me/50663889598?text=' + encodeURIComponent(
         'Hola, usé la calculadora de BizMapShield: ' + fmtNum(t) + ' clientes al día y ticket promedio de ' + fmtCRC(k) +
-        '. Quiero recuperar los ' + fmtCRC(gain) + ' al mes que estoy dejando ir.');
+        '. Quiero recuperar los ' + fmtCRC(gain) + ' al mes que estoy dejando ir. ¿Me envían una cotización?');
       clearTimeout(statusTimer);
       statusTimer = setTimeout(function () {
         status.textContent = 'Ingresos mensuales perdidos: ' + fmtNum(lost) + ' colones. Potencial con BizMapShield: ' + fmtNum(gain) + ' colones al mes.';
