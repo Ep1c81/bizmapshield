@@ -1142,7 +1142,7 @@
 
     <div class="how-grid">
       <div class="how-photo tilt reveal-img" data-tilt="6">
-        <video autoplay loop muted playsinline preload="metadata"
+        <video id="how-video" loop muted playsinline preload="none"
                poster="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1000&q=78&auto=format&fit=crop"
                aria-label="Video de demostración de BizMapShield NFC">
           <source src="assets/nfc-demo-full.mp4" type="video/mp4">
@@ -1760,6 +1760,23 @@
       });
       el.addEventListener('pointerleave', reset);
     });
+  }
+
+  // How-it-works video: nothing downloads until it nears the viewport, then it plays only while on
+  // screen. Reduced-motion visitors keep the poster and get controls to play it themselves.
+  const howVideo = document.getElementById('how-video');
+  if (howVideo) {
+    const play = () => { const p = howVideo.play(); if (p) p.catch(() => { /* autoplay blocked: poster stays */ }); };
+    if (reduceMotion) {
+      howVideo.controls = true;
+    } else if (hasIO) {
+      new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) play();
+        else howVideo.pause();
+      }, { rootMargin: '200px 0px' }).observe(howVideo);
+    } else {
+      play();
+    }
   }
 
   // Mobile sticky CTA: shown once the hero has scrolled out of view
