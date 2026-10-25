@@ -445,9 +445,11 @@
   .how { background: var(--white); }
   .how-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; max-width: 1100px; margin: 0 auto; }
   @media (min-width: 900px) { .how-grid { grid-template-columns: 1fr 1.05fr; gap: 64px; } }
-  .how-photo { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4 / 3.6; background: #e2e8f0; }
+  /* 5:4 matches the cropped demo video exactly, so cover never letterboxes or trims its captions */
+  .how-photo { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 5 / 4; background: #000; }
   .how-photo img, .how-photo video { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .how-photo .chip { position: absolute; left: 16px; bottom: 16px; background: rgba(13,27,42,0.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-size: 13px; font-weight: 700; padding: 10px 14px; border-radius: 12px; display: flex; align-items: center; gap: 8px; }
+  /* Top-left: the video's captions run along the bottom edge */
+  .how-photo .chip { position: absolute; z-index: 1; left: 16px; top: 16px; background: rgba(13,27,42,0.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-size: 13px; font-weight: 700; padding: 10px 14px; border-radius: 12px; display: flex; align-items: center; gap: 8px; }
   .how-photo .chip b { color: var(--gold); }
   .steps { display: flex; flex-direction: column; gap: 14px; }
   .step { display: grid; grid-template-columns: 48px 1fr; gap: 18px; padding: 22px 22px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow-sm); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s; }
@@ -1143,7 +1145,7 @@
     <div class="how-grid">
       <div class="how-photo tilt reveal-img" data-tilt="6">
         <video id="how-video" loop muted playsinline preload="none"
-               poster="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1000&q=78&auto=format&fit=crop"
+               poster="assets/nfc-demo-poster.jpg" width="1080" height="864"
                aria-label="Video de demostración de BizMapShield NFC">
           <source src="assets/nfc-demo-full.mp4" type="video/mp4">
           <p>Tu navegador no soporta videos HTML5.</p>
