@@ -446,7 +446,7 @@
   .how-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; max-width: 1100px; margin: 0 auto; }
   @media (min-width: 900px) { .how-grid { grid-template-columns: 1fr 1.05fr; gap: 64px; } }
   .how-photo { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4 / 3.6; background: #e2e8f0; }
-  .how-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .how-photo img, .how-photo video { display: block; width: 100%; height: 100%; object-fit: cover; }
   .how-photo .chip { position: absolute; left: 16px; bottom: 16px; background: rgba(13,27,42,0.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-size: 13px; font-weight: 700; padding: 10px 14px; border-radius: 12px; display: flex; align-items: center; gap: 8px; }
   .how-photo .chip b { color: var(--gold); }
   .steps { display: flex; flex-direction: column; gap: 14px; }
@@ -1142,8 +1142,11 @@
 
     <div class="how-grid">
       <div class="how-photo tilt reveal-img" data-tilt="6">
-        <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1000&q=78&auto=format&fit=crop"
-             alt="Cliente acercando su celular a un dispositivo en el mostrador de un negocio" loading="lazy" decoding="async" width="1000" height="900" />
+        <video autoplay loop muted playsinline preload="auto"
+               poster="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1000&q=78&auto=format&fit=crop"
+               aria-label="Video de demostración de BizMapShield NFC">
+          <source src="assets/nfc-demo-full.mp4" type="video/mp4">
+        </video>
         <div class="chip"><span aria-hidden="true">📡</span> Un toque · <b>3 segundos</b></div>
       </div>
 
