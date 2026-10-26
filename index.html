@@ -248,32 +248,45 @@
   .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--navy); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
   /* ---------- Hero ---------- */
-  .hero { position: relative; padding: 48px 0 72px; background: radial-gradient(900px 500px at 10% -10%, rgba(216,31,38,0.07), transparent 60%), radial-gradient(700px 500px at 100% 20%, rgba(13,27,42,0.06), transparent 60%), linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); overflow: hidden; }
+  /* Premium dark hero: navy base, warm gold glow, white form card for the primary CTA */
+  .hero { position: relative; padding: 48px 0 72px; color: #e2e8f0; background: radial-gradient(900px 520px at 88% 8%, rgba(251,191,36,0.14), transparent 60%), radial-gradient(800px 520px at -5% 105%, rgba(216,31,38,0.14), transparent 60%), linear-gradient(160deg, #0d1b2a 0%, #13263b 55%, #0a1520 100%); overflow: hidden; }
   .hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(216,31,38,0.08); color: var(--red-dark); padding: 7px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 22px; border: 1px solid rgba(216,31,38,0.14); }
-  .hero-badge .dot { width: 7px; height: 7px; background: var(--red); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
-  .hero h1 { font-size: clamp(30px, 6.8vw, 50px); font-weight: 800; line-height: 1.04; letter-spacing: -0.035em; color: var(--navy); margin-bottom: 20px; }
-  .hero h1 .red { color: var(--red); }
-  .hero p.lead { font-size: clamp(17px, 2.2vw, 19px); color: var(--ink-2); line-height: 1.65; margin-bottom: 30px; max-width: 540px; }
-  .hero p.lead strong { color: var(--navy); }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(251,191,36,0.10); color: var(--gold); padding: 7px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 22px; border: 1px solid rgba(251,191,36,0.30); }
+  .hero-badge .dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  .hero h1 { font-size: clamp(31px, 7.2vw, 54px); font-weight: 800; line-height: 1.06; letter-spacing: -0.035em; color: var(--white); margin-bottom: 20px; }
+  .hero h1 .gold { color: var(--gold); }
+  .hero p.lead { font-size: clamp(17px, 2.2vw, 19px); color: #cbd5e1; line-height: 1.65; margin-bottom: 24px; max-width: 540px; }
+  .hero p.lead strong { color: var(--white); }
+  /* Three-step strip: chips with arrows on wide screens, three columns on phones */
+  .hero-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 560px; margin: 0 0 26px; padding: 0; }
+  .hero-steps li { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 6px; border-radius: 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: #f1f5f9; font-size: 13px; font-weight: 700; line-height: 1.3; text-align: center; }
+  .hero-steps li + li::before { content: "→"; content: "→" / ""; position: absolute; left: -15px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 14px; }
+  .hs-num { width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; background: var(--gold); color: var(--navy); font-size: 13px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; }
+  @media (min-width: 560px) {
+    .hero-steps { display: flex; flex-wrap: wrap; gap: 10px 28px; }
+    .hero-steps li { flex-direction: row; padding: 6px 14px 6px 6px; border-radius: 999px; font-size: 14px; }
+    .hero-steps li + li::before { left: -21px; }
+  }
   /* Hero diagnosis form: the single primary CTA above the fold */
-  .scan-form { max-width: 560px; background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 16px; box-shadow: var(--shadow-md); }
+  .scan-form { max-width: 560px; background: var(--white); border: 1px solid rgba(251,191,36,0.35); border-radius: 18px; padding: 16px; box-shadow: 0 24px 60px -24px rgba(0,0,0,0.7); color: var(--ink); }
   .scan-label { display: block; font-family: var(--font-display); font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
   .scan-row { display: flex; flex-direction: column; gap: 10px; }
   .scan-input { width: 100%; min-height: 52px; padding: 14px 16px; border: 1.5px solid rgba(13,27,42,0.18); border-radius: 12px; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface-2); transition: border-color 0.2s, background 0.2s; }
   .scan-input::placeholder { color: var(--ink-3); }
   .scan-input:focus { outline: none; border-color: var(--navy); background: var(--white); box-shadow: 0 0 0 3px rgba(13,27,42,0.12); }
   .scan-btn { min-height: 52px; white-space: nowrap; }
+  .hero .scan-btn { background: var(--gold); color: var(--navy); box-shadow: 0 12px 28px -10px rgba(251,191,36,0.65); }
+  .hero .scan-btn:hover, .hero .scan-btn:focus-visible { box-shadow: 0 18px 36px -12px rgba(251,191,36,0.8); }
   .scan-note { margin-top: 10px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
   .scan-note a { color: var(--navy); font-weight: 700; }
-  .hero-how { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 10px 16px; border-radius: 12px; border: 1.5px solid rgba(13,27,42,0.16); background: var(--white); color: var(--navy); font-weight: 700; font-size: 15px; text-decoration: none; transition: border-color 0.2s; }
-  .hero-how:hover, .hero-how:focus-visible { border-color: var(--navy); }
+  .hero-how { display: inline-flex; align-items: center; gap: 6px; min-height: 46px; margin-top: 14px; padding: 10px 18px; border-radius: 12px; border: 1.5px solid rgba(255,255,255,0.35); background: transparent; color: var(--white); font-weight: 700; font-size: 15px; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+  .hero-how:hover, .hero-how:focus-visible { border-color: var(--gold); background: rgba(251,191,36,0.08); }
   @media (min-width: 560px) { .scan-row { flex-direction: row; } .scan-input { flex: 1; } }
-  .hero-proof { display: flex; align-items: center; gap: 12px; max-width: 540px; margin: -10px 0 22px; padding: 10px 14px; border-radius: 14px; background: var(--white); border: 1px solid rgba(216,31,38,0.22); box-shadow: var(--shadow-sm); font-size: 14px; line-height: 1.45; color: var(--ink); text-decoration: none; transition: border-color 0.25s, box-shadow 0.25s; }
-  .hero-proof:hover, .hero-proof:focus-visible { border-color: var(--red); box-shadow: var(--shadow-md); }
-  .hero-proof b { color: var(--navy); }
-  .hero-proof-ico { width: 34px; height: 34px; border-radius: 50%; background: rgba(216,31,38,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
-  .hero-proof-link { color: var(--red-dark); font-weight: 700; white-space: nowrap; }
+  .hero-proof { display: flex; align-items: center; gap: 12px; max-width: 540px; margin: 20px 0 0; padding: 10px 14px; border-radius: 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(251,191,36,0.28); font-size: 14px; line-height: 1.45; color: #e2e8f0; text-decoration: none; transition: border-color 0.25s, background 0.25s; }
+  .hero-proof:hover, .hero-proof:focus-visible { border-color: var(--gold); background: rgba(255,255,255,0.08); }
+  .hero-proof b { color: var(--white); }
+  .hero-proof-ico { width: 34px; height: 34px; border-radius: 50%; background: rgba(251,191,36,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
+  .hero-proof-link { color: var(--gold); font-weight: 700; white-space: nowrap; }
   .hero-trust { display: flex; gap: 10px 22px; margin-top: 22px; flex-wrap: wrap; }
   @media (max-width: 559px) {
     .hero { padding-top: 28px; }
@@ -281,15 +294,16 @@
     .scan-form { padding: 14px; }
     .hero h1 { margin-bottom: 14px; }
     .hero p.lead { margin-bottom: 20px; font-size: 16px; }
-    .hero-proof { margin: -6px 0 16px; font-size: 13px; }
+    .hero-proof { margin-top: 16px; font-size: 13px; }
   }
-  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); font-weight: 600; }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #cbd5e1; font-weight: 600; }
+  .trust-item a { color: var(--gold); }
   .trust-item .check { width: 20px; height: 20px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; flex-shrink: 0; }
 
   .hero-visual { position: relative; }
-  .hero-photo { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4 / 3.4; background: #e2e8f0; }
+  .hero-photo { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 0 0 1px rgba(251,191,36,0.25), 0 40px 80px -30px rgba(0,0,0,0.8); aspect-ratio: 7 / 5; background: var(--navy-light); }
   .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(13,27,42,0.45) 100%); }
+  .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(13,27,42,0.55) 100%); }
   .float-card { position: absolute; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.7); border-radius: 16px; box-shadow: var(--shadow-lg); padding: 12px 14px; z-index: 2; }
   .float { animation: float 6s ease-in-out infinite; }
   .fc-rating { left: -8px; bottom: 24px; display: flex; align-items: center; gap: 12px; }
@@ -301,14 +315,14 @@
   @media (min-width: 960px) {
     .hero { padding: 44px 0 90px; }
     .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 56px; }
-    .hero h1 { font-size: clamp(38px, 3.8vw, 50px); }
+    .hero h1 { font-size: clamp(40px, 4.1vw, 54px); }
     .fc-rating { left: -36px; }
   }
 
   /* Hero QR demo: glass card overlapping the bottom of the hero photo */
   .hero-media { position: relative; }
   .hero-media .fc-rating { bottom: 60px; } /* clear the QR card that overlaps the photo's bottom edge */
-  .qr-demo { position: relative; z-index: 3; display: flex; align-items: center; gap: 16px; max-width: 420px; margin: -40px 12px 0 auto; padding: 14px 18px 14px 14px; border-radius: 22px; background: rgba(255,255,255,0.74); backdrop-filter: blur(18px) saturate(170%); -webkit-backdrop-filter: blur(18px) saturate(170%); border: 1px solid rgba(255,255,255,0.85); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), var(--shadow-lg); transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+  .qr-demo { position: relative; z-index: 3; display: flex; align-items: center; gap: 16px; max-width: 420px; margin: -40px 12px 0 auto; padding: 14px 18px 14px 14px; border-radius: 22px; background: rgba(255,255,255,0.95); backdrop-filter: blur(18px) saturate(170%); -webkit-backdrop-filter: blur(18px) saturate(170%); border: 1px solid rgba(255,255,255,0.85); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), var(--shadow-lg); transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
   .qr-frame { position: relative; flex-shrink: 0; width: 112px; height: 112px; padding: 5px; border-radius: 16px; background: var(--white); box-shadow: 0 0 0 1px rgba(13,27,42,0.06), 0 10px 24px -10px rgba(13,27,42,0.35); overflow: hidden; }
   .qr-svg { display: block; width: 100%; height: 100%; color: var(--navy); }
   .qr-frame::before, .qr-frame::after { content: ""; position: absolute; width: 18px; height: 18px; border: 2.5px solid var(--red); pointer-events: none; }
@@ -745,6 +759,9 @@
   .topbar :focus-visible, .stats :focus-visible, .final-cta :focus-visible, .footer :focus-visible,
   .ba-card.after :focus-visible, .price-card.featured :focus-visible, .calc-results :focus-visible { outline-color: var(--gold); }
   .skip-link:focus-visible { outline-color: var(--gold); }
+  /* Dark hero: gold focus ring on navy, navy ring inside its white cards */
+  .hero :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .hero .scan-form :focus-visible, .hero .qr-demo :focus-visible, .hero .float-card :focus-visible { outline-color: var(--navy); }
   .wa-float:focus-visible { outline: 3px solid var(--white); outline-offset: 2px; box-shadow: 0 0 0 7px var(--navy), 0 14px 30px -8px rgba(37,211,102,0.7); }
 
   /* Touch targets (44px) on phones and tablets */
@@ -819,24 +836,24 @@
           Stands NFC y QR · Negocios locales en Costa Rica
         </div>
         <h1>
-          Convertí más visitas a tu negocio en <span class="red">oportunidades de recibir reseñas auténticas</span> en Google.
+          Tus clientes ya te visitan. <span class="gold">Hacé más fácil que dejen una reseña en Google.</span>
         </h1>
         <p class="lead">
-          Instalamos stands NFC y códigos QR para que tus clientes puedan compartir su experiencia en Google de forma rápida, voluntaria y sencilla.
-          Para barberías, restaurantes, clínicas, salones y tiendas en Costa Rica.
+          Instalamos stands NFC y códigos QR para que tus clientes compartan su experiencia en Google de forma rápida, voluntaria y sencilla.
         </p>
 
-        <a class="hero-proof" href="#casos" data-track="hero_proof">
-          <span class="hero-proof-ico" aria-hidden="true">✂️</span>
-          <span><b>NS Barbershop</b> pasó de <b>4 a 34+ reseñas</b> en Google con BizMapShield<span class="hero-proof-link"> · Ver caso&nbsp;→</span></span>
-        </a>
+        <ol class="hero-steps" aria-label="Cómo funciona en 3 pasos">
+          <li><span class="hs-num" aria-hidden="true">1</span>Tocá</li>
+          <li><span class="hs-num" aria-hidden="true">2</span>Se abre Google</li>
+          <li><span class="hs-num" aria-hidden="true">3</span>Tu cliente opina libremente</li>
+        </ol>
 
         <!-- Primary CTA: low-commitment free diagnosis (opens WhatsApp with the business name pre-filled) -->
         <form class="scan-form" id="diagnostico" data-cta="hero_diagnostico" novalidate>
           <label class="scan-label" for="scan-business">Diagnóstico gratuito de tu perfil de Google</label>
           <div class="scan-row">
             <input class="scan-input" id="scan-business" name="negocio" type="text" autocomplete="organization"
-                   placeholder="Nombre de tu negocio y zona" maxlength="80" enterkeyhint="send" />
+                   placeholder="Tu negocio y zona" maxlength="80" enterkeyhint="send" />
             <button class="btn btn-primary scan-btn" type="submit">
               Solicitar diagnóstico gratuito <span aria-hidden="true">→</span>
             </button>
@@ -848,6 +865,11 @@
         </form>
         <a class="hero-how" href="#como-funciona" data-track="view_how_it_works" data-cta="hero">Ver cómo funciona <span aria-hidden="true">↓</span></a>
 
+        <a class="hero-proof" href="#casos" data-track="hero_proof">
+          <span class="hero-proof-ico" aria-hidden="true">✂️</span>
+          <span><b>NS Barbershop</b> pasó de <b>4 a 34+ reseñas</b> en Google con BizMapShield<span class="hero-proof-link"> · Ver caso&nbsp;→</span></span>
+        </a>
+
         <div class="hero-trust">
           <div class="trust-item"><div class="check" aria-hidden="true">✓</div> <span>Garantía de 30 días (<a href="legal.html#reembolso">ver condiciones</a>)</span></div>
           <div class="trust-item"><div class="check" aria-hidden="true">✓</div> Reseñas voluntarias, sin filtros ni incentivos</div>
@@ -858,13 +880,9 @@
       <div class="hero-visual reveal">
         <div class="hero-media">
           <div class="hero-photo tilt" data-tilt="6">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1100&q=80&auto=format&fit=crop"
-                 srcset="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&q=75&auto=format&fit=crop 640w,
-                         https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1100&q=80&auto=format&fit=crop 1100w,
-                         https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600&q=80&auto=format&fit=crop 1600w"
-                 sizes="(min-width: 960px) 560px, 100vw"
-                 alt="Dueño de negocio sonriente atendiendo a una clienta que paga con su celular en el mostrador"
-                 width="1100" height="935" loading="eager" fetchpriority="high" />
+            <img src="assets/hero-nfc-stand.jpg"
+                 alt="Stand NFC de BizMapShield en el mostrador: una persona acerca su celular y se abre la página de reseñas de Google"
+                 width="840" height="600" loading="eager" fetchpriority="high" />
           </div>
           <div class="float-card fc-rating float" aria-hidden="true">
             <div class="g"><span>G</span></div>
