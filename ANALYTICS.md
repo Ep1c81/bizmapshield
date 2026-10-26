@@ -6,15 +6,23 @@ Property: `G-H999LY10ZN`. All tracking lives in [`assets/analytics.js`](assets/a
 
 | Event | When | Key params |
 |---|---|---|
-| `generate_lead` | Any click on a WhatsApp (`wa.me`), `tel:` or `mailto:` link, anywhere on any page, plus the hero "Diagnóstico gratis" form submit | `method` (`whatsapp` / `phone` / `email`), `cta_location` (`hero_diagnostico`, `navbar`, `roi_calculator`, `pricing_basico` / `pricing_pro` / `pricing_premium`, `faq`, `final_cta`, `sticky_bar`, `floating`, `footer`, `card`…), `link_text` |
+| `generate_lead` | Any click on a WhatsApp (`wa.me`), `tel:` or `mailto:` link, anywhere on any page (including Shieldy's WhatsApp buttons), plus the hero diagnosis form submit. **This is the `whatsapp_clicked` event** when `method = whatsapp`: it means WhatsApp was opened, not that a message was sent | `method` (`whatsapp` / `phone` / `email`), `cta_location` (`hero_diagnostico`, `navbar`, `roi_calculator`, `pricing_basico` / `pricing_pro` / `pricing_premium`, `faq`, `final_cta`, `sticky_bar`, `floating`, `footer`, `shieldy`, `card`…), `link_text` |
+| `diagnosis_started` | First focus on the hero diagnosis field, or Shieldy's diagnosis form is opened | `source` (`hero` / `shieldy`) |
+| `diagnosis_submitted` | Hero diagnosis form submitted (opens WhatsApp), or Shieldy form passes browser validation and is sent | `source`, `form_filled` (hero only: `yes` / `no`) |
+| `shieldy_lead_saved` | `/api/shieldy-lead` confirmed the CRM saved the lead, or that it already existed | `status` (`created` / `existing`) |
+| `shieldy_lead_failed` | The lead was **not** confirmed (invalid data, CRM down, timeout, spam check, rate limit) | `reason` (`invalid`, `failed`, `skipped`, `rate_limited`, `timeout`, `network`, `http_<code>`) |
+| `pricing_plan_clicked` | A plan's WhatsApp button in the pricing section (sent together with that click's `generate_lead`) | `plan` (`basico` / `pro` / `premium`), `method` |
 | `view_pricing` | "Ver precios" link under the hero form or in the mobile sticky bar | `cta_location` (`hero_diagnostico`, `sticky_bar`) |
-| `calc_jump` | "Calcula cuánto pierdes" link under the hero form | `cta_location` |
+| `view_how_it_works` | "Ver cómo funciona" button in the hero | `cta_location` (`hero`) |
 | `faq_open` | A FAQ question is expanded | `faq_question` |
-| `roi_metric` | A KPI toggle in the ROI chart is clicked | `metric` |
 | `save_contact` | "Guardar contacto" on `card.html` | `cta_location` |
 | `roi_calculator` | First time a visitor releases a revenue-calculator slider (once per page view) | `daily_customers`, `avg_ticket` |
 | `ba_toggle` | The "Sin / Con BizMapShield" switch is flipped | `state` (`on` / `off`) |
 | `qr_demo_open` | "Toca aquí / O ábrelo aquí" link under the hero QR demo | `cta_location` (`hero_qr`) |
+
+No event ever contains the visitor's name, business, phone or message. Shieldy events only carry the `source` / `status` / `reason` values above.
+
+`generate_lead` keeps its name (rather than being renamed to `whatsapp_clicked`) so the GA4 key-event setup and history stay intact. For true lead counts use `shieldy_lead_saved` plus WhatsApp conversations actually received; consider marking `shieldy_lead_saved` as a key event too.
 
 The calculator's WhatsApp button is a normal `generate_lead` with `cta_location: roi_calculator`. The mobile sticky bar's WhatsApp button is `generate_lead` with `cta_location: sticky_bar`.
 
@@ -23,6 +31,10 @@ Outbound clicks to other sites (e.g. the Google review demo link) are already lo
 New contact links are tracked automatically. Add `data-cta="some_name"` to a link (or a parent) to name its location.
 
 > The old events (`click_whatsapp`, `click_call`) are no longer sent. They were never marked as key events, which is why GA4 showed **0 key events**.
+
+## Consent
+
+GA4 currently loads for every visitor; the privacy policy (`legal.html#privacidad`) discloses it and explains how to block cookies. There is no consent banner or Google Consent Mode yet. Whether one is required depends on your legal advice under Ley 8968; if you add one, gate `gtag('config', …)` in `analytics.js` on consent and the `bmsTrack` calls will keep working unchanged.
 
 ## Campaign attribution (UTM)
 

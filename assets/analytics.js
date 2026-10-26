@@ -6,6 +6,7 @@
  *   (traffic_type=internal, excluded by the GA4 "Internal Traffic" data filter). ?internal=0 undoes it.
  * - Every WhatsApp / phone / email link is tracked automatically as a `generate_lead` event
  *   (mark it as a key event in GA4). Add data-cta="..." to a link to name where it sits on the page.
+ *   A click only means WhatsApp/the dialer was opened, not that a message was sent.
  *
  * See ANALYTICS.md for the GA4 admin setup this relies on.
  */
@@ -128,6 +129,10 @@
         cta_location: ctaLocation(link),
         link_text: (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100)
       });
+      // Pricing CTAs carry data-plan: also record which plan was picked (funnel step, not a lead)
+      if (link.hasAttribute('data-plan')) {
+        track('pricing_plan_clicked', { plan: link.getAttribute('data-plan'), method: method });
+      }
       return;
     }
     if (link.hasAttribute('data-track')) {
