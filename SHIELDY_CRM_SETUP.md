@@ -10,4 +10,25 @@
 
 The public site sends POST `/api/shieldy-lead` to its same-origin Vercel serverless function. The serverless function forwards to `https://auralink-leads.vercel.app/api/integrations/shieldy` with a server-only bearer secret. Supabase service role credentials remain in the CRM project only.
 
-**Limitations:** No automated rate limiting or bot challenge is configured yet; add rate limiting before high-volume promotion. The CRM's existing dashboards/API routes have separate authentication risks and should be secured independently. The optional phone field may be empty, so follow-up can still depend on the user's WhatsApp message. The form only claims a CRM save when the endpoint confirms it.
+## What the visitor sees
+
+`/api/shieldy-lead` answers with an explicit `status`, and the widget only shows a success message for the first two:
+
+| `status` | Meaning | Widget message |
+|---|---|---|
+| `created` | CRM returned `{ ok: true, created: true }` | Solicitud registrada; optional WhatsApp button |
+| `existing` | CRM returned `{ ok: true, created: false }` (same name + business already stored; **nothing is updated**) | "Ya teníamos una solicitud…"; optional WhatsApp button |
+| `invalid` | Missing field, no consent, or WhatsApp number not valid | Form stays open to fix |
+| `skipped` | Honeypot filled or form completed in under 3 s; nothing forwarded | Treated as not saved: WhatsApp fallback |
+| `rate_limited` / `failed` | Too many attempts, CRM down, misconfigured, or reply without `created` | WhatsApp fallback button |
+
+WhatsApp is a button the visitor taps (not opened by script), so it is never popup-blocked and is tracked as `generate_lead` with `cta_location: shieldy`. Opening WhatsApp does not mean a message was sent.
+
+A WhatsApp number is required and normalized to E.164 (`+506XXXXXXXX` for 8-digit Costa Rican numbers; other countries must start with `+`).
+
+## Limitations / follow-ups
+
+- **Rate limiting is best-effort** (5 requests per IP per 10 min, per warm serverless instance). Add a Vercel WAF rate-limit rule on `/api/shieldy-lead` before high-volume promotion.
+- **Duplicates are not updated.** The CRM upserts with `ignoreDuplicates` on `(name, company)`, so a returning visitor's new phone or plan is dropped. Suggested CRM change (separate PR in `auralink-leads`, not made here): on conflict, update `phone` and append to `metadata`, and return `{ ok: true, status: "created" | "updated" | "duplicate" }`.
+- The CRM's honeypot reply is `{ ok: true }` without `created`; the bridge treats it as unconfirmed. Suggested CRM change: return `{ ok: false, status: "skipped" }` for clarity.
+- The CRM's existing dashboards/API routes have separate authentication risks and should be secured independently.

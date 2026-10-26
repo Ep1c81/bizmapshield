@@ -4,6 +4,7 @@
   const WA = '50663889598';
   const root = document.createElement('div');
   root.id = 'shieldy-root';
+  root.dataset.cta = 'shieldy'; // names the location of WhatsApp clicks in assets/analytics.js
   root.innerHTML = `<aside id="shieldy-panel" role="dialog" aria-label="Asistente Shieldy" hidden>
 <div id="shieldy-head"><span class="robot" aria-hidden="true">🤖</span><div><strong>Shieldy 🛡️</strong><small>Asistente de BizMapShield</small></div><button id="shieldy-close" aria-label="Cerrar conversación" type="button">×</button></div>
 <div id="shieldy-messages" role="log" aria-live="polite"></div>
@@ -14,11 +15,11 @@
 <label for="sh-zone">Zona del negocio</label><input id="sh-zone" name="zona" required maxlength="80" placeholder="Ej. Santa Ana">
 <label for="sh-type">Tipo de negocio</label><select id="sh-type" name="tipo" required><option value="">Seleccioná una opción</option><option>Barbería o salón</option><option>Restaurante o cafetería</option><option>Clínica</option><option>Tienda</option><option>Servicios</option><option>Otro</option></select>
 <label for="sh-plan">Plan de interés</label><select id="sh-plan" name="plan"><option>No estoy seguro</option><option>Básico</option><option>Pro</option><option>Premium</option></select>
-<label for="sh-phone">WhatsApp de contacto (opcional)</label><input id="sh-phone" name="telefono" type="tel" maxlength="30" autocomplete="tel" placeholder="Ej. 8888-8888">
+<label for="sh-phone">WhatsApp de contacto</label><input id="sh-phone" name="telefono" type="tel" inputmode="tel" required maxlength="20" autocomplete="tel" placeholder="Ej. 8888-8888" aria-describedby="sh-phone-help"><small id="sh-phone-help">Número de Costa Rica de 8 dígitos, o con código de país (+…) si es de otro país.</small>
 <label for="sh-consent"><input id="sh-consent" type="checkbox" name="consentimiento" required> Autorizo a BizMapShield a guardar estos datos y contactarme sobre el diagnóstico solicitado.</label>
 <input name="website_url" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" aria-label="Dejar vacío">
-<small>Al continuar intentaremos registrar tu solicitud en nuestro CRM y abriremos WhatsApp con el mensaje preparado. Revisá el mensaje y tocá Enviar. Si el registro falla, todavía podés escribirnos por WhatsApp.</small>
-<button type="submit">Solicitar diagnóstico y abrir WhatsApp ↗</button>
+<small>Usamos estos datos solo para contactarte sobre el diagnóstico. Ver <a href="/legal.html#privacidad" target="_blank" rel="noopener">Política de Privacidad</a>.</small>
+<button type="submit">Solicitar diagnóstico gratuito</button>
 </form>
 </aside>
 <button id="shieldy-open" type="button" aria-label="Abrir asistente Shieldy" aria-expanded="false" aria-controls="shieldy-panel">🤖</button>`;
@@ -31,6 +32,22 @@
   const actions = root.querySelector('#shieldy-actions');
   const form = root.querySelector('#shieldy-form');
   let greeted = false;
+  let formShownAt = 0;
+
+  // Analytics is best-effort (assets/analytics.js may be blocked). Never pass personal data here.
+  const track = (name, params) => {
+    try { if (typeof window.bmsTrack === 'function') window.bmsTrack(name, params); } catch (e) { /* ignore */ }
+  };
+  const tagWhatsApp = href => {
+    try { return typeof window.bmsTagWhatsApp === 'function' ? window.bmsTagWhatsApp(href) : href; } catch (e) { return href; }
+  };
+  // Mirrors normalizePhone() in api/shieldy-lead.js, which is the authority.
+  const validPhone = raw => {
+    const value = String(raw || '').trim();
+    if (!/^\+?[\d\s().-]{8,20}$/.test(value)) return false;
+    const digits = value.replace(/\D/g, '');
+    return /^(506)?[2-8]\d{7}$/.test(digits) || (value.startsWith('+') && /^[1-9]\d{7,14}$/.test(digits));
+  };
 
   function say(t, who = 'bot') {
     const p = document.createElement('p');
@@ -81,51 +98,81 @@
     ]);
   }
 
-  function link(message) {
+  // A real link the visitor taps: opening WhatsApp from script after an awaited request is blocked by
+  // popup blockers (notably iOS Safari), and a detached link is invisible to the analytics click listener.
+  function waButton(message, label, primary) {
     const a = document.createElement('a');
-    a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(message);
+    a.href = tagWhatsApp('https://wa.me/' + WA + '?text=' + encodeURIComponent(message));
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
-    a.click();
-    say('Te preparé el mensaje para WhatsApp. Revisalo y tocá Enviar para que lo recibamos.');
+    a.className = 'shieldy-wa' + (primary ? ' primary' : '');
+    a.textContent = label;
+    return a;
   }
 
   function whatsapp() {
-    link('¡Hola! Vengo de Shieldy en la web de BizMapShield y quiero más información.');
+    say('Te preparé un mensaje. Al abrir WhatsApp, revisalo y tocá Enviar para que lo recibamos.');
+    choices([['← Más preguntas', menu]]);
+    actions.prepend(waButton('¡Hola! Vengo de Shieldy en la web de BizMapShield y quiero más información.', 'Abrir WhatsApp ↗', true));
   }
 
   function lead() {
     say('¡Con mucho gusto! Completá estos datos para solicitar tu diagnóstico gratuito.');
     form.hidden = false;
+    formShownAt = Date.now();
+    track('diagnosis_started', { source: 'shieldy' });
     choices([['← Volver a preguntas', menu]]);
     root.querySelector('#sh-name').focus();
   }
 
+  const phoneInput = root.querySelector('#sh-phone');
+  phoneInput.addEventListener('input', () => phoneInput.setCustomValidity(''));
+
+  const outcomes = {
+    created: 'Listo, registramos tu solicitud de diagnóstico. Te escribiremos al WhatsApp que indicaste.',
+    existing: 'Ya teníamos una solicitud registrada con este nombre y negocio, así que no la duplicamos. Si querés agregar algo o cambiar tu número, escribinos por WhatsApp.',
+    invalid: 'Revisá los datos: necesitamos tu nombre, negocio, zona, tipo de negocio, un WhatsApp válido y tu autorización.',
+    failed: 'No pudimos registrar tu solicitud en este momento. Para que no se pierda, envianos los datos por WhatsApp.'
+  };
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
+    phoneInput.setCustomValidity(validPhone(phoneInput.value) ? '' : 'Ingresá un número de WhatsApp válido, por ejemplo 8888-8888.');
     if (!form.reportValidity()) return;
     const d = new FormData(form), v = k => String(d.get(k) || '').trim();
-    const msg = '¡Hola! Quiero un diagnóstico gratuito de BizMapShield.\nNombre: ' + v('nombre') + '\nNegocio: ' + v('negocio') + '\nZona: ' + v('zona') + '\nTipo: ' + v('tipo') + '\nPlan: ' + v('plan') + '\nWhatsApp: ' + (v('telefono') || 'No indicado') + '\nEnviado desde Shieldy.';
+    const msg = '¡Hola! Quiero un diagnóstico gratuito de BizMapShield.\nNombre: ' + v('nombre') + '\nNegocio: ' + v('negocio') + '\nZona: ' + v('zona') + '\nTipo: ' + v('tipo') + '\nPlan: ' + v('plan') + '\nWhatsApp: ' + v('telefono') + '\nEnviado desde Shieldy.';
     const submit = form.querySelector('button[type="submit"]');
     submit.disabled = true;
     submit.textContent = 'Registrando solicitud…';
+    track('diagnosis_submitted', { source: 'shieldy' });
+    let status = 'failed', reason = 'network';
     try {
       const response = await fetch('/api/shieldy-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: v('nombre'), business: v('negocio'), zone: v('zona'), business_type: v('tipo'), plan: v('plan'), phone: v('telefono'), website_url: v('website_url'), consent: d.get('consentimiento') === 'on' })
+        body: JSON.stringify({ name: v('nombre'), business: v('negocio'), zone: v('zona'), business_type: v('tipo'), plan: v('plan'), phone: v('telefono'), website_url: v('website_url'), consent: d.get('consentimiento') === 'on', elapsed_ms: Date.now() - formShownAt }),
+        signal: AbortSignal.timeout ? AbortSignal.timeout(12000) : undefined
       });
-      if (!response.ok) throw Error('CRM unavailable');
-      say('¡Listo! Registramos tu solicitud. Ahora podés enviarnos el mensaje por WhatsApp.');
+      const body = await response.json().catch(() => ({}));
+      reason = body.status || 'http_' + response.status;
+      if (body.status === 'created' || body.status === 'existing' || body.status === 'invalid') status = body.status;
     } catch (error) {
-      say('No pudimos confirmar el registro en el CRM. Podés continuar por WhatsApp para que recibamos tu solicitud.');
-    } finally {
-      submit.disabled = false;
-      submit.textContent = 'Solicitar diagnóstico y abrir WhatsApp ↗';
-      link(msg);
-      form.hidden = true;
-      choices([['← Volver al inicio', menu]]);
+      reason = error && error.name === 'TimeoutError' ? 'timeout' : 'network';
     }
+    submit.disabled = false;
+    submit.textContent = 'Solicitar diagnóstico gratuito';
+    say(outcomes[status]);
+    if (status === 'invalid') {
+      track('shieldy_lead_failed', { reason: 'invalid' });
+      return; // keep the form open so the visitor can fix it
+    }
+    const saved = status === 'created' || status === 'existing';
+    if (saved) track('shieldy_lead_saved', { status: status });
+    else track('shieldy_lead_failed', { reason: reason });
+    form.hidden = true;
+    choices([['← Volver al inicio', menu]]);
+    actions.prepend(waButton(msg, saved ? 'También escribir por WhatsApp ↗' : 'Enviar por WhatsApp ↗', !saved));
+    if (!saved) say('Al abrir WhatsApp, revisá el mensaje y tocá Enviar para que lo recibamos.');
   });
 
   function toggle(show) {
