@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Caso La Liko Store: de 4 a 19 reseñas en Google en 3 días — BizMapShield</title>
+<meta name="description" content="Cómo La Liko Store, licorera en Santa Ana, pasó de 4 a 19 reseñas en Google en su primer fin de semana con la tarjeta NFC + QR de BizMapShield. Datos públicos de Google Maps." />
+<meta name="theme-color" content="#0d1b2a" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="canonical" href="https://bizmapshield.vercel.app/caso-la-liko.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="La Liko Store: de 4 a 19 reseñas en su primer fin de semana" />
+<meta property="og:description" content="Caso real de BizMapShield en Santa Ana. Tarjeta NFC + QR que lleva al cliente a la página de reseñas del negocio." />
+<meta property="og:image" content="https://bizmapshield.vercel.app/assets/caso-la-liko.png" />
+<meta property="og:url" content="https://bizmapshield.vercel.app/caso-la-liko.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+<script src="assets/analytics.js" defer></script>
+<style>
+  :root {
+    --red: #d81f26; --red-dark: #a5171c; --navy: #0d1b2a; --navy-light: #1b2a3d;
+    --ink: #0d1b2a; --ink-2: #475569; --line: #e2e8f0; --surface: #fff; --surface-2: #f8fafc;
+    --gold: #b45309; --gold-bright: #fbbf24; --green: #128c4a;
+    --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --radius: 20px;
+    --shadow-md: 0 2px 4px rgba(13,27,42,.04), 0 12px 32px -8px rgba(13,27,42,.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); background: var(--surface); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 3px; border-radius: 6px; }
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--navy); color: #fff; padding: 8px 14px; border-radius: 8px; }
+  .skip:focus { left: 16px; z-index: 10; }
+  .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  /* Nav */
+  .nav { position: sticky; top: 0; z-index: 5; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .nav .container { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 8px; font: 800 19px var(--font-display); text-decoration: none; }
+  .brand .b { color: var(--red); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; font: 700 15px var(--font-display); text-decoration: none; transition: transform .2s, background .2s, box-shadow .2s; }
+  .btn:active { transform: scale(.98); }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-red:hover { background: var(--red-dark); box-shadow: 0 8px 20px -6px rgba(216,31,38,.5); }
+  .btn-ghost { border: 2px solid rgba(255,255,255,.4); color: #fff; }
+  .btn-ghost:hover { background: rgba(255,255,255,.1); }
+  .nav .btn { min-height: 40px; padding: 8px 16px; font-size: 14px; }
+
+  /* Hero */
+  .hero { background: radial-gradient(900px 500px at 90% -20%, #2a3f5c, transparent 60%), var(--navy); color: #fff; padding: 48px 0 56px; }
+  .hero-grid { display: grid; gap: 32px; align-items: center; }
+  .kicker { display: inline-block; padding: 6px 14px; border-radius: 999px; background: rgba(251,191,36,.14); border: 1px solid rgba(251,191,36,.45); color: var(--gold-bright); font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  h1 { font: 800 clamp(32px, 7vw, 54px)/1.08 var(--font-display); letter-spacing: -1px; margin: 16px 0 14px; }
+  h1 span { color: var(--gold-bright); }
+  .lead { font-size: 18px; color: #dbe4ef; max-width: 560px; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+  .hero img { width: 100%; max-width: 440px; height: auto; border-radius: var(--radius); box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); justify-self: center; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: -28px; position: relative; }
+  .stat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-md); }
+  .stat .v { font: 800 26px/1.1 var(--font-display); color: var(--navy); white-space: nowrap; }
+  @media (min-width: 760px) { .stat .v { font-size: 32px; } }
+  .stat .v .star { color: var(--gold); }
+  .stat .l { font-size: 14px; color: var(--ink-2); margin-top: 6px; }
+  .source { font-size: 13px; color: var(--ink-2); margin-top: 12px; }
+
+  /* Story */
+  section.block { padding: 56px 0; }
+  section.block.alt { background: var(--surface-2); }
+  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--red-dark); }
+  h2 { font: 800 clamp(26px, 5vw, 36px)/1.15 var(--font-display); letter-spacing: -.5px; margin: 8px 0 16px; }
+  .story { display: grid; gap: 16px; }
+  .step { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .step-n { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font: 800 16px var(--font-display); }
+  .step h3 { font: 700 20px var(--font-display); margin: 14px 0 6px; }
+  .step p { color: var(--ink-2); }
+  .step strong { color: var(--ink); }
+
+  /* CTA */
+  .cta { background: var(--navy); color: #fff; border-radius: 28px; padding: 36px 24px; text-align: center; }
+  .cta p { color: #dbe4ef; max-width: 520px; margin: 0 auto; }
+  .cta .hero-ctas { justify-content: center; }
+  footer { padding: 32px 0 48px; font-size: 13px; color: var(--ink-2); text-align: center; }
+  footer a { color: var(--ink); }
+
+  @media (min-width: 760px) {
+    .hero { padding: 72px 0 88px; }
+    .hero-grid { grid-template-columns: 1.15fr .85fr; }
+    .stats { grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: -40px; }
+    .story { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    section.block { padding: 80px 0; }
+    .cta { padding: 56px 48px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="nav">
+  <div class="container">
+    <a class="brand" href="./" aria-label="BizMapShield, ir al inicio">
+      <svg width="22" height="26" viewBox="0 0 56 64" aria-hidden="true"><path d="M28 2 52 11v20c0 15-10 26-24 31C14 57 4 46 4 31V11z" fill="#d81f26"/><path d="M28 18a9 9 0 0 0-9 9c0 7 9 16 9 16s9-9 9-16a9 9 0 0 0-9-9zm0 12.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" fill="#fff"/></svg>
+      <span><span class="b">Biz</span>MapShield</span>
+    </a>
+    <a class="btn btn-red" data-cta="caso_nav" target="_blank" rel="noopener"
+       href="https://wa.me/50663889598?text=Hola%2C%20vi%20el%20caso%20de%20La%20Liko%20Store%20y%20quiero%20la%20prueba%20gratis">WhatsApp</a>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="kicker">Caso real · Licorera en Santa Ana</span>
+        <h1>La Liko Store: <span>de 4 a 19 reseñas</span> en su primer fin de semana</h1>
+        <p class="lead">Entregamos la tarjeta NFC + QR el viernes 6 de noviembre de 2026. El domingo la licorera ya tenía <strong>19 reseñas en Google con un promedio de 4.7</strong>.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-red" data-cta="caso_hero" target="_blank" rel="noopener"
+             href="https://wa.me/50663889598?text=Hola%2C%20vi%20el%20caso%20de%20La%20Liko%20Store%20y%20quiero%20la%20prueba%20gratis">Quiero la prueba gratis de 14 días</a>
+          <a class="btn btn-ghost" href="./#como-funciona">Ver cómo funciona</a>
+        </div>
+      </div>
+      <img src="assets/caso-la-liko.png" width="1080" height="1350"
+           alt="Pasó en Santa Ana: La Liko Store pasó de 4 reseñas en Google el viernes 6 de noviembre a 19 el domingo 8 de noviembre, 15 reseñas nuevas, 4.7 estrellas." />
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><div class="v">19</div><div class="l">Reseñas en Google</div></div>
+      <div class="stat" role="listitem"><div class="v">4.7 <span class="star" aria-hidden="true">★</span></div><div class="l">Promedio de calificación</div></div>
+      <div class="stat" role="listitem"><div class="v">+15</div><div class="l">Reseñas nuevas desde la entrega</div></div>
+      <div class="stat" role="listitem"><div class="v">3 días</div><div class="l">Del 6 al 8 nov de 2026</div></div>
+    </div>
+    <p class="source">Fuente: perfil público de La Liko Store en Google Maps, consultado el 9 de noviembre de 2026. Cantidad previa (4 reseñas) según el negocio.</p>
+  </div>
+
+  <section class="block">
+    <div class="container">
+      <span class="eyebrow">La historia</span>
+      <h2>Buen servicio, pero casi invisible en Maps</h2>
+      <div class="story">
+        <article class="step">
+          <div class="step-n" aria-hidden="true">1</div>
+          <h3>El problema</h3>
+          <p>La Liko Store tenía <strong>4 reseñas en Google</strong>. En la misma avenida hay licoreras con casi 200, y quien busca "licorera en Santa Ana" ve primero a las que tienen más.</p>
+        </article>
+        <article class="step">
+          <div class="step-n" aria-hidden="true">2</div>
+          <h3>La solución</h3>
+          <p>El viernes 6 de noviembre entregamos una <strong>tarjeta NFC con código QR</strong> para el mostrador. Al pagar, el cliente acerca el celular y llega a la página de reseñas del negocio.</p>
+        </article>
+        <article class="step">
+          <div class="step-n" aria-hidden="true">3</div>
+          <h3>El resultado</h3>
+          <p>El domingo 8 de noviembre la licorera ya tenía <strong>19 reseñas</strong> con un promedio de <strong>4.7</strong>: <strong>15 reseñas nuevas</strong> en su primer fin de semana. Más reseñas recientes es una de las señales que Google toma en cuenta en Maps.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="container">
+      <div class="cta">
+        <h2>¿Querés lo mismo para tu negocio?</h2>
+        <p>Probá la tarjeta 14 días sin costo. La instalación es gratis en la GAM.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-red" data-cta="caso_footer" target="_blank" rel="noopener"
+             href="https://wa.me/50663889598?text=Hola%2C%20vi%20el%20caso%20de%20La%20Liko%20Store%20y%20quiero%20la%20prueba%20gratis">Escribinos por WhatsApp</a>
+          <a class="btn btn-ghost" href="./#pricing">Ver precios</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 BizMapShield · <a href="legal.html#terminos">Términos</a> · <a href="legal.html#privacidad">Privacidad</a></p>
+    <p>BizMapShield no representa ni está afiliado a Google LLC.</p>
+  </div>
+</footer>
+</body>
+</html>
